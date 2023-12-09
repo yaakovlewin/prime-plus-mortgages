@@ -8,6 +8,23 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {},
+      keyframes: {
+        rollDown: {
+          '0%': {
+            transform: 'scaleY(0)',
+            transformOrigin: 'top',
+            opacity: 0
+          },
+          '100%': {
+            transform: 'scaleY(1)',
+            transformOrigin: 'top',
+            opacity: 1
+          },
+        },
+      },
+      animation: {
+        rollDown: 'rollDown 0.5s ease-in-out',
+      },
     },
   },
   plugins: [],
