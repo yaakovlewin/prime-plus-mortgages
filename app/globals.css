@@ -2,15 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-.hide-scroll-bar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+/* Desktop: Hide scrollbar */
+@media (min-width: 1024px) {
+    .hide-scroll-bar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .hide-scroll-bar::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera*/
+    }
 }
 
-.hide-scroll-bar::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera*/
+/* Mobile: Show scrollbar */
+@media (max-width: 1023px) {
+    .hide-scroll-bar {
+        -ms-overflow-style: auto;
+        scrollbar-width: auto;
+    }
+
+    .hide-scroll-bar::-webkit-scrollbar {
+        display: block;
+    }
 }
 
+/* Common mobile and desktop styles */
 .scrolling-touch {
     /* Enables momentum-based scrolling for touch-based devices */
     -webkit-overflow-scrolling: touch;

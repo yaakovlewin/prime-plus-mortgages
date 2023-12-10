@@ -10,7 +10,7 @@ const Navbar = () => {
     const [isServicesOpen, setServicesOpen] = useState(false);
 
     return (
-        <nav className="bg-black border-b-2 border-gray-100">
+        <nav className="fixed z-10 w-full bg-black border-b-2 border-gray-100">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="md:flex justify-between items-center py-3">
                     {/* Logo and Mobile Menu Button */}
@@ -52,7 +52,7 @@ const Navbar = () => {
                         {/* Services Dropdown */}
                         <div className="relative group px-2 ">
                             <button
-                                className="text-gray-600 hover:text-green-600 font-medium p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50"
+                                className="text-gray-500 hover:text-green-600 font-medium p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50"
                                 onMouseOver={() => setServicesOpen(true)}
                                 onMouseLeave={() => setServicesOpen(false)}
                             >
@@ -89,13 +89,13 @@ const Navbar = () => {
                         </div>
                         <Link
                             href="/about"
-                            className="text-gray-600 hover:text-green-600 font-medium"
+                            className="text-gray-500 hover:text-green-600 font-medium"
                         >
                             About
                         </Link>
                         <Link
                             href="/contact"
-                            className="text-gray-600 hover:text-green-600 font-medium"
+                            className="text-gray-500 hover:text-green-600 font-medium"
                         >
                             Contact
                         </Link>

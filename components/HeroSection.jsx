@@ -2,15 +2,15 @@ import Link from "next/link";
 
 export default function HeroSection() {
     return (
-        <div className="relative h-96">
+        <div className="relative h-96 lg:h-[40rem]">
             {/* Background Video */}
             <video
                 autoPlay
                 loop
                 muted
-                className="absolute w-full h-full object-cover"
+                className="absolute w-full h-full object-cover opacity-80"
             >
-                <source src="/test.mp4" type="video/mp4" />
+                <source src="/hero.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
 
@@ -21,7 +21,7 @@ export default function HeroSection() {
             <div className="relative flex items-center justify-center h-full px-6 text-white">
                 <div className="text-center">
                     <h1 className="text-5xl font-bold mb-6">
-                        Welcome to Prime plus Mortgages
+                        Welcome to Prime Plus Mortgages
                     </h1>
                     <p className="text-xl mb-6">
                         Leading the way in mortgage solutions

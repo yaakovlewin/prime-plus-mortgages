@@ -49,43 +49,43 @@ export default function ServicesOverview() {
                         title="Residential Mortgages"
                         description="Expert mortgage solutions for your home purchasing needs."
                         link="/services/residential"
-                        imgSrc="/home.jpg" // Replace with your image path
+                        imgSrc="/home.jpg"
                     />
                     <ServiceCard
                         title="Commercial Mortgages"
                         description="Tailored mortgage services for commercial properties."
                         link="/services/commercial"
-                        imgSrc="/house2.jpg" // Replace with your image path
+                        imgSrc="/house2.jpg"
                     />
                     <ServiceCard
                         title="Refinancing"
                         description="Refinance your mortgage for better terms and rates."
                         link="/services/refinancing"
-                        imgSrc="/images/refinancing.jpg" // Replace with your image path
+                        imgSrc="/renovation.jpg"
                     />
                     <ServiceCard
                         title="Buy To Let"
                         description="Buy to let mortgages for your investment properties."
                         link="/services/buy-to-let"
-                        imgSrc="/images/buy-to-let.jpg" // Replace with your image path
+                        imgSrc="/images/buy-to-let.jpg"
                     />
                     <ServiceCard
                         title="Bridging Loans"
                         description="Short term bridging loans for your property needs."
                         link="/services/bridging"
-                        imgSrc="/images/bridging.jpg" // Replace with your image path
+                        imgSrc="/images/bridging.jpg"
                     />
                     <ServiceCard
                         title="First Time Buyer"
                         description="Mortgage solutions for first time home buyers."
                         link="/services/first-time-buyer"
-                        imgSrc="/images/first-time-buyer.jpg" // Replace with your image path
+                        imgSrc="/images/first-time-buyer.jpg"
                     />
                     <ServiceCard
                         title="Insurance"
                         description="Insurance solutions for your mortgage needs."
                         link="/services/insurance"
-                        imgSrc="/images/insurance.jpg" // Replace with your image path
+                        imgSrc="/images/insurance.jpg"
                     />
                 </div>
 
