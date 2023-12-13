@@ -38,7 +38,7 @@ export default function MortgageProcessSection() {
                             alt="Step 2"
                             width={200}
                             height={80}
-                            className=" w-44 h-20 mb-3 mx-auto text-green-800  "
+                            className=" w-44 h-20 mb-3 mx-auto text-cyan-800  "
                         />
                     </div>
                     <h3 className="mb-2 font-semibold">

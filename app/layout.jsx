@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/NavBar/Navbar";
+import { exo2, rubik, zillaSlab } from "./font";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +18,11 @@ export default function RootLayout({ children }) {
             <head>
                 <link rel="icon" href="/favicon.ico" sizes="any" />
             </head>
-            <body className={inter.className}>
+            <body
+                className={`${inter.className} ${exo2.variable} ${rubik.variable} ${zillaSlab.variable}`}
+            >
                 <Navbar />
-                <main className="pt-36">{children}</main>
+                <main className="pt-28">{children}</main>
                 <Footer />
             </body>
         </html>

@@ -1,0 +1,93 @@
+"use client";
+import {
+    GoogleMap,
+    LoadScript,
+    Marker,
+    InfoWindow,
+} from "@react-google-maps/api";
+import { useEffect, useState } from "react";
+import getCoordinates from "@/utils/geocode";
+import Link from "next/link";
+
+const mapContainerStyle = {
+    width: "100%",
+    height: "400px",
+};
+
+const MapContainer = () => {
+    const [selected, setSelected] = useState(null);
+    const [center, setCenter] = useState({
+        lat: 47.6062,
+        lng: -122.176,
+    });
+
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
+    useEffect(() => {
+        if (!apiKey) {
+            console.error("Missing Google Maps API Key");
+            return;
+        }
+
+        getCoordinates("31 Gainsborough St, Salford M7 4AL, UK", apiKey)
+            .then((location) => {
+                const { lat, lng } = location;
+                console.log(location);
+                console.log(`Latitude: ${lat}, Longitude: ${lng}`);
+                setCenter({ lat, lng });
+            })
+            .catch((err) => console.error(err));
+    }, [apiKey]);
+
+    if (!apiKey) return null;
+
+    return (
+        <LoadScript googleMapsApiKey={apiKey}>
+            <GoogleMap
+                mapContainerStyle={mapContainerStyle}
+                center={center}
+                zoom={16}
+                clickableIcons={false}
+            >
+                <Marker position={center} onClick={() => setSelected(center)} />
+
+                {selected && (
+                    <InfoWindow
+                        position={{ lat: selected.lat, lng: selected.lng }}
+                        onCloseClick={() => setSelected(null)}
+                    >
+                        <div className="bg-cyan-100 border border-cyan-800 p-2 rounded-lg text-center">
+                            <h2 className="text-bold text-xl text-cyan-600 text-center">
+                                Prime Plus Mortgages
+                            </h2>
+                            <p className="text-center">
+                                31 Gainsborough St,
+                                <br />
+                                Salford M7 4AL, UK
+                                <br />
+                                <Link
+                                    href="tel:+44 161 818 8824"
+                                    className="text-cyan-600 hover:text-cyan-800"
+                                >
+                                    +44 161 818 8824
+                                </Link>
+                            </p>
+                            <button
+                                onClick={() =>
+                                    window.open(
+                                        "https://www.google.com/maps/dir/?api=1&destination=31+Gainsborough+St%2C+Salford+M7+4AL%2C+UK"
+                                    )
+                                }
+                                className="bg-cyan-600 hover:bg-cyan-700 text-white text-center font-bold py-2 px-4  rounded mt-2"
+                            >
+                                Get Directions
+                            </button>
+                        </div>
+                    </InfoWindow>
+                )}
+            </GoogleMap>
+        </LoadScript>
+    );
+};
+
+export default MapContainer;

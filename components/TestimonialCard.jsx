@@ -1,16 +1,25 @@
 import Image from "next/image";
 
-export default function TestimonialCard({ testimonial, isHighlighted }) {
+export default function TestimonialCard({
+    testimonial,
+    isHighlighted,
+    className = "",
+}) {
     return (
         <div
-            className={`flex flex-col items-center bg-white p-4 shadow rounded-lg transition-transform duration-300 ${
+            className={`flex flex-col items-center min-w-full md:min-w-0 bg-white p-4 shadow rounded-lg transition-all duration-500 transform ${className} ${
                 isHighlighted
-                    ? "opacity-100t ransform scale-110"
+                    ? "opacity-100 transform scale-110"
                     : "opacity-50 transform scale-90"
             }`}
         >
             <Image
-                src={testimonial.imageSrc}
+                src={
+                    testimonial.imageSrc ||
+                    `https://ui-avatars.com/api/?name=${testimonial.author
+                        .split(" ")
+                        .join("+")}&background=random&rounded=true&bold=true`
+                }
                 alt={testimonial.author}
                 width={80}
                 height={80}

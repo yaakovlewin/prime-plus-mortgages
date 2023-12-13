@@ -15,7 +15,7 @@ export default function ServiceCard({ title, description, link, imgSrc }) {
             <p className="text-center mb-3">{description}</p>
             <Link
                 href={link}
-                className="text-white bg-green-500 hover:bg-green-600 rounded px-4 py-2"
+                className="text-white bg-cyan-500 hover:bg-cyan-600 rounded px-4 py-2"
             >
                 Learn More
             </Link>

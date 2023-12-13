@@ -75,7 +75,7 @@ export default function Footer() {
                             href="https://www.linkedin.com/in/yaakov-lewin/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-white hover:text-blue-800 transition-colors duration-300 ml-4"
+                            className="text-white hover:text-cyan-800 transition-colors duration-300 ml-4"
                         >
                             <FaLinkedin className="w-6 h-6" />
                         </Link>
@@ -111,7 +111,7 @@ export default function Footer() {
                     Designed by{" "}
                     <Link
                         href="https://www.linkedin.com/in/yaakov-lewin"
-                        className="text-green-600 hover:text-green-500"
+                        className="text-cyan-600 hover:text-cyan-500"
                     >
                         The Edge Thechnolgies
                     </Link>

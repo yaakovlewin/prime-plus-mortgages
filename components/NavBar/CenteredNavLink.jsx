@@ -1,6 +1,4 @@
 import Link from "next/link";
-import React from "react";
-
 export default function CenteredNavLink({
     href,
     children,
@@ -8,14 +6,14 @@ export default function CenteredNavLink({
     ...props
 }) {
     return (
-        <div className="border-b-neutral-200 border-b">
+        <button className="h-full">
             <Link
                 href={href}
                 {...props}
-                className={`block px-5 py-2 min-w-fit border-b-neutral-200 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 ${className}`}
+                className={`text-cyan-300 hover:text-cyan-100 font-medium ${className}`}
             >
                 {children}
             </Link>
-        </div>
+        </button>
     );
 }

@@ -66,7 +66,7 @@ export default function MortgageCalculator() {
                 </div>
                 <button
                     type="submit"
-                    className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
+                    className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded"
                 >
                     Calculate
                 </button>

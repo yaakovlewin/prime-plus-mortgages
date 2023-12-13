@@ -4,62 +4,32 @@ import { useState } from "react";
 import Link from "next/link";
 import CenteredNavLink from "./CenteredNavLink";
 import Image from "next/image";
+import LogoAndMobileMenu from "./LogoAndMobileMenu";
+import DropdownNavLink from "./DropDownNavLink";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isServicesOpen, setServicesOpen] = useState(false);
 
     return (
-        <nav className="fixed z-10 w-full bg-black border-b-2 border-gray-100">
+        <nav className="fixed z-10 w-full bg-sky-800 border-b-8 border-gray-100">
             <div className="max-w-6xl mx-auto px-4">
-                <div className="md:flex justify-between items-center py-3">
-                    {/* Logo and Mobile Menu Button */}
-                    <div className="flex justify-between items-center">
-                        <Link
-                            href="/"
-                            className="text-xl font-semibold text-gray-700 hover:text-green-600"
-                        >
-                            <Image
-                                src="/logo.png"
-                                width={200}
-                                height={50}
-                                alt="MortgageCo Logo"
-                            />
-                        </Link>
-
-                        <div className="md:hidden flex items-center">
-                            <button
-                                onClick={() => setIsOpen(!isOpen)}
-                                className="outline-none mobile-menu-button"
-                            >
-                                <svg
-                                    className="w-6 h-6 text-gray-500 hover:text-green-500"
-                                    fill="none"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path d="M4 6h16M4 12h16m-7 6h7"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
+                <div className="md:flex justify-between items-stretch">
+                    <LogoAndMobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
 
                     {/* Centered Navigation Links */}
-                    <div className="hidden md:flex flex-grow justify-center items-center space-x-4">
+                    <div className="hidden md:flex gap-14 lg:gap-20 justify-center items-center text-2xl font-exo2">
                         {/* Services Dropdown */}
-                        <div className="relative group px-2 ">
-                            <button
-                                className="text-gray-500 hover:text-green-600 font-medium p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50"
-                                onMouseOver={() => setServicesOpen(true)}
-                                onMouseLeave={() => setServicesOpen(false)}
-                            >
+                        <div
+                            className="relative group h-full"
+                            onMouseOver={() => setServicesOpen(true)}
+                            onMouseLeave={() => setServicesOpen(false)}
+                        >
+                            <CenteredNavLink href="/services">
                                 Services
-                            </button>
+                            </CenteredNavLink>
                             <div
-                                className={`absolute -left-4 top-24 bg-white shadow-lg rounded-md  z-20 ${
+                                className={`absolute -left-4 top-22 bg-white shadow-lg rounded-md  z-20 ${
                                     isServicesOpen
                                         ? "animate-rollDown  group-hover:block"
                                         : "hidden"
@@ -68,44 +38,36 @@ const Navbar = () => {
                                 onMouseLeave={() => setServicesOpen(false)}
                             >
                                 <div className="p-4">
-                                    <CenteredNavLink
+                                    <DropdownNavLink
                                         href="/first-time-home-buyer"
-                                        className="border-t"
+                                        className=""
                                     >
                                         First Time Home Buyer
-                                    </CenteredNavLink>
-                                    <CenteredNavLink href="/remortgage">
+                                    </DropdownNavLink>
+                                    <DropdownNavLink href="/remortgage">
                                         Remortgage
-                                    </CenteredNavLink>
+                                    </DropdownNavLink>
 
-                                    <CenteredNavLink href="/buy-to-let">
+                                    <DropdownNavLink href="/buy-to-let">
                                         Buy to Let
-                                    </CenteredNavLink>
-                                    <CenteredNavLink href="/commercial">
+                                    </DropdownNavLink>
+                                    <DropdownNavLink href="/commercial">
                                         Commercial
-                                    </CenteredNavLink>
+                                    </DropdownNavLink>
                                 </div>
                             </div>
                         </div>
-                        <Link
-                            href="/about"
-                            className="text-gray-500 hover:text-green-600 font-medium"
-                        >
-                            About
-                        </Link>
-                        <Link
-                            href="/contact"
-                            className="text-gray-500 hover:text-green-600 font-medium"
-                        >
+                        <CenteredNavLink href="/about">About</CenteredNavLink>
+                        <CenteredNavLink href="/contact">
                             Contact
-                        </Link>
+                        </CenteredNavLink>
                     </div>
 
                     {/* Optional Right-Side Component (e.g., CTA Button) */}
                     <div className="hidden md:flex justify-end items-center">
                         <Link
                             href="/get-started"
-                            className="text-green-600 hover:bg-green-600 hover:text-white border border-green-600 rounded px-3 py-1"
+                            className="text-cyan-950 bg-cyan-100 hover:bg-cyan-700 hover:text-white border-2 border-cyan-950 rounded shadow px-3 py-2"
                         >
                             Get Started
                         </Link>

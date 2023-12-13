@@ -1,21 +1,23 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import TestimonialCard from "./TestimonialCard";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
 
 const testimonials = [
     {
         quote: "MortgageCo provided outstanding service and helped me secure the best rate for my home loan.",
-        author: "John Doe",
-        imageSrc: "/images/testimonial-1.jpg", // Replace with actual image path
+        author: "Moishe Goldstein",
+        imageSrc: "/profile1.png", // Replace with actual image path
     },
     {
         quote: "The team at MortgageCo was incredibly helpful and made the mortgage process seamless and stress-free.",
-        author: "Jane Smith",
-        imageSrc: "/images/testimonial-2.jpg", // Replace with actual image path
+        author: "Gavriel Cohen",
+        imageSrc: "/profile2.png", // Replace with actual image path
     },
     {
         quote: "I highly recommend MortgageCo for their professionalism and expertise in the mortgage industry.",
-        author: "Emily Johnson",
+        author: "Shloime Schwartz",
         imageSrc: "/images/testimonial-3.jpg", // Replace with actual image path
     },
     {
@@ -48,7 +50,7 @@ export default function TestimonialsSection() {
     ];
 
     return (
-        <section className="bg-gray-100 py-12">
+        <section className="bg-gray-100 py-12 overflow-hidden">
             <div className="container mx-auto px-4">
                 <h2 className="text-2xl font-bold text-center mb-6">
                     What Our Clients Say
@@ -63,14 +65,14 @@ export default function TestimonialsSection() {
                     ))}
                 </div>
 
-                <div className="flex justify-center mt-4">
+                <div className="flex justify-center mt-6 gap-4 overflow-hidden">
                     {testimonials.map((_, index) => (
                         <span
                             key={index}
                             onClick={() => setActiveIndex(index)}
                             className={`inline-block h-3 w-3 mx-1 rounded-full cursor-pointer ${
                                 index === activeIndex
-                                    ? "bg-green-500"
+                                    ? "bg-cyan-500"
                                     : "bg-gray-400"
                             }`}
                         ></span>
