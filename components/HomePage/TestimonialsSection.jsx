@@ -6,22 +6,22 @@ import "swiper/swiper-bundle.css";
 
 const testimonials = [
     {
-        quote: "MortgageCo provided outstanding service and helped me secure the best rate for my home loan.",
+        quote: "Prime Plus Mortgages provided outstanding service and helped me secure the best rate for my home loan.",
         author: "Moishe Goldstein",
         imageSrc: "/profile1.png", // Replace with actual image path
     },
     {
-        quote: "The team at MortgageCo was incredibly helpful and made the mortgage process seamless and stress-free.",
+        quote: "The team at Prime Plus Mortgages was incredibly helpful and made the mortgage process seamless and stress-free.",
         author: "Gavriel Cohen",
         imageSrc: "/profile2.png", // Replace with actual image path
     },
     {
-        quote: "I highly recommend MortgageCo for their professionalism and expertise in the mortgage industry.",
+        quote: "I highly recommend Prime Plus Mortgages for their professionalism and expertise in the mortgage industry.",
         author: "Shloime Schwartz",
         imageSrc: "/images/testimonial-3.jpg", // Replace with actual image path
     },
     {
-        quote: "MortgageCo provided outstanding service and helped me secure the best rate for my home loan.",
+        quote: "Prime Plus Mortgages provided outstanding service and helped me secure the best rate for my home loan.",
         author: "John Doe",
         imageSrc: "/images/testimonial-1.jpg", // Replace with actual image path
     },

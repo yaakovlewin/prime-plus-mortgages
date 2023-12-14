@@ -13,9 +13,9 @@ const ServiceHeroSection = ({ service }) => {
                 <p className="text-xl mb-6">{service.heroSubText}</p>
                 <a
                     href="#learn-more"
-                    className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded uppercase"
+                    className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-6 rounded uppercase"
                 >
-                    Learn More
+                    Get Started
                 </a>
             </div>
         </div>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function ServiceCard({ title, description, link, imgSrc }) {
     return (
-        <div className="flex flex-col items-center p-4 border rounded-lg shadow-sm min-w-fit bg-neutral-200">
+        <div className="flex flex-col items-center p-4 border rounded-lg shadow-sm min-w-fit bg-neutral-200 text-neutral-950">
             <Image
                 src={imgSrc}
                 alt={title}

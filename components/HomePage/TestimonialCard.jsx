@@ -15,7 +15,7 @@ export default function TestimonialCard({
         >
             <Image
                 src={
-                    testimonial.imageSrc ||
+                    // testimonial.imageSrc ||
                     `https://ui-avatars.com/api/?name=${testimonial.author
                         .split(" ")
                         .join("+")}&background=random&rounded=true&bold=true`

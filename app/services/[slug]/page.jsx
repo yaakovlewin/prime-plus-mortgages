@@ -15,6 +15,7 @@ const ServicePage = ({ params: { slug } }) => {
         <div>
             <ServiceHeroSection service={service} />
             <DetailedServiceOverview service={service} />
+            
             {/* More sections will go here */}
         </div>
     );
