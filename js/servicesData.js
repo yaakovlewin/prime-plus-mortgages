@@ -1,14 +1,14 @@
 const servicesData = [
     {
         id: 1,
-        title: "Residential Mortgages",
-        description: "Expert mortgage solutions for your home purchasing needs.",
+        title: "First Time Buyer",
+        description: "Expert advice for first time home buyers.",
         imageUrl: "/home.jpg",
-        url: "/residential-mortgages",
+        url: "/first-time-buyer",
         details: [
             {
                 title: "Comprehensive Solutions",
-                description: "Our service provides a comprehensive approach to residential mortgages, offering the best rates and terms to suit your needs. Our team of experts will guide you through the entire process, ensuring a smooth and efficient experience. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to help you achieve your goals.",
+                description: "We offer a comprehensive approach to residential mortgages, offering the best rates and terms to suit your needs. Our team of experts will guide you through the entire process, ensuring a smooth and efficient experience. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to help you achieve your goals.",
                 icon: "FaChartLine"
             },
             {
@@ -64,7 +64,29 @@ const servicesData = [
         title: "Remortgages",
         description: "Remortgage to get a better rate and save money.",
         imageUrl: "/renovation.jpg",
-        url: "/remortgages"
+        url: "/remortgages",
+        details: [
+            {
+                title: "Comprehensive Solutions",
+                description: "We offer a comprehensive approach to residential mortgages, offering the best rates and terms to suit your needs. Our team of experts will guide you through the entire process, ensuring a smooth and efficient experience. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to help you achieve your goals.",
+                icon: "FaChartLine"
+            },
+            {
+                title: "Tailored to Your Needs",
+                description: "Each client has unique needs, and our service is designed to meet these through personalized solutions. We take into account your financial situation, goals, and preferences to provide you with the best residential mortgage options. Whether you're a first-time homebuyer or looking to refinance, our team of experts will guide you every step of the way to ensure a smooth and successful experience.",
+                icon: "FaHome"
+            },
+            {
+                title: "Expert Advice",
+                description: "Our team of experts will help you navigate the residential mortgage process, providing personalized solutions tailored to your needs. We work with a variety of lenders to ensure competitive rates and terms that suit your financial goals. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to guide you every step of the way, ensuring a smooth and successful experience.",
+                icon: "FaUserTie"
+            },
+            {
+                title: "Competitive Rates",
+                description: "We work with a variety of lenders to ensure you get the best rate and terms for your mortgage. Our team of experts will guide you through the refinancing process, helping you save money and achieve your financial goals. Whether you're looking to lower your monthly payments, shorten your loan term, or access equity in your home, we have the expertise and resources to assist you every step of the way.",
+                icon: "FaDollarSign"
+            }
+        ],
     },
     {
         id: 4,

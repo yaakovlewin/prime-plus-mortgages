@@ -26,7 +26,7 @@ export default function TestimonialCard({
                 className="w-16 h-16 rounded-full mb-3"
             />
             <blockquote className="text-gray-600 italic mb-4">
-                "{testimonial.quote}"
+                &quot;{testimonial.quote}&quot;
             </blockquote>
             <p className="font-semibold">{testimonial.author}</p>
         </div>

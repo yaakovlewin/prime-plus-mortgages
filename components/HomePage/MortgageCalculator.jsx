@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Heading2 from "../Heading2";
 
 export default function MortgageCalculator() {
     const [principal, setPrincipal] = useState("");
@@ -27,9 +28,7 @@ export default function MortgageCalculator() {
 
     return (
         <div className="container mx-auto px-4 py-12">
-            <h2 className="text-2xl font-bold text-center mb-6">
-                Mortgage Calculator
-            </h2>
+            <Heading2>Calculate Your Mortgage</Heading2>
             <form onSubmit={calculateMortgage} className="max-w-xl mx-auto">
                 <div className="mb-4">
                     <label className="block text-gray-700">

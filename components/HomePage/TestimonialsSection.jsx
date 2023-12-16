@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import TestimonialCard from "./TestimonialCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
+import Heading2 from "../Heading2";
 
 const testimonials = [
     {
@@ -52,9 +53,7 @@ export default function TestimonialsSection() {
     return (
         <section className="bg-gray-100 py-12 overflow-hidden">
             <div className="container mx-auto px-4">
-                <h2 className="text-2xl font-bold text-center mb-6">
-                    What Our Clients Say
-                </h2>
+                <Heading2>What Our Clients Say</Heading2>
                 <div className="flex justify-center gap-4">
                     {visibleTestimonials.map((testimonial, index) => (
                         <TestimonialCard

@@ -4,6 +4,7 @@ import Image from "next/image";
 import HeroSection from "@/components/services/HeroSection";
 import Link from "next/link";
 import BrickWallContainer from "@/components/BrickWallContainer";
+import Heading2 from "@/components/Heading2";
 
 const ServiceSection = () => {
     return (
@@ -12,9 +13,9 @@ const ServiceSection = () => {
             <BrickWallContainer>
                 <section className="py-12">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-2xl font-bold text-center mb-6">
+                        <Heading2 className={"text-cyan-100"}>
                             Our Services
-                        </h2>
+                        </Heading2>
                         <div className="grid md:grid-cols-3 gap-4 text-center">
                             {servicesData.map((service) => (
                                 <div

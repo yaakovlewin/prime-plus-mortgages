@@ -7,13 +7,13 @@ import OurLocationSection from "@/components/HomePage/OurLocationSection";
 
 export default function Home() {
     return (
-        <div>
+        <>
             <HeroSection />
             <ServicesOverview />
             <MortgageCalculator />
             <MortgageProcessSection />
             <TestimonialsSection />
             <OurLocationSection />
-        </div>
+        </>
     );
 }

@@ -29,11 +29,9 @@ const MapContainer = () => {
             return;
         }
 
-        getCoordinates("31 Gainsborough St, Salford M7 4AL, UK", apiKey)
+        getCoordinates("7 Bevendon Sq, Salford M7 4TP, UK", apiKey)
             .then((location) => {
                 const { lat, lng } = location;
-                console.log(location);
-                console.log(`Latitude: ${lat}, Longitude: ${lng}`);
                 setCenter({ lat, lng });
             })
             .catch((err) => console.error(err));
@@ -56,14 +54,14 @@ const MapContainer = () => {
                         position={{ lat: selected.lat, lng: selected.lng }}
                         onCloseClick={() => setSelected(null)}
                     >
-                        <div className="bg-cyan-100 border border-cyan-800 p-2 rounded-lg text-center">
-                            <h2 className="text-bold text-xl text-cyan-600 text-center">
+                        <div className="bg-cyan-100 p-2 rounded-lg text-center">
+                            <h2 className="font-bold text-lg leading-5 text-sky-900 text-center">
                                 Prime Plus Mortgages
                             </h2>
                             <p className="text-center">
-                                31 Gainsborough St,
+                                7 Bevendon Sq,
                                 <br />
-                                Salford M7 4AL, UK
+                                Salford M7 4TP, UK
                                 <br />
                                 <Link
                                     href="tel:+44 161 818 8824"
