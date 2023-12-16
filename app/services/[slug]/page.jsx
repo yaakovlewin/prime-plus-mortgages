@@ -1,6 +1,6 @@
 import DetailedServiceOverview from "@/components/services/[slug]/DetailedServiceOverview";
 import ServiceHeroSection from "@/components/services/[slug]/ServiceHeroSection";
-import Empty from "@/components/services/[slug]/empty";
+import Empty from "@/components/services/[slug]/Empty";
 import serviceData from "@/js/servicesData"; // Import service data
 
 const ServicePage = ({ params: { slug } }) => {
