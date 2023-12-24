@@ -7,14 +7,14 @@ import FooterLink from "./FooterLink";
 export default function Footer() {
     return (
         <footer
-            className="bg-footer-texture "
+            className="bg-footer-texture bg-fixed bg-contain bg-no-repeat bg-bottom"
             // style={{
             //     backgroundImage: `url('/pp ad 2.jpg')`,
             //     backgroundRepeat: "no-repeat",
             //     backgroundSize: "cover",
             // }}
         >
-            <div className="bg-sky-700 bg-opacity-50  text-sky-950 px-6 lg:px-12 py-12">
+            <div className=" bg-gradient-to-b from-sky-700 to-transparent bg-opacity-50  text-sky-950 px-6 lg:px-12 py-12">
                 <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
                     {/* Column 1 */}
                     <div>
@@ -115,10 +115,10 @@ export default function Footer() {
                         All rights reserved.
                     </p>
                 </div>
-                {/* designed by */}
-                <div className="text-center mt-8">
-                    <p>
-                        Designed by{" "}
+                {/* developed by */}
+                <div className="text-center m-auto w-fit mt-8 px-2 rounded ">
+                    <p className=" bg-white bg-opacity-70 ">
+                        Developed by{" "}
                         <Link
                             href="https://www.linkedin.com/in/yaakov-lewin"
                             className="text-cyan-600 hover:text-cyan-500"

@@ -27,7 +27,7 @@ export default function MortgageCalculator() {
     };
 
     return (
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 md:py-12">
             <Heading2>Calculate Your Mortgage</Heading2>
             <form onSubmit={calculateMortgage} className="max-w-xl mx-auto">
                 <div className="mb-4">

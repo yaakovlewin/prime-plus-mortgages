@@ -13,7 +13,7 @@ const ServiceSection = () => {
             <BrickWallContainer>
                 <section className="py-12">
                     <div className="container mx-auto px-4">
-                        <Heading2 className={"text-cyan-100"}>
+                        <Heading2 className={"text-sky-950"}>
                             Our Services
                         </Heading2>
                         <div className="grid md:grid-cols-3 gap-4 text-center">

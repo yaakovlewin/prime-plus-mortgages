@@ -73,11 +73,9 @@ export default function MortgageProcessSection() {
             </BrickWallContainer>
 
             {/* FAQs */}
-            <div className="mt-28">
-                <h3 className="text-xl font-bold mb-4">
-                    Frequently Asked Questions
-                </h3>
-                <div className="space-y-4">
+            <div className="mt-12 md:mt-28">
+                <Heading2>Frequently Asked Questions</Heading2>
+                <div className="space-y-4 md:space-y-5">
                     <FaqItem
                         question="What documents do I need to apply?"
                         answer="Typically, you’ll need proof of income, credit information, and identification. However, requirements may vary."

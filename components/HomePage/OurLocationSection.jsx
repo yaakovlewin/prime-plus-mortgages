@@ -2,14 +2,13 @@
 import React from "react";
 import MapContainer from "./MapContainer";
 import Link from "next/link";
+import Heading2 from "../Heading2";
 
 export default function OurLocationSection() {
     return (
         <section className="container mx-auto px-4 py-12">
-            <h2 className="text-3xl text-cyan-800 font-bold text-center mb-6 animate-pulse">
-                Our Location
-            </h2>
-            <p className="text-center mb-8 text-gray-600">
+            <Heading2 className={"animate-pulse"}>Our Location</Heading2>
+            <p className="text-center text-gray-600">
                 7 Bevendon Sq, Salford M7 4TP, UK
             </p>
             <p className="text-center mb-8 text-gray-600">

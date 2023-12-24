@@ -1,13 +1,9 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import ServiceCard from "../ServiceCard";
-import BrickWallContainer from "../BrickWallContainer";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.css";
 
 import servicesData from "@/js/servicesData";
-import Heading2 from "../Heading2";
+import Heading2 from "@/components/Heading2";
 
 export default function ServicesOverview() {
     const scrollContainer = useRef(null);
@@ -38,10 +34,18 @@ export default function ServicesOverview() {
     return (
         <section
             className="py-12 relative "
-            onMouseEnter={() =>
-                setCanScrollLeft(scrollContainer.current.scrollLeft > 0)
-            }
-            onMouseLeave={() => setCanScrollLeft(false)}
+            onMouseEnter={() => {
+                setCanScrollLeft(scrollContainer.current.scrollLeft > 0);
+                setCanScrollRight(
+                    scrollContainer.current.scrollLeft <
+                        scrollContainer.current.scrollWidth -
+                            scrollContainer.current.offsetWidth
+                );
+            }}
+            onMouseLeave={() => {
+                setCanScrollLeft(false);
+                setCanScrollRight(false);
+            }}
         >
             <div className="container mx-auto px-4">
                 <Heading2>Our Services</Heading2>

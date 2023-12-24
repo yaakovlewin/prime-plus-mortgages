@@ -51,10 +51,10 @@ export default function TestimonialsSection() {
     ];
 
     return (
-        <section className="bg-gray-100 py-12 overflow-hidden">
+        <section className="bg-gray-100 py-12 md:py-14 overflow-hidden">
             <div className="container mx-auto px-4">
                 <Heading2>What Our Clients Say</Heading2>
-                <div className="flex justify-center gap-4">
+                <div className="flex justify-center gap-4 md:py-4">
                     {visibleTestimonials.map((testimonial, index) => (
                         <TestimonialCard
                             key={index}

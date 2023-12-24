@@ -6,7 +6,6 @@ import serviceData from "@/js/servicesData"; // Import service data
 const ServicePage = ({ params: { slug } }) => {
     // Example: Find the service by URL parameter or similar logic
     const service = serviceData.find((s) => s.url === `/${slug}`);
-    console.log(service);
 
     if (!service) {
         return <div>Service not found</div>;
