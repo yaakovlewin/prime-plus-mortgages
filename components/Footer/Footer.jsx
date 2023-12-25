@@ -75,7 +75,7 @@ export default function Footer() {
                         </h2>
                         <div className="flex items-center space-x-4">
                             <Link
-                                href="https://github.com/yaakovlewin"
+                                href="https://github.com/yourusername"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-white hover:text-gray-800 transition-colors duration-300"
@@ -83,7 +83,7 @@ export default function Footer() {
                                 <FaGithub className="w-6 h-6" />
                             </Link>
                             <Link
-                                href="https://www.linkedin.com/in/yaakov-lewin/"
+                                href="https://www.linkedin.com/in/yourusername"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-white hover:text-cyan-800 transition-colors duration-300 ml-4"
