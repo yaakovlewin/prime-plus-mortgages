@@ -3,7 +3,7 @@ const servicesData = [
         id: 1,
         title: "First Time Buyer",
         description: "Expert advice for first time home buyers.",
-        imageUrl: "/home.jpg",
+        imageUrl: "/first-time-buyer.jpg",
         url: "/first-time-buyer",
         details: [
             {
@@ -33,7 +33,7 @@ const servicesData = [
         id: 2,
         title: "Commercial Mortgages",
         description: "Tailored mortgage services for commercial properties.",
-        imageUrl: "/house2.jpg",
+        imageUrl: "/home.jpg",
         url: "/commercial-mortgages",
         details: [
             {
@@ -92,7 +92,7 @@ const servicesData = [
         id: 4,
         title: "Mortgage Renewal",
         description: "Renew your mortgage to get a better rate and save money.",
-        imageUrl: "/images/service-renewal.jpg",
+        imageUrl: "/house2.jpg",
         url: "/mortgage-renewal"
     },
     {

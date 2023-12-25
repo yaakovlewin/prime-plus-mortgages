@@ -5,7 +5,6 @@ const HeroSection = () => {
             style={{ backgroundImage: `url('/house2.jpg')` }}
         >
             {" "}
-            {/* Replace with your background image path */}
             <div className="md:w-1/2 bg-neutral-400 bg-opacity-40 rounded-lg p-4 pb-7">
                 <p className="font-bold text-sm uppercase">Services</p>
                 <p className="text-3xl font-bold">Discover What We Offer</p>
