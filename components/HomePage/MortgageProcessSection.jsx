@@ -73,7 +73,7 @@ export default function MortgageProcessSection() {
             </BrickWallContainer>
 
             {/* FAQs */}
-            <div className="mt-12 md:mt-28">
+            <div className="mt-12 2xl:mt-28">
                 <Heading2>Frequently Asked Questions</Heading2>
                 <div className="space-y-4 md:space-y-5">
                     <FaqItem
