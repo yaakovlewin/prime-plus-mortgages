@@ -10,10 +10,10 @@ export default function LogoAndMobileMenu({ isOpen, setIsOpen }) {
             >
                 <Image
                     src="/logo-01.png"
-                    width={200}
+                    width={100}
                     height={50}
                     alt="MortgageCo Logo"
-                    className="w-44 h-22 my-3"
+                    className="2xl:w-44 2xl:h-22 my-3"
                 />
             </Link>
 
