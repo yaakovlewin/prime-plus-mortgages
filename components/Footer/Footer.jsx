@@ -109,19 +109,19 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="text-center mt-8">
-                    <p>
+                <div className="text-center mt-8 mx-auto w-fit">
+                    <p className=" bg-white bg-opacity-70 rounded px-2">
                         &copy; {new Date().getFullYear()} Prime Plus Mortgages.
                         All rights reserved.
                     </p>
                 </div>
                 {/* developed by */}
                 <div className="text-center m-auto w-fit mt-8 px-2 rounded ">
-                    <p className=" bg-white bg-opacity-70 ">
+                    <p className=" bg-white bg-opacity-70 rounded px-2">
                         Developed by{" "}
                         <Link
                             href="https://www.linkedin.com/in/yaakov-lewin"
-                            className="text-cyan-600 hover:text-cyan-500"
+                            className="text-cyan-700 hover:text-cyan-800"
                         >
                             The Edge Thechnolgies
                         </Link>

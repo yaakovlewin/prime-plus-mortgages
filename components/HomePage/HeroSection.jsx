@@ -21,9 +21,10 @@ export default function HeroSection() {
             <div className="relative flex items-center justify-center h-full px-6 text-white">
                 <div className="text-center">
                     <h1 className="text-3xl md:text-6xl font-rubik text-sky-950 text-shadow-white sm:text-shadow-white-lg uppercase font-semibold tracking-tighter mb-6">
-                        Buy Your Property <br />
+                        Inovative, Ambitious, and
+                        <br />
                         <small className="md:text-6xl text-white">
-                            With peace of mind
+                            Efficient
                         </small>
                     </h1>
                     <p className="text-sm md:text-xl mb-6">

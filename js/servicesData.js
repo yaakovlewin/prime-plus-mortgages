@@ -30,6 +30,126 @@ const servicesData = [
         ],
     },
     {
+        id: 23,
+        title: "Buy to let",
+        description: "Buy to let mortgages for landlords.",
+        imageUrl: "/buy-to-let.jpg",
+        url: "/buy-to-let",
+        details: [
+            {
+                title: "Comprehensive Solutions",
+                description: "We offer a comprehensive approach to residential mortgages, offering the best rates and terms to suit your needs. Our team of experts will guide you through the entire process, ensuring a smooth and efficient experience. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to help you achieve your goals.",
+                icon: "FaChartLine"
+            },
+            {
+                title: "Tailored to Your Needs",
+                description: "Each client has unique needs, and our service is designed to meet these through personalized solutions. We take into account your financial situation, goals, and preferences to provide you with the best residential mortgage options. Whether you're a first-time homebuyer or looking to refinance, our team of experts will guide you every step of the way to ensure a smooth and successful experience.",
+                icon: "FaHome"
+            },
+            {
+                title: "Expert Advice",
+                description: "Our team of experts will help you navigate the residential mortgage process, providing personalized solutions tailored to your needs. We work with a variety of lenders to ensure competitive rates and terms that suit your financial goals. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to guide you every step of the way, ensuring a smooth and successful experience.",
+                icon: "FaUserTie"
+            },
+            {
+                title: "Competitive Rates",
+                description: "We work with a variety of lenders to ensure you get the best rate and terms for your mortgage. Our team of experts will guide you through the refinancing process, helping you save money and achieve your financial goals. Whether you're looking to lower your monthly payments, shorten your loan term, or access equity in your home, we have the expertise and resources to assist you every step of the way.",
+                icon: "FaDollarSign"
+            },
+            // More details as needed
+        ],
+    },
+    {
+        id: 24,
+        title: "Short Term",
+        description: "Short term mortgages for quick financing.",
+        imageUrl: "/short-term.jpg",
+        url: "/short-term",
+        details: [
+            {
+                title: "Comprehensive Solutions",
+                description: "We offer a comprehensive approach to residential mortgages, offering the best rates and terms to suit your needs. Our team of experts will guide you through the entire process, ensuring a smooth and efficient experience. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to help you achieve your goals.",
+                icon: "FaChartLine"
+            },
+            {
+                title: "Tailored to Your Needs",
+                description: "Each client has unique needs, and our service is designed to meet these through personalized solutions. We take into account your financial situation, goals, and preferences to provide you with the best residential mortgage options. Whether you're a first-time homebuyer or looking to refinance, our team of experts will guide you every step of the way to ensure a smooth and successful experience.",
+                icon: "FaHome"
+            },
+            {
+                title: "Expert Advice",
+                description: "Our team of experts will help you navigate the residential mortgage process, providing personalized solutions tailored to your needs. We work with a variety of lenders to ensure competitive rates and terms that suit your financial goals. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to guide you every step of the way, ensuring a smooth and successful experience.",
+                icon: "FaUserTie"
+            },
+            {
+                title: "Competitive Rates",
+                description: "We work with a variety of lenders to ensure you get the best rate and terms for your mortgage. Our team of experts will guide you through the refinancing process, helping you save money and achieve your financial goals. Whether you're looking to lower your monthly payments, shorten your loan term, or access equity in your home, we have the expertise and resources to assist you every step of the way.",
+                icon: "FaDollarSign"
+            },
+            // More details as needed
+        ],
+    },
+    {
+        id: 25,
+        title: "Development Finance",
+        description: "Development finance for property developers.",
+        imageUrl: "/development-finance.jpg",
+        url: "/development-finance",
+        details: [
+            {
+                title: "Comprehensive Solutions",
+                description: "We offer a comprehensive approach to residential mortgages, offering the best rates and terms to suit your needs. Our team of experts will guide you through the entire process, ensuring a smooth and efficient experience. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to help you achieve your goals.",
+                icon: "FaChartLine"
+            },
+            {
+                title: "Tailored to Your Needs",
+                description: "Each client has unique needs, and our service is designed to meet these through personalized solutions. We take into account your financial situation, goals, and preferences to provide you with the best residential mortgage options. Whether you're a first-time homebuyer or looking to refinance, our team of experts will guide you every step of the way to ensure a smooth and successful experience.",
+                icon: "FaHome"
+            },
+            {
+                title: "Expert Advice",
+                description: "Our team of experts will help you navigate the residential mortgage process, providing personalized solutions tailored to your needs. We work with a variety of lenders to ensure competitive rates and terms that suit your financial goals. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to guide you every step of the way, ensuring a smooth and successful experience.",
+                icon: "FaUserTie"
+            },
+            {
+                title: "Competitive Rates",
+                description: "We work with a variety of lenders to ensure you get the best rate and terms for your mortgage. Our team of experts will guide you through the refinancing process, helping you save money and achieve your financial goals. Whether you're looking to lower your monthly payments, shorten your loan term, or access equity in your home, we have the expertise and resources to assist you every step of the way.",
+                icon: "FaDollarSign"
+            },
+            // More details as needed
+        ],
+    },
+    {
+        id: 26,
+        title: "Protflio Finance",
+        description: "Portfolio finance for landlords.",
+        imageUrl: "/portfolio-finance.jpg",
+        url: "/portfolio-finance",
+        details: [
+            {
+                title: "Comprehensive Solutions",
+                description: "We offer a comprehensive approach to residential mortgages, offering the best rates and terms to suit your needs. Our team of experts will guide you through the entire process, ensuring a smooth and efficient experience. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to help you achieve your goals.",
+                icon: "FaChartLine"
+            },
+            {
+                title: "Tailored to Your Needs",
+                description: "Each client has unique needs, and our service is designed to meet these through personalized solutions. We take into account your financial situation, goals, and preferences to provide you with the best residential mortgage options. Whether you're a first-time homebuyer or looking to refinance, our team of experts will guide you every step of the way to ensure a smooth and successful experience.",
+                icon: "FaHome"
+            },
+            {
+                title: "Expert Advice",
+                description: "Our team of experts will help you navigate the residential mortgage process, providing personalized solutions tailored to your needs. We work with a variety of lenders to ensure competitive rates and terms that suit your financial goals. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to guide you every step of the way, ensuring a smooth and successful experience.",
+                icon: "FaUserTie"
+            },
+            {
+                title: "Competitive Rates",
+                description: "We work with a variety of lenders to ensure you get the best rate and terms for your mortgage. Our team of experts will guide you through the refinancing process, helping you save money and achieve your financial goals. Whether you're looking to lower your monthly payments, shorten your loan term, or access equity in your home, we have the expertise and resources to assist you every step of the way.",
+                icon: "FaDollarSign"
+            },
+            // More details as needed
+        ],
+    },
+    {
         id: 2,
         title: "Commercial Mortgages",
         description: "Tailored mortgage services for commercial properties.",
@@ -89,61 +209,107 @@ const servicesData = [
         ],
     },
     {
+        id: 31,
+        title: "Holiday Let",
+        description: "Holiday let mortgages for landlords.",
+        imageUrl: "/holiday-let.jpg",
+        url: "/holiday-let",
+        details: [
+            {
+                title: "Comprehensive Solutions",
+                description: "We offer a comprehensive approach to residential mortgages, offering the best rates and terms to suit your needs. Our team of experts will guide you through the entire process, ensuring a smooth and efficient experience. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to help you achieve your goals.",
+                icon: "FaChartLine"
+            },
+            {
+                title: "Tailored to Your Needs",
+                description: "Each client has unique needs, and our service is designed to meet these through personalized solutions. We take into account your financial situation, goals, and preferences to provide you with the best residential mortgage options. Whether you're a first-time homebuyer or looking to refinance, our team of experts will guide you every step of the way to ensure a smooth and successful experience.",
+                icon: "FaHome"
+            },
+            {
+                title: "Expert Advice",
+                description: "Our team of experts will help you navigate the residential mortgage process, providing personalized solutions tailored to your needs. We work with a variety of lenders to ensure competitive rates and terms that suit your financial goals. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to guide you every step of the way, ensuring a smooth and successful experience.",
+                icon: "FaUserTie"
+            },
+            {
+                title: "Competitive Rates",
+                description: "We work with a variety of lenders to ensure you get the best rate and terms for your mortgage. Our team of experts will guide you through the refinancing process, helping you save money and achieve your financial goals. Whether you're looking to lower your monthly payments, shorten your loan term, or access equity in your home, we have the expertise and resources to assist you every step of the way.",
+                icon: "FaDollarSign"
+            }
+        ],
+    },
+    {
+        id: 32,
+        title: "Foreign National",
+        description: "Foreign national mortgages for non-UK residents.",
+        imageUrl: "/foreign-national.jpg",
+        url: "/foreign-national",
+        details: [
+            {
+                title: "Comprehensive Solutions",
+                description: "We offer a comprehensive approach to residential mortgages, offering the best rates and terms to suit your needs. Our team of experts will guide you through the entire process, ensuring a smooth and efficient experience. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to help you achieve your goals.",
+                icon: "FaChartLine"
+            },
+            {
+                title: "Tailored to Your Needs",
+                description: "Each client has unique needs, and our service is designed to meet these through personalized solutions. We take into account your financial situation, goals, and preferences to provide you with the best residential mortgage options. Whether you're a first-time homebuyer or looking to refinance, our team of experts will guide you every step of the way to ensure a smooth and successful experience.",
+                icon: "FaHome"
+            },
+            {
+                title: "Expert Advice",
+                description: "Our team of experts will help you navigate the residential mortgage process, providing personalized solutions tailored to your needs. We work with a variety of lenders to ensure competitive rates and terms that suit your financial goals. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to guide you every step of the way, ensuring a smooth and successful experience.",
+                icon: "FaUserTie"
+            },
+            {
+                title: "Competitive Rates",
+                description: "We work with a variety of lenders to ensure you get the best rate and terms for your mortgage. Our team of experts will guide you through the refinancing process, helping you save money and achieve your financial goals. Whether you're looking to lower your monthly payments, shorten your loan term, or access equity in your home, we have the expertise and resources to assist you every step of the way.",
+                icon: "FaDollarSign"
+            }
+        ],
+    },
+    {
+        id: 33,
+        title: "Loans/Bridging",
+        description: "Loans and bridging finance for quick financing.",
+        imageUrl: "/loans-bridging.jpg",
+        url: "/loans-bridging",
+        details: [
+            {
+                title: "Comprehensive Solutions",
+                description: "We offer a comprehensive approach to commercial mortgages, offering the best rates and terms to suit your business needs. Our team of experts will guide you through the entire process, ensuring a smooth and efficient experience. Whether you're looking to purchase a new commercial property or refinance an existing one, we have the expertise and resources to help you achieve your goals.",
+                icon: "FaChartLine"
+            },
+            {
+                title: "Tailored to Your Needs",
+                description: "Each client has unique needs, and our service is designed to meet these through personalized solutions. We take into account your business situation, goals, and preferences to provide you with the best commercial mortgage options. Whether you're a first-time commercial property buyer or looking to refinance, our team of experts will guide you every step of the way to ensure a smooth and successful experience.",
+                icon: "FaHome"
+            },
+            {
+                title: "Expert Advice",
+                description: "Our team of experts will help you navigate the commercial mortgage process, providing personalized solutions tailored to your business needs. We work with a variety of lenders to ensure competitive rates and terms that suit your financial goals. Whether you're looking to purchase a new commercial property or refinance an existing one, we have the expertise and resources to guide you every step of the way, ensuring a smooth and successful experience.",
+                icon: "FaUserTie"
+            },
+            {
+                title: "Competitive Rates",
+                description: "We work with a variety of lenders to ensure you get the best rate and terms for your commercial mortgage. Our team of experts will guide you through the refinancing process, helping you save money and achieve your financial goals. Whether you're looking to lower your monthly payments, shorten your loan term, or access equity in your commercial property, we have the expertise and resources to assist you every step of the way.",
+                icon: "FaDollarSign"
+            }
+        ],
+    },
+    {
         id: 4,
         title: "Mortgage Renewal",
         description: "Renew your mortgage to get a better rate and save money.",
-        imageUrl: "/house2.jpg",
-        url: "/mortgage-renewal"
+        imageUrl: "/mortgage-renewal.jpg",
+        url: "/mortgage-renewal",
+        details: [
+            {
+                title: "Comprehensive Solutions",
+                description: "We offer a comprehensive approach to residential mortgages, offering the best rates and terms to suit your needs. Our team of experts will guide you through the entire process, ensuring a smooth and efficient experience. Whether you're looking to renew your mortgage or refinance an existing one, we have the expertise and resources to help you achieve your goals.",
+                icon: "FaChartLine"
+            },
+
+        ],
     },
-    {
-        id: 5,
-        title: "Home Equity Loans",
-        description: "Unlock the equity in your home to pay for home renovations, education, or other expenses.",
-        imageUrl: "/images/service-home-equity.jpg",
-        url: "/home-equity-loans"
-    },
-    {
-        id: 6,
-        title: "Debt Consolidation",
-        description: "Consolidate your debt to save money and reduce your monthly payments.",
-        imageUrl: "/images/service-debt-consolidation.jpg",
-        url: "/debt-consolidation"
-    },
-    {
-        id: 7,
-        title: "Home Equity Line of Credit",
-        description: "Access the equity in your home with a line of credit.",
-        imageUrl: "/images/service-home-equity-line-of-credit.jpg",
-        url: "/home-equity-line-of-credit"
-    },
-    {
-        id: 8,
-        title: "Reverse Mortgages",
-        description: "Access the equity in your home with a reverse mortgage.",
-        imageUrl: "/images/service-reverse-mortgage.jpg",
-        url: "/reverse-mortgages"
-    },
-    {
-        id: 9,
-        title: "Mortgage Life Insurance",
-        description: "Protect your family with mortgage life insurance.",
-        imageUrl: "/images/service-mortgage-life-insurance.jpg",
-        url: "/mortgage-life-insurance"
-    },
-    {
-        id: 10,
-        title: "Mortgage Disability Insurance",
-        description: "Protect your family with mortgage disability insurance.",
-        imageUrl: "/images/service-mortgage-disability-insurance.jpg",
-        url: "/mortgage-disability-insurance"
-    },
-    {
-        id: 11,
-        title: "Mortgage Critical Illness Insurance",
-        description: "Protect your family with mortgage critical illness insurance.",
-        imageUrl: "/images/service-mortgage-critical-illness-insurance.jpg",
-        url: "/mortgage-critical-illness-insurance"
-    }
 ];
 
 export default servicesData;

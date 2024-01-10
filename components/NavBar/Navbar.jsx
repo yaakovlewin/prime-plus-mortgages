@@ -3,16 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import CenteredNavLink from "./CenteredNavLink";
-import Image from "next/image";
 import LogoAndMobileMenu from "./LogoAndMobileMenu";
 import DropdownNavLink from "./DropDownNavLink";
+import services from "@/js/servicesData";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isServicesOpen, setServicesOpen] = useState(false);
 
     return (
-        <nav className="fixed z-10 w-full bg-sky-800 border-b-8 border-gray-100">
+        <nav className="fixed z-10 w-full bg-sky-800  ">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="md:flex justify-between items-stretch">
                     <LogoAndMobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -38,22 +38,14 @@ const Navbar = () => {
                                 onMouseLeave={() => setServicesOpen(false)}
                             >
                                 <div className="p-4">
-                                    <DropdownNavLink
-                                        href="/first-time-home-buyer"
-                                        className=""
-                                    >
-                                        First Time Home Buyer
-                                    </DropdownNavLink>
-                                    <DropdownNavLink href="/remortgage">
-                                        Remortgage
-                                    </DropdownNavLink>
-
-                                    <DropdownNavLink href="/buy-to-let">
-                                        Buy to Let
-                                    </DropdownNavLink>
-                                    <DropdownNavLink href="/commercial">
-                                        Commercial
-                                    </DropdownNavLink>
+                                    {services.map((service) => (
+                                        <DropdownNavLink
+                                            href={`/services/${service.url}`}
+                                            key={service.id}
+                                        >
+                                            {service.title}
+                                        </DropdownNavLink>
+                                    ))}
                                 </div>
                             </div>
                         </div>
@@ -119,6 +111,15 @@ const Navbar = () => {
                 </button>
                 {isServicesOpen && (
                     <div className="pl-4 py-2">
+                        {services.map((service) => (
+                            <Link
+                                href={`/services/${service.url}`}
+                                key={service.id}
+                                className="block text-sm text-gray-600 hover:bg-gray-100 py-1"
+                            >
+                                {service.title}
+                            </Link>
+                        ))}
                         <Link
                             href="/residential"
                             className="block text-sm text-gray-600 hover:bg-gray-100 py-1"
