@@ -16,7 +16,7 @@ const ServiceSection = () => {
                         <Heading2 className={"text-sky-950"}>
                             Our Services
                         </Heading2>
-                        <div className="grid md:grid-cols-3 gap-4 text-center">
+                        <div className="grid md:grid-cols-3 gap-6 text-center">
                             {servicesData.map((service) => (
                                 <div
                                     key={service.id}

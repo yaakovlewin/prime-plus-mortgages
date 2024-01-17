@@ -74,7 +74,7 @@ module.exports = {
       'white-border': '0 0 0.5em #fff, 0 0 0.5em #fff, 0 0 0.5em #fff, 0 0 0.5em #fff',
       'black-border': '0 0 0.5em #000, 0 0 0.5em #000, 0 0 0.5em #000, 0 0 0.5em #000',
 
-    }
+    },
   },
   plugins: [
     require('tailwindcss-hero-patterns'),
