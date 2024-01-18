@@ -56,7 +56,14 @@ const Navbar = () => {
                     </div>
 
                     {/* Optional Right-Side Component (e.g., CTA Button) */}
-                    <div className="hidden md:flex justify-end items-center">
+                    <div className="hidden md:flex justify-end items-center gap-6">
+                        <Link
+                            href="tel:0123456789"
+                            className="text-white border-2 border-white rounded shadow px-3 py-2"
+                        >
+                            Call Us
+                        </Link>
+
                         <Link
                             href="/get-started"
                             className="text-cyan-500 bg-white hover:bg-cyan-700 hover:text-white border-2 border-cyan-300 rounded shadow px-3 py-2"
@@ -146,6 +153,13 @@ const Navbar = () => {
                     className="block text-sm text-gray-700 hover:bg-gray-100 py-2"
                 >
                     Contact
+                </Link>
+                <hr className="my-2 border-gray-200" />
+                <Link
+                    href="tel:0123456789"
+                    className="block text-sm text-gray-700 hover:bg-gray-100 py-2"
+                >
+                    01234 567 890
                 </Link>
                 <Link
                     href="/get-started"
