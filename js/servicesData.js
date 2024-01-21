@@ -121,7 +121,7 @@ const servicesData = [
     },
     {
         id: 26,
-        title: "Protflio Finance",
+        title: "Protfolio Finance",
         description: "Portfolio finance for landlords.",
         imageUrl: "/portfolio-finance.jpg",
         url: "/portfolio-finance",
@@ -153,7 +153,7 @@ const servicesData = [
         id: 2,
         title: "Commercial Mortgages",
         description: "Tailored mortgage services for commercial properties.",
-        imageUrl: "/home.jpg",
+        imageUrl: "/commercial-mortgages.jpg",
         url: "/commercial-mortgages",
         details: [
             {

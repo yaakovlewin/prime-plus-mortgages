@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function HeroCarousel() {
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
@@ -13,6 +13,7 @@ export default function HeroCarousel() {
         autoplay: true,
         autoplaySpeed: 5000,
         fade: false,
+        arrows: false,
     };
 
     return (
