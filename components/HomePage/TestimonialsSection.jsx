@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import TestimonialCard from "./TestimonialCard";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.css";
 import Heading2 from "../Heading2";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const testimonials = [
     {
@@ -30,53 +31,41 @@ const testimonials = [
 ];
 
 export default function TestimonialsSection() {
-    const [activeIndex, setActiveIndex] = useState(1);
+    const [currentSlide, setCurrentSlide] = useState(0);
 
-    useEffect(() => {
-        // Adjust this timeout value as needed for automatic transition
-        const interval = setInterval(() => {
-            setActiveIndex(
-                (prevIndex) => (prevIndex + 1) % testimonials.length
-            );
-        }, 5000);
-        return () => clearInterval(interval);
-    }, []);
+    const settings = {
+        dots: true,
+        centerMode: true,
+        infinite: true,
+        slidesToShow: 3,
+        speed: 500,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        arrows: false,
+        fade: false,
 
-    const visibleTestimonials = [
-        testimonials[
-            (activeIndex + testimonials.length - 1) % testimonials.length
-        ],
-        testimonials[activeIndex],
-        testimonials[(activeIndex + 1) % testimonials.length],
-    ];
+        afterChange: (current) => setCurrentSlide(current),
+    };
 
     return (
-        <section className="bg-gray-100 py-12 md:py-14 overflow-hidden">
+        <section className="bg-gray-100 py-12 md:py-14">
             <div className="container mx-auto px-4">
                 <Heading2>What Our Clients Say</Heading2>
-                <div className="flex justify-center gap-4 md:py-4">
-                    {visibleTestimonials.map((testimonial, index) => (
-                        <TestimonialCard
-                            key={index}
-                            testimonial={testimonial}
-                            isHighlighted={index === 1}
-                        />
-                    ))}
-                </div>
 
-                <div className="flex justify-center mt-6 gap-4 overflow-hidden">
-                    {testimonials.map((_, index) => (
-                        <span
-                            key={index}
-                            onClick={() => setActiveIndex(index)}
-                            className={`inline-block h-3 w-3 mx-1 rounded-full cursor-pointer ${
-                                index === activeIndex
-                                    ? "bg-cyan-500"
-                                    : "bg-gray-400"
-                            }`}
-                        ></span>
+                <Slider
+                    {...settings}
+                    afterChange={(current) => setCurrentSlide(current)}
+                >
+                    {testimonials.map((testimonial, index) => (
+                        <div key={index}>
+                            <TestimonialCard
+                                testimonial={testimonial}
+                                isHighlighted={index === currentSlide}
+                            />
+                        </div>
                     ))}
-                </div>
+                </Slider>
             </div>
         </section>
     );

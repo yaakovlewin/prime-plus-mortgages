@@ -7,9 +7,9 @@ export default function TestimonialCard({
 }) {
     return (
         <div
-            className={`flex flex-col items-center min-w-full md:min-w-0 bg-white p-4 shadow rounded-lg transition-all duration-500 transform ${className} ${
+            className={`flex flex-col items-center min-w-full md:min-w-0 h-full min-h-[20rem] md:min-h-[15rem] bg-white p-4 shadow rounded-lg transition-all duration-500 transform ${className} ${
                 isHighlighted
-                    ? "opacity-100 transform scale-110"
+                    ? "opacity-100 transform scale-110 px-4 mx-4 "
                     : "opacity-50 transform scale-90"
             }`}
         >
@@ -25,7 +25,7 @@ export default function TestimonialCard({
                 height={80}
                 className="w-16 h-16 rounded-full mb-3"
             />
-            <blockquote className="text-gray-600 italic mb-4">
+            <blockquote className="text-gray-600 italic mb-4 ">
                 &quot;{testimonial.quote}&quot;
             </blockquote>
             <p className="font-semibold">{testimonial.author}</p>
