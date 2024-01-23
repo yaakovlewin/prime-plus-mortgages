@@ -73,7 +73,15 @@ module.exports = {
       'black-lg': '3px 3px 5px #000',
       'white-border': '0 0 0.5em #fff, 0 0 0.5em #fff, 0 0 0.5em #fff, 0 0 0.5em #fff',
       'black-border': '0 0 0.5em #000, 0 0 0.5em #000, 0 0 0.5em #000, 0 0 0.5em #000',
-
+      'white-border-sm': '0 0 0.25em #fff, 0 0 0.25em #fff, 0 0 0.25em #fff, 0 0 0.25em #fff',
+      'black-border-sm': '0 0 0.25em #000, 0 0 0.25em #000, 0 0 0.25em #000, 0 0 0.25em #000',
+      'white-border-md': '0 0 0.5em #fff, 0 0 0.5em #fff, 0 0 0.5em #fff, 0 0 0.5em #fff',
+      'black-border-md': '0 0 0.5em #000, 0 0 0.5em #000, 0 0 0.5em #000, 0 0 0.5em #000',
+      'white-border-lg': '0 0 1em #fff, 0 0 1em #fff, 0 0 1em #fff, 0 0 1em #fff',
+      'black-border-lg': '0 0 1em #000, 0 0 1em #000, 0 0 1em #000, 0 0 1em #000',
+      'natural': '0 0 0.5em #000, 0 0 0.5em #000, 0 0 0.5em #000, 0 0 0.5em #000',
+      'natural-sm': '1px 1px 5px #D4D4D4',
+      'none': 'none',
     },
   },
   plugins: [

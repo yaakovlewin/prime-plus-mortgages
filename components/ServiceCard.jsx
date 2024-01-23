@@ -8,8 +8,8 @@ export default function ServiceCard({ title, description, link, imgSrc }) {
                 src={imgSrc}
                 alt={title}
                 width={200}
-                height={80}
-                className=" object-cover w-full h-20 mb-3"
+                height={100}
+                className=" object-cover w-full h-48 mb-3"
             />
             <h3 className="text-lg font-semibold mb-2">{title}</h3>
             <p className="text-center flex-grow mb-3">{description}</p>

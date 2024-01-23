@@ -37,7 +37,7 @@ export default function TestimonialsSection() {
         dots: true,
         centerMode: true,
         infinite: true,
-        slidesToShow: 3,
+        slidesToShow: window.innerWidth > 1024 ? 3 : 1,
         speed: 500,
         slidesToScroll: 1,
         autoplay: true,

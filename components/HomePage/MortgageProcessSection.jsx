@@ -9,7 +9,7 @@ export default function MortgageProcessSection() {
             <Heading2>How the Mortgage Process Works</Heading2>
             <BrickWallContainer>
                 {/* Step-by-Step Guide */}
-                <div className="grid md:grid-cols-3 gap-4 text-center text-cyan-100">
+                <div className="grid md:grid-cols-3 gap-4 text-center text-cyan-100 px-4">
                     {/* Step 1 */}
                     <div className="mb-6 md:mb-0">
                         <div className="mb-2">
@@ -25,8 +25,8 @@ export default function MortgageProcessSection() {
                             Step 1: Initial Consultation
                         </h3>
                         <p>
-                            Meet with our experts to assess your needs and
-                            discuss your options.
+                            Meet with our experts face to face to assess your
+                            needs and discuss your options.
                         </p>
                     </div>
 
@@ -44,10 +44,12 @@ export default function MortgageProcessSection() {
                         <h3 className="mb-2 font-semibold">
                             Step 2: Application & Documentation
                         </h3>
-                        <p>
+                        <article>
                             Fill out the application form and submit the
-                            necessary documents.
-                        </p>
+                            following necessary documents: ID, Proof of Address,
+                            Income Proof, Deposit Documents, Portfolio
+                            Spreadsheet,
+                        </article>
                     </div>
 
                     {/* Step 3 */}
