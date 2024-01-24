@@ -22,9 +22,9 @@ const CompanyOverviewSection = () => {
                             Our team of dedicated mortgage professionals is
                             committed to providing competitive rates, flexible
                             options, and a hassle-free experience. Whether
-                            you're a first-time homebuyer or looking to
-                            refinance, we're here to find the mortgage plan
-                            that's perfect for you.
+                            you&apos;re a first-time homebuyer or looking to
+                            refinance, we&apos;re here to find the mortgage plan
+                            that&apos;s perfect for you.
                         </p>
                     </div>
                 </div>
