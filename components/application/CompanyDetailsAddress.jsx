@@ -1,8 +1,7 @@
 "use client";
-import React from "react";
 import { useFormContext } from "react-hook-form";
 
-function CompanyDetails() {
+export default function CompanyDetailsAddress() {
     const {
         register,
         watch,
@@ -21,7 +20,6 @@ function CompanyDetails() {
         (field) => field && field.length > 0
     );
 
-export default function CompanyDetailsAddress() {
     return (
         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             {/* Company Name */}
