@@ -12,7 +12,7 @@ export default function LogoAndMobileMenu({ isOpen, setIsOpen }) {
                     src="/logo-01.png"
                     width={150}
                     height={150}
-                    alt="MortgageCo Logo"
+                    alt="Prime Plus Mortgages Logo"
                     className=" h-20 2xl:w-44 2xl:h-22 my-3"
                 />
             </Link>

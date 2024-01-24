@@ -5,16 +5,17 @@ const CompanyOverviewSection = () => {
         <section className="py-12 bg-sky-100">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-semibold text-center text-cyan-600 mb-6">
-                    About MortgageCo
+                    About Prime Plus Mortgages
                 </h2>
                 <div className="grid md:grid-cols-2 gap-6">
                     <div>
                         <p className="text-lg leading-relaxed text-gray-700">
-                            At MortgageCo, we understand that finding the right
-                            mortgage solution can be daunting. With over 20
-                            years of experience in the mortgage industry, we
-                            specialize in guiding our clients through the
-                            process with expertise and personalized service.
+                            At Prime Plus Mortgages, we understand that finding
+                            the right mortgage solution can be daunting. With
+                            over 20 years of experience in the mortgage
+                            industry, we specialize in guiding our clients
+                            through the process with expertise and personalized
+                            service.
                         </p>
                     </div>
                     <div>

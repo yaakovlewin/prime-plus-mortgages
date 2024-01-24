@@ -45,11 +45,11 @@ const ValuesMissionSection = () => {
 
                 <div className="mt-8 text-center">
                     <p className="text-lg text-gray-700">
-                        Our mission at MortgageCo is to empower clients to make
-                        informed financial decisions by providing expert advice,
-                        personalized solutions, and transparent services. We
-                        strive to be your trusted partner in all things
-                        mortgage.
+                        Our mission at Prime Plus Mortgages is to empower
+                        clients to make informed financial decisions by
+                        providing expert advice, personalized solutions, and
+                        transparent services. We strive to be your trusted
+                        partner in all things mortgage.
                     </p>
                 </div>
             </div>
