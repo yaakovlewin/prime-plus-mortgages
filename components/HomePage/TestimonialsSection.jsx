@@ -32,12 +32,21 @@ const testimonials = [
 
 export default function TestimonialsSection() {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [slidesToShow, setSlidesToShow] = useState(1);
+
+    useEffect(() => {
+        if (window.innerWidth < 1024) {
+            setSlidesToShow(1);
+        } else {
+            setSlidesToShow(3);
+        }
+    }, []);
 
     const settings = {
         dots: true,
         centerMode: true,
         infinite: true,
-        slidesToShow: window.innerWidth > 1024 ? 3 : 1,
+        slidesToShow: slidesToShow,
         speed: 500,
         slidesToScroll: 1,
         autoplay: true,
