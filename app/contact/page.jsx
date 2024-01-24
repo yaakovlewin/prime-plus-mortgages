@@ -3,7 +3,7 @@ import ContactHeroSection from "@/components/Contact/ContactHeroSection";
 import ContactFormSection from "@/components/Contact/ContactFormSection";
 import ContactInfoSection from "@/components/Contact/ContactInfoSection";
 import LocationMapSection from "@/components/Contact/LocationMapSection";
-import OurLocationSection from "@/components/HomePage/OurLocationSection";
+import MapContainer from "@/components/HomePage/MapContainer";
 
 const ContactPage = () => {
     return (
@@ -12,7 +12,7 @@ const ContactPage = () => {
             <ContactFormSection />
             <ContactInfoSection />
             {/* <LocationMapSection /> */}
-            <OurLocationSection />
+            <MapContainer />
         </div>
     );
 };
