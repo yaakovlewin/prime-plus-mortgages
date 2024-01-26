@@ -55,6 +55,17 @@ export default function FormPage() {
         }
     };
 
+    function encode(data) {
+        return Object.keys(data)
+            .map(
+                (key) =>
+                    encodeURIComponent(key) +
+                    "=" +
+                    encodeURIComponent(data[key])
+            )
+            .join("&");
+    }
+
     return (
         <div className="container mx-auto p-4">
             <FormProvider {...methods}>
