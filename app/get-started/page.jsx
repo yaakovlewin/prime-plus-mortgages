@@ -1,45 +1,55 @@
 "use client";
 import React, { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
-import CompanyDetails from "@/components/application/CompanyDetails"; // Import your CompanyDetails component
-import PersonalDetails from "@/components/application/PersonalDetails"; // Import your PersonalDetails component
-// Import other components as needed
+import CompanyDetails from "@/components/application/CompanyDetails";
+import PersonalDetails from "@/components/application/PersonalDetails";
 
 export default function FormPage() {
-    const methods = useForm(); // Initialize React Hook Form
+    const methods = useForm();
     const [currentStep, setCurrentStep] = useState(1);
     const [steps, setSteps] = useState([
         {
-            id: "Step 1",
+            id: 1,
             name: "Company Details",
-            href: "#",
-            status: "complete",
+            status: "current",
+            href: "/company-details",
+            component: CompanyDetails,
         },
         {
-            id: "Step 2",
+            id: 2,
             name: "Personal Details",
-            href: "#",
-            status: "current",
+            status: "",
+            href: "/personal-details",
+            component: PersonalDetails,
         },
-        // Add other steps here
     ]);
-    // Update this based on your total number of steps
 
     const nextStep = () => {
-        if (currentStep < steps.length) {
-            setCurrentStep(currentStep + 1);
+        const index = steps.findIndex((step) => step.id === currentStep);
+        if (index < steps.length - 1) {
+            let newSteps = [...steps];
+            newSteps[index].status = "complete";
+            newSteps[index + 1].status = "current";
+
+            setSteps(newSteps);
+            setCurrentStep(steps[index + 1].id);
         }
     };
 
     const prevStep = () => {
-        if (currentStep > 1) {
-            setCurrentStep(currentStep - 1);
+        const index = steps.findIndex((step) => step.id === currentStep);
+        if (index > 0) {
+            let newSteps = [...steps];
+            newSteps[index].status = "";
+            newSteps[index - 1].status = "current";
+
+            setSteps(newSteps);
+            setCurrentStep(steps[index - 1].id);
         }
     };
 
     const onSubmit = (data) => {
         if (currentStep === steps.length) {
-            // Submit your form data
             console.log(data);
             fetch("/", {
                 method: "POST",
@@ -77,27 +87,6 @@ export default function FormPage() {
                     netlify
                     onSubmit={methods.handleSubmit(onSubmit)}
                 >
-                    {/* Render the component based on the current step */}
-                    {currentStep === 1 && <CompanyDetails />}
-                    {currentStep === 2 && (
-                        <PersonalDetails type="primary" setSteps={setSteps} />
-                    )}
-                    {/* {showAdditionalPersonalDetails && currentStep === 3 && (
-                        <PersonalDetails type="additional" />
-                    )} */}
-
-                    {/* Navigation Buttons */}
-                    {currentStep > 1 && (
-                        <button type="button" onClick={prevStep}>
-                            Previous
-                        </button>
-                    )}
-                    <button type="submit">
-                        {currentStep === steps.length ? "Submit" : "Next"}
-                    </button>
-
-                    {/* Optional: Display current step for user reference */}
-
                     <nav aria-label="Progress">
                         <ol
                             role="list"
@@ -111,7 +100,7 @@ export default function FormPage() {
                                             className="group flex flex-col border-l-4 border-indigo-600 py-2 pl-4 hover:border-indigo-800 md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4"
                                         >
                                             <span className="text-sm font-medium text-indigo-600 group-hover:text-indigo-800">
-                                                {step.id}
+                                                Step {step.id}
                                             </span>
                                             <span className="text-sm font-medium">
                                                 {step.name}
@@ -124,7 +113,7 @@ export default function FormPage() {
                                             aria-current="step"
                                         >
                                             <span className="text-sm font-medium text-indigo-600">
-                                                {step.id}
+                                                Step {step.id}
                                             </span>
                                             <span className="text-sm font-medium">
                                                 {step.name}
@@ -136,7 +125,7 @@ export default function FormPage() {
                                             className="group flex flex-col border-l-4 border-gray-200 py-2 pl-4 hover:border-gray-300 md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4"
                                         >
                                             <span className="text-sm font-medium text-gray-500 group-hover:text-gray-700">
-                                                {step.id}
+                                                Step {step.id}
                                             </span>
                                             <span className="text-sm font-medium">
                                                 {step.name}
@@ -147,6 +136,40 @@ export default function FormPage() {
                             ))}
                         </ol>
                     </nav>
+
+                    {steps.map(
+                        (step) =>
+                            currentStep === step.id && (
+                                <React.Fragment key={step.id}>
+                                    <step.component />
+                                </React.Fragment>
+                            )
+                    )}
+
+                    <div className="hidden">
+                        <label>
+                            Don’t fill this out if you&apos;re human:{" "}
+                            <input name="bot-field" />
+                        </label>
+                    </div>
+                    <input type="hidden" name="form-name" value="contact" />
+                    <div className="flex justify-between">
+                        <button
+                            type="button"
+                            onClick={prevStep}
+                            className={`bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded  ${
+                                currentStep === 1 ? "invisible" : ""
+                            }`}
+                        >
+                            Previous
+                        </button>
+                        <button
+                            type="submit"
+                            className={`bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded `}
+                        >
+                            {currentStep === steps.length ? "Submit" : "Next"}
+                        </button>
+                    </div>
                 </form>
             </FormProvider>
         </div>

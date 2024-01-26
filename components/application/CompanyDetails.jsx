@@ -263,12 +263,11 @@ function CompanyDetails() {
                     <input
                         type="checkbox"
                         onClick={toggleAddressVisibility}
+                        checked={!isAddressVisible}
                         className="form-checkbox h-5 w-5 text-gray-600 mr-2"
                     />
                     <span className="text-gray-700 text-sm">
-                        {isAddressVisible
-                            ? "Same Correspondent Address"
-                            : "Correspondent Address Different from Registered Address"}
+                        Correspondent Address is the same as Registered Address
                     </span>
                 </label>
 
