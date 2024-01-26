@@ -76,7 +76,7 @@ export default function ServicesOverview() {
                     {canScrollLeft && (
                         <button
                             onClick={() => scroll(-300)} // Negative value for scrolling left
-                            className="absolute left-3 md:left-10 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg bg-opacity-75 md:bg-opacity-100 "
+                            className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg bg-opacity-75 md:bg-opacity-100 "
                             aria-label="Scroll left"
                         >
                             <svg

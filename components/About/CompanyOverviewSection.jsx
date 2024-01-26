@@ -1,12 +1,12 @@
-import React from "react";
+import Heading2 from "../Heading2";
 
 const CompanyOverviewSection = () => {
     return (
         <section className="py-12 bg-sky-100">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-semibold text-center text-cyan-600 mb-6">
+                <Heading2 className="text-3xl font-semibold text-center text-cyan-600 mb-6">
                     About Prime Plus Mortgages
-                </h2>
+                </Heading2>
                 <div className="grid md:grid-cols-2 gap-6">
                     <div>
                         <p className="text-lg leading-relaxed text-gray-700">

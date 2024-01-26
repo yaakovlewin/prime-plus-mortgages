@@ -1,13 +1,14 @@
 import teamMembersData from "@/js/teamMembersData"; // Ensure the path is correct
 import Image from "next/image";
+import Heading2 from "../Heading2";
 
 const MeetTheTeamSection = () => {
     return (
         <section className="py-12 bg-white">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-semibold text-center text-cyan-600 mb-8">
+                <Heading2 className="text-3xl font-semibold text-center text-cyan-600 mb-8">
                     Meet Our Team
-                </h2>
+                </Heading2>
                 <div className="grid md:grid-cols-3 gap-6">
                     {teamMembersData.map((member) => (
                         <div

@@ -1,12 +1,13 @@
 import React from "react";
+import Heading2 from "../Heading2";
 
 const ValuesMissionSection = () => {
     return (
         <section className="py-12 bg-gray-50">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center text-cyan-600 mb-8">
+                <Heading2 className="text-3xl font-bold text-center text-cyan-600 mb-8">
                     Our Values & Mission
-                </h2>
+                </Heading2>
 
                 <div className="grid md:grid-cols-3 gap-8">
                     {/* Value 1 */}

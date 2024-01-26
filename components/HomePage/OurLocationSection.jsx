@@ -7,7 +7,7 @@ import Heading2 from "../Heading2";
 export default function OurLocationSection() {
     return (
         <section className="container mx-auto px-4 py-12">
-            <Heading2 className={"animate-pulse"}>Our Location</Heading2>
+            <Heading2 className="">Our Location</Heading2>
             <p className="text-center text-gray-600">
                 7 Bevendon Sq, Salford M7 4TP, UK
             </p>

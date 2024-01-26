@@ -1,12 +1,13 @@
 import React from "react";
+import Heading2 from "../Heading2";
 
 const WhyChooseUsSection = () => {
     return (
         <section className="py-12 bg-white">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-semibold text-center text-cyan-600 mb-6">
+                <Heading2 className="text-3xl font-semibold text-center text-cyan-600 mb-6">
                     Why Choose Prime Plus Mortgages
-                </h2>
+                </Heading2>
                 <div className="grid md:grid-cols-3 gap-6 text-center">
                     {/* Unique Selling Point 1 */}
                     <div>

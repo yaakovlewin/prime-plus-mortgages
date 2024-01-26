@@ -7,7 +7,7 @@ export default function TestimonialCard({
 }) {
     return (
         <div
-            className={`flex flex-col items-center h-full min-h-[20rem] md:min-h-[15rem] bg-white p-4 shadow rounded-lg transition-all duration-500 transform ${className} ${
+            className={`flex flex-col items-center h-full min-h-[20rem] md:min-h-[15rem] min-w-0 bg-white p-4 shadow rounded-lg transition-all duration-500 transform ${className} ${
                 isHighlighted
                     ? "opacity-100 transform scale-110 px-4 mx-4 "
                     : "opacity-50 transform scale-90"

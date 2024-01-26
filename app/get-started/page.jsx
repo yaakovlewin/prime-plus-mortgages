@@ -41,6 +41,15 @@ export default function FormPage() {
         if (currentStep === steps.length) {
             // Submit your form data
             console.log(data);
+            fetch("/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: encode({ "form-name": "contact", ...data }),
+            })
+                .then(() => alert("Success!"))
+                .catch((error) => alert(error));
         } else {
             nextStep();
         }
@@ -49,7 +58,12 @@ export default function FormPage() {
     return (
         <div className="container mx-auto p-4">
             <FormProvider {...methods}>
-                <form onSubmit={methods.handleSubmit(onSubmit)}>
+                <form
+                    name="contact"
+                    method="post"
+                    data-netlify="true"
+                    onSubmit={methods.handleSubmit(onSubmit)}
+                >
                     {/* Render the component based on the current step */}
                     {currentStep === 1 && <CompanyDetails />}
                     {currentStep === 2 && (

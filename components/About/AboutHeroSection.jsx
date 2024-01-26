@@ -16,7 +16,7 @@ const AboutHeroSection = () => {
                 <h1 className="text-4xl lg:text-5xl font-bold text-cyan-800 mb-4">
                     About Us
                 </h1>
-                <p className="text-lg lg:text-xl text-gray-600">
+                <p className="text-lg lg:text-xl text-gray-600 text-shadow-white">
                     Discover our story and our commitment to excellence in the
                     mortgage industry.
                 </p>
