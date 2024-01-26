@@ -62,6 +62,8 @@ export default function FormPage() {
                     name="contact"
                     method="post"
                     data-netlify="true"
+                    netlify-honeypot="bot-field"
+                    netlify
                     onSubmit={methods.handleSubmit(onSubmit)}
                 >
                     {/* Render the component based on the current step */}
