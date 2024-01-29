@@ -2,23 +2,23 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function ServiceCard({ title, description, link, imgSrc }) {
-    return (
-        <div className="flex flex-col items-center p-4 border rounded-lg shadow-sm h-full bg-neutral-200 text-neutral-950">
-            <Image
-                src={imgSrc}
-                alt={title}
-                width={200}
-                height={100}
-                className=" object-cover w-full h-48 mb-3"
-            />
-            <h3 className="text-lg font-semibold mb-2">{title}</h3>
-            <p className="text-center flex-grow mb-3">{description}</p>
-            <Link
-                href={link}
-                className="text-white bg-cyan-500 hover:bg-cyan-600 rounded px-4 py-2"
-            >
-                Learn More
-            </Link>
-        </div>
-    );
+  return (
+    <div className="flex h-full flex-col items-center rounded-lg border bg-neutral-200 p-4 text-neutral-950 shadow-sm">
+      <Image
+        src={imgSrc}
+        alt={title}
+        width={200}
+        height={100}
+        className=" mb-3 h-48 w-full object-cover"
+      />
+      <h3 className="mb-2 text-lg font-semibold">{title}</h3>
+      <p className="mb-3 flex-grow text-center">{description}</p>
+      <Link
+        href={link}
+        className="rounded bg-cyan-500 px-4 py-2 text-white hover:bg-cyan-600"
+      >
+        Learn More
+      </Link>
+    </div>
+  );
 }

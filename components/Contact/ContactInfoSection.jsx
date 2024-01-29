@@ -19,7 +19,9 @@ const ContactInfoSection = () => {
                     </div>
                     <div>
                         <h3 className="text-xl font-semibold mb-2">Email</h3>
-                        <p className="text-gray-700">contact@mortgageco.com</p>
+                        <p className="text-gray-700">
+                            info@primeplusmortgages.co.uk
+                        </p>
                     </div>
                 </div>
             </div>

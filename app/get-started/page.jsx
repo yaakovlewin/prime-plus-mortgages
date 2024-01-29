@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import CompanyDetails from "@/components/application/CompanyDetails";
 import PersonalDetails from "@/components/application/PersonalDetails";
 
@@ -23,6 +24,7 @@ export default function FormPage() {
             component: PersonalDetails,
         },
     ]);
+    const router = useRouter();
 
     const nextStep = () => {
         const index = steps.findIndex((step) => step.id === currentStep);
@@ -50,7 +52,6 @@ export default function FormPage() {
 
     const onSubmit = (data) => {
         if (currentStep === steps.length) {
-            console.log(data);
             fetch("/", {
                 method: "POST",
                 headers: {
@@ -58,7 +59,7 @@ export default function FormPage() {
                 },
                 body: encode({ "form-name": "contact", ...data }),
             })
-                .then(() => alert("Success!"))
+                .then(() => router.push("/success"))
                 .catch((error) => alert(error));
         } else {
             nextStep();
