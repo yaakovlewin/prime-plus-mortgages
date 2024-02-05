@@ -6,170 +6,81 @@ import CenteredNavLink from "./CenteredNavLink";
 import LogoAndMobileMenu from "./LogoAndMobileMenu";
 import DropdownNavLink from "./DropDownNavLink";
 import services from "@/js/servicesData";
+import MobileMenu from "./MobileMenu";
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [isServicesOpen, setServicesOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isServicesOpen, setServicesOpen] = useState(false);
 
-    return (
-        <nav className="fixed z-10 w-full bg-sky-800  ">
-            <div className="max-w-6xl mx-auto px-4">
-                <div className="md:flex justify-between items-stretch">
-                    <LogoAndMobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
-                    {/* Centered Navigation Links */}
-                    <div className="hidden md:flex gap-14 lg:gap-20 justify-center items-center text-2xl font-exo2">
-                        {/* Services Dropdown */}
-                        <div
-                            className="relative group h-full"
-                            onMouseOver={() => setServicesOpen(true)}
-                            onMouseLeave={() => setServicesOpen(false)}
-                        >
-                            <CenteredNavLink href="/services">
-                                Services
-                            </CenteredNavLink>
-                            <div
-                                className={`absolute -left-4 top-22 bg-white shadow-lg rounded-md  z-20 ${
-                                    isServicesOpen
-                                        ? "animate-rollDown  group-hover:block"
-                                        : "hidden"
-                                }`}
-                                onMouseOver={() => setServicesOpen(true)}
-                                onMouseLeave={() => setServicesOpen(false)}
-                            >
-                                <div className="p-4">
-                                    {services.map((service) => (
-                                        <DropdownNavLink
-                                            href={`/services/${service.url}`}
-                                            key={service.id}
-                                        >
-                                            {service.title}
-                                        </DropdownNavLink>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                        <CenteredNavLink href="/about">About</CenteredNavLink>
-                        <CenteredNavLink href="/contact">
-                            Contact
-                        </CenteredNavLink>
-                    </div>
+  return (
+    <nav className="fixed z-10 w-full bg-sky-800  ">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="items-stretch justify-between md:flex">
+          <LogoAndMobileMenu toggleMenu={toggleMenu} />
 
-                    {/* Optional Right-Side Component (e.g., CTA Button) */}
-                    <div className="hidden md:flex justify-end items-center gap-6">
-                        <Link
-                            href="tel:0123456789"
-                            className="text-white border-2 border-white rounded shadow px-3 py-2"
-                        >
-                            Call Us
-                        </Link>
-
-                        <Link
-                            href="/get-started"
-                            className="text-cyan-500 bg-white hover:bg-cyan-700 hover:text-white border-2 border-cyan-300 rounded shadow px-3 py-2"
-                        >
-                            Get Started
-                        </Link>
-                    </div>
-                </div>
-            </div>
-
-            {/* Mobile Menu */}
+          {/* Centered Navigation Links */}
+          <div className="hidden items-center justify-center gap-14 font-exo2 text-2xl md:flex lg:gap-20">
+            {/* Services Dropdown */}
             <div
-                className={`md:hidden ${
-                    isOpen ? "block" : "hidden"
-                } px-4 py-3 bg-white border-t-2 border-gray-100`}
+              className="group relative h-full"
+              onMouseOver={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
             >
-                <div className="flex items-center justify-between mb-4">
-                    <span className="text-lg font-semibold text-gray-700">
-                        Menu
-                    </span>
-                    <button onClick={() => setIsOpen(false)}>
-                        <svg
-                            className="w-6 h-6 text-gray-600"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-
-                <button
-                    onClick={() => setServicesOpen(!isServicesOpen)}
-                    className="flex items-center justify-between w-full text-left text-gray-700 hover:bg-gray-100 py-2"
-                >
-                    Services
-                    <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+              <CenteredNavLink href="/services">Services</CenteredNavLink>
+              <div
+                className={`top-22 absolute -left-4 z-20 rounded-md bg-white  shadow-lg ${
+                  isServicesOpen
+                    ? "animate-rollDown  group-hover:block"
+                    : "hidden"
+                }`}
+                onMouseOver={() => setServicesOpen(true)}
+                onMouseLeave={() => setServicesOpen(false)}
+              >
+                <div className="p-4">
+                  {services.map((service) => (
+                    <DropdownNavLink
+                      href={`/services/${service.url}`}
+                      key={service.id}
                     >
-                        <path d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                {isServicesOpen && (
-                    <div className="pl-4 py-2">
-                        {services.map((service) => (
-                            <Link
-                                href={`/services/${service.url}`}
-                                key={service.id}
-                                className="block text-sm text-gray-600 hover:bg-gray-100 py-1"
-                            >
-                                {service.title}
-                            </Link>
-                        ))}
-                        <Link
-                            href="/residential"
-                            className="block text-sm text-gray-600 hover:bg-gray-100 py-1"
-                        >
-                            Residential
-                        </Link>
-                        <Link
-                            href="/commercial"
-                            className="block text-sm text-gray-600 hover:bg-gray-100 py-1"
-                        >
-                            Commercial
-                        </Link>
-                    </div>
-                )}
-
-                <Link
-                    href="/about"
-                    className="block text-sm text-gray-700 hover:bg-gray-100 py-2"
-                >
-                    About
-                </Link>
-                <Link
-                    href="/contact"
-                    className="block text-sm text-gray-700 hover:bg-gray-100 py-2"
-                >
-                    Contact
-                </Link>
-                <hr className="my-2 border-gray-200" />
-                <Link
-                    href="tel:0123456789"
-                    className="block text-sm text-gray-700 hover:bg-gray-100 py-2"
-                >
-                    01234 567 890
-                </Link>
-                <Link
-                    href="/get-started"
-                    className="block text-sm text-gray-700 hover:bg-gray-100 py-2"
-                >
-                    Get Started
-                </Link>
+                      {service.title}
+                    </DropdownNavLink>
+                  ))}
+                </div>
+              </div>
             </div>
-        </nav>
-    );
+            <CenteredNavLink href="/about">About</CenteredNavLink>
+            <CenteredNavLink href="/contact">Contact</CenteredNavLink>
+          </div>
+          <div className="hidden items-center justify-end gap-6 md:flex">
+            <Link
+              href="tel:0123456789"
+              className="rounded border-2 border-white px-3 py-2 text-white shadow"
+            >
+              Call Us
+            </Link>
+
+            <Link
+              href="/get-started"
+              className="rounded border-2 border-cyan-300 bg-white px-3 py-2 text-cyan-500 shadow hover:bg-cyan-700 hover:text-white"
+            >
+              Get Started
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <MobileMenu
+        menuOpen={menuOpen}
+        toggleMenu={toggleMenu}
+        services={services}
+        isServicesOpen={isServicesOpen}
+        setServicesOpen={setServicesOpen}
+      />
+    </nav>
+  );
 };
 
 export default Navbar;

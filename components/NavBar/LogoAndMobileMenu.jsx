@@ -1,40 +1,40 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function LogoAndMobileMenu({ isOpen, setIsOpen }) {
-    return (
-        <div className="flex justify-between items-stretch">
-            <Link
-                href="/"
-                className="text-xl font-semibold text-cyan-0 hover:text-cyan-600"
-            >
-                <Image
-                    src="/logo-01.png"
-                    width={150}
-                    height={150}
-                    alt="Prime Plus Mortgages Logo"
-                    className=" h-20 2xl:w-44 2xl:h-22 my-3"
-                />
-            </Link>
+export default function LogoAndMobileMenu({ toggleMenu }) {
+  return (
+    <div className="flex items-stretch justify-between">
+      <Link
+        href="/"
+        className="text-cyan-0 text-xl font-semibold hover:text-cyan-600"
+      >
+        <Image
+          src="/logo-01.png"
+          width={150}
+          height={150}
+          alt="Prime Plus Mortgages Logo"
+          className=" 2xl:h-22 my-3 h-20 2xl:w-44"
+        />
+      </Link>
 
-            <div className="md:hidden flex items-center">
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="outline-none mobile-menu-button"
-                >
-                    <svg
-                        className="w-6 h-6 text-gray-500 hover:text-cyan-500"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    );
+      <div className="flex items-center md:hidden">
+        <button
+          onClick={toggleMenu}
+          className="mobile-menu-button outline-none"
+        >
+          <svg
+            className="h-6 w-6 text-gray-500 hover:text-cyan-500"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  );
 }
