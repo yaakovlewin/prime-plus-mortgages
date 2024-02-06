@@ -22,7 +22,7 @@ const Navbar = () => {
 
           {/* Centered Navigation Links */}
           <div className="hidden items-center justify-center gap-14 font-exo2 text-2xl md:flex lg:gap-20">
-            {/* Services Dropdown */}
+            <CenteredNavLink href="/">Home</CenteredNavLink>
             <div
               className="group relative h-full"
               onMouseOver={() => setServicesOpen(true)}
@@ -51,14 +51,13 @@ const Navbar = () => {
               </div>
             </div>
             <CenteredNavLink href="/about">About</CenteredNavLink>
-            <CenteredNavLink href="/contact">Contact</CenteredNavLink>
           </div>
           <div className="hidden items-center justify-end gap-6 md:flex">
             <Link
-              href="tel:0123456789"
+              href="/contact"
               className="rounded border-2 border-white px-3 py-2 text-white shadow"
             >
-              Call Us
+              Contact Us
             </Link>
 
             <Link

@@ -63,7 +63,9 @@ export default function MobileMenu({
           ))}
         </div>
       )}
-
+      <MobileNavLink href="/" toggleMenu={toggleMenu}>
+        Home
+      </MobileNavLink>
       <MobileNavLink href="/about" toggleMenu={toggleMenu}>
         About
       </MobileNavLink>
