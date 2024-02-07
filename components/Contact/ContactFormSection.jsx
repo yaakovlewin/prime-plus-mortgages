@@ -33,7 +33,6 @@ const ContactFormSection = () => {
             data-netlify="true"
             netlify-honeypot="bot-field"
             data-netlify-recaptcha="true"
-            netlify
             method="POST"
             className="rounded-lg bg-white p-8 shadow-lg"
             onSubmit={handleSubmit}
@@ -75,6 +74,7 @@ const ContactFormSection = () => {
               ></textarea>
             </div>
             <div data-netlify-recaptcha="true"></div>
+            <input type="hidden" name="contact" value="contact" />
             <button
               type="submit"
               className="rounded-md bg-cyan-600 px-4 py-2 font-semibold text-white hover:bg-cyan-700"
