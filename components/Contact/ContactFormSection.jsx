@@ -73,7 +73,7 @@ const ContactFormSection = () => {
               ></textarea>
             </div>
             <div data-netlify-recaptcha="true"></div>
-            <input type="hidden" name="contact" value="contact" />
+            <input type="hidden" name="form-name" value="contact" />
             <button
               type="submit"
               className="rounded-md bg-cyan-600 px-4 py-2 font-semibold text-white hover:bg-cyan-700"
