@@ -31,7 +31,6 @@ const ContactFormSection = () => {
           <form
             name="contact"
             data-netlify="true"
-            netlify-honeypot="bot-field"
             data-netlify-recaptcha="true"
             method="POST"
             className="rounded-lg bg-white p-8 shadow-lg"
