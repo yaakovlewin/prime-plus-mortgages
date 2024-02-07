@@ -74,6 +74,7 @@ const ContactFormSection = () => {
                 className="w-full rounded-md border border-gray-300 px-3 py-2 ring-1 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600"
               ></textarea>
             </div>
+            <div data-netlify-recaptcha="true"></div>
             <button
               type="submit"
               className="rounded-md bg-cyan-600 px-4 py-2 font-semibold text-white hover:bg-cyan-700"
