@@ -1,46 +1,89 @@
-import React from "react";
-
+"use client";
+import { useRouter } from "next/navigation";
 const ContactFormSection = () => {
-    return (
-        <section className="py-12 bg-white">
-            <div className="container mx-auto px-4">
-                <div className="max-w-2xl mx-auto">
-                    <form action="#" method="POST">
-                        <div className="mb-4">
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Your Name"
-                                className="w-full px-4 py-2 border rounded-md"
-                            />
-                        </div>
-                        <div className="mb-4">
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Your Email"
-                                className="w-full px-4 py-2 border rounded-md"
-                            />
-                        </div>
-                        <div className="mb-4">
-                            <textarea
-                                name="message"
-                                rows="4"
-                                placeholder="Your Message"
-                                className="w-full px-4 py-2 border rounded-md"
-                            ></textarea>
-                        </div>
-                        <button
-                            type="submit"
-                            className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded-md"
-                        >
-                            Send Message
-                        </button>
-                    </form>
-                </div>
+  const router = useRouter();
+
+  function encode(data) {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]),
+      )
+      .join("&");
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...Object.fromEntries(new FormData(form)),
+      }),
+    })
+      .then(() => router.push("/success"))
+      .catch((error) => alert(error));
+  };
+  return (
+    <section className="bg-slate-100 py-12 text-center">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-lg">
+          <form
+            name="contact"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            netlify
+            method="POST"
+            className="rounded-lg bg-white p-8 shadow-lg"
+            onSubmit={handleSubmit}
+          >
+            <div className="mb-6">
+              <label htmlFor="name" className="mb-2 block text-sm">
+                Your Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="John Doe"
+                className="w-full rounded-md border border-gray-300 px-3 py-2 ring-1 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+              />
             </div>
-        </section>
-    );
+            <div className="mb-6">
+              <label htmlFor="email" className="mb-2 block text-sm">
+                Your Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john@example.com"
+                className="w-full rounded-md border border-gray-300 px-3 py-2 ring-1 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+              />
+            </div>
+            <div className="mb-6">
+              <label htmlFor="message" className="mb-2 block text-sm">
+                Your Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Enter your message..."
+                className="w-full rounded-md border border-gray-300 px-3 py-2 ring-1 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              className="rounded-md bg-cyan-600 px-4 py-2 font-semibold text-white hover:bg-cyan-700"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default ContactFormSection;

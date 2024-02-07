@@ -15,6 +15,20 @@ module.exports = {
         'rubik': ['var(--font-rubik)'],
         'zilla-slab': ['var(--font-zilla-slab)'],
       },
+      colors: {
+        'beige': {
+          50: '#fffdf7',
+          100: '#fefcf0',
+          200: '#fdf9d9',
+          300: '#fcf6c3',
+          400: '#f9ee96',
+          500: '#f6e669',
+          600: '#e0d05f',
+          700: '#b8a14c',
+          800: '#8f733a',
+          900: '#74602f',
+        },
+      },
       backgroundImage: {
         'hero-pattern': 'url("/images/hero-pattern.svg")',
         'footer-texture': 'url("/houses-pattern.jpg")',
