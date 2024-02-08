@@ -2,60 +2,61 @@ import React from "react";
 import Heading2 from "../Heading2";
 
 const ValuesMissionSection = () => {
-    return (
-        <section className="py-12 bg-gray-50">
-            <div className="container mx-auto px-4">
-                <Heading2 className="text-3xl font-bold text-center text-cyan-600 mb-8">
-                    Our Values & Mission
-                </Heading2>
+  return (
+    <section className="bg-gray-50 py-12">
+      <div className="container mx-auto px-4">
+        <Heading2 className="mb-6 text-center text-3xl font-semibold text-cyan-600">
+          Our Core Principles
+        </Heading2>
 
-                <div className="grid md:grid-cols-3 gap-8">
-                    {/* Value 1 */}
-                    <div className="bg-white rounded-lg shadow p-6 text-center">
-                        <h3 className="text-xl font-semibold mb-3">
-                            Integrity
-                        </h3>
-                        <p className="text-gray-600">
-                            Upholding the highest standards of integrity in all
-                            our actions.
-                        </p>
-                    </div>
+        <div className="grid gap-8 md:grid-cols-3">
+          {/* Value 1 */}
+          <div className="rounded-lg bg-white p-6 text-center shadow">
+            <h3 className="mb-3 text-xl font-semibold">Integrity</h3>
+            <p className="text-gray-600">
+              We&apos;re steadfast in maintaining the utmost integrity, ensuring
+              honesty and transparency are at the heart of everything we do.
+            </p>
+          </div>
 
-                    {/* Value 2 */}
-                    <div className="bg-white rounded-lg shadow p-6 text-center">
-                        <h3 className="text-xl font-semibold mb-3">
-                            Commitment
-                        </h3>
-                        <p className="text-gray-600">
-                            Committed to delivering quality service and value to
-                            our clients.
-                        </p>
-                    </div>
+          {/* Value 2 */}
+          <div className="rounded-lg bg-white p-6 text-center shadow">
+            <h3 className="mb-3 text-xl font-semibold">Commitment</h3>
+            <p className="text-gray-600">
+              Our dedication is unwavering. Delivering exceptional service and
+              unparalleled value to our clients is not just our promise;
+              it&apos;s our practice.
+            </p>
+          </div>
 
-                    {/* Value 3 */}
-                    <div className="bg-white rounded-lg shadow p-6 text-center">
-                        <h3 className="text-xl font-semibold mb-3">
-                            Expertise
-                        </h3>
-                        <p className="text-gray-600">
-                            Continuously advancing our knowledge to better serve
-                            your needs.
-                        </p>
-                    </div>
-                </div>
+          {/* Value 3 */}
+          <div className="rounded-lg bg-white p-6 text-center shadow">
+            <h3 className="mb-3 text-xl font-semibold">Expertise</h3>
+            <p className="text-gray-600">
+              We believe in perpetual growth, constantly enhancing our knowledge
+              and skills to exceed your expectations.
+            </p>
+          </div>
+        </div>
 
-                <div className="mt-8 text-center">
-                    <p className="text-lg text-gray-700">
-                        Our mission at Prime Plus Mortgages is to empower
-                        clients to make informed financial decisions by
-                        providing expert advice, personalized solutions, and
-                        transparent services. We strive to be your trusted
-                        partner in all things mortgage.
-                    </p>
-                </div>
-            </div>
-        </section>
-    );
+        <div className="mt-8 text-center">
+          <Heading2 className="mb-6 text-center text-3xl font-semibold text-cyan-600">
+            Empowering Your Financial Journey
+          </Heading2>
+          <p className="text-lg text-gray-700">
+            At Prime Plus Mortgages, our mission transcends mere transactions.
+            We&apos;re here to enlighten and empower you, enabling informed
+            financial decisions through a blend of expert advice, bespoke
+            solutions, and absolute transparency. As your ally in the mortgage
+            landscape, we commit to guiding you with integrity, supporting your
+            ambitions with our unwavering commitment, and leading with our
+            expertise. Together, we&apos;ll navigate the path to your property
+            dreams.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default ValuesMissionSection;

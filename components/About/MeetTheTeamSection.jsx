@@ -4,7 +4,7 @@ import Heading2 from "../Heading2";
 
 const MeetTheTeamSection = () => {
   return (
-    <section className="bg-white py-12" id="team">
+    <section className="border-t-4 border-sky-800 bg-white py-12" id="team">
       <div className="container mx-auto px-4">
         <Heading2 className="mb-8 text-center text-3xl font-semibold text-cyan-600">
           Meet Our Team

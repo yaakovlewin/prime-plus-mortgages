@@ -1,37 +1,37 @@
 import Heading2 from "../Heading2";
 
 const CompanyOverviewSection = () => {
-    return (
-        <section className="py-12 bg-sky-100">
-            <div className="container mx-auto px-4">
-                <Heading2 className="text-3xl font-semibold text-center text-cyan-600 mb-6">
-                    About Prime Plus Mortgages
-                </Heading2>
-                <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <p className="text-lg leading-relaxed text-gray-700">
-                            At Prime Plus Mortgages, we understand that finding
-                            the right mortgage solution can be daunting. With
-                            over 20 years of experience in the mortgage
-                            industry, we specialize in guiding our clients
-                            through the process with expertise and personalized
-                            service.
-                        </p>
-                    </div>
-                    <div>
-                        <p className="text-lg leading-relaxed text-gray-700">
-                            Our team of dedicated mortgage professionals is
-                            committed to providing competitive rates, flexible
-                            options, and a hassle-free experience. Whether
-                            you&apos;re a first-time homebuyer or looking to
-                            refinance, we&apos;re here to find the mortgage plan
-                            that&apos;s perfect for you.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section className="bg-sky-100 py-12">
+      <div className="container mx-auto px-4">
+        <Heading2 className="mb-6 text-center text-3xl font-semibold text-cyan-600">
+          Empowering Your Property Dreams with Precision and Passion
+        </Heading2>
+        <div className="grid gap-6 md:grid-cols-2">
+          <div>
+            <p className="text-lg leading-relaxed text-gray-700">
+              At Prime Plus Mortgages, we blend innovation ambition, and
+              efficiency to pioneer bespoke mortgage solutions that lead the
+              industry. By engaging directly with banks, we guarantee our
+              diverse clientele, From enthusiastic first-time homebuyers to
+              astute major investors, each receive mortgage plans meticulously
+              crafted to their unique aspirations.
+            </p>
+          </div>
+          <div>
+            <p className="text-lg leading-relaxed text-gray-700">
+              Our team is devoted to navigating you through an expansive suite
+              of mortgage options and cutting-edge title splitting services for
+              ventures up to £150M. With us, you benefit from unmatched rates,
+              adaptable solutions, and a dedication to seamless service, because
+              your property dreams, regardless of scale, deserve unwavering
+              support.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default CompanyOverviewSection;
