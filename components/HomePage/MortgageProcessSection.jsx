@@ -9,73 +9,98 @@ export default function MortgageProcessSection() {
       <Heading2>How the Mortgage Process Works</Heading2>
       <BrickWallContainer>
         {/* Step-by-Step Guide */}
-        <div className="grid gap-4 px-4 text-center text-cyan-100 md:grid-cols-3">
+        <div className="grid gap-10 px-4 text-center text-cyan-100 md:grid-cols-3">
           {/* Step 1 */}
           <div className="mb-6 md:mb-0">
-            <div className="mb-2">
-              <Image
-                src="/meeting-svgrepo-com (2).svg"
-                alt="Step 1"
-                width={200}
-                height={80}
-                className=" mx-auto mb-3 h-20 w-44"
-              />
+            <div className=" h-44">
+              <h2 className="mb-4 font-exo2 text-2xl font-semibold text-cyan-100">
+                Step 1: Begin with Insight
+              </h2>
+              <div className="mb-5">
+                <Image
+                  src="/meeting-svgrepo-com (2).svg"
+                  alt="Step 1"
+                  width={200}
+                  height={80}
+                  className=" mx-auto mb-3 h-20 w-44"
+                />
+              </div>
             </div>
             <h3 className="mb-2 font-semibold text-cyan-300">
-              Step 1: Initial Consultation
+              Initial Consultation
             </h3>
-            <p>
-              Start your property journey with a face-to-face consultation.
-              Receive personalized, expert advice tailored to your investment or
-              home buying ambitions.
+            <p className="text-justify">
+              Embark on your property journey with a personalized, face-to-face
+              consultation. Our experts offer tailored advice, designed to align
+              precisely with your investment goals or homebuying dreams. This is
+              where your vision starts to take shape, informed by our deep
+              understanding and commitment to your success.
             </p>
           </div>
 
           {/* Step 2 */}
           <div className="mb-6 md:mb-0">
-            <div className="mb-5">
-              <Image
-                src="/mortgage-contract-svgrepo-com (1).svg"
-                alt="Step 2"
-                width={200}
-                height={80}
-                className=" mx-auto mb-3 h-20 w-44 text-cyan-800  "
-              />
+            <div className="h-44">
+              <h2 className="mb-4 font-exo2 text-2xl font-semibold text-cyan-100">
+                Step 2: Streamline Your Path
+              </h2>
+              <div className="mb-5">
+                <Image
+                  src="/mortgage-contract-svgrepo-com (1).svg"
+                  alt="Step 2"
+                  width={200}
+                  height={80}
+                  className=" mx-auto mb-3 h-20 w-44 text-cyan-800  "
+                />
+              </div>
             </div>
             <h3 className="mb-2 font-semibold text-cyan-300">
-              Step 2: Application & Documentation
+              Application & Documentation
             </h3>
-            <p>
-              Proceed with ease using our streamlined application process. We
-              require minimal, yet essential documentation: <br />
-              <em
+            <p className="text-justify">
+              Navigate our simplified application process with ease. We value
+              your time and ask only for essential documentation to move
+              forward: <br />
+              <i
                 className="
-                italic text-cyan-400
+                italic text-cyan-300
               "
               >
-                ID, Proof of Address, Income Proof, Portfolio Spreadsheet.
-              </em>
+                ID, Proof of Address, Income Proof, Portfolio Spreadsheet (if
+                applicable).
+              </i>
+              <br />
+              This step ensures we have all we need to tailor the mortgage
+              solution that best fits your unique scenario.
             </p>
           </div>
 
           {/* Step 3 */}
-          <div>
-            <div className="mb-5">
-              <Image
-                src="/mortgage-svgrepo-com (2).svg"
-                alt="Step 3"
-                width={200}
-                height={80}
-                className=" mx-auto mb-3 h-20 w-44"
-              />
+          <div className="mb-6 md:mb-0">
+            <div className=" h-44">
+              <h2 className="mb-4 font-exo2 text-2xl font-semibold text-cyan-100">
+                Step 3: Cross the Finish Line
+              </h2>
+              <div className="mb-5">
+                <Image
+                  src="/mortgage-svgrepo-com (2).svg"
+                  alt="Step 3"
+                  width={200}
+                  height={80}
+                  className=" mx-auto mb-3 h-20 w-44"
+                />
+              </div>
             </div>
             <h3 className="mb-2 font-semibold text-cyan-300">
-              Step 3: Approval & Closing
+              Approval & Closing
             </h3>
-            <p>
-              Secure your investment swiftly. Our fast approval means you
-              finalize mortgage terms and proceed with your strategy
-              confidently.
+            <p className="text-justify">
+              Experience rapid progress toward your goals with our expedited
+              approval process. We work diligently to review your application
+              and documents, aiming for a swift approval so you can finalize
+              your mortgage terms. With Prime Plus Mortgages, step into the
+              future of your investment or dream home with confidence and peace
+              of mind.
             </p>
           </div>
         </div>
