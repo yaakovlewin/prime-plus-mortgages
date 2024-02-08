@@ -15,7 +15,7 @@ export default function Footer() {
             <h2 className="mb-6 text-lg font-semibold text-white">Company</h2>
             <ul>
               <FooterLink href="/about">About</FooterLink>
-              <FooterLink href="/team">Team</FooterLink>
+              <FooterLink href="/about/#team">Team</FooterLink>
               <FooterLink href="/careers">Careers</FooterLink>
               <FooterLink href="/contact">Contact</FooterLink>
             </ul>
@@ -36,8 +36,8 @@ export default function Footer() {
             <h2 className="mb-6 text-lg font-semibold text-white">Resources</h2>
             <ul>
               <FooterLink href="/blog">Blog</FooterLink>
-              <FooterLink href="/faq">FAQ</FooterLink>
-              <FooterLink href="/reviews">Reviews</FooterLink>
+              <FooterLink href="/#faq">FAQ</FooterLink>
+              <FooterLink href="/#reviews">Reviews</FooterLink>
               <FooterLink href="/terms">Terms & Conditions</FooterLink>
               <FooterLink href="/privacy">Privacy Policy</FooterLink>
             </ul>

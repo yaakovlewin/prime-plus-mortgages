@@ -3,38 +3,34 @@ import Image from "next/image";
 import Heading2 from "../Heading2";
 
 const MeetTheTeamSection = () => {
-    return (
-        <section className="py-12 bg-white">
-            <div className="container mx-auto px-4">
-                <Heading2 className="text-3xl font-semibold text-center text-cyan-600 mb-8">
-                    Meet Our Team
-                </Heading2>
-                <div className="grid md:grid-cols-3 gap-6">
-                    {teamMembersData.map((member) => (
-                        <div
-                            key={member.id}
-                            className="text-center p-6 bg-gray-100 rounded-lg shadow"
-                        >
-                            <Image
-                                src={member.photoUrl}
-                                alt={member.name}
-                                width={128}
-                                height={128}
-                                className="w-32 h-32 rounded-full mx-auto mb-4"
-                            />
-                            <h3 className="font-semibold text-xl mb-2">
-                                {member.name}
-                            </h3>
-                            <p className="text-cyan-600 font-semibold">
-                                {member.role}
-                            </p>
-                            <p className="text-gray-600 mt-2">{member.bio}</p>
-                        </div>
-                    ))}
-                </div>
+  return (
+    <section className="bg-white py-12" id="team">
+      <div className="container mx-auto px-4">
+        <Heading2 className="mb-8 text-center text-3xl font-semibold text-cyan-600">
+          Meet Our Team
+        </Heading2>
+        <div className="grid gap-6 md:grid-cols-3">
+          {teamMembersData.map((member) => (
+            <div
+              key={member.id}
+              className="rounded-lg bg-gray-100 p-6 text-center shadow"
+            >
+              <Image
+                src={member.photoUrl}
+                alt={member.name}
+                width={128}
+                height={128}
+                className="mx-auto mb-4 h-32 w-32 rounded-full"
+              />
+              <h3 className="mb-2 text-xl font-semibold">{member.name}</h3>
+              <p className="font-semibold text-cyan-600">{member.role}</p>
+              <p className="mt-2 text-gray-600">{member.bio}</p>
             </div>
-        </section>
-    );
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default MeetTheTeamSection;
