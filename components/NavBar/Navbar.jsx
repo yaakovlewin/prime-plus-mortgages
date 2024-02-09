@@ -1,4 +1,3 @@
-// components/Navbar.js
 "use client";
 import { useState } from "react";
 import Link from "next/link";
@@ -55,14 +54,14 @@ const Navbar = () => {
           <div className="hidden items-center justify-end gap-6 md:flex">
             <Link
               href="/contact"
-              className="rounded border-2 border-white px-3 py-2 text-white shadow"
+              className="rounded border-2 border-sky-800 px-3 py-2 text-white shadow ring-2 ring-cyan-300 hover:border-sky-800 hover:bg-cyan-50 hover:text-cyan-800 hover:ring-2 hover:ring-cyan-300  "
             >
               Contact Us
             </Link>
 
             <Link
               href="/get-started"
-              className="rounded border-2 border-cyan-300 bg-white px-3 py-2 text-cyan-500 shadow hover:bg-cyan-700 hover:text-white"
+              className="rounded border-2 border-sky-800 bg-white px-3 py-2 text-cyan-500 shadow ring-2 ring-cyan-300 hover:bg-cyan-700 hover:text-white"
             >
               Get Started
             </Link>
