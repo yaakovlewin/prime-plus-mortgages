@@ -216,23 +216,23 @@ const servicesData = [
         url: "/holiday-let",
         details: [
             {
-                title: "Comprehensive Solutions",
-                description: "We offer a comprehensive approach to residential mortgages, offering the best rates and terms to suit your needs. Our team of experts will guide you through the entire process, ensuring a smooth and efficient experience. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to help you achieve your goals.",
+                title: "Specialized Financing for Holiday Homes",
+                description: "Discover the perfect holiday let mortgage solution with Prime Plus Mortgages. Our expertise extends to providing competitive rates and tailored terms for your holiday property investments. From purchasing your dream holiday home to refinancing for better terms, our dedicated team ensures a seamless and efficient journey, tailored to the unique dynamics of holiday let financing.",
                 icon: "FaChartLine"
             },
             {
-                title: "Tailored to Your Needs",
-                description: "Each client has unique needs, and our service is designed to meet these through personalized solutions. We take into account your financial situation, goals, and preferences to provide you with the best residential mortgage options. Whether you're a first-time homebuyer or looking to refinance, our team of experts will guide you every step of the way to ensure a smooth and successful experience.",
+                title: "Bespoke Solutions for Your Holiday Let",
+                description: "Understanding that each investor's vision for their holiday property is unique, we offer customized mortgage strategies. By considering your financial objectives, property goals, and guest experience aspirations, we provide you with the most suitable holiday let mortgage options. Our experts are committed to guiding you through each decision, ensuring your investment flourishes.",
                 icon: "FaHome"
             },
             {
-                title: "Expert Advice",
-                description: "Our team of experts will help you navigate the residential mortgage process, providing personalized solutions tailored to your needs. We work with a variety of lenders to ensure competitive rates and terms that suit your financial goals. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to guide you every step of the way, ensuring a smooth and successful experience.",
+                title: "Navigating with Expertise",
+                description: "Leverage our specialized knowledge in the holiday let market to navigate the mortgage process with ease. Our advisors collaborate with a broad spectrum of lenders, securing deals that complement your investment strategy. Whether you’re embarking on your first holiday let purchase or optimizing your existing portfolio, our team is here to ensure a successful and profitable venture.",
                 icon: "FaUserTie"
             },
             {
-                title: "Competitive Rates",
-                description: "We work with a variety of lenders to ensure you get the best rate and terms for your mortgage. Our team of experts will guide you through the refinancing process, helping you save money and achieve your financial goals. Whether you're looking to lower your monthly payments, shorten your loan term, or access equity in your home, we have the expertise and resources to assist you every step of the way.",
+                title: "Optimize Your Investment with Competitive Financing",
+                description: "Maximize the returns on your holiday let investment with Prime Plus Mortgages. We ensure you access the best possible rates and terms, allowing you to enhance your property’s earning potential. Whether aiming to reduce costs, leverage equity, or adjust your financial strategy, our expertise supports your journey every step of the way, driving towards greater success in the holiday let market.",
                 icon: "FaDollarSign"
             }
         ],
@@ -245,23 +245,23 @@ const servicesData = [
         url: "/foreign-national",
         details: [
             {
-                title: "Comprehensive Solutions",
-                description: "We offer a comprehensive approach to residential mortgages, offering the best rates and terms to suit your needs. Our team of experts will guide you through the entire process, ensuring a smooth and efficient experience. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to help you achieve your goals.",
+                title: "Navigating Your Journey with Global Expertise",
+                description: "Prime Plus Mortgages extends a warm welcome to foreign nationals looking for residential mortgage solutions in a new country. Understanding the complexities you face, we offer bespoke rates and terms, coupled with a seamless process guided by our seasoned experts. Whether you’re aiming to settle in a new home or seeking refinancing options, our resources and knowledge are tailored to meet the unique challenges of international property investment.",
                 icon: "FaChartLine"
             },
             {
-                title: "Tailored to Your Needs",
-                description: "Each client has unique needs, and our service is designed to meet these through personalized solutions. We take into account your financial situation, goals, and preferences to provide you with the best residential mortgage options. Whether you're a first-time homebuyer or looking to refinance, our team of experts will guide you every step of the way to ensure a smooth and successful experience.",
+                title: "Customized Financing That Understands You",
+                description: "Recognizing the diverse needs of our global clientele, we provide personalized mortgage solutions that reflect your individual financial scenario, goals, and preferences. Our approach is designed to navigate the nuances of the local market while catering to the distinctive needs of foreign nationals, ensuring you feel understood and supported at every step.",
                 icon: "FaHome"
             },
             {
-                title: "Expert Advice",
-                description: "Our team of experts will help you navigate the residential mortgage process, providing personalized solutions tailored to your needs. We work with a variety of lenders to ensure competitive rates and terms that suit your financial goals. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to guide you every step of the way, ensuring a smooth and successful experience.",
+                title: "Expertise Without Borders",
+                description: "Our team, proficient in the intricacies of international mortgage processes, offers you tailored advice to align with your financial ambitions. By partnering with an extensive network of lenders, we ensure you receive competitive rates and favorable terms, making your journey to homeownership or refinancing as smooth and successful as possible, regardless of where you come from.",
                 icon: "FaUserTie"
             },
             {
-                title: "Competitive Rates",
-                description: "We work with a variety of lenders to ensure you get the best rate and terms for your mortgage. Our team of experts will guide you through the refinancing process, helping you save money and achieve your financial goals. Whether you're looking to lower your monthly payments, shorten your loan term, or access equity in your home, we have the expertise and resources to assist you every step of the way.",
+                title: "Competitive Financing for a World of Opportunities",
+                description: "With Prime Plus Mortgages, foreign nationals can access the best mortgage rates and terms, designed to maximize savings and meet your financial objectives. Whether reducing monthly payments, shortening loan terms, or unlocking home equity, our dedicated team provides expert guidance and support, helping you navigate the complexities of the mortgage landscape with confidence.",
                 icon: "FaDollarSign"
             }
         ],
@@ -274,40 +274,25 @@ const servicesData = [
         url: "/loans-bridging",
         details: [
             {
-                title: "Comprehensive Solutions",
-                description: "We offer a comprehensive approach to commercial mortgages, offering the best rates and terms to suit your business needs. Our team of experts will guide you through the entire process, ensuring a smooth and efficient experience. Whether you're looking to purchase a new commercial property or refinance an existing one, we have the expertise and resources to help you achieve your goals.",
+                title: "Streamlined Financing Solutions",
+                description: "At Prime Plus Mortgages, we specialize in bridging loans and commercial mortgages, offering competitive rates and flexible terms tailored to propel your business forward. Our team of seasoned experts is dedicated to guiding you through a streamlined process, ensuring you secure the financing you need with efficiency and ease. Whether acquiring a new asset or refinancing for growth, our comprehensive approach is designed to support your commercial objectives.",
                 icon: "FaChartLine"
             },
             {
-                title: "Tailored to Your Needs",
-                description: "Each client has unique needs, and our service is designed to meet these through personalized solutions. We take into account your business situation, goals, and preferences to provide you with the best commercial mortgage options. Whether you're a first-time commercial property buyer or looking to refinance, our team of experts will guide you every step of the way to ensure a smooth and successful experience.",
+                title: "Bespoke Strategies for Commercial Success",
+                description: "Understanding that no two businesses are alike, we deliver customized financing solutions crafted around your unique commercial landscape. Our experts consider your business's specific situation, goals, and aspirations to provide optimal loan options. From first-time commercial acquisitions to strategic refinancing, we're committed to navigating you through a successful and hassle-free financing journey.",
                 icon: "FaHome"
             },
             {
-                title: "Expert Advice",
-                description: "Our team of experts will help you navigate the commercial mortgage process, providing personalized solutions tailored to your business needs. We work with a variety of lenders to ensure competitive rates and terms that suit your financial goals. Whether you're looking to purchase a new commercial property or refinance an existing one, we have the expertise and resources to guide you every step of the way, ensuring a smooth and successful experience.",
+                title: "Navigating with Expertise",
+                description: "Leverage our deep market knowledge and vast lender network for your commercial financing needs. Our professionals excel in securing the best possible rates and terms, ensuring your loan strategy aligns with your business's financial health and growth plans. With Prime Plus Mortgages, gain a trusted advisor to guide you through the complexities of commercial loans and bridging finance, making every step toward your goal as seamless as possible.",
                 icon: "FaUserTie"
             },
             {
-                title: "Competitive Rates",
-                description: "We work with a variety of lenders to ensure you get the best rate and terms for your commercial mortgage. Our team of experts will guide you through the refinancing process, helping you save money and achieve your financial goals. Whether you're looking to lower your monthly payments, shorten your loan term, or access equity in your commercial property, we have the expertise and resources to assist you every step of the way.",
+                title: "Optimize Your Commercial Investments",
+                description: "Maximize the potential of your commercial properties with Prime Plus Mortgages. We engage a diverse array of lenders to offer you superior rates and terms, enhancing your financial flexibility. Whether aiming to improve cash flow, reduce loan durations, or unlock equity for reinvestment, our expertise is your strategic advantage in the commercial finance landscape.",
                 icon: "FaDollarSign"
             }
-        ],
-    },
-    {
-        id: 4,
-        title: "Mortgage Renewal",
-        description: "Renew your mortgage to get a better rate and save money.",
-        imageUrl: "/mortgage-renewal.jpg",
-        url: "/mortgage-renewal",
-        details: [
-            {
-                title: "Comprehensive Solutions",
-                description: "We offer a comprehensive approach to residential mortgages, offering the best rates and terms to suit your needs. Our team of experts will guide you through the entire process, ensuring a smooth and efficient experience. Whether you're looking to renew your mortgage or refinance an existing one, we have the expertise and resources to help you achieve your goals.",
-                icon: "FaChartLine"
-            },
-
         ],
     },
 ];
