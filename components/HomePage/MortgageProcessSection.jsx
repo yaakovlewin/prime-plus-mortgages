@@ -13,7 +13,7 @@ export default function MortgageProcessSection() {
           {/* Step 1 */}
           <div className="mb-6 md:mb-0">
             <div className=" h-44">
-              <h2 className="mb-4 font-exo2 text-2xl font-semibold text-cyan-100">
+              <h2 className="mb-4 h-16 font-exo2 text-2xl font-semibold text-cyan-100">
                 Step 1: Begin with Insight
               </h2>
               <div className="mb-5">
@@ -41,7 +41,7 @@ export default function MortgageProcessSection() {
           {/* Step 2 */}
           <div className="mb-6 md:mb-0">
             <div className="h-44">
-              <h2 className="mb-4 font-exo2 text-2xl font-semibold text-cyan-100">
+              <h2 className="mb-4 h-16 font-exo2 text-2xl font-semibold text-cyan-100">
                 Step 2: Streamline Your Path
               </h2>
               <div className="mb-5">
@@ -78,7 +78,7 @@ export default function MortgageProcessSection() {
           {/* Step 3 */}
           <div className="mb-6 md:mb-0">
             <div className=" h-44">
-              <h2 className="mb-4 font-exo2 text-2xl font-semibold text-cyan-100">
+              <h2 className="mb-4 h-16 font-exo2 text-2xl font-semibold text-cyan-100">
                 Step 3: Cross the Finish Line
               </h2>
               <div className="mb-5">

@@ -3,7 +3,7 @@ import Heading2 from "../Heading2";
 
 const ValuesMissionSection = () => {
   return (
-    <section className="bg-gray-50 py-12">
+    <section className="border-t border-sky-100 bg-gray-50 py-12 ">
       <div className="container mx-auto px-4">
         <Heading2 className="mb-6 text-center text-3xl font-semibold text-cyan-600">
           Our Core Principles
