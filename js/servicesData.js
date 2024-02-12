@@ -14,7 +14,7 @@ const servicesData = [
             {
                 title: "Personalized Pathways to Ownership",
                 description: "Your first home purchase is a milestone. That's why our approach is meticulously tailored to your individual story. By understanding your financial situation, goals, and preferences, we craft mortgage solutions that fit you perfectly. From navigating loan options to unlocking the door to your new home, our dedicated team offers unwavering support at every step, ensuring your first homebuying experience is a success.",
-                icon: "FaHome"
+                icon: "BsHouseGearFill"
             },
             {
                 title: "Guidance Every Step of the Way",
@@ -24,7 +24,7 @@ const servicesData = [
             {
                 title: "Achieve Your Dream with Competitive Financing",
                 description: "Your first home is within reach, and Prime Plus Mortgages is here to help you seize it. Our extensive network of lenders ensures you receive the most competitive rates and terms, empowering you to make the most of your investment. Whether you're looking to reduce your monthly payments, shorten your loan term, or leverage your property's equity, our expertise is your advantage. our team is committed to helping you achieve your homeownership dreams.",
-                icon: "FaDollarSign"
+                icon: "FaSackDollar"
             },
             // More details as needed
         ],
@@ -44,7 +44,7 @@ const servicesData = [
             {
                 title: "Customized Investment Strategies",
                 description: "Your investment goals are unique. That's why our approach is as individual as you are. From assessing your financial landscape to aligning with your investment ambitions, we deliver bespoke mortgage solutions. Whether you're stepping into the buy-to-let market for the first time or expanding your portfolio, our dedicated specialists are with you at every turn, ensuring a path to success marked by informed decisions and personalized guidance.",
-                icon: "FaHome"
+                icon: "BsHouseGearFill"
             },
             {
                 title: "Unrivaled Expertise and Insight",
@@ -54,7 +54,7 @@ const servicesData = [
             {
                 title: "Competitive Edge in Financing",
                 description: "Maximize your investment with unrivaled access to market-leading rates and terms through our expansive lender network. Whether it's reducing your monthly outgoings, adjusting your loan's lifespan, or leveraging your property's equity, our experts are poised to propel your financial aspirations to new heights. With Prime Plus Mortgages, empowering your portfolio has never been smoother.",
-                icon: "FaDollarSign"
+                icon: "FaSackDollar"
             },
             // More details as needed
         ],
@@ -74,7 +74,7 @@ const servicesData = [
             {
                 title: "Customized Financial Strategies",
                 description: "Step into the world of short-term mortgages with experts by your side. Our advisors leverage a broad network of lenders to secure the most competitive rates and terms, tailored to fit your short-term investment strategy. With Prime Plus Mortgages, you gain a partner committed to guiding you through each decision, ensuring a fruitful and efficient journey from start to finish.",
-                icon: "FaHome"
+                icon: "BsHouseGearFill"
             },
             {
                 title: "Unrivaled Expertise and Insight",
@@ -84,7 +84,7 @@ const servicesData = [
             {
                 title: "Unmatched Rates, Unrivaled Flexibility",
                 description: "Navigate the short-term mortgage landscape with confidence, backed by the best rates and terms sourced from our extensive network of lenders. Whether your aim is to reduce monthly outlays, shorten your mortgage duration, or unlock your property's equity swiftly, our team stands ready to elevate your financial flexibility. Let Prime Plus Mortgages be your beacon, illuminating the path to immediate financial success and beyond.",
-                icon: "FaDollarSign"
+                icon: "FaSackDollar"
             },
             // More details as needed
         ],
@@ -104,7 +104,7 @@ const servicesData = [
             {
                 title: "Customized Financial Frameworks",
                 description: "Every development project presents its own set of challenges and opportunities. Recognizing this, we offer bespoke financing solutions designed to align with the unique contours of your project. From residential developments to large-scale construction, our team meticulously assesses your project's financial landscape to deliver tailored mortgage options that propel your vision forward.",
-                icon: "FaHome"
+                icon: "BsHouseGearFill"
             },
             {
                 title: "Navigating with Expertise",
@@ -114,7 +114,7 @@ const servicesData = [
             {
                 title: "Competitive Financing for Ambitious Projects",
                 description: "With Prime Plus Mortgages, unlock the financial potential of your development project. Our collaboration with various lenders guarantees not just advantageous rates but a partnership aimed at achieving your project's success. Whether reducing costs, optimizing loan structures, or accessing funds for project expansion, our expertise is your competitive edge in the development journey.",
-                icon: "FaDollarSign"
+                icon: "FaSackDollar"
             },
             // More details as needed
         ],
@@ -134,7 +134,7 @@ const servicesData = [
             {
                 title: "Bespoke Solutions for Diverse Portfolios",
                 description: "Understanding that each investor's portfolio is unique, we deliver customized financing solutions. By evaluating your financial standing, objectives, and property specifics, we craft strategies that enhance your portfolio's value and performance. From seasoned investors to those diversifying their assets, our personalized approach guarantees solutions that align with your investment journey.",
-                icon: "FaHome"
+                icon: "BsHouseGearFill"
             },
             {
                 title: "Guidance from Industry Specialists",
@@ -144,7 +144,7 @@ const servicesData = [
             {
                 title: "Optimized Financing for Your Goals",
                 description: "Achieve your financial ambitions with Prime Plus Mortgages. We leverage our relationships with various lenders to secure advantageous financing for your portfolio, whether aiming to minimize costs, adjust terms, or unlock equity across multiple properties. Let us guide you through every step, ensuring your portfolio is positioned for growth and success.",
-                icon: "FaDollarSign"
+                icon: "FaSackDollar"
             },
             // More details as needed
         ],
@@ -164,7 +164,7 @@ const servicesData = [
             {
                 title: "Customized Financial Strategies",
                 description: "Understanding the diversity of commercial investments, we deliver solutions crafted to your business's specific needs. Acknowledging every client's unique financial scenario, objectives, and property types, we navigate the complexities of commercial financing to secure the best mortgage options. Our personalized service is designed to streamline your path to securing or enhancing your commercial property, ensuring every step is aligned with your strategic goals.",
-                icon: "FaHome"
+                icon: "BsHouseGearFill"
             },
             {
                 title: "Expertise in Commercial Financing",
@@ -174,7 +174,7 @@ const servicesData = [
             {
                 title: "Optimizing Your Investment",
                 description: "Leverage our expertise and lender relationships to secure the most advantageous financing for your commercial property. Prime Plus Mortgages is dedicated to finding you the best rates and terms, aiming to reduce costs, improve terms, or unlock equity for reinvestment or expansion. Our goal is to support your business's growth and success at every stage of your commercial property journey.",
-                icon: "FaDollarSign"
+                icon: "FaSackDollar"
             }
 
         ],
@@ -194,7 +194,7 @@ const servicesData = [
             {
                 title: "Customized Remortgage Strategies",
                 description: "Your financial goals and needs are at the forefront of our remortgage solutions. With a personalized approach, we evaluate your current financial situation, objectives, and the equity in your property to recommend the best refinancing options available. Our tailored advice and support are designed to navigate you through the remortgaging process smoothly, ensuring you make informed decisions every step of the way.",
-                icon: "FaHome"
+                icon: "BsHouseGearFill"
             },
             {
                 title: "Navigate with Expertise",
@@ -204,7 +204,7 @@ const servicesData = [
             {
                 title: "Achieve More with Competitive Remortgaging",
                 description: "Unlock the potential of your home with Prime Plus Mortgages. By accessing our extensive network of lenders, we ensure you benefit from the best remortgage rates and terms available. Whether your aim is to lower your monthly expenses, adjust your mortgage term, or free up cash for other investments, our expertise is your key to a more prosperous financial future.",
-                icon: "FaDollarSign"
+                icon: "FaSackDollar"
             }
         ],
     },
@@ -223,7 +223,7 @@ const servicesData = [
             {
                 title: "Bespoke Solutions for Your Holiday Let",
                 description: "Understanding that each investor's vision for their holiday property is unique, we offer customized mortgage strategies. By considering your financial objectives, property goals, and guest experience aspirations, we provide you with the most suitable holiday let mortgage options. Our experts are committed to guiding you through each decision, ensuring your investment flourishes.",
-                icon: "FaHome"
+                icon: "BsHouseGearFill"
             },
             {
                 title: "Navigating with Expertise",
@@ -233,7 +233,7 @@ const servicesData = [
             {
                 title: "Optimize Your Investment with Competitive Financing",
                 description: "Maximize the returns on your holiday let investment with Prime Plus Mortgages. We ensure you access the best possible rates and terms, allowing you to enhance your property’s earning potential. Whether aiming to reduce costs, leverage equity, or adjust your financial strategy, our expertise supports your journey every step of the way, driving towards greater success in the holiday let market.",
-                icon: "FaDollarSign"
+                icon: "FaSackDollar"
             }
         ],
     },
@@ -252,7 +252,7 @@ const servicesData = [
             {
                 title: "Customized Financing That Understands You",
                 description: "Recognizing the diverse needs of our global clientele, we provide personalized mortgage solutions that reflect your individual financial scenario, goals, and preferences. Our approach is designed to navigate the nuances of the local market while catering to the distinctive needs of foreign nationals, ensuring you feel understood and supported at every step.",
-                icon: "FaHome"
+                icon: "BsHouseGearFill"
             },
             {
                 title: "Expertise Without Borders",
@@ -262,7 +262,7 @@ const servicesData = [
             {
                 title: "Competitive Financing for a World of Opportunities",
                 description: "With Prime Plus Mortgages, foreign nationals can access the best mortgage rates and terms, designed to maximize savings and meet your financial objectives. Whether reducing monthly payments, shortening loan terms, or unlocking home equity, our dedicated team provides expert guidance and support, helping you navigate the complexities of the mortgage landscape with confidence.",
-                icon: "FaDollarSign"
+                icon: "FaSackDollar"
             }
         ],
     },
@@ -281,7 +281,7 @@ const servicesData = [
             {
                 title: "Bespoke Strategies for Commercial Success",
                 description: "Understanding that no two businesses are alike, we deliver customized financing solutions crafted around your unique commercial landscape. Our experts consider your business's specific situation, goals, and aspirations to provide optimal loan options. From first-time commercial acquisitions to strategic refinancing, we're committed to navigating you through a successful and hassle-free financing journey.",
-                icon: "FaHome"
+                icon: "BsHouseGearFill"
             },
             {
                 title: "Navigating with Expertise",
@@ -291,7 +291,7 @@ const servicesData = [
             {
                 title: "Optimize Your Commercial Investments",
                 description: "Maximize the potential of your commercial properties with Prime Plus Mortgages. We engage a diverse array of lenders to offer you superior rates and terms, enhancing your financial flexibility. Whether aiming to improve cash flow, reduce loan durations, or unlock equity for reinvestment, our expertise is your strategic advantage in the commercial finance landscape.",
-                icon: "FaDollarSign"
+                icon: "FaSackDollar"
             }
         ],
     },

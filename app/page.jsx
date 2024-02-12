@@ -6,14 +6,14 @@ import TestimonialsSection from "@/components/HomePage/TestimonialsSection";
 import OurLocationSection from "@/components/HomePage/OurLocationSection";
 
 export default function Home() {
-    return (
-        <>
-            <HeroSection />
-            <ServicesOverview />
-            <MortgageCalculator />
-            <MortgageProcessSection />
-            <TestimonialsSection />
-            <OurLocationSection />
-        </>
-    );
+  return (
+    <>
+      <HeroSection />
+      <ServicesOverview />
+      <MortgageCalculator />
+      <MortgageProcessSection />
+      <TestimonialsSection />
+      <OurLocationSection />
+    </>
+  );
 }

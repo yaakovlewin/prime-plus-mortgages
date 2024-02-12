@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function ServiceHeroSection({ service }) {
   return (
     <div
-      className="flex h-[50vh] items-center bg-cover bg-center object-fill px-10 py-24 text-white"
+      className="flex min-h-[40vh] items-center bg-cyan-600 bg-opacity-70 bg-cover bg-center object-fill px-10 py-24 text-white text-shadow-black-lg sm:h-[50vh] md:h-[60vh] lg:h-[70vh]"
       style={{ backgroundImage: `url(${service.imageUrl})` }}
     >
       {" "}

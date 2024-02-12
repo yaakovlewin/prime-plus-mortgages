@@ -10,7 +10,7 @@ const ServicesSection = () => {
       <BrickWallContainer>
         <section className="2xl:py-12">
           <div className="container mx-auto px-4">
-            <Heading2 className={"text-sky-950 sm:text-xl"}>
+            <Heading2 className={"text-sky-950 sm:text-4xl"}>
               Our Services
             </Heading2>
             <div className="grid gap-6 text-center md:grid-cols-3">
