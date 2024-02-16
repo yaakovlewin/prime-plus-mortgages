@@ -14,8 +14,8 @@ const ValuesMissionSection = () => {
           <div className="rounded-lg bg-white p-6 text-center shadow">
             <h3 className="mb-3 text-xl font-semibold">Integrity</h3>
             <p className="text-gray-600">
-              We&apos;re steadfast in maintaining the utmost integrity, ensuring
-              honesty and transparency are at the heart of everything we do.
+              Honesty and transparency are the foundation of our work, We pledge
+              to always act in your best interest.
             </p>
           </div>
 
@@ -23,9 +23,9 @@ const ValuesMissionSection = () => {
           <div className="rounded-lg bg-white p-6 text-center shadow">
             <h3 className="mb-3 text-xl font-semibold">Commitment</h3>
             <p className="text-gray-600">
-              Our dedication is unwavering. Delivering exceptional service and
-              unparalleled value to our clients is not just our promise;
-              it&apos;s our practice.
+              Our dedication to exceptional service and value is unwavering.
+              We&apos;re not just in it for the transaction, we&apos;re in it
+              for you.
             </p>
           </div>
 
@@ -33,8 +33,8 @@ const ValuesMissionSection = () => {
           <div className="rounded-lg bg-white p-6 text-center shadow">
             <h3 className="mb-3 text-xl font-semibold">Expertise</h3>
             <p className="text-gray-600">
-              We believe in perpetual growth, constantly enhancing our knowledge
-              and skills to exceed your expectations.
+              Our commitment to growth means we&apos;re always enhancing our
+              skills to serve you better.
             </p>
           </div>
         </div>
@@ -44,13 +44,12 @@ const ValuesMissionSection = () => {
             Empowering Your Financial Journey
           </Heading2>
           <p className="text-lg text-gray-700">
-            At Prime Plus Mortgages, our mission transcends mere transactions.
-            We&apos;re here to enlighten and empower you, enabling informed
-            financial decisions through a blend of expert advice, bespoke
-            solutions, and absolute transparency. As your ally in the mortgage
-            landscape, we commit to guiding you with integrity, supporting your
-            ambitions with our unwavering commitment, and leading with our
-            expertise. Together, we&apos;ll navigate the path to your property
+            Prime Plus Mortgages goes beyond transactions. We&apos;re here to
+            enlighten and empower, offering a blend of expert advice, tailored
+            solutions, and complete transparency. As your ally in the mortgage
+            landscape, we&apos;re committed to guiding you with integrity,
+            supporting your ambitions with dedication, and leading with
+            expertise. Together, we&apos;ll pave the way to your property
             dreams.
           </p>
         </div>

@@ -31,10 +31,14 @@ export default function MobileMenu({
         </button>
       </div>
 
+      <MobileNavLink href="/" toggleMenu={toggleMenu}>
+        Home
+      </MobileNavLink>
+
       <button
         onClick={() => setServicesOpen(!isServicesOpen)}
-        className={`flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-gray-600 ${
-          isServicesOpen ? "bg-gray-200 text-gray-900" : ""
+        className={`flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-cyan-900 hover:bg-cyan-100 hover:text-cyan-600 ${
+          isServicesOpen ? "bg-gray-200 text-cyan-900" : ""
         }`}
       >
         Services
@@ -65,9 +69,6 @@ export default function MobileMenu({
           ))}
         </div>
       )}
-      <MobileNavLink href="/" toggleMenu={toggleMenu}>
-        Home
-      </MobileNavLink>
       <MobileNavLink href="/about" toggleMenu={toggleMenu}>
         About
       </MobileNavLink>

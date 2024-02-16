@@ -13,10 +13,10 @@ export default function MobileNavLink({
       <Link
         href={href}
         key={key}
-        className={`block rounded-md px-3 py-2 text-base font-medium ${
+        className={`block rounded-md border-b-neutral-200 px-3 py-2 text-base font-medium text-cyan-900 ${
           pathname === href
-            ? "bg-gray-900 text-white"
-            : "text-gray-600 hover:bg-gray-700 hover:text-white"
+            ? "bg-sky-900 text-white"
+            : " hover:bg-cyan-100 hover:text-cyan-600"
         }`}
         aria-current={pathname === href ? "page" : undefined}
         onClick={() => {

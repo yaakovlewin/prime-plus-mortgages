@@ -13,7 +13,7 @@ export default function LogoAndMobileMenu({ toggleMenu }) {
           width={150}
           height={150}
           alt="Prime Plus Mortgages Logo"
-          className=" 2xl:h-22 my-3 h-20 2xl:w-44"
+          className=" sm:h-22 light-shadow-md my-2 rounded bg-opacity-70 bg-gradient-to-r from-sky-800 via-cyan-500 to-sky-800 px-4  hover:bg-gradient-to-r hover:from-sky-700 hover:via-cyan-500 hover:to-sky-700 sm:w-44"
         />
       </Link>
 

@@ -4,28 +4,27 @@ const CompanyOverviewSection = () => {
   return (
     <section className="bg-sky-100 py-12">
       <div className="container mx-auto px-4">
-        <Heading2 className="mb-6 text-center text-3xl font-semibold text-cyan-600">
-          Empowering Your Property Dreams with Precision and Passion
+        <Heading2 className="mb-1 text-center text-3xl font-semibold text-cyan-600">
+          Empower Your Property Dreams
         </Heading2>
+        <h3 className="mb-6 text-center font-exo2 text-lg font-semibold tracking-wide text-sky-950">
+          Precision Meets Passion at Prime Plus Mortgages
+        </h3>
         <div className="grid gap-6 md:grid-cols-2">
           <div>
-            <p className="text-lg leading-relaxed text-gray-700">
-              At Prime Plus Mortgages, we blend innovation ambition, and
-              efficiency to pioneer bespoke mortgage solutions that lead the
-              industry. By engaging directly with banks, we guarantee our
-              diverse clientele, From enthusiastic first-time homebuyers to
-              astute major investors, each receive mortgage plans meticulously
-              crafted to their unique aspirations.
+            <p className="text-justify text-lg leading-relaxed text-gray-700">
+              At Prime Plus Mortgages, innovation meets ambition. We tailor
+              every mortgage plan to fit the dreams of our clients, from eager
+              first-timers to savvy investors. Experience custom mortgage and
+              title-splitting services that set the standard in the industry.
             </p>
           </div>
           <div>
-            <p className="text-lg leading-relaxed text-gray-700">
-              Our team is devoted to navigating you through an expansive suite
-              of mortgage options and cutting-edge title splitting services for
-              ventures up to £150M. With us, you benefit from unmatched rates,
-              adaptable solutions, and a dedication to seamless service, because
-              your property dreams, regardless of scale, deserve unwavering
-              support.
+            <p className="text-justify text-lg leading-relaxed text-gray-700">
+              Our strong relationships with banks mean you get unparalleled
+              rates and flexible solutions. We negotiate on your behalf,
+              ensuring a mortgage plan that&apos;s as unique as your property
+              aspirations.
             </p>
           </div>
         </div>

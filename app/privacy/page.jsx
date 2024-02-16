@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
 
             <p className="mb-4 text-gray-700">Effective date: [Date]</p>
             <p className="mb-4 text-gray-700">
-              [Your Company Name] we operates the [Website URL] website
+              Prime Plus Mortgages we operates the [Website URL] website
               (hereinafter referred to as the &quot;Service&quot;).
             </p>
 
