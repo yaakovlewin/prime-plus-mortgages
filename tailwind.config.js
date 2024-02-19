@@ -84,7 +84,7 @@ module.exports = {
       'white-md': '2px 2px 5px #fff',
       'black-md': '2px 2px 5px #000',
       'white-lg': '3px 3px 10px #fff',
-      'black-lg': '3px 3px 8px #000',
+      'black-lg': '3px 3px 4px #000',
       'white-border': '0 0 0.5em #fff, 0 0 0.5em #fff, 0 0 0.5em #fff, 0 0 0.5em #fff',
       'black-border': '0 0 0.5em #000, 0 0 0.5em #000, 0 0 0.5em #000, 0 0 0.5em #000',
       'white-border-sm': '0 0 0.25em #fff, 0 0 0.25em #fff, 0 0 0.25em #fff, 0 0 0.25em #fff',
