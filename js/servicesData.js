@@ -183,7 +183,7 @@ const servicesData = [
         id: 3,
         title: "Remortgages",
         description: "Remortgage to get a better rate and save money.",
-        imageUrl: "/renovation.jpg",
+        imageUrl: "/remortgage.jpg",
         url: "/remortgages",
         details: [
             {

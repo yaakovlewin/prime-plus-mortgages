@@ -3,7 +3,7 @@ import HeroCarousel from "@/components/HomePage/HeroCarousel.jsx";
 
 export default function HeroSection() {
   return (
-    <div className="relative h-96 lg:h-[40rem]">
+    <div className="relative min-h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh]">
       {/* Background Video */}
       <video
         autoPlay
