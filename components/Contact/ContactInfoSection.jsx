@@ -20,12 +20,13 @@ const ContactInfoSection = () => {
                 </button>
               </Link>
 
-              <p
+              <Link
+                href={`tel:${contactInfo.phone}`}
                 className=" cursor-pointer text-blue-500 hover:underline focus:underline active:underline
               "
               >
                 {contactInfo.phone}
-              </p>
+              </Link>
               {/* <button className="focus:shadow-outline-cyan mt-2 flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-5 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out hover:bg-cyan-500 focus:border-cyan-700 focus:outline-none active:bg-cyan-700">
                 <Link href={`tel:${contactInfo.phone}`} className="">
                   Call Now

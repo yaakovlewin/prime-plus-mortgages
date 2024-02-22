@@ -1,6 +1,6 @@
 export const contactInfo = {
     'email': 'info@primeplusemortgages.co.uk',
-    'phone': '+44 (0) 161 818 8824',
+    'phone': '+44 161 818 8824',
     'address': '7 Bevendon Sq',
     'city': 'Salford',
     'postcode': 'M7 4TP',
