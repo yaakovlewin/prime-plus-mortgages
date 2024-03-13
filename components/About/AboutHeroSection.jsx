@@ -3,7 +3,7 @@ const AboutHeroSection = () => {
     <div
       className="relative flex min-h-[40vh] items-center justify-center sm:h-[50vh] md:h-[60vh] lg:h-[70vh]"
       style={{
-        backgroundImage: `url('/meeting-3.webp')`,
+        backgroundImage: `url('/images/meeting-3.webp')`,
         backgroundSize: "cover",
         backgroundPosition: "top center",
       }}

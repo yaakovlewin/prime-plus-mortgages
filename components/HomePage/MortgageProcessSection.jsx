@@ -18,7 +18,7 @@ export default function MortgageProcessSection() {
               </h2>
               <div className="mb-5">
                 <Image
-                  src="/meeting-svgrepo-com (2).svg"
+                  src="/images/meeting-svgrepo-com (2).svg"
                   alt="Step 1"
                   width={200}
                   height={80}
@@ -46,7 +46,7 @@ export default function MortgageProcessSection() {
               </h2>
               <div className="mb-5">
                 <Image
-                  src="/mortgage-contract-svgrepo-com (1).svg"
+                  src="/images/mortgage-contract-svgrepo-com (1).svg"
                   alt="Step 2"
                   width={200}
                   height={80}
@@ -83,7 +83,7 @@ export default function MortgageProcessSection() {
               </h2>
               <div className="mb-5">
                 <Image
-                  src="/mortgage-svgrepo-com (2).svg"
+                  src="/images/mortgage-svgrepo-com (2).svg"
                   alt="Step 3"
                   width={200}
                   height={80}

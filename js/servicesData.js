@@ -3,7 +3,7 @@ const servicesData = [
         id: 1,
         title: "First Time Buyer",
         description: "Expert advice for first time home buyers.",
-        imageUrl: "/first-time-buyer.jpg",
+        imageUrl: "/images/first-time-buyer.jpg",
         url: "/first-time-buyer",
         details: [
             {
@@ -33,7 +33,7 @@ const servicesData = [
         id: 23,
         title: "Buy to let",
         description: "Buy to let mortgages for landlords.",
-        imageUrl: "/buy-to-let.jpg",
+        imageUrl: "/images/buy-to-let.jpg",
         url: "/buy-to-let",
         details: [
             {
@@ -63,7 +63,7 @@ const servicesData = [
         id: 24,
         title: "Short Term",
         description: "Short term mortgages for quick financing.",
-        imageUrl: "/short-term.jpg",
+        imageUrl: "/images/short-term.jpg",
         url: "/short-term",
         details: [
             {
@@ -93,7 +93,7 @@ const servicesData = [
         id: 25,
         title: "Development Finance",
         description: "Development finance for property developers.",
-        imageUrl: "/development-finance.jpg",
+        imageUrl: "/images/development-finance.jpg",
         url: "/development-finance",
         details: [
             {
@@ -123,7 +123,7 @@ const servicesData = [
         id: 26,
         title: "Protfolio Finance",
         description: "Portfolio finance for landlords.",
-        imageUrl: "/portfolio-finance.jpg",
+        imageUrl: "/images/portfolio-finance.jpg",
         url: "/portfolio-finance",
         details: [
             {
@@ -153,7 +153,7 @@ const servicesData = [
         id: 2,
         title: "Commercial Mortgages",
         description: "Tailored mortgage services for commercial properties.",
-        imageUrl: "/commercial-mortgages.jpg",
+        imageUrl: "/images/commercial-mortgages.jpg",
         url: "/commercial-mortgages",
         details: [
             {
@@ -183,7 +183,7 @@ const servicesData = [
         id: 3,
         title: "Remortgages",
         description: "Remortgage to get a better rate and save money.",
-        imageUrl: "/remortgage.jpg",
+        imageUrl: "/images/remortgage.jpg",
         url: "/remortgages",
         details: [
             {
@@ -212,7 +212,7 @@ const servicesData = [
         id: 31,
         title: "Holiday Let",
         description: "Holiday let mortgages for landlords.",
-        imageUrl: "/holiday-let.jpg",
+        imageUrl: "/images/holiday-let.jpg",
         url: "/holiday-let",
         details: [
             {
@@ -241,7 +241,7 @@ const servicesData = [
         id: 32,
         title: "Foreign National",
         description: "Foreign national mortgages for non-UK residents.",
-        imageUrl: "/foreign-national.jpg",
+        imageUrl: "/images/foreign-national.jpg",
         url: "/foreign-national",
         details: [
             {
@@ -270,7 +270,7 @@ const servicesData = [
         id: 33,
         title: "Loans/Bridging",
         description: "Loans and bridging finance for quick financing.",
-        imageUrl: "/loans-bridging.jpg",
+        imageUrl: "/images/loans-bridging.jpg",
         url: "/loans-bridging",
         details: [
             {
