@@ -9,11 +9,11 @@ export default function LogoAndMobileMenu({ toggleMenu }) {
         className="text-cyan-0 text-xl font-semibold hover:text-cyan-600"
       >
         <Image
-          src="/logo-01.png"
-          width={150}
-          height={150}
+          src="/images/logo-01.png"
+          width={170}
+          height={100}
           alt="Prime Plus Mortgages Logo"
-          className=" sm:h-22 light-shadow-md my-2 rounded bg-opacity-70 bg-gradient-to-r from-sky-800 via-cyan-500 to-sky-800 px-4  hover:bg-gradient-to-r hover:from-sky-700 hover:via-cyan-500 hover:to-sky-700 sm:w-44"
+          className="light-shadow-md my-2 rounded bg-opacity-70 bg-gradient-to-r from-sky-800 via-cyan-500 to-sky-800 px-4  hover:bg-gradient-to-r hover:from-sky-700 hover:via-cyan-500 hover:to-sky-700"
         />
       </Link>
 
