@@ -59,7 +59,10 @@ export default function FormPage() {
         },
         body: encode({ "form-name": "application-form", ...data }),
       })
-        .then(() => router.push("/success"))
+        .then(() => {
+          console.log("Form submitted successfully");
+          router.push("/success");
+        })
         .catch((error) => alert(error));
     } else {
       nextStep();

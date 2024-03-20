@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         className={`${inter.className} ${exo2.variable} ${rubik.variable} ${zillaSlab.variable}`}
       >
         <Navbar />
-        <main className="pt-20 sm:pt-24">{children}</main>
+        <main className="pt-24">{children}</main>
         <Footer />
       </body>
     </html>

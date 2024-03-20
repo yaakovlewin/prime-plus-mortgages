@@ -18,7 +18,7 @@ export default function HeroCarousel() {
   };
 
   return (
-    <div className=" z-50 overflow-hidden">
+    <div className=" z-50 overflow-hidden pt-5">
       <Slider {...settings}>
         <CarouselItem
           heading1={"Innovative, Ambitious, and"}

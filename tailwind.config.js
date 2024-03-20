@@ -31,7 +31,7 @@ module.exports = {
       },
       backgroundImage: {
         'hero-pattern': 'url("/images/hero-pattern.svg")',
-        'footer-texture': 'url("/houses-pattern.jpg")',
+        'footer-texture': 'url("/images/houses-pattern.jpg")',
         'footer-texture-2': 'url("/images/footer-texture-2.png")',
         'footer-texture-3': 'url("/images/footer-texture-3.png")',
         'footer-texture-4': 'url("/images/footer-texture-4.png")',

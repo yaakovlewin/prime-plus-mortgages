@@ -4,10 +4,14 @@ import { useFormContext } from "react-hook-form";
 import Heading2 from "../Heading2";
 
 function CompanyDetails() {
+  const [temporaryAddressData, setTemporaryAddressData] = useState({});
+  const [isAddressVisible, setAddressVisible] = useState(false);
+
   const {
     register,
     watch,
     setValue,
+    getValues,
     formState: { errors },
   } = useFormContext();
 
@@ -21,16 +25,36 @@ function CompanyDetails() {
   ]);
   const isFieldFilled = watchFields.some((field) => field && field.length > 0);
 
-  const [isAddressVisible, setAddressVisible] = useState(false);
-
   const toggleAddressVisibility = (e) => {
-    if (!e.target.checked) {
+    if (e.target.checked) {
+      const currentValues = getValues();
+      setTemporaryAddressData(currentValues);
+      console.log(temporaryAddressData);
       setValue("correspondentBuildingNumber", "");
       setValue("correspondentStreet", "");
       setValue("correspondentLocality", "");
       setValue("correspondentTownCity", "");
       setValue("correspondentCounty", "");
       setValue("correspondentPostcode", "");
+    } else {
+      setValue(
+        "correspondentBuildingNumber",
+        temporaryAddressData.correspondentBuildingNumber,
+      );
+      setValue("correspondentStreet", temporaryAddressData.correspondentStreet);
+      setValue(
+        "correspondentLocality",
+        temporaryAddressData.correspondentLocality,
+      );
+      setValue(
+        "correspondentTownCity",
+        temporaryAddressData.correspondentTownCity,
+      );
+      setValue("correspondentCounty", temporaryAddressData.correspondentCounty);
+      setValue(
+        "correspondentPostcode",
+        temporaryAddressData.correspondentPostcode,
+      );
     }
     setAddressVisible(!isAddressVisible);
   };
@@ -73,7 +97,6 @@ function CompanyDetails() {
           </div>
         </div>
 
-        {/* Add more input fields in a similar fashion for other company details */}
         {/* Company Registration Number */}
         <div className="sm:col-span-2">
           <label
@@ -260,7 +283,7 @@ function CompanyDetails() {
         <label className="flex items-center space-x-3 rounded-lg bg-gray-100 p-2">
           <input
             type="checkbox"
-            onClick={toggleAddressVisibility}
+            onChange={toggleAddressVisibility}
             checked={!isAddressVisible}
             className="form-checkbox mr-2 h-5 w-5 text-gray-600"
           />
