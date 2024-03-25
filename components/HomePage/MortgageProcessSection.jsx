@@ -6,7 +6,7 @@ import Heading2 from "../Heading2";
 export default function MortgageProcessSection() {
   return (
     <div className="container mx-auto px-4 py-12">
-      <Heading2>How the Mortgage Process Works</Heading2>
+      <Heading2>How the Mortgage Process Works with us</Heading2>
       <BrickWallContainer>
         {/* Step-by-Step Guide */}
         <div className="grid gap-10 px-4 text-center text-cyan-100 md:grid-cols-3">

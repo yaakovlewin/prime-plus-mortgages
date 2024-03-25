@@ -1,19 +1,55 @@
 "use client";
-import React, { useState } from "react";
-import { useFormContext } from "react-hook-form";
+import { useFormContext as useFormContextRHForm } from "react-hook-form";
+import { useFormContext } from "@/components/application/FormConext";
 import Heading2 from "../Heading2";
 
 function CompanyDetails() {
-  const [temporaryAddressData, setTemporaryAddressData] = useState({});
-  const [isAddressVisible, setAddressVisible] = useState(false);
+  const {
+    formData: {
+      companyDetails: {
+        companyName,
+        registrationNumber,
+        incorporationDate,
+        companyAddress,
+        correspondentAddress,
+      },
+      isCorrespondentAddressVisible,
+    },
+    updateFormData,
+  } = useFormContext();
 
   const {
     register,
     watch,
     setValue,
     getValues,
+    handleSubmit,
     formState: { errors },
-  } = useFormContext();
+  } = useFormContextRHForm({
+    mode: "onBlur",
+    defaultValues: {
+      companyName,
+      registrationNumber,
+      incorporationDate,
+      street: companyAddress.street,
+      locality: companyAddress.locality,
+      townCity: companyAddress.townCity,
+      county: companyAddress.county,
+      postcode: companyAddress.postcode,
+      correspondentStreet: correspondentAddress.street,
+      correspondentLocality: correspondentAddress.locality,
+      correspondentTownCity: correspondentAddress.townCity,
+      correspondentCounty: correspondentAddress.county,
+      correspondentPostcode: correspondentAddress.postcode,
+    },
+  });
+
+  const handleCheckboxChange = (event) => {
+    updateFormData((prevState) => ({
+      ...prevState,
+      isCorrespondentAddressVisible: event.target.checked,
+    }));
+  };
 
   const watchFields = watch([
     "correspondentBuildingNumber",
@@ -25,42 +61,46 @@ function CompanyDetails() {
   ]);
   const isFieldFilled = watchFields.some((field) => field && field.length > 0);
 
-  const toggleAddressVisibility = (e) => {
-    if (e.target.checked) {
-      const currentValues = getValues();
-      setTemporaryAddressData(currentValues);
-      console.log(temporaryAddressData);
-      setValue("correspondentBuildingNumber", "");
-      setValue("correspondentStreet", "");
-      setValue("correspondentLocality", "");
-      setValue("correspondentTownCity", "");
-      setValue("correspondentCounty", "");
-      setValue("correspondentPostcode", "");
-    } else {
-      setValue(
-        "correspondentBuildingNumber",
-        temporaryAddressData.correspondentBuildingNumber,
-      );
-      setValue("correspondentStreet", temporaryAddressData.correspondentStreet);
-      setValue(
-        "correspondentLocality",
-        temporaryAddressData.correspondentLocality,
-      );
-      setValue(
-        "correspondentTownCity",
-        temporaryAddressData.correspondentTownCity,
-      );
-      setValue("correspondentCounty", temporaryAddressData.correspondentCounty);
-      setValue(
-        "correspondentPostcode",
-        temporaryAddressData.correspondentPostcode,
-      );
-    }
-    setAddressVisible(!isAddressVisible);
+  const onSubmit = (data) => {
+    updateFormData({
+      companyDetails: {
+        companyName: data.companyName,
+        registrationNumber: data.registrationNumber,
+        incorporationDate: data.incorporationDate,
+        companyAddress: {
+          buildingNumber: data.buildingNumber,
+          street: data.street,
+          locality: data.locality,
+          townCity: data.townCity,
+          county: data.county,
+          postcode: data.postcode,
+        },
+        correspondentAddress: isCorrespondentAddressVisible
+          ? {
+              buildingNumber: data.correspondentBuildingNumber,
+              street: data.correspondentStreet,
+              locality: data.correspondentLocality,
+              townCity: data.correspondentTownCity,
+              county: data.correspondentCounty,
+              postcode: data.correspondentPostcode,
+            }
+          : {
+              buildingNumber: data.buildingNumber,
+              street: data.street,
+              locality: data.locality,
+              townCity: data.townCity,
+              county: data.county,
+              postcode: data.postcode,
+            },
+      },
+      personalDetails: {
+        ...getValues(),
+      },
+    });
   };
-
   return (
-    <section
+    <form
+      onSubmit={handleSubmit(onSubmit)}
       className="
             space-y-18 py-12
         "
@@ -157,7 +197,7 @@ function CompanyDetails() {
             Registered Address
           </label>
           {/* Building Number */}
-          <div className="mt-2">
+          {/* <div className="mt-2">
             <input
               type="text"
               id="building-number"
@@ -172,7 +212,7 @@ function CompanyDetails() {
                 {errors.buildingNumber.message}
               </p>
             )}
-          </div>
+          </div> */}
 
           {/* Street */}
           <div className="mt-2">
@@ -283,8 +323,8 @@ function CompanyDetails() {
         <label className="flex items-center space-x-3 rounded-lg bg-gray-100 p-2">
           <input
             type="checkbox"
-            onChange={toggleAddressVisibility}
-            checked={!isAddressVisible}
+            onChange={handleCheckboxChange}
+            checked={isCorrespondentAddressVisible}
             className="form-checkbox mr-2 h-5 w-5 text-gray-600"
           />
           <span className="text-sm text-gray-700">
@@ -292,7 +332,7 @@ function CompanyDetails() {
           </span>
         </label>
 
-        {isAddressVisible && (
+        {isCorrespondentAddressVisible && (
           <div className="sm:col-span-6">
             <label
               htmlFor="correspondent-address"
@@ -302,7 +342,7 @@ function CompanyDetails() {
             </label>
 
             {/* Building Number */}
-            <div className="mt-2">
+            {/* <div className="mt-2">
               <input
                 type="text"
                 id="correspondent-building-number"
@@ -319,7 +359,7 @@ function CompanyDetails() {
                   {errors.correspondentBuildingNumber.message}
                 </p>
               )}
-            </div>
+            </div> */}
 
             {/* Street */}
             <div className="mt-2">
@@ -434,7 +474,7 @@ function CompanyDetails() {
           </div>
         )}
       </div>
-    </section>
+    </form>
   );
 }
 

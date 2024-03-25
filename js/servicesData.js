@@ -90,36 +90,6 @@ const servicesData = [
         ],
     },
     {
-        id: 25,
-        title: "Development Finance",
-        description: "Development finance for property developers.",
-        imageUrl: "/images/development-finance.jpg",
-        url: "/development-finance",
-        details: [
-            {
-                title: "Strategic Financing for Developers",
-                description: "Prime Plus Mortgages introduces a strategic approach to development finance, crafted to empower your construction and development projects. With access to optimal rates and flexible terms, we're here to ensure your venture from groundbreaking to completion is financially seamless. Our seasoned experts specialize in navigating the complexities of development finance, offering personalized guidance every step of the way.",
-                icon: "FaChartLine"
-            },
-            {
-                title: "Customized Financial Frameworks",
-                description: "Every development project presents its own set of challenges and opportunities. Recognizing this, we offer bespoke financing solutions designed to align with the unique contours of your project. From residential developments to large-scale construction, our team meticulously assesses your project's financial landscape to deliver tailored mortgage options that propel your vision forward.",
-                icon: "BsHouseGearFill"
-            },
-            {
-                title: "Navigating with Expertise",
-                description: "Leverage our deep industry knowledge for your development finance needs. Our professionals are adept at securing competitive rates and terms across a diverse lender network, ensuring your project's financial foundation is as strong as its physical one. Whether it’s initial acquisition, construction, or bridging finance, rely on us for strategic advice and comprehensive support tailored to the development sector.",
-                icon: "FaUserTie"
-            },
-            {
-                title: "Competitive Financing for Ambitious Projects",
-                description: "With Prime Plus Mortgages, unlock the financial potential of your development project. Our collaboration with various lenders guarantees not just advantageous rates but a partnership aimed at achieving your project's success. Whether reducing costs, optimizing loan structures, or accessing funds for project expansion, our expertise is your competitive edge in the development journey.",
-                icon: "FaSackDollar"
-            },
-            // More details as needed
-        ],
-    },
-    {
         id: 26,
         title: "Protfolio Finance",
         description: "Portfolio finance for landlords.",
@@ -144,6 +114,36 @@ const servicesData = [
             {
                 title: "Optimized Financing for Your Goals",
                 description: "Achieve your financial ambitions with Prime Plus Mortgages. We leverage our relationships with various lenders to secure advantageous financing for your portfolio, whether aiming to minimize costs, adjust terms, or unlock equity across multiple properties. Let us guide you through every step, ensuring your portfolio is positioned for growth and success.",
+                icon: "FaSackDollar"
+            },
+            // More details as needed
+        ],
+    },
+    {
+        id: 25,
+        title: "Development Finance",
+        description: "Development finance for property developers.",
+        imageUrl: "/images/development-finance.jpg",
+        url: "/development-finance",
+        details: [
+            {
+                title: "Strategic Financing for Developers",
+                description: "Prime Plus Mortgages introduces a strategic approach to development finance, crafted to empower your construction and development projects. With access to optimal rates and flexible terms, we're here to ensure your venture from groundbreaking to completion is financially seamless. Our seasoned experts specialize in navigating the complexities of development finance, offering personalized guidance every step of the way.",
+                icon: "FaChartLine"
+            },
+            {
+                title: "Customized Financial Frameworks",
+                description: "Every development project presents its own set of challenges and opportunities. Recognizing this, we offer bespoke financing solutions designed to align with the unique contours of your project. From residential developments to large-scale construction, our team meticulously assesses your project's financial landscape to deliver tailored mortgage options that propel your vision forward.",
+                icon: "BsHouseGearFill"
+            },
+            {
+                title: "Navigating with Expertise",
+                description: "Leverage our deep industry knowledge for your development finance needs. Our professionals are adept at securing competitive rates and terms across a diverse lender network, ensuring your project's financial foundation is as strong as its physical one. Whether it’s initial acquisition, construction, or bridging finance, rely on us for strategic advice and comprehensive support tailored to the development sector.",
+                icon: "FaUserTie"
+            },
+            {
+                title: "Competitive Financing for Ambitious Projects",
+                description: "With Prime Plus Mortgages, unlock the financial potential of your development project. Our collaboration with various lenders guarantees not just advantageous rates but a partnership aimed at achieving your project's success. Whether reducing costs, optimizing loan structures, or accessing funds for project expansion, our expertise is your competitive edge in the development journey.",
                 icon: "FaSackDollar"
             },
             // More details as needed

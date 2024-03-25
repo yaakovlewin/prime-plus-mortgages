@@ -4,6 +4,7 @@ import { FaGithub, FaLinkedin, FaBlogger } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import FooterLink from "./FooterLink";
 import servicesData from "@/js/servicesData";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -44,39 +45,35 @@ export default function Footer() {
           </div>
           {/* Column 4 */}
           <div>
-            <h2 className="mb-6 text-lg font-semibold text-white">Follow Us</h2>
+            <h2 className="mb-6 text-lg font-semibold text-white">
+              We are Regulated by
+            </h2>
             <div className="flex items-center space-x-4">
               <Link
-                href="https://github.com/yourusername"
+                href="https://www.fca.org.uk/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white transition-colors duration-300 hover:text-gray-800"
               >
-                <FaGithub className="h-6 w-6" />
+                <Image
+                  src="/images/FCA.png"
+                  alt="FCA Logo"
+                  width={120}
+                  height={120}
+                />
               </Link>
               <Link
-                href="https://www.linkedin.com/in/yourusername"
+                href="https://www.fiba.org.uk/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ml-4 text-white transition-colors duration-300 hover:text-cyan-800"
               >
-                <FaLinkedin className="h-6 w-6" />
-              </Link>
-              <Link
-                href="https://twitter.com/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-4 text-white transition-colors duration-300 hover:text-black"
-              >
-                <FaXTwitter className="h-6 w-6" />
-              </Link>
-              <Link
-                href="https://yourusername.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-4 text-white transition-colors duration-300 hover:text-orange-600"
-              >
-                <FaBlogger className="h-6 w-6" />
+                <Image
+                  src="/images/fiba.png"
+                  alt="FIBA Logo"
+                  width={120}
+                  height={120}
+                />
               </Link>
             </div>
           </div>
