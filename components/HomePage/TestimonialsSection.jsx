@@ -62,7 +62,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="bg-gray-100 py-12 md:py-14" id="reviews">
+    <section className="bg-gray-100 pb-12" id="reviews">
       <div className="container mx-auto px-4">
         <Heading2>What Our Clients Say</Heading2>
 

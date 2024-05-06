@@ -53,7 +53,7 @@ export default function Footer() {
                 href="https://www.fca.org.uk/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white transition-colors duration-300 hover:text-gray-800"
+                className="rounded bg-white px-2 text-white transition-colors duration-300 hover:text-gray-800"
               >
                 <Image
                   src="/images/FCA.png"
@@ -66,13 +66,13 @@ export default function Footer() {
                 href="https://www.fiba.org.uk/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-4 text-white transition-colors duration-300 hover:text-cyan-800"
+                className="ml-4 rounded bg-white px-2 text-white transition-colors duration-300 hover:text-cyan-800"
               >
                 <Image
                   src="/images/fiba.png"
                   alt="FIBA Logo"
-                  width={120}
-                  height={120}
+                  width={150}
+                  height={150}
                 />
               </Link>
             </div>

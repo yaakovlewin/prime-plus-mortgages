@@ -12,8 +12,8 @@ const AboutHeroSection = () => {
       <div className="absolute inset-0"></div>
 
       {/* Text Content */}
-      <div className="mx-5 rounded-lg bg-teal-50 bg-opacity-80 p-10 text-center shadow-lg">
-        <h1 className="mb-4 text-4xl font-bold text-cyan-800 2xl:text-5xl">
+      <div className="mx-5 w-2/3 rounded-lg bg-teal-50 bg-opacity-70 p-10 text-center shadow-lg">
+        <h1 className="mb-4 text-3xl font-bold text-cyan-800 2xl:text-4xl">
           Unlock Your Dream Home Today
         </h1>
         <p className="text-lg text-gray-900 text-shadow-white lg:text-xl">

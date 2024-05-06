@@ -5,7 +5,7 @@ import Heading2 from "../Heading2";
 
 export default function MortgageProcessSection() {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 pb-12">
       <Heading2>How the Mortgage Process Works with us</Heading2>
       <BrickWallContainer>
         {/* Step-by-Step Guide */}
@@ -105,25 +105,6 @@ export default function MortgageProcessSection() {
           </div>
         </div>
       </BrickWallContainer>
-
-      {/* FAQs */}
-      <div className="mt-12 2xl:mt-28" id="faq">
-        <Heading2>Frequently Asked Questions</Heading2>
-        <div className="space-y-4 md:space-y-5">
-          <FaqItem
-            question="What documents do I need to apply?"
-            answer="Typically, you’ll need proof of income, credit information, and identification. However, requirements may vary."
-          />
-          <FaqItem
-            question="How long does the process take?"
-            answer="The time can vary based on several factors, including your financial situation and the type of mortgage."
-          />
-          <FaqItem
-            question="What are the interest rates?"
-            answer="Interest rates vary based on the type of mortgage and your financial situation."
-          />
-        </div>
-      </div>
     </div>
   );
 }

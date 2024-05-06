@@ -9,7 +9,7 @@ export default function ServiceHeroSection({ service }) {
       >
         {" "}
         <article className="rounded-lg bg-teal-50 bg-opacity-70 p-4 py-7 text-shadow-black md:w-1/3">
-          <h1 className="mb-4 text-4xl font-bold text-shadow-black-lg">
+          <h1 className="mb-4 text-3xl font-bold text-shadow-black-lg">
             {service.title}
           </h1>
           <p className="mb-6 w-fit bg-white bg-opacity-5 text-xl text-sky-950 text-shadow-white">
