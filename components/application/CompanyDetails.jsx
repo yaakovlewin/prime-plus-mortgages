@@ -1,7 +1,6 @@
 "use client";
 import { useFormContext as useFormContextRHForm } from "react-hook-form";
-import { useFormContext } from "@/components/application/FormConext";
-import Heading2 from "../Heading2";
+import { useFormContext } from "@/components/application/FormContext";
 
 function CompanyDetails() {
   const {
@@ -99,13 +98,11 @@ function CompanyDetails() {
     });
   };
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
+    <section
       className="
             space-y-18 py-12
         "
     >
-      <Heading2>Company Details</Heading2>
       <p className="text-center text-gray-500">
         Please enter the details of your company.
       </p>
@@ -474,7 +471,7 @@ function CompanyDetails() {
           </div>
         )}
       </div>
-    </form>
+    </section>
   );
 }
 
