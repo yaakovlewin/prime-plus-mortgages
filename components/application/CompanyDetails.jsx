@@ -1,45 +1,37 @@
 "use client";
 import { useFormContext as useFormContextRHForm } from "react-hook-form";
 import { useFormContext } from "@/components/application/FormContext";
+import { useState } from "react";
+import prefixAddressFields from "@/js/utils/prefixAddressFields";
+
+// components
+import { TextInput, DateInput, Checkbox } from "./FormComponents";
 
 function CompanyDetails() {
+  const [temporaryAddressData, setTemporaryAddressData] = useState({});
+
   const {
-    formData: {
-      companyDetails: {
-        companyName,
-        registrationNumber,
-        incorporationDate,
-        companyAddress,
-        correspondentAddress,
-      },
-      isCorrespondentAddressVisible,
-    },
+    formData: { companyDetails },
     updateFormData,
   } = useFormContext();
 
   const {
     register,
-    watch,
-    setValue,
     getValues,
-    handleSubmit,
+    setValue,
+    watch,
     formState: { errors },
   } = useFormContextRHForm({
     mode: "onBlur",
     defaultValues: {
-      companyName,
-      registrationNumber,
-      incorporationDate,
-      street: companyAddress.street,
-      locality: companyAddress.locality,
-      townCity: companyAddress.townCity,
-      county: companyAddress.county,
-      postcode: companyAddress.postcode,
-      correspondentStreet: correspondentAddress.street,
-      correspondentLocality: correspondentAddress.locality,
-      correspondentTownCity: correspondentAddress.townCity,
-      correspondentCounty: correspondentAddress.county,
-      correspondentPostcode: correspondentAddress.postcode,
+      // Spread operator to populate fields directly from companyDetails object
+      ...companyDetails,
+      // Destructure nested addresses into separate prefixed fields
+      ...prefixAddressFields("companyAddress", companyDetails.companyAddress),
+      ...prefixAddressFields(
+        "correspondentAddress",
+        companyDetails.correspondentAddress,
+      ),
     },
   });
 
@@ -50,53 +42,49 @@ function CompanyDetails() {
     }));
   };
 
-  const watchFields = watch([
-    "correspondentBuildingNumber",
-    "correspondentStreet",
-    "correspondentLocality",
-    "correspondentTownCity",
-    "correspondentCounty",
-    "correspondentPostcode",
-  ]);
-  const isFieldFilled = watchFields.some((field) => field && field.length > 0);
+  let isCorrespondentAddressVisible = watch("isCorrespondentAddressCheckbox");
 
-  const onSubmit = (data) => {
-    updateFormData({
-      companyDetails: {
-        companyName: data.companyName,
-        registrationNumber: data.registrationNumber,
-        incorporationDate: data.incorporationDate,
-        companyAddress: {
-          buildingNumber: data.buildingNumber,
-          street: data.street,
-          locality: data.locality,
-          townCity: data.townCity,
-          county: data.county,
-          postcode: data.postcode,
-        },
-        correspondentAddress: isCorrespondentAddressVisible
-          ? {
-              buildingNumber: data.correspondentBuildingNumber,
-              street: data.correspondentStreet,
-              locality: data.correspondentLocality,
-              townCity: data.correspondentTownCity,
-              county: data.correspondentCounty,
-              postcode: data.correspondentPostcode,
-            }
-          : {
-              buildingNumber: data.buildingNumber,
-              street: data.street,
-              locality: data.locality,
-              townCity: data.townCity,
-              county: data.county,
-              postcode: data.postcode,
-            },
-      },
-      personalDetails: {
-        ...getValues(),
-      },
-    });
+  const toggleAddressVisibility = (e) => {
+    if (e.target.checked) {
+      const currentValues = getValues();
+      setTemporaryAddressData(currentValues);
+      setValue("correspondentBuildingNumber", "");
+      setValue("correspondentStreet", "");
+      setValue("correspondentLocality", "");
+      setValue("correspondentTownCity", "");
+      setValue("correspondentCounty", "");
+      setValue("correspondentPostcode", "");
+    } else {
+      if (temporaryAddressData) {
+        setValue(
+          "correspondentBuildingNumber",
+          temporaryAddressData.correspondentBuildingNumber,
+        );
+        setValue(
+          "correspondentStreet",
+          temporaryAddressData.correspondentStreet,
+        );
+        setValue(
+          "correspondentLocality",
+          temporaryAddressData.correspondentLocality,
+        );
+        setValue(
+          "correspondentTownCity",
+          temporaryAddressData.correspondentTownCity,
+        );
+        setValue(
+          "correspondentCounty",
+          temporaryAddressData.correspondentCounty,
+        );
+        setValue(
+          "correspondentPostcode",
+          temporaryAddressData.correspondentPostcode,
+        );
+      }
+    }
+    isCorrespondentAddressVisible = e.target.checked;
   };
+
   return (
     <section
       className="
@@ -109,81 +97,40 @@ function CompanyDetails() {
 
       <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         {/* Company Name */}
-        <div className="sm:col-span-2">
-          <label
-            htmlFor="company-name"
-            className="block text-sm font-medium leading-6 text-gray-900"
-          >
-            Company Name
-          </label>
-          <div className="mt-2">
-            <input
-              type="text"
-              id="company-name"
-              {...register("companyName", {
-                required: "Company name is required",
-              })}
-              placeholder="Company Name"
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
-            {errors.companyName && (
-              <p className="text-xs italic text-red-500">
-                {errors.companyName.message}
-              </p>
-            )}
-          </div>
-        </div>
+        <TextInput
+          label="Company Name"
+          id="companyName"
+          register={register}
+          registerOptions={{
+            required: "Company name is required",
+          }}
+          errors={errors}
+          span={3}
+        />
 
         {/* Company Registration Number */}
-        <div className="sm:col-span-2">
-          <label
-            htmlFor="company-registration-number"
-            className="block text-sm font-medium leading-6 text-gray-900"
-          >
-            Company Registration Number
-          </label>
-          <div className="mt-2">
-            <input
-              type="text"
-              id="company-registration-number"
-              {...register("registrationNumber", {
-                required: "Registration number is required",
-              })}
-              placeholder="Company Registration Number"
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
-            {errors.registrationNumber && (
-              <p className="text-xs italic text-red-500">
-                {errors.registrationNumber.message}
-              </p>
-            )}
-          </div>
-        </div>
+        <TextInput
+          label="Company Registration Number"
+          id="registrationNumber"
+          register={register}
+          registerOptions={{
+            required: "Registration number is required",
+          }}
+          errors={errors}
+          span={3}
+        />
 
         {/* Date of Incorporation */}
-        <div className="sm:col-span-2">
-          <label
-            htmlFor="date-of-incorporation"
-            className="block text-sm font-medium leading-6 text-gray-900"
-          >
-            Date of Incorporation
-          </label>
-          <div className="mt-2">
-            <input
-              type="date"
-              id="date-of-incorporation"
-              {...register("incorporationDate", {
-                required: "Incorporation date is required",
-              })}
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
-            {errors.incorporationDate && (
-              <p className="text-xs italic text-red-500">
-                {errors.incorporationDate.message}
-              </p>
-            )}
-          </div>
-        </div>
+        <DateInput
+          label="Date of Incorporation"
+          id="incorporationDate"
+          register={register}
+          registerOptions={{
+            required: "Incorporation date is required",
+          }}
+          errors={errors}
+          span={3}
+        />
 
         {/* Registered Address */}
         <div className="sm:col-span-6">
@@ -212,122 +159,64 @@ function CompanyDetails() {
           </div> */}
 
           {/* Street */}
-          <div className="mt-2">
-            <label
-              htmlFor="street"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Street
-            </label>
-            <input
-              type="text"
-              id="street"
-              {...register("street", {
-                required: "Street is required",
-              })}
-              placeholder="Street"
-              className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
-            {errors.street && (
-              <p className="text-xs italic text-red-500">
-                {errors.street.message}
-              </p>
-            )}
-          </div>
+          <TextInput
+            label="Street"
+            id="companyAddress.street"
+            register={register}
+            registerOptions={{
+              required: "Street is required",
+            }}
+            errors={errors}
+          />
 
           {/* Locality */}
-          <div className="mt-2">
-            <label
-              htmlFor="locality"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Locality
-            </label>
-            <input
-              type="text"
-              id="locality"
-              {...register("locality")}
-              placeholder="Locality"
-              className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
-          </div>
+          <TextInput
+            label="Locality"
+            id="companyAddress.locality"
+            register={register}
+          />
 
           {/* Town/City, County and Postcode */}
           <div className="mt-2 grid grid-cols-1 gap-x-6 sm:grid-cols-3">
-            <div className="col-span-2 mt-2">
-              <label
-                htmlFor="town-city"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Town/City
-              </label>
+            <TextInput
+              label="Town/City"
+              id="companyAddress.townCity"
+              register={register}
+              registerOptions={{
+                required: "Town/City is required",
+              }}
+              errors={errors}
+              span={2}
+            />
 
-              <input
-                type="text"
-                id="town-city"
-                {...register("townCity", {
-                  required: "Town/City is required",
-                })}
-                placeholder="Town/City"
-                className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 "
-              />
-              {errors.townCity && (
-                <p className="text-xs italic text-red-500">
-                  {errors.townCity.message}
-                </p>
-              )}
-            </div>
-            <div className="col-span-1 mt-2">
-              <label
-                htmlFor="county"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                County
-              </label>
-              <input
-                type="text"
-                id="county"
-                {...register("county")}
-                placeholder="County"
-                className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-            <div className="col-span-1 mt-2">
-              <label
-                htmlFor="postcode"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Postcode
-              </label>
-              <input
-                type="text"
-                id="postcode"
-                {...register("postcode", {
-                  required: "Postcode is required",
-                })}
-                placeholder="Postcode"
-                className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-              {errors.postcode && (
-                <p className="text-xs italic text-red-500">
-                  {errors.postcode.message}
-                </p>
-              )}
-            </div>
+            <TextInput
+              label="County"
+              id="companyAddress.county"
+              register={register}
+              span={1}
+            />
+            <TextInput
+              label="Postcode"
+              id="companyAddress.postcode"
+              register={register}
+              registerOptions={{
+                required: "Postcode is required",
+              }}
+              errors={errors}
+              span={1}
+            />
           </div>
         </div>
-
-        <label className="flex items-center space-x-3 rounded-lg bg-gray-100 p-2">
-          <input
-            type="checkbox"
-            onChange={handleCheckboxChange}
-            checked={isCorrespondentAddressVisible}
-            className="form-checkbox mr-2 h-5 w-5 text-gray-600"
-          />
-          <span className="text-sm text-gray-700">
-            Correspondent Address is the same as Registered Address
-          </span>
-        </label>
+        <Checkbox
+          label="Correspondent Address is the same as Registered Address"
+          id="isCorrespondentAddressCheckbox"
+          onChange={toggleAddressVisibility}
+          checked={isCorrespondentAddressVisible}
+          register={register}
+          registerOptions={{}}
+          errors={errors}
+          span={6}
+        />
 
         {isCorrespondentAddressVisible && (
           <div className="sm:col-span-6">
@@ -338,135 +227,64 @@ function CompanyDetails() {
               Correspondent Address (if different)
             </label>
 
-            {/* Building Number */}
-            {/* <div className="mt-2">
-              <input
-                type="text"
-                id="correspondent-building-number"
-                {...register("correspondentBuildingNumber", {
-                  required: isFieldFilled
-                    ? "Building number is required"
-                    : false,
-                })}
-                placeholder="Building Number"
-                className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-              {errors.correspondentBuildingNumber && (
-                <p className="text-xs italic text-red-500">
-                  {errors.correspondentBuildingNumber.message}
-                </p>
-              )}
-            </div> */}
-
             {/* Street */}
-            <div className="mt-2">
-              <label
-                htmlFor="correspondent-street"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Street
-              </label>
-              <input
-                type="text"
-                id="correspondent-street"
-                {...register("correspondentStreet", {
-                  required: isFieldFilled ? "Street is required" : false,
-                })}
-                placeholder="Street"
-                className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-              {errors.correspondentStreet && (
-                <p className="text-xs italic text-red-500">
-                  {errors.correspondentStreet.message}
-                </p>
-              )}
-            </div>
+            <TextInput
+              label="Street"
+              id="correspondentAddress.street"
+              register={register}
+              registerOptions={{
+                required: isCorrespondentAddressVisible
+                  ? "Street is required"
+                  : false,
+              }}
+              errors={errors}
+            />
 
             {/* Locality */}
-            <div className="mt-2">
-              <label
-                htmlFor="correspondent-locality"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Locality
-              </label>
-              <input
-                type="text"
-                id="correspondent-locality"
-                {...register("correspondentLocality")}
-                placeholder="Locality"
-                className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
+            <TextInput
+              label="Locality"
+              id="correspondentAddress.locality"
+              register={register}
+            />
 
             {/* Town/City, County and Postcode */}
-            <div className="mt-2 grid grid-cols-1 gap-x-6 sm:grid-cols-3">
-              <div className="col-span-2 mt-2">
-                <label
-                  htmlFor="correspondent-town-city"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Town/City
-                </label>
-                <input
-                  type="text"
-                  id="correspondent-town-city"
-                  {...register("correspondentTownCity", {
-                    required: isFieldFilled ? "Town/City is required" : false,
-                  })}
-                  placeholder="Town/City"
-                  className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 "
-                />
-                {errors.correspondentTownCity && (
-                  <p className="text-xs italic text-red-500">
-                    {errors.correspondentTownCity.message}
-                  </p>
-                )}
-              </div>
-              <div className="col-span-1 mt-2">
-                <label
-                  htmlFor="correspondent-county"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  County
-                </label>
-                <input
-                  type="text"
-                  id="correspondent-county"
-                  {...register("correspondentCounty", {
-                    required: isFieldFilled ? "County is required" : false,
-                  })}
-                  placeholder="County"
-                  className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-                {errors.correspondentCounty && (
-                  <p className="text-xs italic text-red-500">
-                    {errors.correspondentCounty.message}
-                  </p>
-                )}
-              </div>
-              <div className="col-span-1 mt-2">
-                <label
-                  htmlFor="correspondent-postcode"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Postcode
-                </label>
-                <input
-                  type="text"
-                  id="correspondent-postcode"
-                  {...register("correspondentPostcode", {
-                    required: isFieldFilled ? "Postcode is required" : false,
-                  })}
-                  placeholder="Postcode"
-                  className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-                {errors.correspondentPostcode && (
-                  <p className="text-xs italic text-red-500">
-                    {errors.correspondentPostcode.message}
-                  </p>
-                )}
-              </div>
+            <TextInput
+              label="Town/City"
+              id="correspondentAddress.townCity"
+              register={register}
+              registerOptions={{
+                required: isCorrespondentAddressVisible
+                  ? "Town/City is required"
+                  : false,
+              }}
+              errors={errors}
+              span={2}
+            />
+            <div className="grid grid-cols-1 gap-x-6 sm:grid-cols-3">
+              <TextInput
+                label="County"
+                id="correspondentAddress.county"
+                register={register}
+                registerOptions={{
+                  required: isCorrespondentAddressVisible
+                    ? "County is required"
+                    : false,
+                }}
+                errors={errors}
+                span={1}
+              />
+              <TextInput
+                label="Postcode"
+                id="correspondentAddress.postcode"
+                register={register}
+                registerOptions={{
+                  required: isCorrespondentAddressVisible
+                    ? "Postcode is required"
+                    : false,
+                }}
+                errors={errors}
+                span={1}
+              />
             </div>
           </div>
         )}

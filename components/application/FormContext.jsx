@@ -71,6 +71,7 @@ export const FormProvider = ({ children }) => {
 
       setSteps(newSteps);
       setCurrentStep(steps[index + 1].id);
+      console.log("form data", formData);
     }
   };
 
