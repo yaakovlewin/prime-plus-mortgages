@@ -29,7 +29,7 @@ export default function InnerFormComponent() {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: encode({ "form-name": "application-form", ...formData }),
+          body: encode({ "form-name": "application-form", ...data }),
         })
           .then(() => {
             console.log("Form submitted successfully");
@@ -55,7 +55,7 @@ export default function InnerFormComponent() {
       name="application-form"
       method="post"
       data-netlify="true"
-      // netlify-honeypot="bot-field"
+      netlify-honeypot="bot-field"
       netlify
       onSubmit={methods.handleSubmit(onSubmit)}
     >
@@ -76,12 +76,12 @@ export default function InnerFormComponent() {
               ),
           )}
 
-          {/* <div className="hidden">
+          <div className="hidden">
             <label>
               Don’t fill this out if you&apos;re human:{" "}
               <input name="bot-field" />
             </label>
-          </div> */}
+          </div>
           <input type="hidden" name="form-name" value="application-form" />
           <NavigationButtons />
         </>
