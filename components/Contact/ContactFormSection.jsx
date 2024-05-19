@@ -25,65 +25,94 @@ const ContactFormSection = () => {
       .catch((error) => alert(error));
   };
   return (
-    <section className="bg-slate-100 py-12 text-center">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-lg">
-          <form
-            name="contact"
-            data-netlify="true"
-            data-netlify-recaptcha="true"
-            method="POST"
-            className="rounded-lg bg-white p-8 shadow-lg"
-            onSubmit={handleSubmit}
-          >
-            <div className="mb-6">
-              <label htmlFor="name" className="mb-2 block text-sm">
-                Your Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Name"
-                className="w-full rounded-md border border-gray-300 px-3 py-2 ring-1 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600"
-              />
-            </div>
-            <div className="mb-6">
-              <label htmlFor="email" className="mb-2 block text-sm">
-                Your Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="john@example.com"
-                className="w-full rounded-md border border-gray-300 px-3 py-2 ring-1 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600"
-              />
-            </div>
-            <div className="mb-6">
-              <label htmlFor="message" className="mb-2 block text-sm">
-                Your Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                placeholder="Enter your message..."
-                className="w-full rounded-md border border-gray-300 px-3 py-2 ring-1 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600"
-              ></textarea>
-            </div>
-            <div data-netlify-recaptcha="true"></div>
-            <input type="hidden" name="form-name" value="contact" />
-            <button
-              type="submit"
-              className="rounded-md bg-cyan-600 px-4 py-2 font-semibold text-white hover:bg-cyan-700"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
+    <form name="contact" method="POST" data-netlify="true">
+      <p>
+        <label>
+          Your Name: <input type="text" name="name" />
+        </label>
+      </p>
+      <p>
+        <label>
+          Your Email: <input type="email" name="email" />
+        </label>
+      </p>
+      <p>
+        <label>
+          Your Role:{" "}
+          <select name="role[]" multiple>
+            <option value="leader">Leader</option>
+            <option value="follower">Follower</option>
+          </select>
+        </label>
+      </p>
+      <p>
+        <label>
+          Message: <textarea name="message"></textarea>
+        </label>
+      </p>
+      <p>
+        <button type="submit">Send</button>
+      </p>
+    </form>
+    // <section className="bg-slate-100 py-12 text-center">
+    //   <div className="container mx-auto px-4">
+    //     <div className="mx-auto max-w-lg">
+    //       <form
+    //         name="contact"
+    //         data-netlify="true"
+    //         data-netlify-recaptcha="true"
+    //         method="POST"
+    //         className="rounded-lg bg-white p-8 shadow-lg"
+    //         onSubmit={handleSubmit}
+    //       >
+    //         <div className="mb-6">
+    //           <label htmlFor="name" className="mb-2 block text-sm">
+    //             Your Name
+    //           </label>
+    //           <input
+    //             type="text"
+    //             id="name"
+    //             name="name"
+    //             placeholder="Name"
+    //             className="w-full rounded-md border border-gray-300 px-3 py-2 ring-1 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+    //           />
+    //         </div>
+    //         <div className="mb-6">
+    //           <label htmlFor="email" className="mb-2 block text-sm">
+    //             Your Email
+    //           </label>
+    //           <input
+    //             type="email"
+    //             id="email"
+    //             name="email"
+    //             placeholder="john@example.com"
+    //             className="w-full rounded-md border border-gray-300 px-3 py-2 ring-1 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+    //           />
+    //         </div>
+    //         <div className="mb-6">
+    //           <label htmlFor="message" className="mb-2 block text-sm">
+    //             Your Message
+    //           </label>
+    //           <textarea
+    //             id="message"
+    //             name="message"
+    //             rows="4"
+    //             placeholder="Enter your message..."
+    //             className="w-full rounded-md border border-gray-300 px-3 py-2 ring-1 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+    //           ></textarea>
+    //         </div>
+    //         <div data-netlify-recaptcha="true"></div>
+    //         <input type="hidden" name="form-name" value="contact" />
+    //         <button
+    //           type="submit"
+    //           className="rounded-md bg-cyan-600 px-4 py-2 font-semibold text-white hover:bg-cyan-700"
+    //         >
+    //           Send Message
+    //         </button>
+    //       </form>
+    //     </div>
+    //   </div>
+    // </section>
   );
 };
 
