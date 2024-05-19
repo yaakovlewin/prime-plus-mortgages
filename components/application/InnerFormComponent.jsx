@@ -24,7 +24,7 @@ export default function InnerFormComponent() {
     const isValid = await methods.trigger();
     if (isValid) {
       if (currentStep === steps.length) {
-        fetch("/", {
+        await fetch("/", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
