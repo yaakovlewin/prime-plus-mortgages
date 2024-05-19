@@ -12,12 +12,14 @@ import NavigationButtons from "./NavigationButtons";
 import ProgressIndicator from "./ProgressIndicator";
 
 export default function InnerFormComponent() {
-  const { currentStep, steps, nextStep } = useFormContext();
+  const { currentStep, steps, nextStep, updateFormData, formData } =
+    useFormContext();
   const methods = useFormContextRHForm();
 
   const router = useRouter();
 
   const onSubmit = async (data) => {
+    updateFormData(data);
     console.log(data);
     const isValid = await methods.trigger();
     if (isValid) {
@@ -27,7 +29,7 @@ export default function InnerFormComponent() {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: encode({ "form-name": "application-form", ...data }),
+          body: encode({ "form-name": "application-form", ...formData }),
         })
           .then(() => {
             console.log("Form submitted successfully");

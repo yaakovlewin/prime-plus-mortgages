@@ -59,7 +59,7 @@ export const FormProvider = ({ children }) => {
       email: "",
       phone: "",
     },
-    isCorrespondentAddressVisible: false,
+    correspondentAddressVisible: false,
   });
 
   const nextStep = () => {
@@ -71,7 +71,6 @@ export const FormProvider = ({ children }) => {
 
       setSteps(newSteps);
       setCurrentStep(steps[index + 1].id);
-      console.log("form data", formData);
     }
   };
 
@@ -92,6 +91,7 @@ export const FormProvider = ({ children }) => {
       ...prevFormData,
       ...newData,
     }));
+    console.log(formData);
   };
 
   return (

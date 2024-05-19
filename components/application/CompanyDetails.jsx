@@ -1,88 +1,70 @@
 "use client";
 import { useFormContext as useFormContextRHForm } from "react-hook-form";
 import { useFormContext } from "@/components/application/FormContext";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import prefixAddressFields from "@/js/utils/prefixAddressFields";
 
 // components
 import { TextInput, DateInput, Checkbox } from "./FormComponents";
 
 function CompanyDetails() {
-  const [temporaryAddressData, setTemporaryAddressData] = useState({});
-
   const {
     formData: { companyDetails },
-    updateFormData,
+    correspondentAddressVisible,
   } = useFormContext();
 
   const {
     register,
     getValues,
     setValue,
-    watch,
     formState: { errors },
   } = useFormContextRHForm({
     mode: "onBlur",
     defaultValues: {
-      // Spread operator to populate fields directly from companyDetails object
       ...companyDetails,
-      // Destructure nested addresses into separate prefixed fields
-      ...prefixAddressFields("companyAddress", companyDetails.companyAddress),
-      ...prefixAddressFields(
-        "correspondentAddress",
-        companyDetails.correspondentAddress,
-      ),
+      // ...prefixAddressFields("companyAddress", companyDetails.companyAddress),
+      // ...prefixAddressFields(
+      //   "correspondentAddress",
+      //   companyDetails.correspondentAddress,
+      // ),
+      correspondentAddressVisible,
     },
   });
 
-  const handleCheckboxChange = (event) => {
-    updateFormData((prevState) => ({
-      ...prevState,
-      isCorrespondentAddressVisible: event.target.checked,
-    }));
-  };
+  const [isCorrespondentAddressVisible, setIsCorrespondentAddressVisible] =
+    useState(correspondentAddressVisible);
+  const previousAddressData = useRef({});
 
-  let isCorrespondentAddressVisible = watch("isCorrespondentAddressCheckbox");
+  const handleCheckboxChange = (e) => {
+    const visible = e.target.checked;
+    setIsCorrespondentAddressVisible(visible);
+    setValue("correspondentAddressVisible", visible);
 
-  const toggleAddressVisibility = (e) => {
-    if (e.target.checked) {
-      const currentValues = getValues();
-      setTemporaryAddressData(currentValues);
-      setValue("correspondentBuildingNumber", "");
-      setValue("correspondentStreet", "");
-      setValue("correspondentLocality", "");
-      setValue("correspondentTownCity", "");
-      setValue("correspondentCounty", "");
-      setValue("correspondentPostcode", "");
-    } else {
-      if (temporaryAddressData) {
-        setValue(
-          "correspondentBuildingNumber",
-          temporaryAddressData.correspondentBuildingNumber,
-        );
-        setValue(
-          "correspondentStreet",
-          temporaryAddressData.correspondentStreet,
-        );
-        setValue(
-          "correspondentLocality",
-          temporaryAddressData.correspondentLocality,
-        );
-        setValue(
-          "correspondentTownCity",
-          temporaryAddressData.correspondentTownCity,
-        );
-        setValue(
-          "correspondentCounty",
-          temporaryAddressData.correspondentCounty,
-        );
-        setValue(
-          "correspondentPostcode",
-          temporaryAddressData.correspondentPostcode,
-        );
-      }
-    }
-    isCorrespondentAddressVisible = e.target.checked;
+    // if (visible) {
+    //   // Restore previous values
+    //   Object.entries(previousAddressData.current).forEach(([key, value]) => {
+    //     setValue(`correspondentAddress.${key}`, value);
+    //   });
+    // } else {
+    //   // Save current values
+    //   previousAddressData.current = getValues([
+    //     "correspondentAddress.street",
+    //     "correspondentAddress.locality",
+    //     "correspondentAddress.townCity",
+    //     "correspondentAddress.county",
+    //     "correspondentAddress.postcode",
+    //   ]);
+
+    //   console.log(previousAddressData.current);
+
+    //   // Clear fields
+    //   ["street", "locality", "townCity", "county", "postcode"].forEach(
+    //     (field) => {
+    //       setValue(`correspondentAddress.${field}`, "");
+    //     },
+    //   );
+    // }
+    console.log(getValues(["correspondentAddressVisible"]));
   };
 
   return (
@@ -209,8 +191,8 @@ function CompanyDetails() {
         </div>
         <Checkbox
           label="Correspondent Address is the same as Registered Address"
-          id="isCorrespondentAddressCheckbox"
-          onChange={toggleAddressVisibility}
+          id="correspondentAddressVisible"
+          onChange={handleCheckboxChange}
           checked={isCorrespondentAddressVisible}
           register={register}
           registerOptions={{}}
