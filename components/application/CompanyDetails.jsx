@@ -10,11 +10,12 @@ import { TextInput, DateInput, Checkbox } from "./FormComponents";
 function CompanyDetails() {
   const {
     formData: { companyDetails },
-    correspondentAddressVisible,
+    correspondentAddressSame,
   } = useFormContext();
 
   const {
     register,
+    unregister,
     getValues,
     setValue,
     formState: { errors },
@@ -22,17 +23,17 @@ function CompanyDetails() {
     mode: "onBlur",
     defaultValues: {
       ...companyDetails,
-      // ...prefixAddressFields("companyAddress", companyDetails.companyAddress),
-      // ...prefixAddressFields(
-      //   "correspondentAddress",
-      //   companyDetails.correspondentAddress,
-      // ),
-      correspondentAddressVisible,
+      ...prefixAddressFields("companyAddress", companyDetails.companyAddress),
+      ...prefixAddressFields(
+        "correspondentAddress",
+        companyDetails.correspondentAddress,
+      ),
+      correspondentAddressSame,
     },
   });
 
   const [isCorrespondentAddressVisible, setIsCorrespondentAddressVisible] =
-    useState(correspondentAddressVisible);
+    useState(correspondentAddressSame);
   const previousAddressData = useRef({});
 
   const handleCheckboxChange = (e) => {
@@ -40,30 +41,30 @@ function CompanyDetails() {
     setIsCorrespondentAddressVisible(visible);
     setValue("correspondentAddressVisible", visible);
 
-    // if (visible) {
-    //   // Restore previous values
-    //   Object.entries(previousAddressData.current).forEach(([key, value]) => {
-    //     setValue(`correspondentAddress.${key}`, value);
-    //   });
-    // } else {
-    //   // Save current values
-    //   previousAddressData.current = getValues([
-    //     "correspondentAddress.street",
-    //     "correspondentAddress.locality",
-    //     "correspondentAddress.townCity",
-    //     "correspondentAddress.county",
-    //     "correspondentAddress.postcode",
-    //   ]);
+    if (visible) {
+      // Restore previous values
+      Object.entries(previousAddressData.current).forEach(([key, value]) => {
+        register(`correspondentAddress.${key}`, value);
+      });
+    } else {
+      // Save current values
+      previousAddressData.current = getValues([
+        "correspondentAddress.street",
+        "correspondentAddress.locality",
+        "correspondentAddress.townCity",
+        "correspondentAddress.county",
+        "correspondentAddress.postcode",
+      ]);
 
-    //   console.log(previousAddressData.current);
+      console.log(previousAddressData.current);
 
-    //   // Clear fields
-    //   ["street", "locality", "townCity", "county", "postcode"].forEach(
-    //     (field) => {
-    //       setValue(`correspondentAddress.${field}`, "");
-    //     },
-    //   );
-    // }
+      // Clear fields
+      ["street", "locality", "townCity", "county", "postcode"].forEach(
+        (field) => {
+          unregister(`correspondentAddress.${field}`);
+        },
+      );
+    }
     console.log(getValues(["correspondentAddressVisible"]));
   };
 

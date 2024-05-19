@@ -59,7 +59,7 @@ export const FormProvider = ({ children }) => {
       email: "",
       phone: "",
     },
-    correspondentAddressVisible: false,
+    correspondentAddressSame: true,
   });
 
   const nextStep = () => {
