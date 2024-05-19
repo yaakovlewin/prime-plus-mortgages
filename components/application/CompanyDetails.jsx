@@ -44,16 +44,16 @@ function CompanyDetails() {
     if (visible) {
       // Restore previous values
       Object.entries(previousAddressData.current).forEach(([key, value]) => {
-        register(`correspondentAddress.${key}`, value);
+        register(`correspondentAddress${key}`, value);
       });
     } else {
       // Save current values
       previousAddressData.current = getValues([
-        "correspondentAddress.street",
-        "correspondentAddress.locality",
-        "correspondentAddress.townCity",
-        "correspondentAddress.county",
-        "correspondentAddress.postcode",
+        "correspondentAddressstreet",
+        "correspondentAddresslocality",
+        "correspondentAddresstownCity",
+        "correspondentAddresscounty",
+        "correspondentAddresspostcode",
       ]);
 
       console.log(previousAddressData.current);
@@ -61,7 +61,7 @@ function CompanyDetails() {
       // Clear fields
       ["street", "locality", "townCity", "county", "postcode"].forEach(
         (field) => {
-          unregister(`correspondentAddress.${field}`);
+          unregister(`correspondentAddress${field}`);
         },
       );
     }
@@ -144,7 +144,7 @@ function CompanyDetails() {
           {/* Street */}
           <TextInput
             label="Street"
-            id="companyAddress.street"
+            id="companyAddressstreet"
             register={register}
             registerOptions={{
               required: "Street is required",
@@ -155,7 +155,7 @@ function CompanyDetails() {
           {/* Locality */}
           <TextInput
             label="Locality"
-            id="companyAddress.locality"
+            id="companyAddresslocality"
             register={register}
           />
 
@@ -163,7 +163,7 @@ function CompanyDetails() {
           <div className="mt-2 grid grid-cols-1 gap-x-6 sm:grid-cols-3">
             <TextInput
               label="Town/City"
-              id="companyAddress.townCity"
+              id="companyAddresstownCity"
               register={register}
               registerOptions={{
                 required: "Town/City is required",
@@ -174,13 +174,13 @@ function CompanyDetails() {
 
             <TextInput
               label="County"
-              id="companyAddress.county"
+              id="companyAddresscounty"
               register={register}
               span={1}
             />
             <TextInput
               label="Postcode"
-              id="companyAddress.postcode"
+              id="companyAddresspostcode"
               register={register}
               registerOptions={{
                 required: "Postcode is required",
@@ -213,7 +213,7 @@ function CompanyDetails() {
             {/* Street */}
             <TextInput
               label="Street"
-              id="correspondentAddress.street"
+              id="correspondentAddresstreet"
               register={register}
               registerOptions={{
                 required: isCorrespondentAddressVisible
@@ -226,14 +226,14 @@ function CompanyDetails() {
             {/* Locality */}
             <TextInput
               label="Locality"
-              id="correspondentAddress.locality"
+              id="correspondentAddreslocality"
               register={register}
             />
 
             {/* Town/City, County and Postcode */}
             <TextInput
               label="Town/City"
-              id="correspondentAddress.townCity"
+              id="correspondentAddrestownCity"
               register={register}
               registerOptions={{
                 required: isCorrespondentAddressVisible
@@ -246,7 +246,7 @@ function CompanyDetails() {
             <div className="grid grid-cols-1 gap-x-6 sm:grid-cols-3">
               <TextInput
                 label="County"
-                id="correspondentAddress.county"
+                id="correspondentAddrescounty"
                 register={register}
                 registerOptions={{
                   required: isCorrespondentAddressVisible
@@ -258,7 +258,7 @@ function CompanyDetails() {
               />
               <TextInput
                 label="Postcode"
-                id="correspondentAddress.postcode"
+                id="correspondentAddrespostcode"
                 register={register}
                 registerOptions={{
                   required: isCorrespondentAddressVisible
