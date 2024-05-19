@@ -82,7 +82,11 @@ export default function InnerFormComponent() {
               <input name="bot-field" />
             </label>
           </div>
-          <input type="hidden" name="form-name" value="application-form" />
+          <input
+            type="hidden"
+            name="application-form"
+            value="application-form"
+          />
           <NavigationButtons />
         </>
       </FormContainer>
