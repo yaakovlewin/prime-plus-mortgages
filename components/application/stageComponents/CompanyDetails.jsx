@@ -1,12 +1,12 @@
 "use client";
 import { CORRESPONDENT_FIELDS } from "@/js/config/addressFieldsConfig";
-import { useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useFormContext } from "react-hook-form";
 
 // components
-import AddressForm from "./AddressForm";
-import CompanyForm from "./CompanyForm";
-import { Checkbox } from "./FormInputs";
+import AddressForm from "@/components/application/sections/AddressForm";
+import { Checkbox } from "../dynamicComponents/FormInputs";
+import CompanyForm from "../sections/CompanyForm";
 
 function CompanyDetails() {
   const {
@@ -26,23 +26,13 @@ function CompanyDetails() {
   const isCorrespondentAddressVisible = watch("correspondentAddressDifferent");
   const previousAddressData = useRef({});
 
-  const handleCheckboxChange = (e) => {
-    const visible = e.target.checked;
-    setValue("correspondentAddressDifferent", visible);
-    if (visible) {
-      restorePreviousValues();
-    } else {
-      saveAndClearCurrentValues();
-    }
-  };
-
-  const restorePreviousValues = () => {
+  const restorePreviousValues = useCallback(() => {
     Object.entries(previousAddressData.current).forEach(([key, value]) => {
       setValue(`correspondentAddress.${key}`, value);
     });
-  };
+  }, [setValue]);
 
-  const saveAndClearCurrentValues = () => {
+  const saveAndClearCurrentValues = useCallback(() => {
     previousAddressData.current = CORRESPONDENT_FIELDS.reduce((acc, field) => {
       acc[field] = getValues(`correspondentAddress.${field}`);
       return acc;
@@ -50,7 +40,19 @@ function CompanyDetails() {
     CORRESPONDENT_FIELDS.forEach((field) => {
       unregister(`correspondentAddress.${field}`);
     });
-  };
+  }, [getValues, unregister]);
+
+  useEffect(() => {
+    if (isCorrespondentAddressVisible) {
+      restorePreviousValues();
+    } else {
+      saveAndClearCurrentValues();
+    }
+  }, [
+    isCorrespondentAddressVisible,
+    restorePreviousValues,
+    saveAndClearCurrentValues,
+  ]);
 
   return (
     <section className="space-y-18 py-12">
@@ -69,7 +71,9 @@ function CompanyDetails() {
         <Checkbox
           label="Correspondent Address is different to Registered Address"
           id="correspondentAddressDifferent"
-          onChange={handleCheckboxChange}
+          onChange={(e) =>
+            setValue("correspondentAddressDifferent", e.target.checked)
+          }
           checked={isCorrespondentAddressVisible}
           register={register}
           registerOptions={{}}

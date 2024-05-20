@@ -1,10 +1,8 @@
 "use client";
-import React from "react";
 import { useFormContext } from "@/components/application/FormContext";
 
-
 export default function NavigationButtons() {
-  const { currentStep, steps, prevStep, nextStep } = useFormContext();
+  const { currentStep, steps, prevStep } = useFormContext();
   return (
     <div className="container flex justify-between">
       <button

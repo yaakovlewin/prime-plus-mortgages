@@ -1,7 +1,7 @@
-import { useFormContext } from "react-hook-form";
 import createAddressConfig from "@/js/config/addressFieldsConfig";
 import getDefaultValues from "@/js/utils/getDefaultValues";
-import FormField from "./FormField";
+import { useFormContext } from "react-hook-form";
+import FormField from "../dynamicComponents/FormField";
 
 const AddressForm = ({ prefix, isVisible }) => {
   const addressConfig = createAddressConfig(prefix, isVisible);

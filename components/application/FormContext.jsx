@@ -1,6 +1,6 @@
+import CompanyDetails from "@/components/application/stageComponents/CompanyDetails";
+import PersonalDetails from "@/components/application/stageComponents/PersonalDetails";
 import { createContext, useContext, useState } from "react";
-import CompanyDetails from "@/components/application/CompanyDetails";
-import PersonalDetails from "@/components/application/PersonalDetails";
 
 const FormContext = createContext();
 
@@ -33,35 +33,6 @@ export const FormProvider = ({ children }) => {
     },
   ]);
 
-  const [formData, setFormData] = useState({
-    companyDetails: {
-      companyName: "",
-      registrationNumber: "",
-      incorporationDate: "",
-      companyAddress: {
-        street: "",
-        locality: "",
-        townCity: "",
-        county: "",
-        postCode: "",
-      },
-      correspondentAddress: {
-        street: "",
-        locality: "",
-        townCity: "",
-        county: "",
-        postCode: "",
-      },
-    },
-    personalDetails: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-    },
-    correspondentAddressSame: true,
-  });
-
   const nextStep = () => {
     const index = steps.findIndex((step) => step.id === currentStep);
     if (index < steps.length - 1) {
@@ -86,19 +57,9 @@ export const FormProvider = ({ children }) => {
     }
   };
 
-  const updateFormData = (newData) => {
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      ...newData,
-    }));
-    console.log(formData);
-  };
-
   return (
     <FormContext.Provider
       value={{
-        formData,
-        updateFormData,
         currentStep,
         steps,
         nextStep,

@@ -1,7 +1,7 @@
 "use client";
-import { useFormContext } from "react-hook-form";
 import companyDetailsConfig from "@/js/config/companyDetailsConfig";
-import FormField from "./FormField";
+import { useFormContext } from "react-hook-form";
+import FormField from "../dynamicComponents/FormField";
 
 const CompanyForm = () => {
   const defaultValues = companyDetailsConfig.reduce((acc, field) => {

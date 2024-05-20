@@ -1,25 +1,23 @@
 "use client";
-import React from "react";
-import { useFormContext as useFormContextRHForm } from "react-hook-form";
 import { useFormContext } from "@/components/application/FormContext";
 import { useRouter } from "next/navigation";
+import React from "react";
+import { useFormContext as useFormContextRHForm } from "react-hook-form";
 
 // components
+import FormContainer from "@/components/FormContainer";
 import FormHeroSection from "@/components/FormHeroSection";
 import Heading2 from "@/components/Heading2";
-import FormContainer from "@/components/FormContainer";
 import NavigationButtons from "./NavigationButtons";
 import ProgressIndicator from "./ProgressIndicator";
 
 export default function InnerFormComponent() {
-  const { currentStep, steps, nextStep, updateFormData, formData } =
-    useFormContext();
+  const { currentStep, steps, nextStep, updateFormData } = useFormContext();
   const methods = useFormContextRHForm();
 
   const router = useRouter();
 
   const onSubmit = async (data) => {
-    updateFormData(data);
     console.log(data);
     const isValid = await methods.trigger();
     if (isValid) {

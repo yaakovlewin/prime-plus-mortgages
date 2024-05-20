@@ -1,8 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
 import { useFormContext } from "react-hook-form";
-import Heading2 from "../Heading2";
 
 export default function PersonalDetails({ setSteps = null, type }) {
   const {
