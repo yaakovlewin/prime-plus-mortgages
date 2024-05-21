@@ -1,9 +1,8 @@
 "use client";
-import React from "react";
 import { useFormContext } from "@/components/application/FormContext";
 
 export default function ProgressIndicator() {
-  const { steps, currentStep } = useFormContext();
+  const { steps } = useFormContext();
   return (
     <nav aria-label="Progress">
       <ol role="list" className="space-y-4 md:flex md:space-x-8 md:space-y-0">

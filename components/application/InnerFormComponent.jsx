@@ -8,8 +8,8 @@ import { useFormContext as useFormContextRHForm } from "react-hook-form";
 import FormContainer from "@/components/FormContainer";
 import FormHeroSection from "@/components/FormHeroSection";
 import Heading2 from "@/components/Heading2";
-import NavigationButtons from "./NavigationButtons";
-import ProgressIndicator from "./ProgressIndicator";
+import NavigationButtons from "./sections/NavigationButtons";
+import ProgressIndicator from "./sections/ProgressIndicator";
 
 export default function InnerFormComponent() {
   const { currentStep, steps, nextStep, updateFormData } = useFormContext();

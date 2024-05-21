@@ -2,7 +2,7 @@
 
 import { useFormContext } from "react-hook-form";
 
-export default function PersonalDetails({ setSteps = null, type }) {
+export default function PersonalDetails() {
   const {
     register,
     formState: { errors },
@@ -17,10 +17,10 @@ export default function PersonalDetails({ setSteps = null, type }) {
             type="text"
             name="first_name"
             id="first_name"
-            {...register(`${type}FirstName`, { required: true })}
+            {...register(`FirstName`, { required: true })}
             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
-          {errors[`${type}FirstName`] && (
+          {errors[`FirstName`] && (
             <span className="text-xs text-red-500">First name is required</span>
           )}
         </div>
@@ -30,10 +30,10 @@ export default function PersonalDetails({ setSteps = null, type }) {
             type="text"
             name="last_name"
             id="last_name"
-            {...register(`${type}LastName`, { required: true })}
+            {...register(`LastName`, { required: true })}
             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
-          {errors[`${type}LastName`] && (
+          {errors[`LastName`] && (
             <span className="text-xs text-red-500">Last name is required</span>
           )}
         </div>
@@ -44,10 +44,10 @@ export default function PersonalDetails({ setSteps = null, type }) {
             name="email"
             id="email"
             autoComplete="email"
-            {...register(`${type}Email`, { required: true })}
+            {...register(`Email`, { required: true })}
             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
-          {errors[`${type}Email`] && (
+          {errors[`Email`] && (
             <span className="text-xs text-red-500">Email is required</span>
           )}
         </div>
@@ -58,10 +58,10 @@ export default function PersonalDetails({ setSteps = null, type }) {
             name="phone"
             id="phone"
             autoComplete="tel"
-            {...register(`${type}Phone`, { required: true })}
+            {...register(`Phone`, { required: true })}
             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
-          {errors[`${type}Phone`] && (
+          {errors[`Phone`] && (
             <span className="text-xs text-red-500">Phone is required</span>
           )}
         </div>
