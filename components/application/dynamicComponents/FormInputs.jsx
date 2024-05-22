@@ -1,6 +1,7 @@
 const TextInput = function TextInputGenerature({
   label,
   id,
+  autoComplete = "off",
   placeholder = "",
   register,
   registerOptions,
@@ -22,6 +23,7 @@ const TextInput = function TextInputGenerature({
         <input
           type="text"
           id={id}
+          name={id}
           {...register(id, registerOptions)}
           placeholder={label ? `Enter ${label}` : placeholder}
           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -62,6 +64,7 @@ const DateInput = function DateInputGenerature({
         <input
           type="date"
           id={id}
+          name={id}
           {...register(id, registerOptions)}
           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           {...inputProps} // spread all remaining props
@@ -90,6 +93,7 @@ const Checkbox = function CheckboxGenerature({
       <label className="rounded-lg p-2">
         <input
           id={id}
+          name={id}
           type="checkbox"
           checked={checked}
           onChange={(e) => {
@@ -108,4 +112,4 @@ const Checkbox = function CheckboxGenerature({
   );
 };
 
-export { DateInput, TextInput, Checkbox };
+export { Checkbox, DateInput, TextInput };

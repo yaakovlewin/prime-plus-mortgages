@@ -16,6 +16,7 @@ export default function PersonalDetails() {
           <input
             type="text"
             name="first_name"
+            autoComplete="given-name"
             id="first_name"
             {...register(`FirstName`, { required: true })}
             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -29,6 +30,7 @@ export default function PersonalDetails() {
           <input
             type="text"
             name="last_name"
+            autoComplete="family-name"
             id="last_name"
             {...register(`LastName`, { required: true })}
             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"

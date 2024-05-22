@@ -1,6 +1,6 @@
 "use client";
-import { CORRESPONDENT_FIELDS } from "@/js/config/addressFieldsConfig";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useAddress } from "@/app/hooks/useAddress";
+import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 // components
@@ -9,14 +9,11 @@ import { Checkbox } from "../dynamicComponents/FormInputs";
 import CompanyForm from "../sections/CompanyForm";
 
 function CompanyDetails() {
-  const [correspondentAddressVisible, setCorrespondentAddressVisible] =
-    useState(false);
-
   const {
     register,
-    unregister,
     getValues,
     setValue,
+    watch,
     formState: { errors },
   } = useFormContext({
     mode: "onBlur",
@@ -25,23 +22,15 @@ function CompanyDetails() {
     },
   });
 
-  const previousAddressData = useRef({});
+  const correspondentAddressDifferent = watch("correspondentAddressDifferent");
 
-  const restorePreviousValues = useCallback(() => {
-    Object.entries(previousAddressData.current).forEach(([key, value]) => {
-      setValue(`correspondentAddress.${key}`, value);
-    });
-  }, [setValue]);
+  const [correspondentAddressVisible, setCorrespondentAddressVisible] =
+    useState(false);
+  const { restorePreviousValues, saveAndClearCurrentValues } = useAddress();
 
-  const saveAndClearCurrentValues = useCallback(() => {
-    previousAddressData.current = CORRESPONDENT_FIELDS.reduce((acc, field) => {
-      acc[field] = getValues(`correspondentAddress.${field}`);
-      return acc;
-    }, {});
-    CORRESPONDENT_FIELDS.forEach((field) => {
-      unregister(`correspondentAddress.${field}`);
-    });
-  }, [getValues, unregister]);
+  useEffect(() => {
+    setCorrespondentAddressVisible(getValues("correspondentAddressDifferent"));
+  }, [getValues]);
 
   useEffect(() => {
     if (correspondentAddressVisible) {
