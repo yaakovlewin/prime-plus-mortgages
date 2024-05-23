@@ -19,29 +19,27 @@ export default function InnerFormComponent() {
 
   const onSubmit = async (data) => {
     console.log(data);
-    const isValid = await methods.trigger();
-    if (isValid) {
-      if (currentStep === steps.length) {
-        try {
-          const response = await fetch("/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: encode({ "form-name": "application-form", ...data }),
-          });
-          if (response.ok) {
-            console.log("Form submitted successfully");
-            router.push("/success");
-          } else {
-            throw new Error("Form submission failed");
-          }
-        } catch (error) {
-          alert(error);
+    if (currentStep === steps.length) {
+      console.log(encode({ "form-name": "application-form", ...data }));
+      try {
+        const response = await fetch("/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: encode({ "form-name": "application-form", ...data }),
+        });
+        if (response.ok) {
+          console.log("Form submitted successfully");
+          router.push("/success");
+        } else {
+          throw new Error("Form submission failed");
         }
-      } else {
-        nextStep();
+      } catch (error) {
+        alert(error);
       }
+    } else {
+      nextStep();
     }
   };
 
