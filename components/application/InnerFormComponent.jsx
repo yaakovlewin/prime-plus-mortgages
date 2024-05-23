@@ -12,7 +12,7 @@ import NavigationButtons from "./sections/NavigationButtons";
 import ProgressIndicator from "./sections/ProgressIndicator";
 
 export default function InnerFormComponent() {
-  const { currentStep, steps, nextStep, updateFormData } = useFormContext();
+  const { currentStep, steps, nextStep } = useFormContext();
   const methods = useFormContextRHForm();
 
   const router = useRouter();
@@ -22,30 +22,44 @@ export default function InnerFormComponent() {
     const isValid = await methods.trigger();
     if (isValid) {
       if (currentStep === steps.length) {
-        await fetch("/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: encode({ "form-name": "application-form", ...data }),
-        })
-          .then(() => {
+        try {
+          const response = await fetch("/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: encode({ "form-name": "application-form", ...data }),
+          });
+          if (response.ok) {
             console.log("Form submitted successfully");
             router.push("/success");
-          })
-          .catch((error) => alert(error));
+          } else {
+            throw new Error("Form submission failed");
+          }
+        } catch (error) {
+          alert(error);
+        }
       } else {
         nextStep();
       }
     }
   };
 
-  function encode(data) {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]),
-      )
+  function encode(data, parentKey) {
+    const queryString = Object.keys(data)
+      .map((key) => {
+        const fullKey = parentKey ? `${parentKey}[${key}]` : key;
+        if (typeof data[key] === "object" && data[key] !== null) {
+          return encode(data[key], fullKey);
+        } else {
+          return (
+            encodeURIComponent(fullKey) + "=" + encodeURIComponent(data[key])
+          );
+        }
+      })
       .join("&");
+
+    return queryString;
   }
 
   return (
