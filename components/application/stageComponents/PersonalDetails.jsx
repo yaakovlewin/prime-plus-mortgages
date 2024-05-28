@@ -1,9 +1,10 @@
 "use client";
-import personalDetailsConfig from "@/js/config/personalDetailsConfig";
+import createPersonalAndFinancialDetailsConfig from "@/js/config/personalDetailsConfig";
 import { useFormContext } from "react-hook-form";
 
 // components
 import FormField from "../dynamicComponents/FormField";
+import AddressForm from "../sections/AddressForm";
 
 export default function PersonalDetails() {
   const {
@@ -16,8 +17,8 @@ export default function PersonalDetails() {
       <h2 className="mt-10 text-base font-semibold leading-7 text-gray-900">
         Personal Details Applicant 1:
       </h2>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-6">
-        {personalDetailsConfig("aplicant1").map((field) => {
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-8">
+        {createPersonalAndFinancialDetailsConfig("applicant1").map((field) => {
           return (
             <FormField
               key={field.id}
@@ -27,14 +28,14 @@ export default function PersonalDetails() {
             />
           );
         })}
-        {/* <AddressForm prefix={"applicant1"} isVisible={true} /> */}
+        <AddressForm prefix={"applicant1"} isVisible={true} />
       </div>
 
       <h2 className="mt-10 text-base font-semibold leading-7 text-gray-900">
         Personal Details Applicant 2:
       </h2>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-6">
-        {personalDetailsConfig("aplicant2").map((field) => {
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-8">
+        {createPersonalAndFinancialDetailsConfig("applicant2").map((field) => {
           return (
             <FormField
               key={field.id}
@@ -45,7 +46,7 @@ export default function PersonalDetails() {
             />
           );
         })}
-        {/* <AddressForm prefix={"applicant2"} isVisible={true} /> */}
+        <AddressForm prefix={"applicant2"} isVisible={true} />
       </div>
     </section>
   );

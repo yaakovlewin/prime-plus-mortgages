@@ -5,24 +5,8 @@ const createPersonalAndFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.title`,
     autoComplete: "honorific-prefix",
     registerOptions: { required: "Title is required" },
-    span: 3,
+    classes: "sm:col-span-4",
     options: ["Mr", "Mrs", "Miss", "Ms", "Dr"],
-  },
-  {
-    type: "text",
-    label: "First Name",
-    id: `${prefix}.firstName`,
-    autoComplete: "given-name",
-    registerOptions: { required: "First name is required" },
-    span: 3,
-  },
-  {
-    type: "text",
-    label: "Last Name",
-    id: `${prefix}.lastName`,
-    autoComplete: "family-name",
-    registerOptions: { required: "Last name is required" },
-    span: 3,
   },
   {
     type: "select",
@@ -30,8 +14,24 @@ const createPersonalAndFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.gender`,
     autoComplete: "sex",
     registerOptions: { required: "Gender is required" },
-    span: 3,
+    classes: "sm:col-span-4",
     options: ["Male", "Female", "Other"],
+  },
+  {
+    type: "text",
+    label: "First Name",
+    id: `${prefix}.firstName`,
+    autoComplete: "given-name",
+    registerOptions: { required: "First name is required" },
+    classes: "sm:col-span-4",
+  },
+  {
+    type: "text",
+    label: "Last Name",
+    id: `${prefix}.lastName`,
+    autoComplete: "family-name",
+    registerOptions: { required: "Last name is required" },
+    classes: "sm:col-span-4",
   },
   {
     type: "select",
@@ -39,7 +39,7 @@ const createPersonalAndFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.maritalStatus`,
     autoComplete: "",
     registerOptions: { required: "Marital status is required" },
-    span: 3,
+    classes: "sm:col-span-4",
     options: ["Single", "Married", "Divorced", "Widowed"],
   },
   {
@@ -48,7 +48,7 @@ const createPersonalAndFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.dateOfBirth`,
     autoComplete: "bday",
     registerOptions: { required: "Date of birth is required" },
-    span: 6,
+    classes: "sm:col-span-4",
   },
   {
     type: "text",
@@ -56,7 +56,7 @@ const createPersonalAndFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.nationality`,
     autoComplete: "nationality",
     registerOptions: { required: "Nationality is required" },
-    span: 6,
+    classes: "sm:col-span-4",
   },
   {
     type: "text",
@@ -64,7 +64,7 @@ const createPersonalAndFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.placeOfBirth`,
     autoComplete: "",
     registerOptions: { required: "Place of birth is required" },
-    span: 6,
+    classes: "sm:col-span-4",
   },
   {
     type: "date",
@@ -72,7 +72,7 @@ const createPersonalAndFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.dateMovedIn`,
     autoComplete: "",
     registerOptions: { required: "Date moved in is required" },
-    span: 6,
+    classes: "sm:col-span-8",
   },
   {
     type: "text",
@@ -83,7 +83,7 @@ const createPersonalAndFinancialDetailsConfig = (prefix) => [
       required:
         "Previous address is required if less than 3 years at current address",
     },
-    span: 6,
+    classes: "sm:col-span-4",
   },
   {
     type: "date",
@@ -94,7 +94,7 @@ const createPersonalAndFinancialDetailsConfig = (prefix) => [
       required:
         "Date moved in is required if less than 3 years at current address",
     },
-    span: 6,
+    classes: "sm:col-span-4",
   },
   {
     type: "text",
@@ -102,7 +102,7 @@ const createPersonalAndFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.homeownerDetails`,
     autoComplete: "",
     registerOptions: { required: "Homeowner details are required" },
-    span: 6,
+    classes: "sm:col-span-8",
   },
   {
     type: "text",
@@ -110,7 +110,7 @@ const createPersonalAndFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.tenantDetails`,
     autoComplete: "",
     registerOptions: { required: "Tenant details are required" },
-    span: 6,
+    classes: "sm:col-span-8",
   },
   {
     type: "tel",
@@ -118,7 +118,7 @@ const createPersonalAndFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.contactNumber`,
     autoComplete: "tel",
     registerOptions: { required: "Contact number is required" },
-    span: 6,
+    classes: "sm:col-span-4",
   },
   {
     type: "email",
@@ -126,7 +126,7 @@ const createPersonalAndFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.email`,
     autoComplete: "email",
     registerOptions: { required: "Email address is required" },
-    span: 6,
+    classes: "sm:col-span-4",
   },
   {
     type: "text",
@@ -134,7 +134,7 @@ const createPersonalAndFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.nationalInsuranceNumber`,
     autoComplete: "",
     registerOptions: { required: "National insurance number is required" },
-    span: 6,
+    classes: "sm:col-span-4",
   },
   {
     type: "text",
@@ -142,7 +142,7 @@ const createPersonalAndFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.directorShareholder`,
     autoComplete: "",
     registerOptions: { required: "Director/Shareholder status is required" },
-    span: 6,
+    classes: "sm:col-span-4",
   },
 ];
 

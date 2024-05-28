@@ -12,7 +12,7 @@ const FormField = ({ field, register, errors }) => {
           register={register}
           registerOptions={field.registerOptions}
           errors={errors}
-          span={field.span}
+          classes={field.classes}
         />
       );
     case "date":
@@ -24,7 +24,7 @@ const FormField = ({ field, register, errors }) => {
           register={register}
           registerOptions={field.registerOptions}
           errors={errors}
-          span={field.span}
+          classes={field.classes}
         />
       );
     case "checkbox":
@@ -38,7 +38,7 @@ const FormField = ({ field, register, errors }) => {
           register={register}
           registerOptions={field.registerOptions}
           errors={errors}
-          span={field.span}
+          classes={field.classes}
         />
       );
     case "select":
@@ -51,7 +51,7 @@ const FormField = ({ field, register, errors }) => {
           register={register}
           registerOptions={field.registerOptions}
           errors={errors}
-          span={field.span}
+          classes={field.classes}
         />
       );
     default:

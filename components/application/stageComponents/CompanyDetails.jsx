@@ -72,7 +72,7 @@ function CompanyDetails() {
           register={register}
           registerOptions={{}}
           errors={errors}
-          span={6}
+          classes={"sm:col-span-6"}
         />
         {correspondentAddressVisible && (
           <>

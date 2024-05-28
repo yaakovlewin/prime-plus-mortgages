@@ -1,4 +1,4 @@
-export const CORRESPONDENT_FIELDS = [
+export const ADDRESS_FIELDS = [
   "street",
   "locality",
   "townCity",
@@ -7,19 +7,39 @@ export const CORRESPONDENT_FIELDS = [
 ];
 
 const fieldProperties = {
-  street: { label: "Street", autoComplete: "street-address", span: 6 },
-  locality: { label: "Locality", autoComplete: "country-name", span: 3 },
-  townCity: { label: "Town/City", autoComplete: "address-level2", span: 3 },
-  county: { label: "County", autoComplete: "address-level1", span: 3 },
-  postcode: { label: "Postcode", autoComplete: "postal-code", span: 3 },
+  street: {
+    label: "Street",
+    autoComplete: "street-address",
+    classes: "sm:col-span-6",
+  },
+  locality: {
+    label: "Locality",
+    autoComplete: "country-name",
+    classes: "sm:col-span-3",
+  },
+  townCity: {
+    label: "Town/City",
+    autoComplete: "address-level2",
+    classes: "sm:col-span-3",
+  },
+  county: {
+    label: "County",
+    autoComplete: "address-level1",
+    classes: "sm:col-span-3",
+  },
+  postcode: {
+    label: "Postcode",
+    autoComplete: "postal-code",
+    classes: "sm:col-span-3",
+  },
 };
 
 export const createAddressConfig = (prefix, isVisible) =>
-  CORRESPONDENT_FIELDS.map((field) => ({
+  ADDRESS_FIELDS.map((field) => ({
     type: "text",
     id: `${prefix}.${field}`,
     defaultValue: "",
-    span: fieldProperties[field].span.toString(),
+    classes: fieldProperties[field].classes,
     label: fieldProperties[field].label,
     autoComplete: fieldProperties[field].autoComplete,
     registerOptions: {

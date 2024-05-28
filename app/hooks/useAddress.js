@@ -1,4 +1,4 @@
-import { CORRESPONDENT_FIELDS } from "@/js/config/addressFieldsConfig";
+import { ADDRESS_FIELDS } from "@/js/config/addressFieldsConfig";
 import { useCallback, useRef } from "react";
 import { useFormContext } from "react-hook-form";
 
@@ -13,11 +13,11 @@ export const useAddress = () => {
   }, [setValue]);
 
   const saveAndClearCurrentValues = useCallback(() => {
-    previousAddressData.current = CORRESPONDENT_FIELDS.reduce((acc, field) => {
+    previousAddressData.current = ADDRESS_FIELDS.reduce((acc, field) => {
       acc[field] = getValues(`correspondentAddress.${field}`);
       return acc;
     }, {});
-    CORRESPONDENT_FIELDS.forEach((field) => {
+    ADDRESS_FIELDS.forEach((field) => {
       unregister(`correspondentAddress.${field}`);
     });
   }, [getValues, unregister]);
