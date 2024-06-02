@@ -27,7 +27,7 @@ export default function InnerFormComponent() {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: encode({ "form-name": "application-form", ...data }),
+          body: encode({ ...data }),
         });
         if (response.ok) {
           console.log("Form submitted successfully");
@@ -90,7 +90,7 @@ export default function InnerFormComponent() {
               <input name="bot-field" />
             </label>
           </div> */}
-          <input type="hidden" name="form-name" value="application-form" />
+          {/* <input type="hidden" name="form-name" value="application-form" /> */}
           <NavigationButtons />
         </>
       </FormContainer>
