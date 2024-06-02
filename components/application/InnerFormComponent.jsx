@@ -63,7 +63,6 @@ export default function InnerFormComponent() {
   return (
     <form
       name="application-form"
-      method="post"
       data-netlify="application-form"
       netlify-honeypot="bot-field"
       onSubmit={methods.handleSubmit(onSubmit)}
