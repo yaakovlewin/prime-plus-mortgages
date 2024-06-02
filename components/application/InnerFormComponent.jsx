@@ -20,7 +20,7 @@ export default function InnerFormComponent() {
   const onSubmit = async (data) => {
     console.log(data);
     if (currentStep === steps.length) {
-      console.log(encode({...data }));
+      console.log(encode({ ...data }));
       try {
         const response = await fetch("/", {
           method: "POST",
@@ -63,7 +63,7 @@ export default function InnerFormComponent() {
   return (
     <form
       name="application-form"
-      data-netlify="application-form"
+      data-netlify="true"
       // netlify-honeypot="bot-field"
       onSubmit={methods.handleSubmit(onSubmit)}
     >
