@@ -64,7 +64,7 @@ export default function InnerFormComponent() {
     <form
       name="application-form"
       method="post"
-      data-netlify="true"
+      data-netlify="application-form"
       netlify-honeypot="bot-field"
       onSubmit={methods.handleSubmit(onSubmit)}
     >
@@ -91,6 +91,7 @@ export default function InnerFormComponent() {
               <input name="bot-field" />
             </label>
           </div>
+          <input type="hidden" name="form-name" value="application-form" />
           <NavigationButtons />
         </>
       </FormContainer>
