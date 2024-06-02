@@ -27,7 +27,7 @@ export default function InnerFormComponent() {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: encode({ ...data }),
+          body: encode({ "form-name": "application-form", ...data }),
         });
         if (response.ok) {
           console.log("Form submitted successfully");
@@ -64,9 +64,15 @@ export default function InnerFormComponent() {
     <form
       name="application-form"
       data-netlify="true"
-      // netlify-honeypot="bot-field"
+      netlify-honeypot="bot-field"
       onSubmit={methods.handleSubmit(onSubmit)}
     >
+      <input type="hidden" name="form-name" value="application-form" />
+      <div className="hidden">
+        <label>
+          Don’t fill this out if you&apos;re human: <input name="bot-field" />
+        </label>
+      </div>
       <FormHeroSection>
         <ProgressIndicator />
         <Heading2>
@@ -83,14 +89,6 @@ export default function InnerFormComponent() {
                 </React.Fragment>
               ),
           )}
-
-          {/* <div className="hidden">
-            <label>
-              Don’t fill this out if you&apos;re human:{" "}
-              <input name="bot-field" />
-            </label>
-          </div> */}
-          {/* <input type="hidden" name="form-name" value="application-form" /> */}
           <NavigationButtons />
         </>
       </FormContainer>
