@@ -20,7 +20,7 @@ export default function InnerFormComponent() {
   const onSubmit = async (data) => {
     console.log(data);
     if (currentStep === steps.length) {
-      console.log(encode({ "form-name": "application-form", ...data }));
+      console.log(encode({...data }));
       try {
         const response = await fetch("/", {
           method: "POST",
