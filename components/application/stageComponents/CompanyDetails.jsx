@@ -1,6 +1,7 @@
 "use client";
-import { useAddress } from "@/app/hooks/useAddress";
-import { useEffect, useState } from "react";
+import useComponentUnregister from "@/app/hooks/useCheckBoxHandler";
+import { ADDRESS_FIELDS } from "@/js/config/addressFieldsConfig";
+import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 // components
@@ -12,8 +13,6 @@ function CompanyDetails() {
   const {
     register,
     getValues,
-    setValue,
-    watch,
     formState: { errors },
   } = useFormContext({
     mode: "onBlur",
@@ -22,33 +21,15 @@ function CompanyDetails() {
     },
   });
 
-  const correspondentAddressDifferent = watch("correspondentAddressDifferent");
+  const { handleCheckboxChange } = useComponentUnregister(
+    ADDRESS_FIELDS.map(
+      (field) =>
+        `correspondentAddress${field.charAt(0).toUpperCase()}${field.slice(1)}`,
+    ),
+  );
 
   const [correspondentAddressVisible, setCorrespondentAddressVisible] =
-    useState(false);
-  const { restorePreviousValues, saveAndClearCurrentValues } = useAddress();
-
-  useEffect(() => {
-    setCorrespondentAddressVisible(getValues("correspondentAddressDifferent"));
-  }, [getValues]);
-
-  useEffect(() => {
-    if (correspondentAddressVisible) {
-      restorePreviousValues();
-    } else {
-      saveAndClearCurrentValues();
-    }
-  }, [
-    correspondentAddressVisible,
-    restorePreviousValues,
-    saveAndClearCurrentValues,
-  ]);
-
-  const handleCheckboxChange = (e) => {
-    const checked = e.target.checked;
-    setValue("correspondentAddressDifferent", checked);
-    setCorrespondentAddressVisible(checked);
-  };
+    useState(getValues("correspondentAddressDifferent") || false);
 
   return (
     <section className="space-y-18 py-12">
@@ -67,7 +48,13 @@ function CompanyDetails() {
         <Checkbox
           label="Correspondent Address is different to Registered Address"
           id="correspondentAddressDifferent"
-          onChange={handleCheckboxChange}
+          onChange={(e) =>
+            handleCheckboxChange(
+              e,
+              setCorrespondentAddressVisible,
+              "correspondentAddressDifferent",
+            )
+          }
           checked={correspondentAddressVisible}
           register={register}
           registerOptions={{}}

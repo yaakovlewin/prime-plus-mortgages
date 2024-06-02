@@ -37,7 +37,7 @@ const fieldProperties = {
 export const createAddressConfig = (prefix, isVisible) =>
   ADDRESS_FIELDS.map((field) => ({
     type: "text",
-    id: `${prefix}.${field}`,
+    id: `${prefix}${field.charAt(0).toUpperCase() + field.slice(1)}`,
     defaultValue: "",
     classes: fieldProperties[field].classes,
     label: fieldProperties[field].label,
