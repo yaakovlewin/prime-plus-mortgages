@@ -64,7 +64,7 @@ export default function InnerFormComponent() {
     <form
       name="application-form"
       data-netlify="application-form"
-      netlify-honeypot="bot-field"
+      // netlify-honeypot="bot-field"
       onSubmit={methods.handleSubmit(onSubmit)}
     >
       <FormHeroSection>
@@ -84,12 +84,12 @@ export default function InnerFormComponent() {
               ),
           )}
 
-          <div className="hidden">
+          {/* <div className="hidden">
             <label>
               Don’t fill this out if you&apos;re human:{" "}
               <input name="bot-field" />
             </label>
-          </div>
+          </div> */}
           <input type="hidden" name="form-name" value="application-form" />
           <NavigationButtons />
         </>
