@@ -5,7 +5,7 @@ import { useFormContext } from "react-hook-form";
 
 // components
 import useDynamicFormConfig from "@/app/hooks/useDynamicFormConfig";
-import createPersonalDetailsConfig from "@/js/config/personalDetailsconfig";
+import createPersonalDetailsConfig from "@/js/config/personalDetailsConfig";
 import { useMemo, useState } from "react";
 import FormField from "../dynamicComponents/FormField";
 import { Checkbox } from "../dynamicComponents/FormInputs";
