@@ -1,10 +1,12 @@
 "use client";
 import useComponentUnregister from "@/app/hooks/useCheckBoxHandler";
-import createPersonalAndFinancialDetailsConfig from "@/js/config/personalDetailsConfig";
+import createFinancialDetailsConfig from "@/js/config/financialFieldsConfig";
 import { useFormContext } from "react-hook-form";
 
 // components
-import { useState } from "react";
+import useDynamicFormConfig from "@/app/hooks/useDynamicFormConfig";
+import createPersonalDetailsConfig from "@/js/config/personalDetailsconfig";
+import { useMemo, useState } from "react";
 import FormField from "../dynamicComponents/FormField";
 import { Checkbox } from "../dynamicComponents/FormInputs";
 import AddressForm from "../sections/AddressForm";
@@ -12,6 +14,8 @@ import AddressForm from "../sections/AddressForm";
 export default function PersonalDetails() {
   const {
     register,
+    unregister,
+    control,
     getValues,
     formState: { errors },
   } = useFormContext({
@@ -21,10 +25,20 @@ export default function PersonalDetails() {
     },
   });
 
+  const initialConfig = useMemo(
+    () => createFinancialDetailsConfig("applicant1"),
+    [],
+  );
+
+  const config = useDynamicFormConfig(
+    initialConfig,
+    control,
+    unregister,
+    register,
+  );
+
   const { handleCheckboxChange } = useComponentUnregister(
-    createPersonalAndFinancialDetailsConfig("applicant2").map(
-      (field) => field.id,
-    ),
+    createPersonalDetailsConfig("applicant2").map((field) => field.id),
   );
 
   const [applicant2Visible, setApplicant2Visible] = useState(
@@ -37,7 +51,7 @@ export default function PersonalDetails() {
         Personal Details Applicant 1:
       </h2>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-8">
-        {createPersonalAndFinancialDetailsConfig("applicant1").map((field) => {
+        {config.map((field) => {
           return (
             <FormField
               key={field.id}

@@ -1,5 +1,3 @@
-import CompanyDetails from "@/components/application/stageComponents/CompanyDetails";
-import PersonalDetails from "@/components/application/stageComponents/PersonalDetails";
 import { createContext, useContext, useState } from "react";
 
 const FormContext = createContext();
@@ -14,24 +12,9 @@ export function useFormContext() {
   return context;
 }
 
-export const FormProvider = ({ children }) => {
+export const FormProvider = ({ children, initialSteps }) => {
   const [currentStep, setCurrentStep] = useState(1);
-  const [steps, setSteps] = useState([
-    {
-      id: 1,
-      name: "Company Details",
-      status: "current",
-      href: "/company-details",
-      component: CompanyDetails,
-    },
-    {
-      id: 2,
-      name: "Personal Details",
-      status: "",
-      href: "/personal-details",
-      component: PersonalDetails,
-    },
-  ]);
+  const [steps, setSteps] = useState(initialSteps);
 
   const nextStep = () => {
     const index = steps.findIndex((step) => step.id === currentStep);

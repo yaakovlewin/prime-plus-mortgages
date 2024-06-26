@@ -1,8 +1,4 @@
-const TITLE_OPTIONS = ["Mr", "Mrs", "Miss", "Ms", "Dr"];
-const GENDER_OPTIONS = ["Male", "Female", "Other"];
-const MARITAL_STATUS_OPTIONS = ["Single", "Married", "Divorced", "Widowed"];
-
-const createPersonalDetailsConfig = (prefix) => [
+const createPersonalAndFinancialDetailsConfig = (prefix) => [
   {
     type: "select",
     label: "Title",
@@ -10,7 +6,7 @@ const createPersonalDetailsConfig = (prefix) => [
     autoComplete: "honorific-prefix",
     registerOptions: { required: "Title is required" },
     classes: "sm:col-span-4",
-    options: TITLE_OPTIONS,
+    options: ["Mr", "Mrs", "Miss", "Ms", "Dr"],
   },
   {
     type: "select",
@@ -19,7 +15,7 @@ const createPersonalDetailsConfig = (prefix) => [
     autoComplete: "sex",
     registerOptions: { required: "Gender is required" },
     classes: "sm:col-span-4",
-    options: GENDER_OPTIONS,
+    options: ["Male", "Female", "Other"],
   },
   {
     type: "text",
@@ -44,7 +40,7 @@ const createPersonalDetailsConfig = (prefix) => [
     autoComplete: "",
     registerOptions: { required: "Marital status is required" },
     classes: "sm:col-span-4",
-    options: MARITAL_STATUS_OPTIONS,
+    options: ["Single", "Married", "Divorced", "Widowed"],
   },
   {
     type: "date",
@@ -71,6 +67,52 @@ const createPersonalDetailsConfig = (prefix) => [
     classes: "sm:col-span-4",
   },
   {
+    type: "date",
+    label: "Date Moved In",
+    id: `${prefix}DateMovedIn`,
+    autoComplete: "",
+    registerOptions: { required: "Date moved in is required" },
+    classes: "sm:col-span-8",
+  },
+  {
+    type: "text",
+    label: "Previous Address",
+    id: `${prefix}PreviousAddress`,
+    autoComplete: "",
+    registerOptions: {
+      required:
+        "Previous address is required if less than 3 years at current address",
+    },
+    classes: "sm:col-span-4",
+  },
+  {
+    type: "date",
+    label: "Date Moved In (Previous Address)",
+    id: `${prefix}PreviousDateMovedIn`,
+    autoComplete: "",
+    registerOptions: {
+      required:
+        "Date moved in is required if less than 3 years at current address",
+    },
+    classes: "sm:col-span-4",
+  },
+  {
+    type: "text",
+    label: "Homeowner: Value of Property, Lender & Interest Rate",
+    id: `${prefix}HomeownerDetails`,
+    autoComplete: "",
+    registerOptions: { required: "Homeowner details are required" },
+    classes: "sm:col-span-8",
+  },
+  {
+    type: "text",
+    label: "Tenant: Rent Payment, Name & Address of Landlord",
+    id: `${prefix}TenantDetails`,
+    autoComplete: "",
+    registerOptions: { required: "Tenant details are required" },
+    classes: "sm:col-span-8",
+  },
+  {
     type: "tel",
     label: "Contact Number",
     id: `${prefix}ContactNumber`,
@@ -94,6 +136,14 @@ const createPersonalDetailsConfig = (prefix) => [
     registerOptions: { required: "National insurance number is required" },
     classes: "sm:col-span-4",
   },
+  {
+    type: "text",
+    label: "Director/Shareholder",
+    id: `${prefix}DirectorShareholder`,
+    autoComplete: "",
+    registerOptions: { required: "Director/Shareholder status is required" },
+    classes: "sm:col-span-4",
+  },
 ];
 
-export default createPersonalDetailsConfig;
+export default createPersonalAndFinancialDetailsConfig;

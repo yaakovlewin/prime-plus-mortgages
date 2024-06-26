@@ -1,18 +1,26 @@
-"use client";
-import React from "react";
-import { useForm, FormProvider as FormProviderRHF } from "react-hook-form";
-import { FormProvider } from "@/components/application/FormContext";
-import InnerFormComponent from "@/components/application/InnerFormComponent";
+import Link from "next/link";
 
-export default function FormPage() {
-  const methods = useForm();
+export default function getStarted() {
   return (
-    <div className="">
-      <FormProviderRHF {...methods}>
-        <FormProvider>
-          <InnerFormComponent />
-        </FormProvider>
-      </FormProviderRHF>
+    <div>
+      {/* choose your form application */}
+      <div className="flex h-screen flex-col items-center justify-center">
+        <h1 className="text-4xl font-bold">Choose your form application</h1>
+        <div className="mt-10 flex flex-col items-center justify-center space-y-4">
+          <Link
+            href="/application/buy-to-let"
+            className="rounded-md bg-blue-500 px-4 py-2 text-white"
+          >
+            Buy to let
+          </Link>
+          <Link
+            href="/application/first-time-buyer"
+            className="rounded-md bg-blue-500 px-4 py-2 text-white"
+          >
+            First time buyer
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
