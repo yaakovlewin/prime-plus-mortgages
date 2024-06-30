@@ -1,15 +1,13 @@
 "use client";
 import useComponentUnregister from "@/app/hooks/useCheckBoxHandler";
-import createFinancialDetailsConfig from "@/js/config/financialFieldsConfig";
+import useDynamicFormConfig from "@/app/hooks/useDynamicFormConfig";
+import createPersonalDetailsConfig from "@/js/config/personalDetailsConfig";
 import { useFormContext } from "react-hook-form";
 
 // components
-import useDynamicFormConfig from "@/app/hooks/useDynamicFormConfig";
-import createPersonalDetailsConfig from "@/js/config/personalDetailsConfig";
 import { useMemo, useState } from "react";
 import FormField from "../dynamicComponents/FormField";
 import { Checkbox } from "../dynamicComponents/FormInputs";
-import AddressForm from "../sections/AddressForm";
 
 export default function PersonalDetails() {
   const {
@@ -26,12 +24,24 @@ export default function PersonalDetails() {
   });
 
   const initialConfig = useMemo(
-    () => createFinancialDetailsConfig("applicant1"),
+    () => createPersonalDetailsConfig("applicant1"),
     [],
   );
 
   const config = useDynamicFormConfig(
     initialConfig,
+    control,
+    unregister,
+    register,
+  );
+
+  const initialConfig2 = useMemo(
+    () => createPersonalDetailsConfig("applicant2"),
+    [],
+  );
+
+  const config2 = useDynamicFormConfig(
+    initialConfig2,
     control,
     unregister,
     register,
@@ -61,7 +71,7 @@ export default function PersonalDetails() {
             />
           );
         })}
-        <AddressForm prefix={"applicant1"} isVisible={true} />
+        {/* <AddressForm prefix={"applicant1"} isVisible={true} />       */}
       </div>
 
       <Checkbox
@@ -81,20 +91,17 @@ export default function PersonalDetails() {
             Personal Details Applicant 2:
           </h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-8">
-            {createPersonalAndFinancialDetailsConfig("applicant2").map(
-              (field) => {
-                return (
-                  <FormField
-                    key={field.id}
-                    field={field}
-                    register={register}
-                    errors={errors}
-                    prefix={"applicant2"}
-                  />
-                );
-              },
-            )}
-            <AddressForm prefix={"applicant2"} isVisible={true} />
+            {config2.map((field) => {
+              return (
+                <FormField
+                  key={field.id}
+                  field={field}
+                  register={register}
+                  errors={errors}
+                  prefix={"applicant2"}
+                />
+              );
+            })}
           </div>
         </>
       )}

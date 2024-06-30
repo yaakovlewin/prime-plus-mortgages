@@ -1,10 +1,29 @@
-import { Checkbox, DateInput, Select, TextInput } from "./FormInputs";
+import {
+  Checkbox,
+  DateInput,
+  NumberInput,
+  Select,
+  TextInput,
+} from "./FormInputs";
 
 const FormField = ({ field, register, errors }) => {
   switch (field.type) {
     case "text":
       return (
         <TextInput
+          key={field.id}
+          label={field.label}
+          placeholder={field.placeholder}
+          id={field.id}
+          register={register}
+          registerOptions={field.registerOptions}
+          errors={errors}
+          classes={field.classes}
+        />
+      );
+    case "number":
+      return (
+        <NumberInput
           key={field.id}
           label={field.label}
           placeholder={field.placeholder}

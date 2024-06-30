@@ -1,3 +1,5 @@
+import createAddressConfig from "./addressFieldsConfig";
+
 const TITLE_OPTIONS = ["Mr", "Mrs", "Miss", "Ms", "Dr"];
 const GENDER_OPTIONS = ["Male", "Female", "Other"];
 const MARITAL_STATUS_OPTIONS = ["Single", "Married", "Divorced", "Widowed"];
@@ -94,6 +96,7 @@ const createPersonalDetailsConfig = (prefix) => [
     registerOptions: { required: "National insurance number is required" },
     classes: "sm:col-span-4",
   },
+  ...createAddressConfig(prefix, true, true),
 ];
 
 export default createPersonalDetailsConfig;

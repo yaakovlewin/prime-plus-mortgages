@@ -41,6 +41,49 @@ const TextInput = function TextInputGenerature({
   );
 };
 
+const NumberInput = function NumberInputGenerature({
+  label,
+  id,
+  autoComplete = "off",
+  placeholder = "",
+  register,
+  registerOptions,
+  errors,
+  classes = 6,
+  ...inputProps // all other props
+}) {
+  return (
+    <div className={`${classes}`}>
+      {label && (
+        <label
+          htmlFor={id}
+          className="block text-sm font-medium leading-6 text-gray-900"
+        >
+          {label}
+        </label>
+      )}
+      <div className="mt-2">
+        <input
+          type="number"
+          id={id}
+          name={id}
+          {...register(id, registerOptions)}
+          placeholder={label ? `Enter ${label}` : placeholder}
+          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          {...inputProps} // spread all remaining props
+        />
+        {errors && id && (
+          <p className="text-xs italic text-red-500">
+            {id.includes(".")
+              ? errors[id.split(".")[0]]?.[id.split(".")[1]]?.message
+              : errors[id]?.message}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const DateInput = function DateInputGenerature({
   label,
   id,
@@ -169,4 +212,4 @@ const Select = function SelectGenerature({
   );
 };
 
-export { Checkbox, DateInput, Select, TextInput };
+export { Checkbox, DateInput, NumberInput, Select, TextInput };

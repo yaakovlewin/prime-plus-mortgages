@@ -17,8 +17,8 @@ const createFinancialDetailsConfig = (prefix) => [
     autoComplete: "",
     registerOptions: { required: "Homeowner details are required" },
     classes: "sm:col-span-8",
-    conditional: `${prefix}ResidenceStatus`,
-    conditionValue: "Homeowner",
+    dependent: `${prefix}ResidenceStatus`,
+    conditional: "Homeowner",
   },
   {
     type: "text",
@@ -27,8 +27,8 @@ const createFinancialDetailsConfig = (prefix) => [
     autoComplete: "",
     registerOptions: { required: "Tenant details are required" },
     classes: "sm:col-span-8",
-    conditional: `${prefix}ResidenceStatus`,
-    conditionValue: "Tenant",
+    dependent: `${prefix}ResidenceStatus`,
+    conditional: "Tenant",
   },
   {
     type: "date",
