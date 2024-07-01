@@ -52,8 +52,6 @@ const FormField = ({ field, register, errors }) => {
           key={field.id}
           label={field.label}
           id={field.id}
-          onChange={field.onChange}
-          checked={field.checked}
           register={register}
           registerOptions={field.registerOptions}
           errors={errors}

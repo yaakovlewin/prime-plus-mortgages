@@ -21,7 +21,7 @@ function useDynamicFormConfig(initialConfig, control, unregister, register) {
 
   const watchedFields = useWatch({ control, name: fieldsToWatch });
 
-  console.log(watchedFields);
+  console.log(watchedFields, fieldsToWatch);
 
   const prevConfigRef = useRef(initialConfig);
 

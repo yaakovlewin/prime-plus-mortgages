@@ -96,7 +96,25 @@ const createPersonalDetailsConfig = (prefix) => [
     registerOptions: { required: "National insurance number is required" },
     classes: "sm:col-span-4",
   },
-  ...createAddressConfig(prefix, true, true),
+  ...createAddressConfig(`${prefix}CurrentAddress`), // Current address fields
+  {
+    type: "number",
+    id: `${prefix}YearsAtAddress`,
+    label: "Years at Current Address",
+    autoComplete: "",
+    defaultValue: "",
+    classes: "sm:col-span-3",
+    registerOptions: { required: "Years at current address is required" },
+    watch: true,
+  },
+  ...createAddressConfig(`${prefix}PreviousAddress`).map((field) => ({
+    ...field,
+    dependent: `${prefix}YearsAtAddress`,
+    conditional: (data) => {
+      const yearsAtAddress = parseFloat(data);
+      return !isNaN(yearsAtAddress) && yearsAtAddress < 3;
+    },
+  })),
 ];
 
 export default createPersonalDetailsConfig;
