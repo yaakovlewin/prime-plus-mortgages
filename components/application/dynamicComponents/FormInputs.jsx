@@ -127,8 +127,8 @@ const DateInput = function DateInputGenerature({
 const Checkbox = function CheckboxGenerature({
   label,
   id,
-  onChange,
-  checked,
+  // onChange,
+  // checked,
   register,
   registerOptions,
   errors,
@@ -142,11 +142,11 @@ const Checkbox = function CheckboxGenerature({
           id={id}
           name={id}
           type="checkbox"
-          checked={checked}
-          onChange={(e) => {
-            onChange(e);
-            register(id, registerOptions).onChange(e); // Call the register onChange
-          }}
+          // checked={checked}
+          // onChange={(e) => {
+          //   onChange(e);
+          //   register(id, registerOptions).onChange(e); // Call the register onChange
+          // }}
           className="form-checkbox mr-2 h-5 w-5 text-gray-600"
           {...inputProps} // spread all remaining props
         />

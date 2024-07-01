@@ -2,6 +2,7 @@
 import { FormProvider } from "@/components/application/FormContext";
 import InnerFormComponent from "@/components/application/InnerFormComponent";
 // import CompanyDetails from "@/components/application/stageComponents/CompanyDetails";
+import EmploymentDetails from "@/components/application/stageComponents/EmploymentDetails";
 import FinancialDetails from "@/components/application/stageComponents/FinancialDetails";
 import PersonalDetails from "@/components/application/stageComponents/PersonalDetails";
 import { FormProvider as FormProviderRHF, useForm } from "react-hook-form";
@@ -10,7 +11,7 @@ const formSteps = [
   {
     id: 1,
     name: "Personal Details",
-    status: "",
+    status: "current",
     href: "/personal-details",
     component: PersonalDetails,
   },
@@ -20,6 +21,13 @@ const formSteps = [
     status: "",
     href: "/financial-details",
     component: FinancialDetails,
+  },
+  {
+    id: 3,
+    name: "Employment Details",
+    status: "",
+    href: "/employment-details",
+    component: EmploymentDetails,
   },
   // {
   //   id: 3,

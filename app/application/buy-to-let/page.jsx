@@ -2,8 +2,11 @@
 import { FormProvider } from "@/components/application/FormContext";
 import InnerFormComponent from "@/components/application/InnerFormComponent";
 import CompanyDetails from "@/components/application/stageComponents/CompanyDetails";
+import EmploymentDetails from "@/components/application/stageComponents/EmploymentDetails";
 import FinancialDetails from "@/components/application/stageComponents/FinancialDetails";
 import PersonalDetails from "@/components/application/stageComponents/PersonalDetails";
+import PortfolioDetails from "@/components/application/stageComponents/PortfolioDetails";
+import PropertyDetails from "@/components/application/stageComponents/PropertyDetails";
 import { FormProvider as FormProviderRHF, useForm } from "react-hook-form";
 
 const formSteps = [
@@ -28,13 +31,27 @@ const formSteps = [
     href: "/financial-details",
     component: FinancialDetails,
   },
-  // {
-  //   id: 4,
-  //   name: "Property Details",
-  //   status: "",
-  //   href: "/property-details",
-  //   component: PropertyDetails,
-  // },
+  {
+    id: 4,
+    name: "Employment Details",
+    status: "",
+    href: "/employment-details",
+    component: EmploymentDetails,
+  },
+  {
+    id: 5,
+    name: "Portfolio Details",
+    status: "",
+    href: "/portfolio-details",
+    component: PortfolioDetails,
+  },
+  {
+    id: 6,
+    name: "Property Details",
+    status: "",
+    href: "/property-details",
+    component: PropertyDetails,
+  },
   // {
   //   id: 5,
   //   name: "Mortgage Details",
