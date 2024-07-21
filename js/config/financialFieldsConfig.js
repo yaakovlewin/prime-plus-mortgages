@@ -3,7 +3,7 @@ const createFinancialDetailsConfig = (prefix) => [
   {
     type: "select",
     label: "Residence Status",
-    id: `${prefix}ResidenceStatus`,
+    id: `${prefix}.ResidenceStatus`,
     autoComplete: "",
     registerOptions: { required: "Residence status is required" },
     classes: "sm:col-span-4",
@@ -13,27 +13,27 @@ const createFinancialDetailsConfig = (prefix) => [
   {
     type: "text",
     label: "Homeowner: Value of Property, Lender & Interest Rate",
-    id: `${prefix}HomeownerDetails`,
+    id: `${prefix}.HomeownerDetails`,
     autoComplete: "",
     registerOptions: { required: "Homeowner details are required" },
     classes: "sm:col-span-8",
-    dependent: `${prefix}ResidenceStatus`,
+    dependent: `${prefix}.ResidenceStatus`,
     conditional: "Homeowner",
   },
   {
     type: "text",
     label: "Tenant: Rent Payment, Name & Address of Landlord",
-    id: `${prefix}TenantDetails`,
+    id: `${prefix}.TenantDetails`,
     autoComplete: "",
     registerOptions: { required: "Tenant details are required" },
     classes: "sm:col-span-8",
-    dependent: `${prefix}ResidenceStatus`,
+    dependent: `${prefix}.ResidenceStatus`,
     conditional: "Tenant",
   },
   {
     type: "date",
     label: "Date Moved In",
-    id: `${prefix}DateMovedIn`,
+    id: `${prefix}.DateMovedIn`,
     autoComplete: "",
     registerOptions: { required: "Date moved in is required" },
     classes: "sm:col-span-8",
@@ -41,7 +41,7 @@ const createFinancialDetailsConfig = (prefix) => [
   {
     type: "text",
     label: "Previous Address",
-    id: `${prefix}PreviousAddress`,
+    id: `${prefix}.PreviousAddress`,
     autoComplete: "",
     registerOptions: {
       required:
@@ -52,7 +52,7 @@ const createFinancialDetailsConfig = (prefix) => [
   {
     type: "date",
     label: "Date Moved In (Previous Address)",
-    id: `${prefix}PreviousDateMovedIn`,
+    id: `${prefix}.PreviousDateMovedIn`,
     autoComplete: "",
     registerOptions: {
       required:
@@ -63,7 +63,7 @@ const createFinancialDetailsConfig = (prefix) => [
   {
     type: "text",
     label: "Director/Shareholder",
-    id: `${prefix}DirectorShareholder`,
+    id: `${prefix}.DirectorShareholder`,
     autoComplete: "",
     registerOptions: { required: "Director/Shareholder status is required" },
     classes: "sm:col-span-4",

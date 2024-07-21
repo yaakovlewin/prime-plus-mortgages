@@ -1,10 +1,12 @@
 import createAddressConfig from "./addressFieldsConfig";
 
-const createCompanyDetailsConfig = (prefix) => [
+const prefix = "company";
+
+const createCompanyDetailsConfig = () => [
   {
     type: "text",
     label: "Company Name",
-    id: `${prefix}CompanyName`,
+    id: `${prefix}.CompanyName`,
     autoComplete: "organization",
     registerOptions: { required: "Company name is required" },
     classes: "sm:col-span-4",
@@ -12,29 +14,29 @@ const createCompanyDetailsConfig = (prefix) => [
   {
     type: "text",
     label: "Company Registration Number",
-    id: `${prefix}RegistrationNumber`,
+    id: `${prefix}.RegistrationNumber`,
     registerOptions: { required: "Registration number is required" },
     classes: "sm:col-span-4",
   },
   {
     type: "date",
     label: "Date of Incorporation",
-    id: `${prefix}IncorporationDate`,
+    id: `${prefix}.IncorporationDate`,
     registerOptions: { required: "Incorporation date is required" },
     classes: "sm:col-span-4",
   },
-  ...createAddressConfig(`${prefix}CompanyAddress`),
+  ...createAddressConfig(`${prefix}.address`),
   {
     type: "checkbox",
     label: "Correspondence address different to company address?",
-    id: `${prefix}AddCorrespondenceAddress`,
+    id: `${prefix}.AddCorrespondenceAddress`,
     registerOptions: {},
     classes: "sm:col-span-8",
     watch: true,
   },
-  ...createAddressConfig(`${prefix}CorrespondenceAddress`).map((field) => ({
+  ...createAddressConfig(`${prefix}.address`, "correspondent").map((field) => ({
     ...field,
-    dependent: `${prefix}AddCorrespondenceAddress`,
+    dependent: `${prefix}.AddCorrespondenceAddress`,
     conditional: true,
   })),
 ];

@@ -1,16 +1,9 @@
+import { unregisterFields } from "@/js/utils/formUtils";
 import { useEffect, useMemo, useRef } from "react";
 import { useWatch } from "react-hook-form";
 
 function useDynamicFormConfig(initialConfig, control, unregister, register) {
-  if (!control) {
-    throw new Error("useDynamicFormConfig must be used within a FormProvider");
-  }
-
-  if (!unregister) {
-    throw new Error("useDynamicFormConfig must be used within a FormProvider");
-  }
-
-  if (!register) {
+  if (!control || !unregister || !register) {
     throw new Error("useDynamicFormConfig must be used within a FormProvider");
   }
 
@@ -21,9 +14,7 @@ function useDynamicFormConfig(initialConfig, control, unregister, register) {
 
   const watchedFields = useWatch({ control, name: fieldsToWatch });
 
-  console.log(watchedFields, fieldsToWatch);
-
-  const prevConfigRef = useRef(initialConfig);
+  const prevConfigRef = useRef([]);
 
   const config = useMemo(() => {
     const newConfig = initialConfig.filter((field) => {
@@ -46,17 +37,19 @@ function useDynamicFormConfig(initialConfig, control, unregister, register) {
   useEffect(() => {
     const currentConfig = config;
 
-    prevConfigRef.current.forEach((field) => {
-      if (!currentConfig.find((f) => f.id === field.id)) {
-        unregister(field.id);
-      }
-    });
+    const fieldsToUnregister =
+      prevConfigRef.current.filter(
+        (field) => !currentConfig.find((f) => f.id === field.id),
+      ) || [];
 
-    currentConfig.forEach((field) => {
-      if (!prevConfigRef.current.find((f) => f.id === field.id)) {
-        register(field.id);
-      }
-    });
+    unregisterFields(fieldsToUnregister, unregister);
+
+    // currentConfig.forEach((field) => {
+    //   if (!prevConfigRef.current.find((f) => f.id === field.id)) {
+    //     console.log("registering", field.id);
+    //     register(field.id);
+    //   }
+    // });
 
     prevConfigRef.current = currentConfig;
   }, [config, register, unregister]);

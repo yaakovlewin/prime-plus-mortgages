@@ -8,7 +8,7 @@ const createPersonalDetailsConfig = (prefix) => [
   {
     type: "select",
     label: "Title",
-    id: `${prefix}Title`,
+    id: `${prefix}.Title`,
     autoComplete: "honorific-prefix",
     registerOptions: { required: "Title is required" },
     classes: "sm:col-span-4",
@@ -17,7 +17,7 @@ const createPersonalDetailsConfig = (prefix) => [
   {
     type: "select",
     label: "Gender",
-    id: `${prefix}Gender`,
+    id: `${prefix}.Gender`,
     autoComplete: "sex",
     registerOptions: { required: "Gender is required" },
     classes: "sm:col-span-4",
@@ -26,7 +26,7 @@ const createPersonalDetailsConfig = (prefix) => [
   {
     type: "text",
     label: "First Name",
-    id: `${prefix}FirstName`,
+    id: `${prefix}.FirstName`,
     autoComplete: "given-name",
     registerOptions: { required: "First name is required" },
     classes: "sm:col-span-4",
@@ -34,7 +34,7 @@ const createPersonalDetailsConfig = (prefix) => [
   {
     type: "text",
     label: "Last Name",
-    id: `${prefix}LastName`,
+    id: `${prefix}.LastName`,
     autoComplete: "family-name",
     registerOptions: { required: "Last name is required" },
     classes: "sm:col-span-4",
@@ -42,7 +42,7 @@ const createPersonalDetailsConfig = (prefix) => [
   {
     type: "select",
     label: "Marital Status",
-    id: `${prefix}MaritalStatus`,
+    id: `${prefix}.MaritalStatus`,
     autoComplete: "",
     registerOptions: { required: "Marital status is required" },
     classes: "sm:col-span-4",
@@ -51,7 +51,7 @@ const createPersonalDetailsConfig = (prefix) => [
   {
     type: "date",
     label: "Date of Birth",
-    id: `${prefix}DateOfBirth`,
+    id: `${prefix}.DateOfBirth`,
     autoComplete: "bday",
     registerOptions: { required: "Date of birth is required" },
     classes: "sm:col-span-4",
@@ -59,7 +59,7 @@ const createPersonalDetailsConfig = (prefix) => [
   {
     type: "text",
     label: "Nationality",
-    id: `${prefix}Nationality`,
+    id: `${prefix}.Nationality`,
     autoComplete: "nationality",
     registerOptions: { required: "Nationality is required" },
     classes: "sm:col-span-4",
@@ -67,23 +67,23 @@ const createPersonalDetailsConfig = (prefix) => [
   {
     type: "text",
     label: "Place of Birth",
-    id: `${prefix}PlaceOfBirth`,
+    id: `${prefix}.PlaceOfBirth`,
     autoComplete: "",
     registerOptions: { required: "Place of birth is required" },
     classes: "sm:col-span-4",
   },
   {
-    type: "tel",
+    type: "text",
     label: "Contact Number",
-    id: `${prefix}ContactNumber`,
+    id: `${prefix}.ContactNumber`,
     autoComplete: "tel",
     registerOptions: { required: "Contact number is required" },
     classes: "sm:col-span-4",
   },
   {
-    type: "email",
+    type: "text",
     label: "Email Address",
-    id: `${prefix}Email`,
+    id: `${prefix}.Email`,
     autoComplete: "email",
     registerOptions: { required: "Email address is required" },
     classes: "sm:col-span-4",
@@ -91,15 +91,15 @@ const createPersonalDetailsConfig = (prefix) => [
   {
     type: "text",
     label: "National Insurance Number",
-    id: `${prefix}NationalInsuranceNumber`,
+    id: `${prefix}.NationalInsuranceNumber`,
     autoComplete: "",
     registerOptions: { required: "National insurance number is required" },
     classes: "sm:col-span-4",
   },
-  ...createAddressConfig(`${prefix}CurrentAddress`), // Current address fields
+  ...createAddressConfig(`${prefix}.CurrentAddress`), // Current address fields
   {
     type: "number",
-    id: `${prefix}YearsAtAddress`,
+    id: `${prefix}.YearsAtAddress`,
     label: "Years at Current Address",
     autoComplete: "",
     defaultValue: "",
@@ -107,9 +107,9 @@ const createPersonalDetailsConfig = (prefix) => [
     registerOptions: { required: "Years at current address is required" },
     watch: true,
   },
-  ...createAddressConfig(`${prefix}PreviousAddress`).map((field) => ({
+  ...createAddressConfig(`${prefix}.PreviousAddress`).map((field) => ({
     ...field,
-    dependent: `${prefix}YearsAtAddress`,
+    dependent: `${prefix}.YearsAtAddress`,
     conditional: (data) => {
       const yearsAtAddress = parseFloat(data);
       return !isNaN(yearsAtAddress) && yearsAtAddress < 3;

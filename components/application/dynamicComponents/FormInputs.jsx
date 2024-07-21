@@ -1,3 +1,14 @@
+const getNestedError = (errors, id) => {
+  if (!id || !errors) return undefined;
+  const keys = id.split(".");
+  let error = errors;
+  for (const key of keys) {
+    error = error[key];
+    if (!error) break;
+  }
+  return error;
+};
+
 const TextInput = function TextInputGenerature({
   label,
   id,
@@ -9,6 +20,7 @@ const TextInput = function TextInputGenerature({
   classes = 6,
   ...inputProps // all other props
 }) {
+  const error = getNestedError(errors, id);
   return (
     <div className={`${classes}`}>
       {label && (
@@ -29,12 +41,8 @@ const TextInput = function TextInputGenerature({
           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           {...inputProps} // spread all remaining props
         />
-        {errors && id && (
-          <p className="text-xs italic text-red-500">
-            {id.includes(".")
-              ? errors[id.split(".")[0]]?.[id.split(".")[1]]?.message
-              : errors[id]?.message}
-          </p>
+        {error && (
+          <p className="text-xs italic text-red-500">{error.message}</p>
         )}
       </div>
     </div>
@@ -52,6 +60,7 @@ const NumberInput = function NumberInputGenerature({
   classes = 6,
   ...inputProps // all other props
 }) {
+  const error = getNestedError(errors, id);
   return (
     <div className={`${classes}`}>
       {label && (
@@ -72,12 +81,8 @@ const NumberInput = function NumberInputGenerature({
           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           {...inputProps} // spread all remaining props
         />
-        {errors && id && (
-          <p className="text-xs italic text-red-500">
-            {id.includes(".")
-              ? errors[id.split(".")[0]]?.[id.split(".")[1]]?.message
-              : errors[id]?.message}
-          </p>
+        {error && (
+          <p className="text-xs italic text-red-500">{error.message}</p>
         )}
       </div>
     </div>
@@ -93,6 +98,7 @@ const DateInput = function DateInputGenerature({
   classes = 3,
   ...inputProps // all other props
 }) {
+  const error = getNestedError(errors, id);
   return (
     <div className={`${classes}`}>
       {label && (
@@ -112,12 +118,8 @@ const DateInput = function DateInputGenerature({
           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           {...inputProps} // spread all remaining props
         />
-        {errors && id && (
-          <p className="text-xs italic text-red-500">
-            {id.includes(".")
-              ? errors[id.split(".")[0]]?.[id.split(".")[1]]?.message
-              : errors[id]?.message}
-          </p>
+        {error && (
+          <p className="text-xs italic text-red-500">{error.message}</p>
         )}
       </div>
     </div>
@@ -134,6 +136,7 @@ const Checkbox = function CheckboxGenerature({
   classes = 3,
   ...inputProps // all other props
 }) {
+  const error = getNestedError(errors, id);
   return (
     <div className={`flex items-center space-x-3 ${classes}`}>
       <label className="rounded-lg p-2">
@@ -147,13 +150,7 @@ const Checkbox = function CheckboxGenerature({
         />
         <classes className="text-sm text-gray-700">{label}</classes>
       </label>
-      {errors && id && (
-        <p className="text-xs italic text-red-500">
-          {id.includes(".")
-            ? errors[id.split(".")[0]]?.[id.split(".")[1]]?.message
-            : errors[id]?.message}
-        </p>
-      )}
+      {error && <p className="text-xs italic text-red-500">{error.message}</p>}
     </div>
   );
 };
@@ -168,6 +165,7 @@ const Select = function SelectGenerature({
   classes = 3,
   ...inputProps // all other props
 }) {
+  const error = getNestedError(errors, id);
   return (
     <div className={`${classes}`}>
       {label && (
@@ -195,12 +193,8 @@ const Select = function SelectGenerature({
             </option>
           ))}
         </select>
-        {errors && id && (
-          <p className="text-xs italic text-red-500">
-            {id.includes(".")
-              ? errors[id.split(".")[0]]?.[id.split(".")[1]]?.message
-              : errors[id]?.message}
-          </p>
+        {error && (
+          <p className="text-xs italic text-red-500">{error.message}</p>
         )}
       </div>
     </div>
@@ -208,4 +202,3 @@ const Select = function SelectGenerature({
 };
 
 export { Checkbox, DateInput, NumberInput, Select, TextInput };
-

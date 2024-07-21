@@ -28,18 +28,20 @@ const fieldProperties = {
   },
 };
 
-const generateFieldConfig = (prefix, field) => ({
+const generateFieldConfig = (prefix, field, leadLabel) => ({
   type: "text",
-  id: `${prefix}${field.charAt(0).toUpperCase() + field.slice(1)}`,
+  id: `${prefix}.${leadLabel}${field.charAt(0).toUpperCase() + field.slice(1)}`,
   defaultValue: "",
   classes: fieldProperties[field].classes,
-  label: fieldProperties[field].label,
+  label: `${leadLabel} ${fieldProperties[field].label}`,
   autoComplete: fieldProperties[field].autoComplete,
   registerOptions: { required: `${fieldProperties[field].label} is required` },
 });
 
-const createAddressConfig = (prefix) => {
-  return ADDRESS_FIELDS.map((field) => generateFieldConfig(prefix, field));
+const createAddressConfig = (prefix, leadLabel = "") => {
+  return ADDRESS_FIELDS.map((field) =>
+    generateFieldConfig(prefix, field, leadLabel),
+  );
 };
 
 export default createAddressConfig;

@@ -3,7 +3,7 @@ export const EMPLOYMENT_STATUS_OPTIONS = ["Employed", "Self-Employed"];
 export const createEmploymentConfig = (prefix) => [
   {
     type: "select",
-    id: `${prefix}EmploymentStatus`,
+    id: `${prefix}.EmploymentStatus`,
     label: "Employment Status",
     autoComplete: "",
     options: EMPLOYMENT_STATUS_OPTIONS,
@@ -12,7 +12,7 @@ export const createEmploymentConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}JobTitle`,
+    id: `${prefix}.JobTitle`,
     label: "Job Title & Description",
     autoComplete: "",
     registerOptions: { required: "Job title & description are required" },
@@ -20,7 +20,7 @@ export const createEmploymentConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}EmployerName`,
+    id: `${prefix}.EmployerName`,
     label: "Employer’s Name",
     autoComplete: "",
     registerOptions: { required: "Employer’s name is required" },
@@ -28,7 +28,7 @@ export const createEmploymentConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}EmployerAddress`,
+    id: `${prefix}.EmployerAddress`,
     label: "Employer’s Address",
     autoComplete: "",
     registerOptions: { required: "Employer’s address is required" },
@@ -36,7 +36,7 @@ export const createEmploymentConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}EmployerContactNumber`,
+    id: `${prefix}.EmployerContactNumber`,
     label: "Employer’s Contact Number",
     autoComplete: "",
     registerOptions: { required: "Employer’s contact number is required" },
@@ -44,7 +44,7 @@ export const createEmploymentConfig = (prefix) => [
   },
   {
     type: "number",
-    id: `${prefix}AnnualGrossIncome`,
+    id: `${prefix}.AnnualGrossIncome`,
     label: "Annual Gross Income (If employed) £",
     autoComplete: "",
     registerOptions: { required: "Annual gross income is required" },
@@ -52,7 +52,7 @@ export const createEmploymentConfig = (prefix) => [
   },
   {
     type: "date",
-    id: `${prefix}StartDateOfEmployment`,
+    id: `${prefix}.StartDateOfEmployment`,
     label: "Start Date of Employment",
     autoComplete: "",
     registerOptions: { required: "Start date of employment is required" },
@@ -61,13 +61,13 @@ export const createEmploymentConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}PreviousEmployerName`,
+    id: `${prefix}.PreviousEmployerName`,
     label: "Previous Employer’s Name",
     autoComplete: "",
     registerOptions: {
       required: {
         value: (data) => {
-          const startDate = new Date(data[`${prefix}StartDateOfEmployment`]);
+          const startDate = new Date(data[`${prefix}.StartDateOfEmployment`]);
           const currentDate = new Date();
           const employmentDuration =
             (currentDate - startDate) / (1000 * 60 * 60 * 24 * 365);
@@ -77,7 +77,7 @@ export const createEmploymentConfig = (prefix) => [
           "Previous employer’s name is required if less than 1 year at current employment",
       },
     },
-    dependent: `${prefix}StartDateOfEmployment`,
+    dependent: `${prefix}.StartDateOfEmployment`,
     conditional: (value) => {
       const startDate = new Date(value);
       const currentDate = new Date();
@@ -89,7 +89,7 @@ export const createEmploymentConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}OutstandingLoans`,
+    id: `${prefix}.OutstandingLoans`,
     label: "Outstanding Loans (incl. Hire Purchase) or Credit Cards",
     autoComplete: "",
     registerOptions: {

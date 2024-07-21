@@ -11,7 +11,6 @@ const FormField = ({ field, register, errors }) => {
     case "text":
       return (
         <TextInput
-          key={field.id}
           label={field.label}
           placeholder={field.placeholder}
           id={field.id}
@@ -24,7 +23,6 @@ const FormField = ({ field, register, errors }) => {
     case "number":
       return (
         <NumberInput
-          key={field.id}
           label={field.label}
           placeholder={field.placeholder}
           id={field.id}
@@ -37,7 +35,6 @@ const FormField = ({ field, register, errors }) => {
     case "date":
       return (
         <DateInput
-          key={field.id}
           label={field.label}
           id={field.id}
           register={register}
@@ -49,7 +46,6 @@ const FormField = ({ field, register, errors }) => {
     case "checkbox":
       return (
         <Checkbox
-          key={field.id}
           label={field.label}
           id={field.id}
           register={register}
@@ -61,7 +57,6 @@ const FormField = ({ field, register, errors }) => {
     case "select":
       return (
         <Select
-          key={field.id}
           label={field.label}
           id={field.id}
           options={field.options}

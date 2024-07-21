@@ -10,10 +10,12 @@ export const PROPERTY_CONSTRUCTION_OPTIONS = ["Standard", "Other"];
 export const PROPERTY_TENURE_OPTIONS = ["Leasehold", "Freehold"];
 export const JUDGEMENT_OPTIONS = ["Yes", "No"];
 
-export const createPropertyDetailsConfig = (prefix) => [
+const prefix = "PropertyDetails";
+
+export const createPropertyDetailsConfig = () => [
   {
     type: "text",
-    id: `${prefix}PropertyAddress`,
+    id: `${prefix}.PropertyAddress`,
     label: "Property Address",
     autoComplete: "street-address",
     registerOptions: { required: "Property address is required" },
@@ -21,7 +23,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}Postcode`,
+    id: `${prefix}.Postcode`,
     label: "Postcode",
     autoComplete: "postal-code",
     registerOptions: { required: "Postcode is required" },
@@ -29,7 +31,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "select",
-    id: `${prefix}PropertyType`,
+    id: `${prefix}.PropertyType`,
     label: "Property Type",
     autoComplete: "",
     options: PROPERTY_TYPE_OPTIONS,
@@ -38,7 +40,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "number",
-    id: `${prefix}PropertyValue`,
+    id: `${prefix}.PropertyValue`,
     label: "Property Value £",
     autoComplete: "",
     registerOptions: { required: "Property value is required" },
@@ -46,7 +48,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "number",
-    id: `${prefix}RentalIncome`,
+    id: `${prefix}.RentalIncome`,
     label: "Rental Income £",
     autoComplete: "",
     registerOptions: { required: "Rental income is required" },
@@ -54,7 +56,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "number",
-    id: `${prefix}LoanAmountRequired`,
+    id: `${prefix}.LoanAmountRequired`,
     label: "Loan Amount Required £",
     autoComplete: "",
     registerOptions: { required: "Loan amount required is required" },
@@ -62,7 +64,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "checkbox",
-    id: `${prefix}AddFeesToLoan`,
+    id: `${prefix}.AddFeesToLoan`,
     label: "Add Fees to Loan?",
     autoComplete: "",
     registerOptions: {},
@@ -70,7 +72,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}SourceOfDeposit`,
+    id: `${prefix}.SourceOfDeposit`,
     label: "Source of Deposit (If applicable)",
     autoComplete: "",
     registerOptions: {},
@@ -78,7 +80,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}NameOfVendor`,
+    id: `${prefix}.NameOfVendor`,
     label: "Name of Vendor",
     autoComplete: "",
     registerOptions: {},
@@ -86,7 +88,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "number",
-    id: `${prefix}TermOfMortgage`,
+    id: `${prefix}.TermOfMortgage`,
     label: "Term of Mortgage Required (years)",
     autoComplete: "",
     registerOptions: { required: "Term of mortgage required is required" },
@@ -94,7 +96,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "date",
-    id: `${prefix}YearOfBuild`,
+    id: `${prefix}.YearOfBuild`,
     label: "Year of Build",
     autoComplete: "",
     registerOptions: { required: "Year of build is required" },
@@ -102,7 +104,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}InitialRatePeriod`,
+    id: `${prefix}.InitialRatePeriod`,
     label: "Initial Rate Period",
     autoComplete: "",
     registerOptions: { required: "Initial rate period is required" },
@@ -110,7 +112,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}FixedOtherDetails`,
+    id: `${prefix}.FixedOtherDetails`,
     label: "Fixed/Other Details",
     autoComplete: "",
     registerOptions: {},
@@ -118,7 +120,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}DetailsOfSolicitor`,
+    id: `${prefix}.DetailsOfSolicitor`,
     label: "Details of Solicitor",
     autoComplete: "",
     registerOptions: { required: "Details of solicitor are required" },
@@ -126,7 +128,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}ContactForValuationName`,
+    id: `${prefix}.ContactForValuationName`,
     label: "Contact for Valuation - Name",
     autoComplete: "",
     registerOptions: { required: "Contact name for valuation is required" },
@@ -134,7 +136,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}ContactForValuationNumber`,
+    id: `${prefix}.ContactForValuationNumber`,
     label: "Contact for Valuation - Number",
     autoComplete: "",
     registerOptions: { required: "Contact number for valuation is required" },
@@ -142,7 +144,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "email",
-    id: `${prefix}ContactForValuationEmail`,
+    id: `${prefix}.ContactForValuationEmail`,
     label: "Contact for Valuation - Email",
     autoComplete: "",
     registerOptions: { required: "Contact email for valuation is required" },
@@ -150,7 +152,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "select",
-    id: `${prefix}PropertyConstruction`,
+    id: `${prefix}.PropertyConstruction`,
     label: "Property Construction",
     autoComplete: "",
     options: PROPERTY_CONSTRUCTION_OPTIONS,
@@ -159,7 +161,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}DirectDebitAccountName`,
+    id: `${prefix}.DirectDebitAccountName`,
     label: "Direct Debit Account Name",
     autoComplete: "",
     registerOptions: { required: "Direct debit account name is required" },
@@ -167,7 +169,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}DirectDebitAccountNumber`,
+    id: `${prefix}.DirectDebitAccountNumber`,
     label: "Direct Debit Account Number",
     autoComplete: "",
     registerOptions: { required: "Direct debit account number is required" },
@@ -175,7 +177,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}DirectDebitSortCode`,
+    id: `${prefix}.DirectDebitSortCode`,
     label: "Direct Debit Sort Code",
     autoComplete: "",
     registerOptions: { required: "Direct debit sort code is required" },
@@ -183,7 +185,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "text",
-    id: `${prefix}DetailsOfProperty`,
+    id: `${prefix}.DetailsOfProperty`,
     label: "Details of Property (e.g., No of Bedrooms/Units/Flat Floor)",
     autoComplete: "",
     registerOptions: { required: "Details of property are required" },
@@ -191,7 +193,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "select",
-    id: `${prefix}PropertyTenure`,
+    id: `${prefix}.PropertyTenure`,
     label: "Leasehold/Freehold",
     autoComplete: "",
     options: PROPERTY_TENURE_OPTIONS,
@@ -200,7 +202,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "select",
-    id: `${prefix}Judgements`,
+    id: `${prefix}.Judgements`,
     label:
       "Have you had any Judgements, Defaults, Bankruptcies or had any accounts in arrears?",
     autoComplete: "",
@@ -210,7 +212,7 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
   {
     type: "select",
-    id: `${prefix}PaymentDifficulties`,
+    id: `${prefix}.PaymentDifficulties`,
     label:
       "Have you ever failed, or are you experiencing, payment difficulties in keeping up your payments under any previous or current mortgage, rental or loan agreements?",
     autoComplete: "",
