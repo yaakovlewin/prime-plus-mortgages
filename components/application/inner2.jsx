@@ -19,7 +19,18 @@ export default function InnerFormComponent() {
   const currentStepConfig = config.steps.find(
     (step) => step.id === currentStep,
   );
-  const methods = useFormContextRHForm();
+  const methods = useFormContextRHForm({
+    mode: "onTouched",
+    defaultValues: {
+      //   ...config.sections.reduce((acc, section) => {
+      //     acc[section.id] = section.fields.reduce((acc, field) => {
+      //       acc[field.id] = field.defaultValue;
+      //       return acc;
+      //     }, {});
+      //     return acc;
+      //   }, {}),
+    },
+  });
 
   const router = useRouter();
 
@@ -65,8 +76,6 @@ export default function InnerFormComponent() {
 
     return queryString;
   }
-
-  console.log(currentStepConfig);
 
   return (
     <form

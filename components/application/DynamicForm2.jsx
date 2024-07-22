@@ -19,13 +19,18 @@ const Section = ({ section, control }) => {
   const { fields, append, remove } = useFieldArray({
     control,
     name: "applicants",
+    rules: { minLength: section.minInstances || 0 },
   });
 
   const addItem = () => {
     append({});
   };
 
-  console.log(section);
+  const removeItem = (index) => {
+    if (fields.length > (section.minInstances || 0)) {
+      remove(index);
+    }
+  };
 
   return (
     <div key={section.id}>
@@ -42,7 +47,13 @@ const Section = ({ section, control }) => {
               fields={section.fields}
               prefix={`${section.id}.${index}`}
               index={index}
-              remove={section.canRemove ? remove : undefined}
+              remove={
+                section.canRemove
+                  ? index >= (section.minInstances || 0)
+                    ? () => removeItem(index)
+                    : undefined
+                  : undefined
+              }
             />
           </React.Fragment>
         ))

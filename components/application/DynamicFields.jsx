@@ -19,7 +19,6 @@ export default function RenderDynamicFields({
   } = useFormContext();
 
   const initialConfig = useMemo(() => fields, [fields]);
-  console.log(initialConfig);
   const config = useDynamicFormConfig(
     initialConfig,
     control,

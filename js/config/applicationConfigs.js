@@ -9,21 +9,25 @@ export const buyToLetConfig = {
     {
       id: 1,
       name: "Company Details",
+      status: "current",
       sections: ["companyDetails"],
     },
     {
       id: 2,
       name: "Personal Details",
+      status: "",
       sections: ["personalDetails"],
     },
     {
       id: 3,
       name: "Property Details",
+      status: "",
       sections: ["propertyDetails"],
     },
     {
       id: 4,
       name: "Financial Details",
+      status: "",
       sections: ["financialDetails"],
     },
   ],
@@ -59,16 +63,19 @@ export const firstTimeBuyerConfig = {
     {
       id: 1,
       name: "Personal Details",
+      status: "current",
       sections: ["personalDetails"],
     },
     {
       id: 2,
       name: "Employment Details",
+      status: "",
       sections: ["employmentDetails"],
     },
     {
       id: 3,
       name: "Financial Details",
+      status: "",
       sections: ["financialDetails"],
     },
   ],
@@ -79,7 +86,8 @@ export const firstTimeBuyerConfig = {
       canAdd: true,
       canRemove: true,
       hasApplicants: true,
-      fields: createPersonalDetailsConfig("applicants"),
+      minInstances: 1,
+      fields: createPersonalDetailsConfig(`applicants`),
     },
     {
       id: "employmentDetails",
