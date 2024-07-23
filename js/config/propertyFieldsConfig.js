@@ -12,7 +12,7 @@ export const JUDGEMENT_OPTIONS = ["Yes", "No"];
 
 const prefix = "PropertyDetails";
 
-export const createPropertyDetailsConfig = () => [
+export const createPropertyDetailsConfig = (prefix) => [
   {
     type: "text",
     id: `${prefix}.PropertyAddress`,

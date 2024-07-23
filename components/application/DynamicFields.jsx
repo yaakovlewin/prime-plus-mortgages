@@ -18,7 +18,8 @@ export default function RenderDynamicFields({
     formState: { errors },
   } = useFormContext();
 
-  const initialConfig = useMemo(() => fields, [fields]);
+  const initialConfig = useMemo(() => configType(prefix), [prefix, configType]);
+
   const config = useDynamicFormConfig(
     initialConfig,
     control,

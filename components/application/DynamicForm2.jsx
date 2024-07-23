@@ -3,12 +3,14 @@ import React from "react";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import RenderDynamicFields from "./DynamicFields";
 
-const DynamicForm = ({ config }) => {
+const DynamicForm = ({ configs }) => {
   const { control } = useFormContext();
+
+  console.log(configs);
 
   return (
     <div>
-      {config.sections.map((section) => (
+      {configs.sections.map((section) => (
         <Section key={section.id} section={section} control={control} />
       ))}
     </div>
@@ -44,8 +46,8 @@ const Section = ({ section, control }) => {
               {section.title} {index + 1}
             </h3>
             <RenderDynamicFields
-              fields={section.fields}
-              prefix={`${section.id}.${index}`}
+              configType={section.fields}
+              prefix={`applicants.${index}.${section.id}`}
               index={index}
               remove={
                 section.canRemove
@@ -58,7 +60,7 @@ const Section = ({ section, control }) => {
           </React.Fragment>
         ))
       ) : (
-        <RenderDynamicFields fields={section.fields} prefix={section.id} />
+        <RenderDynamicFields configType={section.fields} prefix={section.id} />
       )}
       {section.canAdd && (
         <button type="button" onClick={addItem}>

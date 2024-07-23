@@ -1,8 +1,6 @@
 import createAddressConfig from "./addressFieldsConfig";
 
-const prefix = "company";
-
-const createCompanyDetailsConfig = () => [
+const createCompanyDetailsConfig = (prefix) => [
   {
     type: "text",
     label: "Company Name",

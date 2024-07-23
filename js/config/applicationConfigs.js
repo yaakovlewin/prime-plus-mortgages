@@ -35,7 +35,7 @@ export const buyToLetConfig = {
     {
       id: "companyDetails",
       title: "Company Details",
-      fields: createCompanyDetailsConfig(),
+      fields: createCompanyDetailsConfig,
     },
     {
       id: "personalDetails",
@@ -43,17 +43,17 @@ export const buyToLetConfig = {
       canAdd: true,
       canRemove: true,
       hasApplicants: true,
-      fields: createPersonalDetailsConfig("applicants"),
+      fields: createPersonalDetailsConfig,
     },
     {
       id: "propertyDetails",
       title: "Property Details",
-      fields: createPropertyDetailsConfig(),
+      fields: createPropertyDetailsConfig,
     },
     {
       id: "financialDetails",
       title: "Financial Details",
-      fields: createFinancialDetailsConfig("financial"),
+      fields: createFinancialDetailsConfig,
     },
   ],
 };
@@ -87,7 +87,7 @@ export const firstTimeBuyerConfig = {
       canRemove: true,
       hasApplicants: true,
       minInstances: 1,
-      fields: createPersonalDetailsConfig(`applicants`),
+      fields: createPersonalDetailsConfig,
     },
     {
       id: "employmentDetails",
@@ -95,12 +95,12 @@ export const firstTimeBuyerConfig = {
       canAdd: true,
       canRemove: true,
       hasApplicants: true,
-      fields: createEmploymentConfig("applicants"),
+      fields: createEmploymentConfig,
     },
     {
       id: "financialDetails",
       title: "Financial Details",
-      fields: createFinancialDetailsConfig("financial"),
+      fields: createFinancialDetailsConfig,
     },
   ],
 };

@@ -1,4 +1,18 @@
+import { db } from "@/js/DB/firebase";
+import { collection, getDocs } from "firebase/firestore";
+
 export default function Test() {
+  console.log(db);
+  const fetchApplications = async () => {
+    const snapshot = await getDocs(collection(db, "applicationForms1"));
+    snapshot.forEach((doc) => {
+      console.log(doc.id, " => ", doc.data());
+    });
+  };
+
+  fetchApplications();
+  // console.log(getDB);
+
   return (
     <form name="contact" method="POST" data-netlify="true">
       <p>

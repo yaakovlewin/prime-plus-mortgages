@@ -1,3 +1,4 @@
+
 export function registerFields(fields, register) {
   fields.forEach((field) => {
     register(field.id);
