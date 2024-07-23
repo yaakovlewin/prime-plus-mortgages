@@ -2,44 +2,44 @@ import { unregisterFields } from "@/js/utils/formUtils";
 import { useEffect, useMemo, useRef } from "react";
 import { useWatch } from "react-hook-form";
 
-function useDynamicFormConfig(initialConfig, control, unregister, register) {
+function useFormFieldsConfig(initialConfig, control, unregister, register) {
   if (!control || !unregister || !register) {
     throw new Error("useDynamicFormConfig must be used within a FormProvider");
   }
 
-  const fieldsToWatch = useMemo(
+  const watchedFieldIds = useMemo(
     () => initialConfig.filter((field) => field.watch).map((field) => field.id),
     [initialConfig],
   );
 
-  const watchedFields = useWatch({ control, name: fieldsToWatch });
+  const watchedFieldValues = useWatch({ control, name: watchedFieldIds });
 
   const prevConfigRef = useRef([]);
 
   const config = useMemo(() => {
-    const newConfig = initialConfig.filter((field) => {
+    const updatedConfig = initialConfig.filter((field) => {
       if (field.dependent && typeof field.conditional === "function") {
         return field.conditional(
-          watchedFields[fieldsToWatch.indexOf(field.dependent)],
+          watchedFieldValues[watchedFieldIds.indexOf(field.dependent)],
         );
       } else if (field.dependent && typeof field.dependent === "string") {
         return (
-          watchedFields[fieldsToWatch.indexOf(field.dependent)] ===
+          watchedFieldValues[watchedFieldIds.indexOf(field.dependent)] ===
           field.conditional
         );
       }
       return true;
     });
 
-    return newConfig;
-  }, [initialConfig, watchedFields, fieldsToWatch]);
+    return updatedConfig;
+  }, [initialConfig, watchedFieldValues, watchedFieldIds]);
 
   useEffect(() => {
-    const currentConfig = config;
+    const currentFieldConfig = config;
 
     const fieldsToUnregister =
       prevConfigRef.current.filter(
-        (field) => !currentConfig.find((f) => f.id === field.id),
+        (field) => !currentFieldConfig.find((f) => f.id === field.id),
       ) || [];
 
     unregisterFields(fieldsToUnregister, unregister);
@@ -51,10 +51,10 @@ function useDynamicFormConfig(initialConfig, control, unregister, register) {
     //   }
     // });
 
-    prevConfigRef.current = currentConfig;
+    prevConfigRef.current = currentFieldConfig;
   }, [config, register, unregister]);
 
   return config;
 }
 
-export default useDynamicFormConfig;
+export default useFormFieldsConfig;

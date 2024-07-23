@@ -1,6 +1,6 @@
 "use client";
 import { FormProvider } from "@/components/application/FormContext";
-import InnerFormComponent from "@/components/application/InnerFormComponent";
+import InnerFormComponent from "@/components/application/InnerFormComponent2";
 // import CompanyDetails from "@/components/application/stageComponents/CompanyDetails";
 import EmploymentDetails from "@/components/application/stageComponents/EmploymentDetails";
 import FinancialDetails from "@/components/application/stageComponents/FinancialDetails";

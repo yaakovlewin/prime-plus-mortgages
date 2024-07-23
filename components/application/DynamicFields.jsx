@@ -1,5 +1,5 @@
 "use client";
-import useDynamicFormConfig from "@/app/hooks/useDynamicFormConfig";
+import useFormFieldsConfig from "@/app/hooks/useFormFieldsConfig";
 import { useMemo } from "react";
 import { useFormContext } from "react-hook-form";
 import FormField from "./dynamicComponents/FormField";
@@ -7,7 +7,6 @@ import FormField from "./dynamicComponents/FormField";
 export default function RenderDynamicFields({
   prefix,
   configType,
-  fields,
   index,
   remove,
 }) {
@@ -20,7 +19,7 @@ export default function RenderDynamicFields({
 
   const initialConfig = useMemo(() => configType(prefix), [prefix, configType]);
 
-  const config = useDynamicFormConfig(
+  const config = useFormFieldsConfig(
     initialConfig,
     control,
     unregister,

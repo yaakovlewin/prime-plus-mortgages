@@ -1,64 +1,64 @@
 "use client";
 import { useFormContext } from "@/components/application/FormContext";
 import { useRouter } from "next/navigation";
-import React from "react";
 import { useFormContext as useFormContextRHForm } from "react-hook-form";
 
 // components
 import FormContainer from "@/components/FormContainer";
 import FormHeroSection from "@/components/FormHeroSection";
 import Heading2 from "@/components/Heading2";
+import { submit } from "@/js/formSubmission";
+import DynamicForm from "./DynamicForm";
 import NavigationButtons from "./sections/NavigationButtons";
 import ProgressIndicator from "./sections/ProgressIndicator";
 
-export default function InnerFormComponent() {
+export default function InnerFormComponent({ config }) {
   const { currentStep, steps, nextStep } = useFormContext();
-  const methods = useFormContextRHForm();
+
+  const currentStepConfig = config.steps.find(
+    (step) => step.id === currentStep,
+  );
+  const methods = useFormContextRHForm({
+    mode: "onTouched",
+    defaultValues: {
+      //   ...config.sections.reduce((acc, section) => {
+      //     acc[section.id] = section.fields.reduce((acc, field) => {
+      //       acc[field.id] = field.defaultValue;
+      //       return acc;
+      //     }, {});
+      //     return acc;
+      //   }, {}),
+    },
+  });
 
   const router = useRouter();
 
   const onSubmit = async (data) => {
     console.log(data);
     if (currentStep === steps.length) {
-      console.log(encode({ ...data }));
-      try {
-        const response = await fetch("/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: encode({ "form-name": "application-form", ...data }),
-        });
-        if (response.ok) {
-          console.log("Form submitted successfully");
-          router.push("/success");
-        } else {
-          throw new Error("Form submission failed");
-        }
-      } catch (error) {
-        alert(error);
-      }
+      //   console.log(encode({ ...data }));
+      submit(data, router);
     } else {
       nextStep();
     }
   };
 
-  function encode(data, parentKey) {
-    const queryString = Object.keys(data)
-      .map((key) => {
-        const fullKey = parentKey ? `${parentKey}[${key}]` : key;
-        if (typeof data[key] === "object" && data[key] !== null) {
-          return encode(data[key], fullKey);
-        } else {
-          return (
-            encodeURIComponent(fullKey) + "=" + encodeURIComponent(data[key])
-          );
-        }
-      })
-      .join("&");
+  //   function encode(data, parentKey) {
+  //     const queryString = Object.keys(data)
+  //       .map((key) => {
+  //         const fullKey = parentKey ? `${parentKey}[${key}]` : key;
+  //         if (typeof data[key] === "object" && data[key] !== null) {
+  //           return encode(data[key], fullKey);
+  //         } else {
+  //           return (
+  //             encodeURIComponent(fullKey) + "=" + encodeURIComponent(data[key])
+  //           );
+  //         }
+  //       })
+  //       .join("&");
 
-    return queryString;
-  }
+  //     return queryString;
+  //   }
 
   return (
     <form
@@ -75,20 +75,21 @@ export default function InnerFormComponent() {
       </div>
       <FormHeroSection>
         <ProgressIndicator />
-        <Heading2>
-          {steps.find((step) => step.id === currentStep).name}
-        </Heading2>
+        <Heading2>{currentStepConfig.name}</Heading2>
       </FormHeroSection>
       <FormContainer className="max-w-xl">
         <>
-          {steps.map(
-            (step) =>
-              currentStep === step.id && (
-                <React.Fragment key={step.id}>
-                  <step.component />
-                </React.Fragment>
-              ),
-          )}
+          {currentStepConfig.sections.map((sectionId) => {
+            const sectionConfig = config.sections.find(
+              (section) => section.id === sectionId,
+            );
+            return (
+              <DynamicForm
+                key={sectionId}
+                configs={{ sections: [sectionConfig] }}
+              />
+            );
+          })}
           <NavigationButtons />
         </>
       </FormContainer>

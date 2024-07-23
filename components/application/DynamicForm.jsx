@@ -1,44 +1,70 @@
+// DynamicForm.jsx
 import React from "react";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import RenderDynamicFields from "./DynamicFields";
 
-const DynamicForm = ({
-  configType,
-  hasApplicants = false,
-  needsAddButton = false,
-}) => {
+const DynamicForm = ({ configs }) => {
   const { control } = useFormContext();
-  const { fields, append, remove } = useFieldArray({
-    control,
-    name: "applicants",
-  });
 
-  const addApplicant = () => {
-    append({});
-  };
+  console.log(configs);
 
   return (
     <div>
-      {hasApplicants ? (
+      {configs.sections.map((section) => (
+        <Section key={section.id} section={section} control={control} />
+      ))}
+    </div>
+  );
+};
+
+const Section = ({ section, control }) => {
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "applicants",
+    rules: { minLength: section.minInstances || 0 },
+  });
+
+  const addItem = () => {
+    append({});
+  };
+
+  const removeItem = (index) => {
+    if (fields.length > (section.minInstances || 0)) {
+      remove(index);
+    }
+  };
+
+  return (
+    <div key={section.id}>
+      <h2 className="mt-10 text-base font-semibold leading-7 text-gray-900">
+        {section.title}
+      </h2>
+      {section.hasApplicants ? (
         fields.map((field, index) => (
           <React.Fragment key={field.id}>
-            <h1 className="mt-10 text-base font-semibold leading-7 text-gray-900">
-              Applicant {index + 1}
-            </h1>
+            <h3 className="mt-5 text-sm font-semibold leading-6 text-gray-900">
+              {section.title} {index + 1}
+            </h3>
             <RenderDynamicFields
-              configType={configType}
-              prefix={`applicants.${index}`}
+              configType={section.fields}
+              prefix={`applicants.${index}.${section.id}`}
               index={index}
-              remove={remove}
+              remove={
+                section.canRemove
+                  ? index >= (section.minInstances || 0)
+                    ? () => removeItem(index)
+                    : undefined
+                  : undefined
+              }
             />
           </React.Fragment>
         ))
       ) : (
-        <RenderDynamicFields configType={configType} prefix="" />
+        <RenderDynamicFields configType={section.fields} prefix={section.id} />
       )}
-      {needsAddButton && (
-        <button type="button" onClick={addApplicant}>
-          Add Applicant
+      {section.canAdd && (
+        <button type="button" onClick={addItem}>
+          Add {section.title}
         </button>
       )}
     </div>

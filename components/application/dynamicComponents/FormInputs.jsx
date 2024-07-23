@@ -148,7 +148,7 @@ const Checkbox = function CheckboxGenerature({
           className="form-checkbox mr-2 h-5 w-5 text-gray-600"
           {...inputProps} // spread all remaining props
         />
-        <classes className="text-sm text-gray-700">{label}</classes>
+        <p className="text-sm text-gray-700">{label}</p>
       </label>
       {error && <p className="text-xs italic text-red-500">{error.message}</p>}
     </div>

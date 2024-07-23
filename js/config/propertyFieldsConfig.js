@@ -19,7 +19,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Property Address",
     autoComplete: "street-address",
     registerOptions: { required: "Property address is required" },
-    classes: "sm:col-span-8",
+    cssClasses: "sm:col-span-8",
   },
   {
     type: "text",
@@ -27,7 +27,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Postcode",
     autoComplete: "postal-code",
     registerOptions: { required: "Postcode is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "select",
@@ -36,7 +36,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     autoComplete: "",
     options: PROPERTY_TYPE_OPTIONS,
     registerOptions: { required: "Property type is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "number",
@@ -44,7 +44,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Property Value £",
     autoComplete: "",
     registerOptions: { required: "Property value is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "number",
@@ -52,7 +52,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Rental Income £",
     autoComplete: "",
     registerOptions: { required: "Rental income is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "number",
@@ -60,7 +60,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Loan Amount Required £",
     autoComplete: "",
     registerOptions: { required: "Loan amount required is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "checkbox",
@@ -68,7 +68,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Add Fees to Loan?",
     autoComplete: "",
     registerOptions: {},
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -76,7 +76,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Source of Deposit (If applicable)",
     autoComplete: "",
     registerOptions: {},
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -84,7 +84,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Name of Vendor",
     autoComplete: "",
     registerOptions: {},
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "number",
@@ -92,7 +92,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Term of Mortgage Required (years)",
     autoComplete: "",
     registerOptions: { required: "Term of mortgage required is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "date",
@@ -100,7 +100,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Year of Build",
     autoComplete: "",
     registerOptions: { required: "Year of build is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -108,7 +108,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Initial Rate Period",
     autoComplete: "",
     registerOptions: { required: "Initial rate period is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -116,7 +116,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Fixed/Other Details",
     autoComplete: "",
     registerOptions: {},
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -124,7 +124,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Details of Solicitor",
     autoComplete: "",
     registerOptions: { required: "Details of solicitor are required" },
-    classes: "sm:col-span-8",
+    cssClasses: "sm:col-span-8",
   },
   {
     type: "text",
@@ -132,7 +132,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Contact for Valuation - Name",
     autoComplete: "",
     registerOptions: { required: "Contact name for valuation is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -140,7 +140,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Contact for Valuation - Number",
     autoComplete: "",
     registerOptions: { required: "Contact number for valuation is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "email",
@@ -148,7 +148,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Contact for Valuation - Email",
     autoComplete: "",
     registerOptions: { required: "Contact email for valuation is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "select",
@@ -157,7 +157,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     autoComplete: "",
     options: PROPERTY_CONSTRUCTION_OPTIONS,
     registerOptions: { required: "Property construction is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -165,7 +165,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Direct Debit Account Name",
     autoComplete: "",
     registerOptions: { required: "Direct debit account name is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -173,7 +173,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Direct Debit Account Number",
     autoComplete: "",
     registerOptions: { required: "Direct debit account number is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -181,7 +181,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Direct Debit Sort Code",
     autoComplete: "",
     registerOptions: { required: "Direct debit sort code is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -189,7 +189,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     label: "Details of Property (e.g., No of Bedrooms/Units/Flat Floor)",
     autoComplete: "",
     registerOptions: { required: "Details of property are required" },
-    classes: "sm:col-span-8",
+    cssClasses: "sm:col-span-8",
   },
   {
     type: "select",
@@ -198,7 +198,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     autoComplete: "",
     options: PROPERTY_TENURE_OPTIONS,
     registerOptions: { required: "Property tenure is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "select",
@@ -208,7 +208,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     autoComplete: "",
     options: JUDGEMENT_OPTIONS,
     registerOptions: { required: "This field is required" },
-    classes: "sm:col-span-8",
+    cssClasses: "sm:col-span-8",
   },
   {
     type: "select",
@@ -218,7 +218,7 @@ export const createPropertyDetailsConfig = (prefix) => [
     autoComplete: "",
     options: JUDGEMENT_OPTIONS,
     registerOptions: { required: "This field is required" },
-    classes: "sm:col-span-8",
+    cssClasses: "sm:col-span-8",
   },
 ];
 
