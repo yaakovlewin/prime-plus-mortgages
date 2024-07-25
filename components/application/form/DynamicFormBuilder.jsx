@@ -1,9 +1,9 @@
 // DynamicForm.jsx
 import React from "react";
 import { useFieldArray, useFormContext } from "react-hook-form";
-import RenderDynamicFields from "./DynamicFields";
+import RenderDynamicFields from "./RenderDynamicFields";
 
-const DynamicForm = ({ configs }) => {
+const DynamicFormBuilder = ({ configs }) => {
   const { control } = useFormContext();
 
   console.log(configs);
@@ -43,7 +43,7 @@ const Section = ({ section, control }) => {
         fields.map((field, index) => (
           <React.Fragment key={field.id}>
             <h3 className="mt-5 text-sm font-semibold leading-6 text-gray-900">
-              {section.title} {index + 1}
+              Applicant {index + 1}
             </h3>
             <RenderDynamicFields
               configType={section.fields}
@@ -71,4 +71,4 @@ const Section = ({ section, control }) => {
   );
 };
 
-export default DynamicForm;
+export default DynamicFormBuilder;

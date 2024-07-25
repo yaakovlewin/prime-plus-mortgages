@@ -8,11 +8,11 @@ import FormContainer from "@/components/FormContainer";
 import FormHeroSection from "@/components/FormHeroSection";
 import Heading2 from "@/components/Heading2";
 import { submit } from "@/js/formSubmission";
-import DynamicForm from "./DynamicForm";
-import NavigationButtons from "./sections/NavigationButtons";
-import ProgressIndicator from "./sections/ProgressIndicator";
+import NavigationButtons from "../navigation/NavigationButtons";
+import ProgressIndicator from "../navigation/ProgressIndicator";
+import DynamicFormBuilder from "./DynamicFormBuilder";
 
-export default function InnerFormComponent({ config }) {
+export default function FormContentRenderer({ config }) {
   const { currentStep, steps, nextStep } = useFormContext();
 
   const currentStepConfig = config.steps.find(
@@ -84,7 +84,7 @@ export default function InnerFormComponent({ config }) {
               (section) => section.id === sectionId,
             );
             return (
-              <DynamicForm
+              <DynamicFormBuilder
                 key={sectionId}
                 configs={{ sections: [sectionConfig] }}
               />

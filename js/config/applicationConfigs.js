@@ -1,8 +1,8 @@
-import createEmploymentConfig from "@/js/config/employmentFeildsConfig";
-import createFinancialDetailsConfig from "@/js/config/financialFieldsConfig";
-import createPersonalDetailsConfig from "@/js/config/personalDetailsConfig";
-import createPropertyDetailsConfig from "@/js/config/propertyFieldsConfig";
-import createCompanyDetailsConfig from "./companyDetailsConfig";
+import createCompanyDetailsConfig from "@/js/config/formFields/companyDetailsConfig";
+import createEmploymentConfig from "@/js/config/formFields/employmentFeildsConfig";
+import createFinancialDetailsConfig from "@/js/config/formFields/financialFieldsConfig";
+import createPersonalDetailsConfig from "@/js/config/formFields/personalDetailsConfig";
+import createPropertyDetailsConfig from "@/js/config/formFields/propertyFieldsConfig";
 
 export const buyToLetConfig = {
   steps: [
@@ -49,6 +49,52 @@ export const buyToLetConfig = {
       id: "propertyDetails",
       title: "Property Details",
       fields: createPropertyDetailsConfig,
+    },
+    {
+      id: "financialDetails",
+      title: "Financial Details",
+      fields: createFinancialDetailsConfig,
+    },
+  ],
+};
+
+export const remortgageConfig = {
+  steps: [
+    {
+      id: 1,
+      name: "Personal Details",
+      status: "current",
+      sections: ["personalDetails"],
+    },
+    {
+      id: 2,
+      name: "Employment Details",
+      status: "",
+      sections: ["employmentDetails"],
+    },
+    {
+      id: 3,
+      name: "Financial Details",
+      status: "",
+      sections: ["financialDetails"],
+    },
+  ],
+  sections: [
+    {
+      id: "personalDetails",
+      title: "Personal Details",
+      canAdd: true,
+      canRemove: true,
+      hasApplicants: true,
+      fields: createPersonalDetailsConfig,
+    },
+    {
+      id: "employmentDetails",
+      title: "Employment Details",
+      canAdd: true,
+      canRemove: true,
+      hasApplicants: true,
+      fields: createEmploymentConfig,
     },
     {
       id: "financialDetails",

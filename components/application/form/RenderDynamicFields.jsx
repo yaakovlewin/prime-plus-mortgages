@@ -2,7 +2,7 @@
 import useFormFieldsConfig from "@/app/hooks/useFormFieldsConfig";
 import { useMemo } from "react";
 import { useFormContext } from "react-hook-form";
-import FormField from "./dynamicComponents/FormField";
+import DynamicFormField from "./FormInputs/DynamicFormField";
 
 export default function RenderDynamicFields({
   prefix,
@@ -29,7 +29,7 @@ export default function RenderDynamicFields({
     <section key={index !== undefined ? `${prefix}[${index}]` : undefined}>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-8">
         {config.map((field) => (
-          <FormField
+          <DynamicFormField
             key={field.id}
             field={field}
             register={register}

@@ -10,8 +10,6 @@ export const PROPERTY_CONSTRUCTION_OPTIONS = ["Standard", "Other"];
 export const PROPERTY_TENURE_OPTIONS = ["Leasehold", "Freehold"];
 export const JUDGEMENT_OPTIONS = ["Yes", "No"];
 
-const prefix = "PropertyDetails";
-
 export const createPropertyDetailsConfig = (prefix) => [
   {
     type: "text",

@@ -6,7 +6,7 @@ import {
   TextInput,
 } from "./FormInputs";
 
-const FormField = ({ field, register, errors }) => {
+const DynamicFormField = ({ field, register, errors }) => {
   switch (field.type) {
     case "text":
       return (
@@ -17,7 +17,7 @@ const FormField = ({ field, register, errors }) => {
           register={register}
           registerOptions={field.registerOptions}
           errors={errors}
-          classes={field.classes}
+          classes={field.cssClasses}
         />
       );
     case "number":
@@ -29,7 +29,7 @@ const FormField = ({ field, register, errors }) => {
           register={register}
           registerOptions={field.registerOptions}
           errors={errors}
-          classes={field.classes}
+          classes={field.cssClasses}
         />
       );
     case "date":
@@ -40,7 +40,7 @@ const FormField = ({ field, register, errors }) => {
           register={register}
           registerOptions={field.registerOptions}
           errors={errors}
-          classes={field.classes}
+          classes={field.cssClasses}
         />
       );
     case "checkbox":
@@ -51,7 +51,7 @@ const FormField = ({ field, register, errors }) => {
           register={register}
           registerOptions={field.registerOptions}
           errors={errors}
-          classes={field.classes}
+          classes={field.cssClasses}
         />
       );
     case "select":
@@ -63,7 +63,7 @@ const FormField = ({ field, register, errors }) => {
           register={register}
           registerOptions={field.registerOptions}
           errors={errors}
-          classes={field.classes}
+          classes={field.cssClasses}
         />
       );
     default:
@@ -71,4 +71,4 @@ const FormField = ({ field, register, errors }) => {
   }
 };
 
-export default FormField;
+export default DynamicFormField;

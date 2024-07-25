@@ -4,7 +4,7 @@ import { useFormContext } from "@/components/application/FormContext";
 export default function NavigationButtons() {
   const { currentStep, steps, prevStep } = useFormContext();
   return (
-    <div className="container flex justify-between">
+    <div className="container flex justify-between py-3">
       <button
         type="button"
         onClick={prevStep}

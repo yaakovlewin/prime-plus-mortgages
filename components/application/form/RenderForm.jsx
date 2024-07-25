@@ -1,9 +1,9 @@
 "use client";
+import FormContentRenderer from "@/components/application/form/FormContentRenderer";
 import { FormProvider } from "@/components/application/FormContext";
-import InnerFormComponent from "@/components/application/innerFormComponent";
 import { FormProvider as FormProviderRHF, useForm } from "react-hook-form";
 
-export default function MainForm({ config }) {
+export default function RenderForm({ config }) {
   console.log("config", config);
   const methods = useForm({
     defaultValues: {
@@ -17,7 +17,7 @@ export default function MainForm({ config }) {
     <div className="">
       <FormProviderRHF {...methods}>
         <FormProvider initialSteps={formSteps}>
-          <InnerFormComponent config={config} />
+          <FormContentRenderer config={config} />
         </FormProvider>
       </FormProviderRHF>
     </div>

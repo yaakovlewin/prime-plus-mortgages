@@ -1,7 +1,7 @@
 "use client";
-import MainForm from "@/components/application/RenderForm";
+import RenderForm from "@/components/application/form/RenderForm";
 import { firstTimeBuyerConfig } from "@/js/config/applicationConfigs";
 
 export default function firstTimeBuyer() {
-  return <MainForm config={firstTimeBuyerConfig} />;
+  return <RenderForm config={firstTimeBuyerConfig} />;
 }

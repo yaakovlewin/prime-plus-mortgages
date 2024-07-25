@@ -11,7 +11,7 @@ const createPersonalDetailsConfig = (prefix) => [
     id: `${prefix}.Title`,
     autoComplete: "honorific-prefix",
     registerOptions: { required: "Title is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
     options: TITLE_OPTIONS,
   },
   {
@@ -20,7 +20,7 @@ const createPersonalDetailsConfig = (prefix) => [
     id: `${prefix}.Gender`,
     autoComplete: "sex",
     registerOptions: { required: "Gender is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
     options: GENDER_OPTIONS,
   },
   {
@@ -29,7 +29,7 @@ const createPersonalDetailsConfig = (prefix) => [
     id: `${prefix}.FirstName`,
     autoComplete: "given-name",
     registerOptions: { required: "First name is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -37,7 +37,7 @@ const createPersonalDetailsConfig = (prefix) => [
     id: `${prefix}.LastName`,
     autoComplete: "family-name",
     registerOptions: { required: "Last name is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "select",
@@ -45,7 +45,7 @@ const createPersonalDetailsConfig = (prefix) => [
     id: `${prefix}.MaritalStatus`,
     autoComplete: "",
     registerOptions: { required: "Marital status is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
     options: MARITAL_STATUS_OPTIONS,
   },
   {
@@ -54,7 +54,7 @@ const createPersonalDetailsConfig = (prefix) => [
     id: `${prefix}.DateOfBirth`,
     autoComplete: "bday",
     registerOptions: { required: "Date of birth is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -62,7 +62,7 @@ const createPersonalDetailsConfig = (prefix) => [
     id: `${prefix}.Nationality`,
     autoComplete: "nationality",
     registerOptions: { required: "Nationality is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -70,7 +70,7 @@ const createPersonalDetailsConfig = (prefix) => [
     id: `${prefix}.PlaceOfBirth`,
     autoComplete: "",
     registerOptions: { required: "Place of birth is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -78,7 +78,7 @@ const createPersonalDetailsConfig = (prefix) => [
     id: `${prefix}.ContactNumber`,
     autoComplete: "tel",
     registerOptions: { required: "Contact number is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -86,7 +86,7 @@ const createPersonalDetailsConfig = (prefix) => [
     id: `${prefix}.Email`,
     autoComplete: "email",
     registerOptions: { required: "Email address is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -94,7 +94,7 @@ const createPersonalDetailsConfig = (prefix) => [
     id: `${prefix}.NationalInsuranceNumber`,
     autoComplete: "",
     registerOptions: { required: "National insurance number is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   ...createAddressConfig(`${prefix}.CurrentAddress`), // Current address fields
   {
@@ -103,7 +103,7 @@ const createPersonalDetailsConfig = (prefix) => [
     label: "Years at Current Address",
     autoComplete: "",
     defaultValue: "",
-    classes: "sm:col-span-3",
+    cssClasses: "sm:col-span-3",
     registerOptions: { required: "Years at current address is required" },
     watch: true,
   },
