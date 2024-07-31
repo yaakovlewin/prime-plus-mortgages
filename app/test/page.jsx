@@ -1,4 +1,4 @@
-import { db } from "@/js/DB/firebase";
+import { db } from "@/js/services/firebase";
 import { collection, getDocs } from "firebase/firestore";
 
 export default function Test() {

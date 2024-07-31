@@ -10,7 +10,7 @@ export const PROPERTY_CONSTRUCTION_OPTIONS = ["Standard", "Other"];
 export const PROPERTY_TENURE_OPTIONS = ["Leasehold", "Freehold"];
 export const JUDGEMENT_OPTIONS = ["Yes", "No"];
 
-export const createPropertyDetailsConfig = (prefix) => [
+export const generatePropertyDetailsConfig = (prefix) => [
   {
     type: "text",
     id: `${prefix}.PropertyAddress`,
@@ -220,4 +220,4 @@ export const createPropertyDetailsConfig = (prefix) => [
   },
 ];
 
-export default createPropertyDetailsConfig;
+export default generatePropertyDetailsConfig;

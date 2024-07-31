@@ -1,16 +1,17 @@
+import Faq from "@/components/HomePage/Faq";
 import HeroSection from "@/components/HomePage/HeroSection";
-import ServicesOverview from "@/components/HomePage/ServicesOverview";
 import MortgageCalculator from "@/components/HomePage/MortgageCalculator";
 import MortgageProcessSection from "@/components/HomePage/MortgageProcessSection";
-import TestimonialsSection from "@/components/HomePage/TestimonialsSection";
 import OurLocationSection from "@/components/HomePage/OurLocationSection";
-import Faq from "@/components/HomePage/Faq";
+import ServicesOverview from "@/components/HomePage/ServicesOverview";
+import TestimonialsSection from "@/components/HomePage/TestimonialsSection";
+import servicesData from "@/js/servicesData";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <ServicesOverview />
+      <ServicesOverview services={servicesData} />
       <MortgageCalculator />
       <MortgageProcessSection />
       <Faq />

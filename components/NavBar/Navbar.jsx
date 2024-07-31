@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
-import Link from "next/link";
-import CenteredNavLink from "./CenteredNavLink";
-import LogoAndMobileMenu from "./LogoAndMobileMenu";
-import DropdownNavLink from "./DropDownNavLink";
 import services from "@/js/servicesData";
+import Link from "next/link";
+import { useState } from "react";
+import CenteredNavLink from "./CenteredNavLink";
+import DropdownNavLink from "./DropDownNavLink";
+import LogoAndMobileMenu from "./LogoAndMobileMenu";
 import MobileMenu from "./MobileMenu";
 
 const Navbar = () => {
@@ -63,7 +63,7 @@ const Navbar = () => {
               href="/get-started"
               className="rounded border-2 border-sky-800 bg-white px-3 py-2 text-cyan-500 shadow ring-2 ring-cyan-300 hover:bg-cyan-700 hover:text-white"
             >
-              Get Started
+              Apply Now
             </Link>
           </div>
         </div>

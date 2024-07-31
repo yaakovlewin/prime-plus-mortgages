@@ -1,10 +1,10 @@
-import createAddressConfig from "./addressFieldsConfig";
+import generateAddressFieldsConfig from "./generateAddressFieldsConfig";
 
 const TITLE_OPTIONS = ["Mr", "Mrs", "Miss", "Ms", "Dr"];
 const GENDER_OPTIONS = ["Male", "Female", "Other"];
 const MARITAL_STATUS_OPTIONS = ["Single", "Married", "Divorced", "Widowed"];
 
-const createPersonalDetailsConfig = (prefix) => [
+const generatePersonalDetailsConfig = (prefix) => [
   {
     type: "select",
     label: "Title",
@@ -96,7 +96,7 @@ const createPersonalDetailsConfig = (prefix) => [
     registerOptions: { required: "National insurance number is required" },
     cssClasses: "sm:col-span-4",
   },
-  ...createAddressConfig(`${prefix}.CurrentAddress`), // Current address fields
+  ...generateAddressFieldsConfig(`${prefix}.CurrentAddress`), // Current address fields
   {
     type: "number",
     id: `${prefix}.YearsAtAddress`,
@@ -107,7 +107,10 @@ const createPersonalDetailsConfig = (prefix) => [
     registerOptions: { required: "Years at current address is required" },
     watch: true,
   },
-  ...createAddressConfig(`${prefix}.PreviousAddress`).map((field) => ({
+  ...generateAddressFieldsConfig(
+    `${prefix}.PreviousAddress`,
+    "Previous Address",
+  ).map((field) => ({
     ...field,
     dependent: `${prefix}.YearsAtAddress`,
     conditional: (data) => {
@@ -117,4 +120,4 @@ const createPersonalDetailsConfig = (prefix) => [
   })),
 ];
 
-export default createPersonalDetailsConfig;
+export default generatePersonalDetailsConfig;

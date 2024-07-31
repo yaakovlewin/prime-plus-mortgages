@@ -1,8 +1,9 @@
-import createCompanyDetailsConfig from "@/js/config/formFields/companyDetailsConfig";
-import createEmploymentConfig from "@/js/config/formFields/employmentFeildsConfig";
-import createFinancialDetailsConfig from "@/js/config/formFields/financialFieldsConfig";
-import createPersonalDetailsConfig from "@/js/config/formFields/personalDetailsConfig";
-import createPropertyDetailsConfig from "@/js/config/formFields/propertyFieldsConfig";
+import generateCompanyDetailsConfig from "@/js/config/formFields/generateCompanyDetailsConfig";
+import generateEmploymentFieldsConfig from "@/js/config/formFields/generateEmploymentFieldsConfig";
+import generateFinancialFieldsConfig from "@/js/config/formFields/generateFinancialFieldsConfig";
+import generatePersonalDetailsConfig from "@/js/config/formFields/generatePersonalDetailsConfig";
+import generatePropertyDetailsConfig from "@/js/config/formFields/generatePropertyDetailsConfig";
+import generatePortfolioFieldsConfig from "./formFields/generatePortfolioFieldsConfig";
 
 export const buyToLetConfig = {
   steps: [
@@ -30,12 +31,18 @@ export const buyToLetConfig = {
       status: "",
       sections: ["financialDetails"],
     },
+    {
+      id: 5,
+      name: "Protflio Details",
+      status: "",
+      sections: ["portfolioDetails"],
+    },
   ],
   sections: [
     {
       id: "companyDetails",
       title: "Company Details",
-      fields: createCompanyDetailsConfig,
+      fields: generateCompanyDetailsConfig,
     },
     {
       id: "personalDetails",
@@ -43,17 +50,22 @@ export const buyToLetConfig = {
       canAdd: true,
       canRemove: true,
       hasApplicants: true,
-      fields: createPersonalDetailsConfig,
+      fields: generatePersonalDetailsConfig,
     },
     {
       id: "propertyDetails",
       title: "Property Details",
-      fields: createPropertyDetailsConfig,
+      fields: generatePropertyDetailsConfig,
     },
     {
       id: "financialDetails",
       title: "Financial Details",
-      fields: createFinancialDetailsConfig,
+      fields: generateFinancialFieldsConfig,
+    },
+    {
+      id: "portfolioDetails",
+      title: "Portfolio Details",
+      fields: generatePortfolioFieldsConfig,
     },
   ],
 };
@@ -86,7 +98,7 @@ export const remortgageConfig = {
       canAdd: true,
       canRemove: true,
       hasApplicants: true,
-      fields: createPersonalDetailsConfig,
+      fields: generatePersonalDetailsConfig,
     },
     {
       id: "employmentDetails",
@@ -94,12 +106,12 @@ export const remortgageConfig = {
       canAdd: true,
       canRemove: true,
       hasApplicants: true,
-      fields: createEmploymentConfig,
+      fields: generateEmploymentFieldsConfig,
     },
     {
       id: "financialDetails",
       title: "Financial Details",
-      fields: createFinancialDetailsConfig,
+      fields: generateFinancialFieldsConfig,
     },
   ],
 };
@@ -133,7 +145,7 @@ export const firstTimeBuyerConfig = {
       canRemove: true,
       hasApplicants: true,
       minInstances: 1,
-      fields: createPersonalDetailsConfig,
+      fields: generatePersonalDetailsConfig,
     },
     {
       id: "employmentDetails",
@@ -141,12 +153,12 @@ export const firstTimeBuyerConfig = {
       canAdd: true,
       canRemove: true,
       hasApplicants: true,
-      fields: createEmploymentConfig,
+      fields: generateEmploymentFieldsConfig,
     },
     {
       id: "financialDetails",
       title: "Financial Details",
-      fields: createFinancialDetailsConfig,
+      fields: generateFinancialFieldsConfig,
     },
   ],
 };

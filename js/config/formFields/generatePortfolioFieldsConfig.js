@@ -1,6 +1,4 @@
-const prefix = "portfolio";
-
-export const createPortfolioConfig = (prefix) => [
+export const generatePortfolioFieldsConfig = (prefix) => [
   {
     type: "number",
     id: `${prefix}.NumberOfPropertiesOwned`,
@@ -45,4 +43,4 @@ export const createPortfolioConfig = (prefix) => [
   },
 ];
 
-export default createPortfolioConfig;
+export default generatePortfolioFieldsConfig;

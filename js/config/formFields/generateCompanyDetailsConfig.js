@@ -1,6 +1,6 @@
-import createAddressConfig from "./addressFieldsConfig";
+import generateAddressFieldsConfig from "./generateAddressFieldsConfig";
 
-const createCompanyDetailsConfig = (prefix) => [
+const generateCompanyDetailsConfig = (prefix) => [
   {
     type: "text",
     label: "Company Name",
@@ -23,20 +23,22 @@ const createCompanyDetailsConfig = (prefix) => [
     registerOptions: { required: "Incorporation date is required" },
     cssClasses: "sm:col-span-4",
   },
-  ...createAddressConfig(`${prefix}.address`),
+  ...generateAddressFieldsConfig(`${prefix}.address`),
   {
     type: "checkbox",
     label: "Correspondence address different to company address?",
     id: `${prefix}.AddCorrespondenceAddress`,
     registerOptions: {},
-    cssClasses: "sm:col-span-8",
+    cssClasses: "sm:col-span-4",
     watch: true,
   },
-  ...createAddressConfig(`${prefix}.address`, "correspondent").map((field) => ({
-    ...field,
-    dependent: `${prefix}.AddCorrespondenceAddress`,
-    conditional: true,
-  })),
+  ...generateAddressFieldsConfig(`${prefix}.address`, "Correspondent").map(
+    (field) => ({
+      ...field,
+      dependent: `${prefix}.AddCorrespondenceAddress`,
+      conditional: true,
+    }),
+  ),
 ];
 
-export default createCompanyDetailsConfig;
+export default generateCompanyDetailsConfig;

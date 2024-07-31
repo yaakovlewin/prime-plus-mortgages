@@ -1,12 +1,10 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ServiceCard from "../ServiceCard";
 
-import servicesData from "@/js/servicesData";
 import Heading2 from "@/components/Heading2";
-import Link from "next/link";
 
-export default function ServicesOverview() {
+export default function ServicesOverview({ services }) {
   const scrollContainer = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -56,15 +54,11 @@ export default function ServicesOverview() {
             className="scrolling-touch hide-scroll-bar flex gap-4 overflow-x-scroll rounded"
           >
             <div className="grid grid-flow-col gap-4">
-              {servicesData.map((service) => (
+              {services.map((service) => (
                 <div className="w-96 md:h-full" key={service.id}>
-                  <ServiceCard
-                    key={service.id}
-                    title={service.title}
-                    description={service.description}
-                    link={`/services${service.url}`}
-                    imgSrc={service.imageUrl}
-                  />
+                  <ServiceCard {...service} prefix={"services"}>
+                    Learn More
+                  </ServiceCard>
                 </div>
               ))}
             </div>

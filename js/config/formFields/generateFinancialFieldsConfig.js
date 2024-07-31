@@ -1,12 +1,12 @@
 const RESIDENCE_STATUS_OPTIONS = ["Homeowner", "Tenant"];
-const createFinancialDetailsConfig = (prefix) => [
+const generateFinancialFieldsConfig = (prefix) => [
   {
     type: "select",
     label: "Residence Status",
     id: `${prefix}.ResidenceStatus`,
     autoComplete: "",
     registerOptions: { required: "Residence status is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
     options: RESIDENCE_STATUS_OPTIONS,
     watch: true,
   },
@@ -16,7 +16,7 @@ const createFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.HomeownerDetails`,
     autoComplete: "",
     registerOptions: { required: "Homeowner details are required" },
-    classes: "sm:col-span-8",
+    cssClasses: "sm:col-span-8",
     dependent: `${prefix}.ResidenceStatus`,
     conditional: "Homeowner",
   },
@@ -26,7 +26,7 @@ const createFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.TenantDetails`,
     autoComplete: "",
     registerOptions: { required: "Tenant details are required" },
-    classes: "sm:col-span-8",
+    cssClasses: "sm:col-span-8",
     dependent: `${prefix}.ResidenceStatus`,
     conditional: "Tenant",
   },
@@ -36,7 +36,7 @@ const createFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.DateMovedIn`,
     autoComplete: "",
     registerOptions: { required: "Date moved in is required" },
-    classes: "sm:col-span-8",
+    cssClasses: "sm:col-span-8",
   },
   {
     type: "text",
@@ -47,7 +47,7 @@ const createFinancialDetailsConfig = (prefix) => [
       required:
         "Previous address is required if less than 3 years at current address",
     },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "date",
@@ -58,7 +58,7 @@ const createFinancialDetailsConfig = (prefix) => [
       required:
         "Date moved in is required if less than 3 years at current address",
     },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -66,8 +66,8 @@ const createFinancialDetailsConfig = (prefix) => [
     id: `${prefix}.DirectorShareholder`,
     autoComplete: "",
     registerOptions: { required: "Director/Shareholder status is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
 ];
 
-export default createFinancialDetailsConfig;
+export default generateFinancialFieldsConfig;

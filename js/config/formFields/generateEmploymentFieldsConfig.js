@@ -1,6 +1,6 @@
 export const EMPLOYMENT_STATUS_OPTIONS = ["Employed", "Self-Employed"];
 
-export const createEmploymentConfig = (prefix) => [
+export const generateEmploymentFieldsConfig = (prefix) => [
   {
     type: "select",
     id: `${prefix}.EmploymentStatus`,
@@ -8,7 +8,7 @@ export const createEmploymentConfig = (prefix) => [
     autoComplete: "",
     options: EMPLOYMENT_STATUS_OPTIONS,
     registerOptions: { required: "Employment status is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "text",
@@ -16,7 +16,7 @@ export const createEmploymentConfig = (prefix) => [
     label: "Job Title & Description",
     autoComplete: "",
     registerOptions: { required: "Job title & description are required" },
-    classes: "sm:col-span-8",
+    cssClasses: "sm:col-span-8",
   },
   {
     type: "text",
@@ -24,7 +24,7 @@ export const createEmploymentConfig = (prefix) => [
     label: "Employer’s Name",
     autoComplete: "",
     registerOptions: { required: "Employer’s name is required" },
-    classes: "sm:col-span-8",
+    cssClasses: "sm:col-span-8",
   },
   {
     type: "text",
@@ -32,7 +32,7 @@ export const createEmploymentConfig = (prefix) => [
     label: "Employer’s Address",
     autoComplete: "",
     registerOptions: { required: "Employer’s address is required" },
-    classes: "sm:col-span-8",
+    cssClasses: "sm:col-span-8",
   },
   {
     type: "text",
@@ -40,7 +40,7 @@ export const createEmploymentConfig = (prefix) => [
     label: "Employer’s Contact Number",
     autoComplete: "",
     registerOptions: { required: "Employer’s contact number is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "number",
@@ -48,7 +48,7 @@ export const createEmploymentConfig = (prefix) => [
     label: "Annual Gross Income (If employed) £",
     autoComplete: "",
     registerOptions: { required: "Annual gross income is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
   },
   {
     type: "date",
@@ -56,7 +56,7 @@ export const createEmploymentConfig = (prefix) => [
     label: "Start Date of Employment",
     autoComplete: "",
     registerOptions: { required: "Start date of employment is required" },
-    classes: "sm:col-span-4",
+    cssClasses: "sm:col-span-4",
     watch: true, // This makes it a field to watch
   },
   {
@@ -85,7 +85,7 @@ export const createEmploymentConfig = (prefix) => [
         (currentDate - startDate) / (1000 * 60 * 60 * 24 * 365);
       return employmentDuration < 1;
     },
-    classes: "sm:col-span-8",
+    cssClasses: "sm:col-span-8",
   },
   {
     type: "text",
@@ -95,8 +95,8 @@ export const createEmploymentConfig = (prefix) => [
     registerOptions: {
       required: "Outstanding loans or credit cards are required",
     },
-    classes: "sm:col-span-8",
+    cssClasses: "sm:col-span-8",
   },
 ];
 
-export default createEmploymentConfig;
+export default generateEmploymentFieldsConfig;

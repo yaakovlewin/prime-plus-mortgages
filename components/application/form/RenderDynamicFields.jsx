@@ -2,6 +2,7 @@
 import useFormFieldsConfig from "@/app/hooks/useFormFieldsConfig";
 import { useMemo } from "react";
 import { useFormContext } from "react-hook-form";
+import { AiOutlineClose } from "react-icons/ai";
 import DynamicFormField from "./FormInputs/DynamicFormField";
 
 export default function RenderDynamicFields({
@@ -37,7 +38,12 @@ export default function RenderDynamicFields({
           />
         ))}
         {remove && (
-          <button type="button" onClick={() => remove(index)}>
+          <button
+            type="button"
+            className="col-span-8 mb-8 ml-5 items-center text-red-500 hover:text-red-700"
+            onClick={() => remove(index)}
+          >
+            <AiOutlineClose className="mx-auto" />
             Delete Applicant
           </button>
         )}

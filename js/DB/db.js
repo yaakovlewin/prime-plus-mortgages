@@ -1,4 +1,4 @@
-import app from "@/js/DB/firebase";
+import app from "@/js/services/firebase";
 import { collection, getDocs, getFirestore } from "firebase/firestore/lite";
 
 const db = getFirestore(app);

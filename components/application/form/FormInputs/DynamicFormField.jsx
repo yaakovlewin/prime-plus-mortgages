@@ -1,16 +1,16 @@
 import {
-  Checkbox,
-  DateInput,
-  NumberInput,
-  Select,
-  TextInput,
+  FormCheckbox,
+  FormDateInput,
+  FormNumberInput,
+  FormSelect,
+  FormTextInput,
 } from "./FormInputs";
 
 const DynamicFormField = ({ field, register, errors }) => {
   switch (field.type) {
     case "text":
       return (
-        <TextInput
+        <FormTextInput
           label={field.label}
           placeholder={field.placeholder}
           id={field.id}
@@ -22,7 +22,7 @@ const DynamicFormField = ({ field, register, errors }) => {
       );
     case "number":
       return (
-        <NumberInput
+        <FormNumberInput
           label={field.label}
           placeholder={field.placeholder}
           id={field.id}
@@ -34,7 +34,7 @@ const DynamicFormField = ({ field, register, errors }) => {
       );
     case "date":
       return (
-        <DateInput
+        <FormDateInput
           label={field.label}
           id={field.id}
           register={register}
@@ -45,7 +45,7 @@ const DynamicFormField = ({ field, register, errors }) => {
       );
     case "checkbox":
       return (
-        <Checkbox
+        <FormCheckbox
           label={field.label}
           id={field.id}
           register={register}
@@ -56,7 +56,7 @@ const DynamicFormField = ({ field, register, errors }) => {
       );
     case "select":
       return (
-        <Select
+        <FormSelect
           label={field.label}
           id={field.id}
           options={field.options}

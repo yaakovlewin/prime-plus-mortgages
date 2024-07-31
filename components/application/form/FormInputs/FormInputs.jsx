@@ -9,7 +9,7 @@ const getNestedError = (errors, id) => {
   return error;
 };
 
-const TextInput = function TextInputGenerature({
+const FormTextInput = function TextInputGenerature({
   label,
   id,
   autoComplete = "off",
@@ -49,7 +49,7 @@ const TextInput = function TextInputGenerature({
   );
 };
 
-const NumberInput = function NumberInputGenerature({
+const FormNumberInput = function NumberInputGenerature({
   label,
   id,
   autoComplete = "off",
@@ -89,7 +89,7 @@ const NumberInput = function NumberInputGenerature({
   );
 };
 
-const DateInput = function DateInputGenerature({
+const FormDateInput = function DateInputGenerature({
   label,
   id,
   register,
@@ -126,7 +126,7 @@ const DateInput = function DateInputGenerature({
   );
 };
 
-const Checkbox = function CheckboxGenerature({
+const FormCheckbox = function CheckboxGenerature({
   label,
   id,
   register,
@@ -155,7 +155,7 @@ const Checkbox = function CheckboxGenerature({
   );
 };
 
-const Select = function SelectGenerature({
+const FormSelect = function SelectGenerature({
   label,
   id,
   options,
@@ -201,4 +201,10 @@ const Select = function SelectGenerature({
   );
 };
 
-export { Checkbox, DateInput, NumberInput, Select, TextInput };
+export {
+  FormCheckbox,
+  FormDateInput,
+  FormNumberInput,
+  FormSelect,
+  FormTextInput,
+};

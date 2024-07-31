@@ -1,4 +1,4 @@
-import { db } from "@/js/DB/firebase";
+import { db } from "@/js/services/firebase";
 import { addDoc, collection } from "firebase/firestore";
 
 export const submit = async (data, router) => {
