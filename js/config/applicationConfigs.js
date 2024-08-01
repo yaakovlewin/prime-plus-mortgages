@@ -103,8 +103,6 @@ export const remortgageConfig = {
     {
       id: "employmentDetails",
       title: "Employment Details",
-      canAdd: true,
-      canRemove: true,
       hasApplicants: true,
       fields: generateEmploymentFieldsConfig,
     },

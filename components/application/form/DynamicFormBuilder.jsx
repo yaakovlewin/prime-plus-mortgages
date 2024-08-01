@@ -24,7 +24,7 @@ const Section = ({ section, control }) => {
     rules: { minLength: section.minInstances || 0 },
   });
 
-  const addItem = () => {
+  const addApplicant = () => {
     append({});
   };
 
@@ -63,8 +63,8 @@ const Section = ({ section, control }) => {
         <RenderDynamicFields configType={section.fields} prefix={section.id} />
       )}
       {section.canAdd && (
-        <button type="button" onClick={addItem}>
-          Add {section.title}
+        <button type="button" onClick={addApplicant}>
+          Add Applicant
         </button>
       )}
     </div>
