@@ -50,6 +50,7 @@ export const buyToLetConfig = {
       canAdd: true,
       canRemove: true,
       hasApplicants: true,
+      minInstances: 1,
       fields: generatePersonalDetailsConfig,
     },
     {
@@ -60,6 +61,8 @@ export const buyToLetConfig = {
     {
       id: "financialDetails",
       title: "Financial Details",
+      hasApplicants: true,
+      minInstances: 1,
       fields: generateFinancialFieldsConfig,
     },
     {
@@ -98,17 +101,21 @@ export const remortgageConfig = {
       canAdd: true,
       canRemove: true,
       hasApplicants: true,
+      minInstances: 1,
       fields: generatePersonalDetailsConfig,
     },
     {
       id: "employmentDetails",
       title: "Employment Details",
       hasApplicants: true,
+      minInstances: 1,
       fields: generateEmploymentFieldsConfig,
     },
     {
       id: "financialDetails",
       title: "Financial Details",
+      hasApplicants: true,
+      minInstances: 1,
       fields: generateFinancialFieldsConfig,
     },
   ],
@@ -148,9 +155,8 @@ export const firstTimeBuyerConfig = {
     {
       id: "employmentDetails",
       title: "Employment Details",
-      canAdd: true,
-      canRemove: true,
       hasApplicants: true,
+      minInstances: 1,
       fields: generateEmploymentFieldsConfig,
     },
     {

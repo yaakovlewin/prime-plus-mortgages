@@ -1,8 +1,8 @@
+import BrickWallContainer from "@/components/common/BrickWallContainer";
+import Heading2 from "@/components/common/Heading2";
 import servicesData from "@/js/servicesData"; // Adjust the path as necessary
 import Image from "next/image";
 import Link from "next/link";
-import BrickWallContainer from "@/components/BrickWallContainer";
-import Heading2 from "@/components/Heading2";
 
 const ServicesSection = () => {
   return (

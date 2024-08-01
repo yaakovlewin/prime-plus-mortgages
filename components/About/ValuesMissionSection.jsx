@@ -1,5 +1,4 @@
-import React from "react";
-import Heading2 from "../Heading2";
+import Heading2 from "../common/Heading2";
 
 const ValuesMissionSection = () => {
   return (

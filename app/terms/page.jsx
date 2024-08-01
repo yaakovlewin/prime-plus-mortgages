@@ -1,7 +1,6 @@
-import Heading2 from "@/components/Heading2";
+import Heading2 from "@/components/common/Heading2";
 import SectionCard from "@/components/privacy-and-terms/Section-card";
 import Link from "next/link";
-import React from "react";
 
 export default function TermsOfBusiness() {
   return (

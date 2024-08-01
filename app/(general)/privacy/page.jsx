@@ -1,7 +1,7 @@
+import Heading2 from "@/components/common/Heading2";
 import SectionCard from "@/components/privacy-and-terms/Section-card";
-import Link from "next/link";
 import { contactInfo } from "@/js/contactInfo";
-import Heading2 from "@/components/Heading2";
+import Link from "next/link";
 
 export default function PrivacyPolicy() {
   return (

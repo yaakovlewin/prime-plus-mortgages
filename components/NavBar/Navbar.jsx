@@ -60,7 +60,7 @@ const Navbar = () => {
             </Link>
 
             <Link
-              href="/get-started"
+              href="/application"
               className="rounded border-2 border-sky-800 bg-white px-3 py-2 text-cyan-500 shadow ring-2 ring-cyan-300 hover:bg-cyan-700 hover:text-white"
             >
               Apply Now

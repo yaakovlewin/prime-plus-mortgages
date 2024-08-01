@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import TestimonialCard from "./TestimonialCard";
-import Heading2 from "../Heading2";
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import Heading2 from "../common/Heading2";
+import TestimonialCard from "./TestimonialCard";
 
 const testimonials = [
   {

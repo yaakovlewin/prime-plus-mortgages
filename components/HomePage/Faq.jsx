@@ -1,4 +1,4 @@
-import Heading2 from "../Heading2";
+import Heading2 from "../common/Heading2";
 import FaqItem from "./FaqItem";
 
 function Faq() {

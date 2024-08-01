@@ -1,7 +1,7 @@
 "use client"; // Error components must be Client Components
 
 import FormHeroSection from "@/components/FormHeroSection";
-import Heading2 from "@/components/Heading2";
+import Heading2 from "@/components/common/Heading2";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";

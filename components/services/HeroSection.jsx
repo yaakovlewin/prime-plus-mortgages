@@ -20,7 +20,7 @@ const HeroSection = () => {
           </p>
           <section className="flex items-baseline justify-between">
             <Link
-              href="/get-started"
+              href="/application"
               className=" rounded border border-sky-500 bg-cyan-500 px-6 py-4 font-bold uppercase text-white shadow-2xl text-shadow-none hover:bg-cyan-600"
             >
               Get Started

@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import ServiceCard from "../ServiceCard";
+import ServiceCard from "../common/ServiceCard";
 
-import Heading2 from "@/components/Heading2";
+import Heading2 from "@/components/common/Heading2";
 
 export default function ServicesOverview({ services }) {
   const scrollContainer = useRef(null);

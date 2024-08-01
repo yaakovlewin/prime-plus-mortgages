@@ -1,9 +1,8 @@
 "use client";
-import React from "react";
-import MapContainer from "./MapContainer";
-import Link from "next/link";
-import Heading2 from "../Heading2";
 import { contactInfo } from "@/js/contactInfo";
+import Link from "next/link";
+import Heading2 from "../common/Heading2";
+import MapContainer from "./MapContainer";
 
 export default function OurLocationSection() {
   return (

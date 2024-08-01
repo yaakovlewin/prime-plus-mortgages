@@ -1,5 +1,5 @@
 "use client";
-import useFormFieldsConfig from "@/app/hooks/useFormFieldsConfig";
+import useFormFieldsConfig from "@/hooks/useFormFieldsConfig";
 import { useMemo } from "react";
 import { useFormContext } from "react-hook-form";
 import { AiOutlineClose } from "react-icons/ai";

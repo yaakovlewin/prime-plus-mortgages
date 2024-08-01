@@ -6,7 +6,7 @@ import { useFormContext as useFormContextRHForm } from "react-hook-form";
 // components
 import FormContainer from "@/components/FormContainer";
 import FormHeroSection from "@/components/FormHeroSection";
-import Heading2 from "@/components/Heading2";
+import Heading2 from "@/components/common/Heading2";
 import { submit } from "@/js/formSubmission";
 import NavigationButtons from "../navigation/NavigationButtons";
 import ProgressIndicator from "../navigation/ProgressIndicator";

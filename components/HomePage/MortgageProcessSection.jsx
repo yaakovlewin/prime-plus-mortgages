@@ -1,7 +1,6 @@
 import Image from "next/image";
-import FaqItem from "./FaqItem";
-import BrickWallContainer from "../BrickWallContainer";
-import Heading2 from "../Heading2";
+import BrickWallContainer from "../common/BrickWallContainer";
+import Heading2 from "../common/Heading2";
 
 export default function MortgageProcessSection() {
   return (
