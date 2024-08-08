@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Heading2 from "../common/Heading2";
+import Heading2 from "../shared/Heading2";
 
 export default function MortgageCalculator() {
   const [principal, setPrincipal] = useState("");

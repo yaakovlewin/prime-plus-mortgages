@@ -1,8 +1,8 @@
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/NavBar/Navbar";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import Footer from "@/components/Footer/Footer";
-import Navbar from "@/components/NavBar/Navbar";
 import { exo2, rubik, zillaSlab } from "./font";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

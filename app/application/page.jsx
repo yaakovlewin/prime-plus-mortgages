@@ -1,5 +1,5 @@
-import FormHeroSection from "@/components/FormHeroSection";
-import ServiceCard from "@/components/common/ServiceCard";
+import FormHeroSection from "@/components/shared/FormHeroSection";
+import ServiceCard from "@/components/shared/ServiceCard";
 import servicesData from "@/js/servicesData";
 import Link from "next/link";
 

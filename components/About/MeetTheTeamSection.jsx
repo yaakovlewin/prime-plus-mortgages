@@ -1,6 +1,6 @@
 import teamMembersData from "@/js/teamMembersData"; // Ensure the path is correct
 import Image from "next/image";
-import Heading2 from "../common/Heading2";
+import Heading2 from "../shared/Heading2";
 
 const MeetTheTeamSection = () => {
   return (

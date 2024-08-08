@@ -1,4 +1,4 @@
-import BrickWallContainer from "@/components/common/BrickWallContainer";
+import BrickWallContainer from "@/components/shared/BrickWallContainer";
 import iconMapping from "@/utils/iconMapping"; // iconMapping[icon] returns the icon component
 
 export default function DetailedServiceOverview({ service }) {

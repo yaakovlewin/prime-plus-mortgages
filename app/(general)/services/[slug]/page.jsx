@@ -1,5 +1,5 @@
 import ServicesOverview from "@/components/HomePage/ServicesOverview";
-import DetailedServiceOverview from "@/components/services/[slug]/DetailedServiceOverview";
+import DetailedServiceOverview from "@/components/services/DetailedServiceOverview";
 import ServiceHeroSection from "@/components/services/ServiceHeroSection";
 import servicesData from "@/js/servicesData"; // Import service data
 

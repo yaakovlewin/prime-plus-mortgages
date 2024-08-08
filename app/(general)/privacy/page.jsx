@@ -1,5 +1,5 @@
-import Heading2 from "@/components/common/Heading2";
 import SectionCard from "@/components/privacy-and-terms/Section-card";
+import Heading2 from "@/components/shared/Heading2";
 import { contactInfo } from "@/js/contactInfo";
 import Link from "next/link";
 

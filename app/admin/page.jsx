@@ -1,14 +1,36 @@
 "use client";
-import Heading2 from "@/components/common/Heading2";
-import { getCollection } from "@/js/DB/db";
-import { useState } from "react";
+import { db } from "@/js/services/firebase";
+import { collection, getDocs } from "firebase/firestore";
+import { useEffect, useState } from "react";
 
 const AdminPage = () => {
-  //   const [user, setUser] = useState(null);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [applications, setApplications] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetxhApplications() {
+      try {
+        const applicationCollection = collection(db, "applicationForms1");
+        const snapShot = await getDocs(applicationCollection);
+        const applications = snapShot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setApplications(applications);
+        setLoading(false);
+      } catch (error) {
+        setError("Error fetching applications: " + error.message);
+        setLoading(false);
+      }
+    }
+    fetxhApplications();
+  }, []);
+  //   const [user, setUser] = useState(null);
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [applications, setApplications] = useState([]);
+  // const [error, setError] = useState(null);
 
   //   const auth = getAuth(app);
 
@@ -40,20 +62,51 @@ const AdminPage = () => {
   //     }
   //   };
 
-  const fetchApplications = async () => {
-    try {
-      const applications = await getCollection("applicationForms");
-      setApplications(applications);
-    } catch (error) {
-      setError("Error fetching applications: " + error.message);
-    }
-  };
+  // const fetchApplications = async () => {
+  //   try {
+  //     const applications = await getCollection("applicationForms");
+  //     setApplications(applications);
+  //   } catch (error) {
+  //     setError("Error fetching applications: " + error.message);
+  //   }
+  // };
 
-  fetchApplications();
+  // fetchApplications();
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Heading2>Admin Dashboard</Heading2>
+      <h1 className="mb-4 text-2xl font-bold">
+        Admin Dashboard - Applications
+      </h1>
+      <div className="overflow-x-auto">
+        <table className="min-w-full bg-white">
+          <thead>
+            <tr>
+              <th className="bg-gray-100 px-4 py-2">ID</th>
+              <th className="bg-gray-100 px-4 py-2">Name</th>
+              <th className="bg-gray-100 px-4 py-2">Email</th>
+              <th className="bg-gray-100 px-4 py-2">Application Type</th>
+              <th className="bg-gray-100 px-4 py-2">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {applications.map((app) => (
+              <tr key={app.id}>
+                <td className="border px-4 py-2">{app.id}</td>
+                <td className="border px-4 py-2">{app.name || "N/A"}</td>
+                <td className="border px-4 py-2">{app.email || "N/A"}</td>
+                <td className="border px-4 py-2">
+                  {app.applicationType || "N/A"}
+                </td>
+                <td className="border px-4 py-2">{app.status || "Pending"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {/* <Heading2>Admin Dashboard</Heading2> */}
       {/* {!user ? (
         <form onSubmit={handleLogin} className="mb-4">
           <input

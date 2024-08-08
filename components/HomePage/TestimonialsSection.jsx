@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import Heading2 from "../common/Heading2";
+import Heading2 from "../shared/Heading2";
 import TestimonialCard from "./TestimonialCard";
 
 const testimonials = [

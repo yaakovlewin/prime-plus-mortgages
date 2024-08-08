@@ -1,5 +1,5 @@
-import BrickWallContainer from "@/components/common/BrickWallContainer";
-import Heading2 from "@/components/common/Heading2";
+import BrickWallContainer from "@/components/shared/BrickWallContainer";
+import Heading2 from "@/components/shared/Heading2";
 import servicesData from "@/js/servicesData"; // Adjust the path as necessary
 import Image from "next/image";
 import Link from "next/link";

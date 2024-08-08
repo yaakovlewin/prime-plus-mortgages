@@ -1,7 +1,7 @@
 "use client";
 import { contactInfo } from "@/js/contactInfo";
 import Link from "next/link";
-import Heading2 from "../common/Heading2";
+import Heading2 from "../shared/Heading2";
 import MapContainer from "./MapContainer";
 
 export default function OurLocationSection() {

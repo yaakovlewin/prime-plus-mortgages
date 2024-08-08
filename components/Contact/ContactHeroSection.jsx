@@ -1,5 +1,4 @@
-import React from "react";
-import FormHeroSection from "../FormHeroSection";
+import FormHeroSection from "../shared/FormHeroSection";
 
 const ContactHeroSection = () => {
   return (

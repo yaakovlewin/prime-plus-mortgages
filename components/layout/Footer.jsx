@@ -1,10 +1,8 @@
 import Link from "next/link";
 
-import { FaGithub, FaLinkedin, FaBlogger } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import FooterLink from "./FooterLink";
 import servicesData from "@/js/servicesData";
 import Image from "next/image";
+import FooterLink from "./FooterLink";
 
 export default function Footer() {
   return (

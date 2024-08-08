@@ -4,7 +4,6 @@ import { FormProvider } from "@/components/application/FormContext";
 import { FormProvider as FormProviderRHF, useForm } from "react-hook-form";
 
 export default function RenderForm({ config }) {
-  console.log("config", config);
   const methods = useForm({
     defaultValues: {
       applicants: [{}],

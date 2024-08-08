@@ -1,4 +1,4 @@
-import Heading2 from "../common/Heading2";
+import Heading2 from "../shared/Heading2";
 
 const WhyChooseUsSection = () => {
   return (

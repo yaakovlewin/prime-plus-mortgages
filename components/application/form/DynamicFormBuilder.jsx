@@ -1,12 +1,9 @@
-// DynamicForm.jsx
 import React from "react";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import RenderDynamicFields from "./RenderDynamicFields";
 
 const DynamicFormBuilder = ({ configs }) => {
   const { control } = useFormContext();
-
-  console.log(configs);
 
   return (
     <div>
@@ -33,8 +30,6 @@ const Section = ({ section, control }) => {
       remove(index);
     }
   };
-
-  console.log("can add", section.canAdd);
 
   return (
     <div key={section.id}>

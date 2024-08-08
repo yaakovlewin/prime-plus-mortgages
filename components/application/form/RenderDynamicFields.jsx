@@ -3,7 +3,7 @@ import useFormFieldsConfig from "@/hooks/useFormFieldsConfig";
 import { useMemo } from "react";
 import { useFormContext } from "react-hook-form";
 import { AiOutlineClose } from "react-icons/ai";
-import DynamicFormField from "./FormInputs/DynamicFormField";
+import DynamicFormField from "../../UI/FormInputs/DynamicFormField";
 
 export default function RenderDynamicFields({
   prefix,
