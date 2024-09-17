@@ -1,5 +1,6 @@
 const ADDRESS_FIELD_TYPES = [
-  "street",
+  "addressLine1",
+  "addressLine2",
   "locality",
   "townCity",
   "county",
@@ -7,30 +8,41 @@ const ADDRESS_FIELD_TYPES = [
 ];
 
 const addressFieldProperties = {
-  street: {
-    label: "Street",
-    autoComplete: "street-address",
+  addressLine1: {
+    label: "Address Line 1",
+    autoComplete: "address-line1",
     cssClasses: "sm:col-span-8",
+    required: true,
+  },
+  addressLine2: {
+    label: "Address Line 2 (optional)",
+    autoComplete: "address-line2",
+    cssClasses: "sm:col-span-8",
+    required: false,
   },
   locality: {
     label: "Locality",
     autoComplete: "address-line2",
     cssClasses: "sm:col-span-4",
+    required: false,
   },
   townCity: {
     label: "Town/City",
     autoComplete: "address-level2",
     cssClasses: "sm:col-span-4",
+    required: true,
   },
   county: {
     label: "County",
     autoComplete: "address-level1",
     cssClasses: "sm:col-span-4",
+    required: false,
   },
   postcode: {
     label: "Postcode",
     autoComplete: "postal-code",
     cssClasses: "sm:col-span-4",
+    required: true,
   },
 };
 
@@ -42,7 +54,9 @@ const createAddressFieldConfig = (prefix, field, leadLabel) => ({
   label: `${leadLabel} ${addressFieldProperties[field].label}`,
   autoComplete: addressFieldProperties[field].autoComplete,
   registerOptions: {
-    required: `${addressFieldProperties[field].label} is required`,
+    required: addressFieldProperties[field].required
+      ? `${addressFieldProperties[field].label} is required`
+      : false,
   },
 });
 

@@ -9,7 +9,7 @@ const AdminPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    async function fetxhApplications() {
+    async function fetchApplications() {
       try {
         const applicationCollection = collection(db, "applicationForms1");
         const snapShot = await getDocs(applicationCollection);
@@ -24,7 +24,7 @@ const AdminPage = () => {
         setLoading(false);
       }
     }
-    fetxhApplications();
+    fetchApplications();
   }, []);
   //   const [user, setUser] = useState(null);
   // const [email, setEmail] = useState("");
