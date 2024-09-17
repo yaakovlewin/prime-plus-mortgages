@@ -63,8 +63,8 @@ const AdminPage = () => {
       </div>
 
       <h3 className="mb-2 text-xl font-bold">Application Forms</h3>
-      {applications.map((app, index) => (
-        <div key={index} className="mb-4 rounded border p-4">
+      {applications.map((app) => (
+        <div key={app.id} className="mb-4 rounded border p-4">
           <h4 className="mb-2 font-bold">
             {app.name || "Unnamed Application"}
           </h4>
@@ -73,9 +73,6 @@ const AdminPage = () => {
           </pre>
         </div>
       ))}
-      {/* </div>
-      )}
-      {error && <p className="text-red-500">{error}</p>} */}
     </div>
   );
 };
