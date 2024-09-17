@@ -7,7 +7,7 @@ const SiteKey = process.env.reCAPTCHA_site_key;
 
 const app = initializeApp(firebaseConfig);
 
-const appCheck = initializeAppCheck({
+const appCheck = initializeAppCheck(app, {
   provider: new ReCaptchaV3Provider(SiteKey),
   isTokenAutoRefreshEnabled: true,
 });
