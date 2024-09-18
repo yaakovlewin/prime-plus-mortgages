@@ -4,15 +4,14 @@ import { getFirestore } from "firebase/firestore";
 
 // Initialize Firebase app
 const app = initializeApp(firebaseConfig);
-
+const SiteKey = process.env.NEXT_PUBLIC_reCAPTCHA_site_key;
+console.log("SiteKey", SiteKey);
 // Check if window is undefined (i.e., if running on the server)
 if (typeof window !== "undefined") {
   // Only import and initialize App Check if we are in the browser
 
   import("firebase/app-check")
     .then(({ initializeAppCheck, ReCaptchaV3Provider }) => {
-      const SiteKey = process.env.reCAPTCHA_site_key;
-
       if (!SiteKey) {
         console.error(
           "reCAPTCHA site key is not defined. Please check your environment variables.",
