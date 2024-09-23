@@ -36,7 +36,7 @@ export default function FormContentRenderer({ config }) {
   const onSubmit = async (data) => {
     if (currentStep === steps.length) {
       //   console.log(encode({ ...data }));
-      submit(data, router);
+      submit(data, router, config.formType);
     } else {
       nextStep();
     }

@@ -1,7 +1,23 @@
 import { db } from "@/js/services/firebase";
 import { addDoc, collection } from "firebase/firestore";
 
-export const submit = async (data, router) => {
+const addApplicationData = (data, formType) => {
+  return {
+    ...data,
+    submittedAt: new Date().toISOString(),
+    name:
+      data.applicants[0].personalDetails.FirstName +
+      " " +
+      data.applicants[0].personalDetails.LastName,
+    email: data.applicants[0].personalDetails.Email,
+    status: "Pending",
+    formType,
+  };
+};
+
+export const submit = async (data, router, formType) => {
+  data = addApplicationData(data, formType);
+  console.log("Data: ", data);
   try {
     const response = await addDoc(collection(db, "applicationForms1"), data);
 
