@@ -6,7 +6,7 @@ import generatePropertyDetailsConfig from "@/js/config/formFields/generateProper
 import generatePortfolioFieldsConfig from "./formFields/generatePortfolioFieldsConfig";
 
 export const buyToLetConfig = {
-  formType: "Buy To Let",
+  formType: "buy-to-let",
   steps: [
     {
       id: 1,
@@ -75,7 +75,7 @@ export const buyToLetConfig = {
 };
 
 export const remortgageConfig = {
-  formType: "Remortgage",
+  formType: "remortgage",
   steps: [
     {
       id: 1,
@@ -124,7 +124,7 @@ export const remortgageConfig = {
 };
 
 export const firstTimeBuyerConfig = {
-  formType: "First Time Buyer",
+  formType: "first-time-buyer",
   steps: [
     {
       id: 1,
