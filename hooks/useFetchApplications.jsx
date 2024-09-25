@@ -44,7 +44,7 @@ const useFetchApplication = (slug) => {
         if (docSnap.exists()) {
           setApplication({ id: docSnap.id, ...docSnap.data() });
         } else {
-          setError(`No application with ID ${slug} found`);
+          setError(`Sorry, the application with ID ${slug} was not found.`);
         }
       } catch (error) {
         setError("Error fetching application: " + error.message);
