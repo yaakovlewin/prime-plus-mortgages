@@ -1,5 +1,5 @@
 "use client";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "@/components/UI/alert";
 import StatusHandler from "@/components/UI/applications/StatusHandler";
 import { useFetchApplication } from "@/hooks/useFetchApplications";
 import { Calendar, Clipboard } from "lucide-react";
