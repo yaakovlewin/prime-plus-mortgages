@@ -1,6 +1,6 @@
 "use client";
 
-import SearchBar from "@/components/admin/serachBar";
+import SearchBar from "@/components/admin/SerachBar";
 import StatusHandler from "@/components/UI/applications/StatusHandler";
 import { useFetchApplications } from "@/hooks/useFetchApplications";
 import { useRouter } from "next/navigation";
