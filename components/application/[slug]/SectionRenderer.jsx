@@ -1,4 +1,4 @@
-const SectionComponent = ({ title, content }) => {
+const SectionRenderer = ({ title, children }) => {
   const camelToTitle = (camelCase) => {
     if (typeof camelCase !== "string") return camelCase;
     return camelCase
@@ -10,11 +10,13 @@ const SectionComponent = ({ title, content }) => {
   };
 
   return (
-    <div className="mb-6 rounded-lg bg-white p-6 shadow" key={title}>
-      <h3 className="mb-4 text-xl font-bold">{camelToTitle(title)}</h3>
-      {content}
+    <div className="mb-6 rounded-lg bg-white p-6 shadow transition-shadow hover:shadow-md">
+      <h3 className="mb-4 border-b pb-2 text-xl font-bold text-gray-800">
+        {camelToTitle(title)}
+      </h3>
+      {children}
     </div>
   );
 };
 
-export default SectionComponent;
+export default SectionRenderer;
