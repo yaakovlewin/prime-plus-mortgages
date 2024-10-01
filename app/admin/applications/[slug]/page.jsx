@@ -1,7 +1,7 @@
 "use client";
 import ApplicantDetails from "@/components/application/[slug]/ApplicantDetailsRenderer";
 import ApplicationOverview from "@/components/application/[slug]/ApplicationOverview";
-import RenderNestedFields from "@/components/application/[slug]/NestedFieldsRenderer";
+import NestedFieldRenderer from "@/components/application/[slug]/NestedFieldsRenderer";
 import SectionRenderer from "@/components/application/[slug]/SectionRenderer";
 import StatusHandler from "@/components/UI/applications/StatusHandler";
 import { useFetchApplication } from "@/hooks/useFetchApplications";
@@ -45,7 +45,7 @@ const AdminPage = ({ params: { slug } }) => {
                 key={key}
                 title={key.charAt(0).toUpperCase() + key.slice(1)}
               >
-                <RenderNestedFields data={value} prefix={key} />
+                <NestedFieldRenderer data={value} prefix={key} />
               </SectionRenderer>
             );
           }

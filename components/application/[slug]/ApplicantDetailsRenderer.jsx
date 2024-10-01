@@ -11,10 +11,7 @@ const ApplicantDetails = ({ applicant, index }) => (
         key={sectionKey}
         title={sectionKey.charAt(0).toUpperCase() + sectionKey.slice(1)}
       >
-        <RenderNestedFields
-          data={sectionData}
-          prefix={`applicant-${index}-${sectionKey}`}
-        />
+        <RenderNestedFields data={sectionData} />
       </SectionRenderer>
     ))}
   </div>
