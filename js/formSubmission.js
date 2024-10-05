@@ -1,5 +1,7 @@
 import { db } from "@/js/services/firebase";
 import { addDoc, collection } from "firebase/firestore";
+import { z } from "zod";
+import applicationSchema from "./zod/mortgageValidationSchema";
 
 const addApplicationData = (data, formType) => {
   return {
@@ -19,12 +21,22 @@ export const submit = async (data, router, formType) => {
   data = addApplicationData(data, formType);
   console.log("Data: ", data);
   try {
-    const response = await addDoc(collection(db, "applicationForms1"), data);
+    const validatedData = applicationSchema.parse(data);
+
+    const response = await addDoc(
+      collection(db, "applicationForms1"),
+      validatedData,
+    );
 
     console.log("Document written with ID: ", response.id);
     console.log("Response: ", response);
     router.push("/success");
   } catch (error) {
-    alert(error);
+    if (error instanceof z.ZodError) {
+      console.error("Validation error:", error.errors);
+    } else {
+      alert(error);
+      console.error("Error adding document: ", error);
+    }
   }
 };

@@ -48,7 +48,7 @@ const addressFieldProperties = {
 
 const createAddressFieldConfig = (prefix, field, leadLabel) => ({
   type: "text",
-  id: `${prefix}.${leadLabel}${field.charAt(0).toUpperCase() + field.slice(1)}`,
+  id: `${prefix}.${leadLabel}${field}`,
   defaultValue: "",
   cssClasses: addressFieldProperties[field].cssClasses,
   label: `${leadLabel} ${addressFieldProperties[field].label}`,

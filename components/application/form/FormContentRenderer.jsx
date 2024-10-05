@@ -1,5 +1,6 @@
 "use client";
 import { useFormContext } from "@/components/application/FormContext";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useFormContext as useFormContextRHForm } from "react-hook-form";
 
@@ -8,6 +9,7 @@ import FormContainer from "@/components/shared/FormContainer";
 import FormHeroSection from "@/components/shared/FormHeroSection";
 import Heading2 from "@/components/shared/Heading2";
 import { submit } from "@/js/formSubmission";
+import applicationSchema from "@/js/zod/mortgageValidationSchema";
 import NavigationButtons from "../navigation/NavigationButtons";
 import ProgressIndicator from "../navigation/ProgressIndicator";
 import DynamicFormBuilder from "./DynamicFormBuilder";
@@ -20,7 +22,9 @@ export default function FormContentRenderer({ config }) {
   );
   const methods = useFormContextRHForm({
     mode: "onTouched",
+    resolver: zodResolver(applicationSchema),
     defaultValues: {
+      formType: config.formType,
       //   ...config.sections.reduce((acc, section) => {
       //     acc[section.id] = section.fields.reduce((acc, field) => {
       //       acc[field.id] = field.defaultValue;
@@ -31,33 +35,27 @@ export default function FormContentRenderer({ config }) {
     },
   });
 
+  console.log("formType: ", config.formType);
+
   const router = useRouter();
 
   const onSubmit = async (data) => {
     if (currentStep === steps.length) {
-      //   console.log(encode({ ...data }));
-      submit(data, router, config.formType);
+      await submit(data, router, config.formType);
+      // try {
+      //   // Validate the entire form data
+      //   applicationSchema.parse(data);
+      //   // If validation passes, submit the form
+      //   await submit(data, router, config.formType);
+      // } catch (error) {
+      //   // Handle Zod validation errors
+      //   console.error("Validation error:", error.errors);
+      //   // You might want to display these errors to the user
+      // }
     } else {
       nextStep();
     }
   };
-
-  //   function encode(data, parentKey) {
-  //     const queryString = Object.keys(data)
-  //       .map((key) => {
-  //         const fullKey = parentKey ? `${parentKey}[${key}]` : key;
-  //         if (typeof data[key] === "object" && data[key] !== null) {
-  //           return encode(data[key], fullKey);
-  //         } else {
-  //           return (
-  //             encodeURIComponent(fullKey) + "=" + encodeURIComponent(data[key])
-  //           );
-  //         }
-  //       })
-  //       .join("&");
-
-  //     return queryString;
-  //   }
 
   return (
     <form
