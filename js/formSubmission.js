@@ -18,10 +18,11 @@ const addApplicationData = (data, formType) => {
 };
 
 export const submit = async (data, router, formType) => {
-  data = addApplicationData(data, formType);
-  console.log("Data: ", data);
+  const enrichedData = addApplicationData(data, formType);
+  console.log("Data: ", enrichedData);
   try {
-    const validatedData = applicationSchema.parse(data);
+    const validatedData = applicationSchema.parse(enrichedData);
+    console.log("Validated Data: ", validatedData);
 
     const response = await addDoc(
       collection(db, "applicationForms1"),
@@ -34,6 +35,7 @@ export const submit = async (data, router, formType) => {
   } catch (error) {
     if (error instanceof z.ZodError) {
       console.error("Validation error:", error.errors);
+      alert("Validation error:", error.errors);
     } else {
       alert(error);
       console.error("Error adding document: ", error);

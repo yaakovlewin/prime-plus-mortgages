@@ -21,7 +21,8 @@ const personalDetailsSchema = z.object({
   FirstName: z.string().min(1, "First name is required"),
   LastName: z.string().min(1, "Last name is required"),
   MaritalStatus: z.enum(["Single", "Married", "Divorced", "Widowed"]),
-  DateOfBirth: z.string().min(1, "Date of birth is required"),
+  // date object
+  DateOfBirth: z.date(),
   Nationality: z.string().min(1, "Nationality is required"),
   PlaceOfBirth: z.string().min(1, "Place of birth is required"),
   ContactNumber: z.string().regex(phoneRegex, "Invalid phone number"),
@@ -43,9 +44,7 @@ const employmentDetailsSchema = z.object({
   AnnualGrossIncome: z
     .number()
     .positive("Annual gross income must be positive"),
-  StartDateOfEmployment: z
-    .string()
-    .min(1, "Start date of employment is required"),
+  StartDateOfEmployment: z.date(),
   PreviousEmployerName: z.string().optional(),
   OutstandingLoans: z.string().optional(),
 });
@@ -54,9 +53,9 @@ const financialDetailsSchema = z.object({
   ResidenceStatus: z.enum(["Homeowner", "Tenant"]),
   HomeownerDetails: z.string().optional(),
   TenantDetails: z.string().optional(),
-  DateMovedIn: z.string().min(1, "Date moved in is required"),
+  DateMovedIn: z.date(),
   PreviousAddress: z.string().optional(),
-  PreviousDateMovedIn: z.string().optional(),
+  PreviousDateMovedIn: z.date(),
   DirectorShareholder: z.string().optional(),
 });
 
@@ -136,8 +135,16 @@ const companyDetailsSchema = z.object({
   correspondentAddress: addressSchema.optional(),
 });
 
+const baseApplicationSchema = z.object({
+  submittedAt: z.string(),
+  name: z.string(),
+  email: z.string().email(),
+  status: z.string(),
+  formType: z.string(),
+});
+
 // Application schemas
-const buyToLetSchema = z.object({
+const buyToLetSchema = baseApplicationSchema.extend({
   formType: z.literal("buy-to-let"),
   companyDetails: companyDetailsSchema,
   applicants: z
@@ -152,7 +159,7 @@ const buyToLetSchema = z.object({
   portfolioDetails: portfolioDetailsSchema,
 });
 
-const remortgageSchema = z.object({
+const remortgageSchema = baseApplicationSchema.extend({
   formType: z.literal("remortgage"),
   applicants: z
     .array(
@@ -165,8 +172,8 @@ const remortgageSchema = z.object({
     .min(1, "At least one applicant is required"),
 });
 
-const firstTimeBuyerSchema = z.object({
-  formType: z.literal("first-time-buyer"),
+const firstTimeBuyerSchema = baseApplicationSchema.extend({
+  formType: z.literal("first-time-buyer").optional(),
   applicants: z
     .array(
       z.object({

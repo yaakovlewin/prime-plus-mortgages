@@ -1,24 +1,15 @@
 "use client";
-import FormContentRenderer from "@/components/application/form/FormContentRenderer";
 import { FormProvider } from "@/components/application/FormContext";
-import { FormProvider as FormProviderRHF, useForm } from "react-hook-form";
+import FormContentRenderer from "@/components/application/form/FormContentRenderer";
 
 export default function RenderForm({ config }) {
-  const methods = useForm({
-    defaultValues: {
-      applicants: [{}],
-    },
-  });
-
   const formSteps = config.steps;
 
   return (
     <div className="">
-      <FormProviderRHF {...methods}>
-        <FormProvider initialSteps={formSteps}>
-          <FormContentRenderer config={config} />
-        </FormProvider>
-      </FormProviderRHF>
+      <FormProvider initialSteps={formSteps}>
+        <FormContentRenderer config={config} />
+      </FormProvider>
     </div>
   );
 }

@@ -165,6 +165,7 @@ export const firstTimeBuyerConfig = {
     {
       id: "financialDetails",
       title: "Financial Details",
+      hasApplicants: true,
       fields: generateFinancialFieldsConfig,
     },
   ],

@@ -1,15 +1,6 @@
-const getNestedError = (errors, id) => {
-  if (!id || !errors) return undefined;
-  const keys = id.split(".");
-  let error = errors;
-  for (const key of keys) {
-    error = error[key];
-    if (!error) break;
-  }
-  return error;
-};
+import { get } from "lodash";
 
-const FormTextInput = function TextInputGenerature({
+const FormTextInput = ({
   label,
   id,
   autoComplete = "off",
@@ -17,186 +8,160 @@ const FormTextInput = function TextInputGenerature({
   register,
   registerOptions,
   errors,
-  classes = 6,
-  ...inputProps // all other props
-}) {
-  const error = getNestedError(errors, id);
+  classes,
+  ...props
+}) => {
+  const error = get(errors, id);
   return (
-    <div className={`${classes}`}>
+    <div className={classes}>
       {label && (
-        <label
-          htmlFor={id}
-          className="block text-sm font-medium leading-6 text-gray-900"
-        >
+        <label htmlFor={id} className="block text-sm font-medium text-gray-700">
           {label}
         </label>
       )}
-      <div className="mt-2">
-        <input
-          type="text"
-          id={id}
-          name={id}
-          {...register(id, registerOptions)}
-          placeholder={label ? `Enter ${label}` : placeholder}
-          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-          {...inputProps} // spread all remaining props
-        />
-        {error && (
-          <p className="text-xs italic text-red-500">{error.message}</p>
-        )}
-      </div>
+      <input
+        id={id}
+        {...register(id, registerOptions)}
+        placeholder={placeholder}
+        className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+          error ? "border-red-500" : ""
+        }`}
+        {...props}
+      />
+      {error && <p className="mt-1 text-sm text-red-600">{error.message}</p>}
     </div>
   );
 };
 
-const FormNumberInput = function NumberInputGenerature({
-  label,
-  id,
-  autoComplete = "off",
-  placeholder = "",
-  register,
-  registerOptions,
-  errors,
-  classes = 6,
-  ...inputProps // all other props
-}) {
-  const error = getNestedError(errors, id);
-  return (
-    <div className={`${classes}`}>
-      {label && (
-        <label
-          htmlFor={id}
-          className="block text-sm font-medium leading-6 text-gray-900"
-        >
-          {label}
-        </label>
-      )}
-      <div className="mt-2">
-        <input
-          type="number"
-          id={id}
-          name={id}
-          {...register(id, registerOptions)}
-          placeholder={label ? `Enter ${label}` : placeholder}
-          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-          {...inputProps} // spread all remaining props
-        />
-        {error && (
-          <p className="text-xs italic text-red-500">{error.message}</p>
-        )}
-      </div>
-    </div>
-  );
-};
-
-const FormDateInput = function DateInputGenerature({
+const FormNumberInput = ({
   label,
   id,
   register,
   registerOptions,
   errors,
-  classes = 3,
-  ...inputProps // all other props
-}) {
-  const error = getNestedError(errors, id);
+  classes,
+  ...props
+}) => {
+  const error = get(errors, id);
   return (
-    <div className={`${classes}`}>
+    <div className={classes}>
       {label && (
-        <label
-          htmlFor={id}
-          className="block text-sm font-medium leading-6 text-gray-900"
-        >
+        <label htmlFor={id} className="block text-sm font-medium text-gray-700">
           {label}
         </label>
       )}
-      <div className="mt-2">
-        <input
-          type="date"
-          id={id}
-          name={id}
-          {...register(id, registerOptions)}
-          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-          {...inputProps} // spread all remaining props
-        />
-        {error && (
-          <p className="text-xs italic text-red-500">{error.message}</p>
-        )}
-      </div>
+      <input
+        type="number"
+        id={id}
+        {...register(id, { ...registerOptions, valueAsNumber: true })}
+        className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+          error ? "border-red-500" : ""
+        }`}
+        {...props}
+      />
+      {error && <p className="mt-1 text-sm text-red-600">{error.message}</p>}
     </div>
   );
 };
 
-const FormCheckbox = function CheckboxGenerature({
+const FormDateInput = ({
   label,
   id,
   register,
   registerOptions,
-  value,
   errors,
-  classes = 3,
-  ...inputProps // all other props
-}) {
-  const error = getNestedError(errors, id);
+  classes,
+  ...props
+}) => {
+  const error = get(errors, id);
   return (
-    <div className={`flex items-center space-x-3 ${classes}`}>
-      <label className="rounded-lg p-2">
+    <div className={classes}>
+      {label && (
+        <label htmlFor={id} className="block text-sm font-medium text-gray-700">
+          {label}
+        </label>
+      )}
+      <input
+        type="date"
+        id={id}
+        {...register(id, registerOptions, { valueAsDate: true })}
+        className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+          error ? "border-red-500" : ""
+        }`}
+        {...props}
+      />
+      {error && <p className="mt-1 text-sm text-red-600">{error.message}</p>}
+    </div>
+  );
+};
+
+const FormCheckbox = ({
+  label,
+  id,
+  register,
+  registerOptions,
+  errors,
+  classes,
+  ...props
+}) => {
+  const error = get(errors, id);
+  return (
+    <div className={classes}>
+      <div className="flex items-center">
         <input
-          id={id}
-          name={id}
           type="checkbox"
+          id={id}
           {...register(id, registerOptions)}
-          className="form-checkbox mr-2 h-5 w-5 text-gray-600"
-          {...inputProps} // spread all remaining props
+          className={`h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 ${
+            error ? "border-red-500" : ""
+          }`}
+          {...props}
         />
-        <p className="text-sm text-gray-700">{label}</p>
-      </label>
-      {error && <p className="text-xs italic text-red-500">{error.message}</p>}
+        {label && (
+          <label htmlFor={id} className="ml-2 block text-sm text-gray-900">
+            {label}
+          </label>
+        )}
+      </div>
+      {error && <p className="mt-1 text-sm text-red-600">{error.message}</p>}
     </div>
   );
 };
 
-const FormSelect = function SelectGenerature({
+const FormSelect = ({
   label,
   id,
   options,
   register,
   registerOptions,
   errors,
-  classes = 3,
-  ...inputProps // all other props
-}) {
-  const error = getNestedError(errors, id);
+  classes,
+  ...props
+}) => {
+  const error = get(errors, id);
   return (
-    <div className={`${classes}`}>
+    <div className={classes}>
       {label && (
-        <label
-          htmlFor={id}
-          className="block text-sm font-medium leading-6 text-gray-900"
-        >
+        <label htmlFor={id} className="block text-sm font-medium text-gray-700">
           {label}
         </label>
       )}
-      <div className="mt-2">
-        <select
-          id={id}
-          name={id}
-          {...register(id, registerOptions)}
-          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xs sm:leading-6"
-          {...inputProps} // spread all remaining props
-        >
-          <option value="" className="text-neutral-400">
-            Select
+      <select
+        id={id}
+        {...register(id, registerOptions)}
+        className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+          error ? "border-red-500" : ""
+        }`}
+        {...props}
+      >
+        <option value="">Select</option>
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
           </option>
-          {options.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-        {error && (
-          <p className="text-xs italic text-red-500">{error.message}</p>
-        )}
-      </div>
+        ))}
+      </select>
+      {error && <p className="mt-1 text-sm text-red-600">{error.message}</p>}
     </div>
   );
 };

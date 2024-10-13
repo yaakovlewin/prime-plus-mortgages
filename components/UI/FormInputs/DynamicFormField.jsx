@@ -1,3 +1,4 @@
+import { useFormContext } from "react-hook-form";
 import {
   FormCheckbox,
   FormDateInput,
@@ -6,66 +7,49 @@ import {
   FormTextInput,
 } from "./FormInputs";
 
-const DynamicFormField = ({ field, register, errors }) => {
+const DynamicFormField = ({ field }) => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
+  const commonProps = {
+    label: field.label,
+    id: field.id,
+    placeholder: field.placeholder,
+    register: register,
+    registerOptions: field.registerOptions || {},
+    errors: errors,
+    classes: field.cssClasses,
+  };
+
   switch (field.type) {
     case "text":
-      return (
-        <FormTextInput
-          label={field.label}
-          placeholder={field.placeholder}
-          id={field.id}
-          register={register}
-          registerOptions={field.registerOptions}
-          errors={errors}
-          classes={field.cssClasses}
-        />
-      );
+      return <FormTextInput {...commonProps} />;
     case "number":
       return (
         <FormNumberInput
-          label={field.label}
-          placeholder={field.placeholder}
-          id={field.id}
-          register={register}
-          registerOptions={field.registerOptions}
-          errors={errors}
-          classes={field.cssClasses}
+          {...commonProps}
+          registerOptions={{
+            ...commonProps.registerOptions,
+            valueAsNumber: true,
+          }}
         />
       );
     case "date":
       return (
         <FormDateInput
-          label={field.label}
-          id={field.id}
-          register={register}
-          registerOptions={field.registerOptions}
-          errors={errors}
-          classes={field.cssClasses}
+          {...commonProps}
+          registerOptions={{
+            ...commonProps.registerOptions,
+            valueAsDate: true,
+          }}
         />
       );
     case "checkbox":
-      return (
-        <FormCheckbox
-          label={field.label}
-          id={field.id}
-          register={register}
-          registerOptions={field.registerOptions}
-          errors={errors}
-          classes={field.cssClasses}
-        />
-      );
+      return <FormCheckbox {...commonProps} />;
     case "select":
-      return (
-        <FormSelect
-          label={field.label}
-          id={field.id}
-          options={field.options}
-          register={register}
-          registerOptions={field.registerOptions}
-          errors={errors}
-          classes={field.cssClasses}
-        />
-      );
+      return <FormSelect {...commonProps} options={field.options} />;
     default:
       return null;
   }
