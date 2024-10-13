@@ -1,6 +1,4 @@
-import Faq from "@/components/HomePage/Faq";
 import HeroSection from "@/components/HomePage/HeroSection";
-import MortgageCalculator from "@/components/HomePage/MortgageCalculator";
 import MortgageProcessSection from "@/components/HomePage/MortgageProcessSection";
 import OurLocationSection from "@/components/HomePage/OurLocationSection";
 import ServicesOverview from "@/components/HomePage/ServicesOverview";
@@ -12,11 +10,11 @@ export default function Home() {
     <>
       <HeroSection />
       <ServicesOverview services={servicesData} />
-      <MortgageCalculator />
+      {/* <MortgageCalculator /> */}
       <MortgageProcessSection />
-      <Faq />
+      {/* <Faq /> */}
       <TestimonialsSection />
-      <OurLocationSection />
+      {/* <OurLocationSection /> */}
     </>
   );
 }

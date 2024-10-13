@@ -1,9 +1,9 @@
-import Link from "next/link";
 import HeroCarousel from "@/components/HomePage/HeroCarousel.jsx";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <div className="relative min-h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh]">
+    <div className="relative min-h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh]">
       {/* Background Video */}
       <video
         autoPlay

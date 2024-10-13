@@ -34,7 +34,10 @@ export const submit = async (data, router, formType) => {
     router.push("/success");
   } catch (error) {
     if (error instanceof z.ZodError) {
-      console.error("Validation error:", error.errors);
+      console.error("Validation errors:");
+      error.errors.forEach((err) => {
+        console.error(`Path: ${err.path.join(".")}, Message: ${err.message}`);
+      });
       alert("Validation error:", error.errors);
     } else {
       alert(error);

@@ -17,6 +17,7 @@ export const FormProvider = ({ children, initialSteps }) => {
   const [steps, setSteps] = useState(initialSteps);
 
   const nextStep = () => {
+    console.log("Next step");
     const index = steps.findIndex((step) => step.id === currentStep);
     if (index < steps.length - 1) {
       let newSteps = [...steps];

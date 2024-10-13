@@ -32,7 +32,7 @@ export default function ServicesOverview({ services }) {
   };
   return (
     <section
-      className="relative py-12 "
+      className="relative py-10 "
       onMouseEnter={() => {
         setCanScrollLeft(scrollContainer.current.scrollLeft > 0);
         setCanScrollRight(

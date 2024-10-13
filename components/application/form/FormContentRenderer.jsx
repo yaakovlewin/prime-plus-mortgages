@@ -30,8 +30,10 @@ export default function FormContentRenderer({ config }) {
   );
 
   const onSubmit = async (data) => {
+    console.log("Submitting data: ", data);
     if (currentStep === steps.length) {
       await submit(data, router, config.formType);
+      console.log("Data: ", data);
     } else {
       nextStep();
     }

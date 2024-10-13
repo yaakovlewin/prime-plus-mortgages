@@ -1,18 +1,23 @@
 "use client";
+import { contactInfo } from "@/js/contactInfo";
+import getCoordinates from "@/utils/geocode";
 import {
   GoogleMap,
+  InfoWindow,
   LoadScript,
   Marker,
-  InfoWindow,
 } from "@react-google-maps/api";
-import { useEffect, useState } from "react";
-import getCoordinates from "@/utils/geocode";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const mapContainerStyle = {
   width: "100%",
   height: "400px",
 };
+
+const address = contactInfo;
+
+const googleMapsAddress = address.fullAddress().replace(/ /g, "+");
 
 const MapContainer = () => {
   const [selected, setSelected] = useState(null);
@@ -29,7 +34,7 @@ const MapContainer = () => {
       return;
     }
 
-    getCoordinates("7 Bevendon Sq, Salford M7 4TP, UK", apiKey)
+    getCoordinates(address.fullAddress(), apiKey)
       .then((location) => {
         const { lat, lng } = location;
         setCenter({ lat, lng });
@@ -59,21 +64,23 @@ const MapContainer = () => {
                 Prime Plus Mortgages
               </h2>
               <p className="text-center">
-                7 Bevendon Sq,
+                {address.address}
                 <br />
-                Salford M7 4TP, UK
+                {address.city}, {address.postcode}, {address.country}
                 <br />
                 <Link
                   href="tel:+44 161 818 8824"
                   className="text-cyan-600 hover:text-cyan-800"
                 >
-                  +44 161 818 8824
+                  {address.phone}
                 </Link>
               </p>
               <button
                 onClick={() =>
                   window.open(
-                    "https://www.google.com/maps/dir/?api=1&destination=31+Gainsborough+St%2C+Salford+M7+4AL%2C+UK",
+                    address.googleMapsLink(),
+                    "_blank",
+                    "noopener noreferrer",
                   )
                 }
                 className="mt-2 rounded bg-cyan-600 px-4 py-2 text-center font-bold  text-white hover:bg-cyan-700"
