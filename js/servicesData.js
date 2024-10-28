@@ -1,10 +1,10 @@
 const servicesData = [
   {
-    id: "firstTimeBuyer",
-    title: "First Time Buyer",
+    id: "ownerOccupier",
+    title: "Owner Occupier",
     description: "Expert advice for first time home buyers.",
     imageUrl: "/images/first-time-buyer.jpg",
-    url: "/first-time-buyer",
+    url: "/owner-occupier",
     details: [
       {
         title: "Unlocking the Door to Homeownership",
@@ -62,40 +62,6 @@ const servicesData = [
         title: "Competitive Edge in Financing",
         description:
           "Maximize your investment with unrivaled access to market-leading rates and terms through our expansive lender network. Whether it's reducing your monthly outgoings, adjusting your loan's lifespan, or leveraging your property's equity, our experts are poised to propel your financial aspirations to new heights. With Prime Plus Mortgages, empowering your portfolio has never been smoother.",
-        icon: "FaSackDollar",
-      },
-      // More details as needed
-    ],
-  },
-  {
-    id: "ShortTerm",
-    title: "Short Term",
-    description: "Short term mortgages for quick financing.",
-    imageUrl: "/images/short-term.jpg",
-    url: "/short-term",
-    details: [
-      {
-        title: "Streamlined Mortgage Processes",
-        description:
-          "Unlock the potential of short-term financing with Prime Plus Mortgages, where optimal rates and favorable terms meet swift, seamless execution. Our adept team demystifies the mortgage process, whether you're eyeing a quick purchase or aiming to refinance. Equipped with extensive knowledge and resources, we're here to ensure your short-term financing aligns perfectly with your immediate objectives.",
-        icon: "FaChartLine",
-      },
-      {
-        title: "Customized Financial Strategies",
-        description:
-          "Step into the world of short-term mortgages with experts by your side. Our advisors leverage a broad network of lenders to secure the most competitive rates and terms, tailored to fit your short-term investment strategy. With Prime Plus Mortgages, you gain a partner committed to guiding you through each decision, ensuring a fruitful and efficient journey from start to finish.",
-        icon: "BsHouseGearFill",
-      },
-      {
-        title: "Unrivaled Expertise and Insight",
-        description:
-          "Our team of experts will help you navigate the residential mortgage process, providing personalized solutions tailored to your needs. We work with a variety of lenders to ensure competitive rates and terms that suit your financial goals. Whether you're looking to purchase a new home or refinance an existing one, we have the expertise and resources to guide you every step of the way, ensuring a smooth and successful experience.",
-        icon: "FaUserTie",
-      },
-      {
-        title: "Unmatched Rates, Unrivaled Flexibility",
-        description:
-          "Navigate the short-term mortgage landscape with confidence, backed by the best rates and terms sourced from our extensive network of lenders. Whether your aim is to reduce monthly outlays, shorten your mortgage duration, or unlock your property's equity swiftly, our team stands ready to elevate your financial flexibility. Let Prime Plus Mortgages be your beacon, illuminating the path to immediate financial success and beyond.",
         icon: "FaSackDollar",
       },
       // More details as needed
@@ -302,11 +268,11 @@ const servicesData = [
     ],
   },
   {
-    id: "loansBridging",
-    title: "Loans/Bridging",
+    id: "bridgingLoans",
+    title: "Bridging Loans",
     description: "Loans and bridging finance for quick financing.",
     imageUrl: "/images/loans-bridging.jpg",
-    url: "/loans-bridging",
+    url: "/bridging-loans",
     details: [
       {
         title: "Streamlined Financing Solutions",

@@ -1,13 +1,13 @@
 import {
   buyToLetConfig,
-  firstTimeBuyerConfig,
+  ownerOccupierConfig,
   remortgageConfig,
 } from "@/js/config/applicationConfigs";
 
 export function getFormConfigByType(configType) {
   switch (configType) {
-    case "first-time-buyer":
-      return firstTimeBuyerConfig;
+    case "owner-occupier":
+      return ownerOccupierConfig;
     case "buy-to-let":
       return buyToLetConfig;
     case "remortgages":

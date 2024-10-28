@@ -1,8 +1,5 @@
 import HeroSection from "@/components/HomePage/HeroSection";
-import MortgageProcessSection from "@/components/HomePage/MortgageProcessSection";
-import OurLocationSection from "@/components/HomePage/OurLocationSection";
 import ServicesOverview from "@/components/HomePage/ServicesOverview";
-import TestimonialsSection from "@/components/HomePage/TestimonialsSection";
 import servicesData from "@/js/servicesData";
 
 export default function Home() {
@@ -11,9 +8,9 @@ export default function Home() {
       <HeroSection />
       <ServicesOverview services={servicesData} />
       {/* <MortgageCalculator /> */}
-      <MortgageProcessSection />
+      {/* <MortgageProcessSection /> */}
       {/* <Faq /> */}
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       {/* <OurLocationSection /> */}
     </>
   );

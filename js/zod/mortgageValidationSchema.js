@@ -1,6 +1,5 @@
 import { z } from "zod";
 
-// Helper schemas
 const phoneRegex = /^(\+?\d{1,4}[\s-]?)?(?!0+\s+,?$)\d{10}\s*,?$/;
 const postcodeRegex = /^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/;
 const nationalInsuranceNumberRegex =
@@ -21,7 +20,6 @@ const personalDetailsSchema = z.object({
   FirstName: z.string().min(1, "First name is required"),
   LastName: z.string().min(1, "Last name is required"),
   MaritalStatus: z.enum(["Single", "Married", "Divorced", "Widowed"]),
-  // date object
   DateOfBirth: z.date(),
   Nationality: z.string().min(1, "Nationality is required"),
   PlaceOfBirth: z.string().min(1, "Place of birth is required"),
@@ -172,8 +170,8 @@ const remortgageSchema = baseApplicationSchema.extend({
     .min(1, "At least one applicant is required"),
 });
 
-const firstTimeBuyerSchema = baseApplicationSchema.extend({
-  formType: z.literal("first-time-buyer").optional(),
+const ownerOccupierSchema = baseApplicationSchema.extend({
+  formType: z.literal("owner-occupier").optional(),
   applicants: z
     .array(
       z.object({
@@ -189,7 +187,7 @@ const firstTimeBuyerSchema = baseApplicationSchema.extend({
 const applicationSchema = z.discriminatedUnion("formType", [
   buyToLetSchema,
   remortgageSchema,
-  firstTimeBuyerSchema,
+  ownerOccupierSchema,
 ]);
 
 export default applicationSchema;

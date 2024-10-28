@@ -20,10 +20,12 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body
-        className={`${inter.className} ${exo2.variable} ${rubik.variable} ${zillaSlab.variable}`}
+        className={`${inter.className} ${exo2.variable} ${rubik.variable} ${zillaSlab.variable} bg-gradient-to-b from-sky-900 via-sky-800 to-sky-900 `}
       >
         <Navbar />
-        <main className="pt-24">{children}</main>
+        <main className="pt-24 heropattern-architect-cyan-300/10">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

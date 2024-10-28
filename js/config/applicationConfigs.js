@@ -123,8 +123,8 @@ export const remortgageConfig = {
   ],
 };
 
-export const firstTimeBuyerConfig = {
-  formType: "first-time-buyer",
+export const ownerOccupierConfig = {
+  formType: "owner-occupier",
   steps: [
     {
       id: 1,
