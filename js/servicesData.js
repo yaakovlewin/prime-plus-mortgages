@@ -102,37 +102,69 @@ const servicesData = [
     ],
   },
   {
-    id: "developmentFinance",
-    title: "Development Finance",
-    description: "Development finance for property developers.",
-    imageUrl: "/images/development-finance.jpg",
-    url: "/development-finance",
+    id: "remortgages",
+    title: "Remortgages",
+    description: "Remortgage to get a better rate and save money.",
+    imageUrl: "/images/remortgage.jpg",
+    url: "/remortgages",
     details: [
       {
-        title: "Strategic Financing for Developers",
+        title: "Seamless Refinancing to Meet Your Evolving Needs",
         description:
-          "Prime Plus Mortgages introduces a strategic approach to development finance, crafted to empower your construction and development projects. With access to optimal rates and flexible terms, we're here to ensure your venture from groundbreaking to completion is financially seamless. Our seasoned experts specialize in navigating the complexities of development finance, offering personalized guidance every step of the way.",
+          "At Prime Plus Mortgages, we specialize in remortgaging, offering premier rates and flexible terms designed to fit your unique financial landscape. Our remortgage experts provide end-to-end support, ensuring a straightforward and efficient refinancing journey. Whether you’re aiming to reduce your monthly payments, tap into your property’s equity, or secure better loan terms, our team is equipped to bring your financial goals to fruition.",
         icon: "FaChartLine",
       },
       {
-        title: "Customized Financial Frameworks",
+        title: "Customized Remortgage Strategies",
         description:
-          "Every development project presents its own set of challenges and opportunities. Recognizing this, we offer bespoke financing solutions designed to align with the unique contours of your project. From residential developments to large-scale construction, our team meticulously assesses your project's financial landscape to deliver tailored mortgage options that propel your vision forward.",
+          "Your financial goals and needs are at the forefront of our remortgage solutions. With a personalized approach, we evaluate your current financial situation, objectives, and the equity in your property to recommend the best refinancing options available. Our tailored advice and support are designed to navigate you through the remortgaging process smoothly, ensuring you make informed decisions every step of the way.",
+        icon: "BsHouseGearFill",
+      },
+      {
+        title: "Navigate with Expertise",
+        description:
+          "Leverage our deep understanding of the remortgage market as we guide you through the complexities of refinancing. Our seasoned advisors work diligently with a diverse range of lenders to secure the most competitive rates and terms, aligning perfectly with your refinancing needs. From initial consultation to finalizing your remortgage, our commitment is to provide you with expert advice and solutions that enhance your financial well-being.",
+        icon: "FaUserTie",
+      },
+      {
+        title: "Achieve More with Competitive Remortgaging",
+        description:
+          "Unlock the potential of your home with Prime Plus Mortgages. By accessing our extensive network of lenders, we ensure you benefit from the best remortgage rates and terms available. Whether your aim is to lower your monthly expenses, adjust your mortgage term, or free up cash for other investments, our expertise is your key to a more prosperous financial future.",
+        icon: "FaSackDollar",
+      },
+    ],
+  },
+  {
+    id: "bridgingLoans",
+    title: "Bridging Loans",
+    description: "Loans and bridging finance for quick financing.",
+    imageUrl: "/images/loans-bridging.jpg",
+    url: "/bridging-loans",
+    details: [
+      {
+        title: "Streamlined Financing Solutions",
+        description:
+          "At Prime Plus Mortgages, we specialize in bridging loans and commercial mortgages, offering competitive rates and flexible terms tailored to propel your business forward. Our team of seasoned experts is dedicated to guiding you through a streamlined process, ensuring you secure the financing you need with efficiency and ease. Whether acquiring a new asset or refinancing for growth, our comprehensive approach is designed to support your commercial objectives.",
+        icon: "FaChartLine",
+      },
+      {
+        title: "Bespoke Strategies for Commercial Success",
+        description:
+          "Understanding that no two businesses are alike, we deliver customized financing solutions crafted around your unique commercial landscape. Our experts consider your business's specific situation, goals, and aspirations to provide optimal loan options. From first-time commercial acquisitions to strategic refinancing, we're committed to navigating you through a successful and hassle-free financing journey.",
         icon: "BsHouseGearFill",
       },
       {
         title: "Navigating with Expertise",
         description:
-          "Leverage our deep industry knowledge for your development finance needs. Our professionals are adept at securing competitive rates and terms across a diverse lender network, ensuring your project's financial foundation is as strong as its physical one. Whether it’s initial acquisition, construction, or bridging finance, rely on us for strategic advice and comprehensive support tailored to the development sector.",
+          "Leverage our deep market knowledge and vast lender network for your commercial financing needs. Our professionals excel in securing the best possible rates and terms, ensuring your loan strategy aligns with your business's financial health and growth plans. With Prime Plus Mortgages, gain a trusted advisor to guide you through the complexities of commercial loans and bridging finance, making every step toward your goal as seamless as possible.",
         icon: "FaUserTie",
       },
       {
-        title: "Competitive Financing for Ambitious Projects",
+        title: "Optimize Your Commercial Investments",
         description:
-          "With Prime Plus Mortgages, unlock the financial potential of your development project. Our collaboration with various lenders guarantees not just advantageous rates but a partnership aimed at achieving your project's success. Whether reducing costs, optimizing loan structures, or accessing funds for project expansion, our expertise is your competitive edge in the development journey.",
+          "Maximize the potential of your commercial properties with Prime Plus Mortgages. We engage a diverse array of lenders to offer you superior rates and terms, enhancing your financial flexibility. Whether aiming to improve cash flow, reduce loan durations, or unlock equity for reinvestment, our expertise is your strategic advantage in the commercial finance landscape.",
         icon: "FaSackDollar",
       },
-      // More details as needed
     ],
   },
   {
@@ -169,36 +201,37 @@ const servicesData = [
     ],
   },
   {
-    id: "remortgages",
-    title: "Remortgages",
-    description: "Remortgage to get a better rate and save money.",
-    imageUrl: "/images/remortgage.jpg",
-    url: "/remortgages",
+    id: "developmentFinance",
+    title: "Development Finance",
+    description: "Development finance for property developers.",
+    imageUrl: "/images/development-finance.jpg",
+    url: "/development-finance",
     details: [
       {
-        title: "Seamless Refinancing to Meet Your Evolving Needs",
+        title: "Strategic Financing for Developers",
         description:
-          "At Prime Plus Mortgages, we specialize in remortgaging, offering premier rates and flexible terms designed to fit your unique financial landscape. Our remortgage experts provide end-to-end support, ensuring a straightforward and efficient refinancing journey. Whether you’re aiming to reduce your monthly payments, tap into your property’s equity, or secure better loan terms, our team is equipped to bring your financial goals to fruition.",
+          "Prime Plus Mortgages introduces a strategic approach to development finance, crafted to empower your construction and development projects. With access to optimal rates and flexible terms, we're here to ensure your venture from groundbreaking to completion is financially seamless. Our seasoned experts specialize in navigating the complexities of development finance, offering personalized guidance every step of the way.",
         icon: "FaChartLine",
       },
       {
-        title: "Customized Remortgage Strategies",
+        title: "Customized Financial Frameworks",
         description:
-          "Your financial goals and needs are at the forefront of our remortgage solutions. With a personalized approach, we evaluate your current financial situation, objectives, and the equity in your property to recommend the best refinancing options available. Our tailored advice and support are designed to navigate you through the remortgaging process smoothly, ensuring you make informed decisions every step of the way.",
+          "Every development project presents its own set of challenges and opportunities. Recognizing this, we offer bespoke financing solutions designed to align with the unique contours of your project. From residential developments to large-scale construction, our team meticulously assesses your project's financial landscape to deliver tailored mortgage options that propel your vision forward.",
         icon: "BsHouseGearFill",
       },
       {
-        title: "Navigate with Expertise",
+        title: "Navigating with Expertise",
         description:
-          "Leverage our deep understanding of the remortgage market as we guide you through the complexities of refinancing. Our seasoned advisors work diligently with a diverse range of lenders to secure the most competitive rates and terms, aligning perfectly with your refinancing needs. From initial consultation to finalizing your remortgage, our commitment is to provide you with expert advice and solutions that enhance your financial well-being.",
+          "Leverage our deep industry knowledge for your development finance needs. Our professionals are adept at securing competitive rates and terms across a diverse lender network, ensuring your project's financial foundation is as strong as its physical one. Whether it’s initial acquisition, construction, or bridging finance, rely on us for strategic advice and comprehensive support tailored to the development sector.",
         icon: "FaUserTie",
       },
       {
-        title: "Achieve More with Competitive Remortgaging",
+        title: "Competitive Financing for Ambitious Projects",
         description:
-          "Unlock the potential of your home with Prime Plus Mortgages. By accessing our extensive network of lenders, we ensure you benefit from the best remortgage rates and terms available. Whether your aim is to lower your monthly expenses, adjust your mortgage term, or free up cash for other investments, our expertise is your key to a more prosperous financial future.",
+          "With Prime Plus Mortgages, unlock the financial potential of your development project. Our collaboration with various lenders guarantees not just advantageous rates but a partnership aimed at achieving your project's success. Whether reducing costs, optimizing loan structures, or accessing funds for project expansion, our expertise is your competitive edge in the development journey.",
         icon: "FaSackDollar",
       },
+      // More details as needed
     ],
   },
   {
@@ -263,39 +296,6 @@ const servicesData = [
         title: "Competitive Financing for a World of Opportunities",
         description:
           "With Prime Plus Mortgages, foreign nationals can access the best mortgage rates and terms, designed to maximize savings and meet your financial objectives. Whether reducing monthly payments, shortening loan terms, or unlocking home equity, our dedicated team provides expert guidance and support, helping you navigate the complexities of the mortgage landscape with confidence.",
-        icon: "FaSackDollar",
-      },
-    ],
-  },
-  {
-    id: "bridgingLoans",
-    title: "Bridging Loans",
-    description: "Loans and bridging finance for quick financing.",
-    imageUrl: "/images/loans-bridging.jpg",
-    url: "/bridging-loans",
-    details: [
-      {
-        title: "Streamlined Financing Solutions",
-        description:
-          "At Prime Plus Mortgages, we specialize in bridging loans and commercial mortgages, offering competitive rates and flexible terms tailored to propel your business forward. Our team of seasoned experts is dedicated to guiding you through a streamlined process, ensuring you secure the financing you need with efficiency and ease. Whether acquiring a new asset or refinancing for growth, our comprehensive approach is designed to support your commercial objectives.",
-        icon: "FaChartLine",
-      },
-      {
-        title: "Bespoke Strategies for Commercial Success",
-        description:
-          "Understanding that no two businesses are alike, we deliver customized financing solutions crafted around your unique commercial landscape. Our experts consider your business's specific situation, goals, and aspirations to provide optimal loan options. From first-time commercial acquisitions to strategic refinancing, we're committed to navigating you through a successful and hassle-free financing journey.",
-        icon: "BsHouseGearFill",
-      },
-      {
-        title: "Navigating with Expertise",
-        description:
-          "Leverage our deep market knowledge and vast lender network for your commercial financing needs. Our professionals excel in securing the best possible rates and terms, ensuring your loan strategy aligns with your business's financial health and growth plans. With Prime Plus Mortgages, gain a trusted advisor to guide you through the complexities of commercial loans and bridging finance, making every step toward your goal as seamless as possible.",
-        icon: "FaUserTie",
-      },
-      {
-        title: "Optimize Your Commercial Investments",
-        description:
-          "Maximize the potential of your commercial properties with Prime Plus Mortgages. We engage a diverse array of lenders to offer you superior rates and terms, enhancing your financial flexibility. Whether aiming to improve cash flow, reduce loan durations, or unlock equity for reinvestment, our expertise is your strategic advantage in the commercial finance landscape.",
         icon: "FaSackDollar",
       },
     ],
