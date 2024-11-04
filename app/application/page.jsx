@@ -1,7 +1,6 @@
 import FormHeroSection from "@/components/shared/FormHeroSection";
 import ServiceCard from "@/components/shared/ServiceCard";
 import servicesData from "@/js/servicesData";
-import Link from "next/link";
 
 export default function GetStarted() {
   return (
@@ -16,11 +15,11 @@ export default function GetStarted() {
       {/* Button Links Section */}
       <div className="grid gap-6 md:grid-cols-5">
         {servicesData.map((service) => (
-          <Link key={service.id} href={`/application/${service.url}`}>
+          <div key={service.id}>
             <ServiceCard {...service} prefix={"application"}>
               Apply
             </ServiceCard>
-          </Link>
+          </div>
         ))}
       </div>
     </div>

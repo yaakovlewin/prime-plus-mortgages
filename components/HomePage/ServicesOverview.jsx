@@ -1,20 +1,21 @@
 import Heading2 from "@/components/shared/Heading2";
 import ServiceCard from "@/components/shared/ServiceCard";
-import servicesData from "@/js/servicesData";
+import defaultServices from "@/js/servicesData";
+import SectionContainer from "../layout/SectionContainer";
 
-export default function ServicesOverview() {
+export default function ServicesOverview({ services = null }) {
+  const serviceList = services || defaultServices;
+
   return (
-    <section className="py-12">
-      <div className="container mx-auto px-4">
-        <Heading2>Our Services</Heading2>
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {servicesData.map((service) => (
-            <ServiceCard key={service.id} {...service} prefix="services">
-              Learn More
-            </ServiceCard>
-          ))}
-        </div>
+    <SectionContainer>
+      <Heading2>{services ? "Other Services" : "Our Services"}</Heading2>
+      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {serviceList.map((service) => (
+          <ServiceCard key={service.id} {...service} prefix="services">
+            Learn More
+          </ServiceCard>
+        ))}
       </div>
-    </section>
+    </SectionContainer>
   );
 }

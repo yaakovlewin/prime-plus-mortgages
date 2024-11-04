@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         className={`${inter.className} ${exo2.variable} ${rubik.variable} ${zillaSlab.variable} bg-gradient-to-b from-sky-900 via-sky-800 to-sky-900 `}
       >
         <Navbar />
-        <main className="pt-24 heropattern-architect-cyan-300/10">
+        <main className="pb-8 pt-24 heropattern-architect-cyan-300/10">
           {children}
         </main>
         <Footer />
