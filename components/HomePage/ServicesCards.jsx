@@ -1,9 +1,9 @@
+import SectionContainer from "@/components/layout/SectionContainer";
 import Heading2 from "@/components/shared/Heading2";
 import ServiceCard from "@/components/shared/ServiceCard";
 import defaultServices from "@/js/servicesData";
-import SectionContainer from "../layout/SectionContainer";
 
-export default function ServicesOverview({ services = null }) {
+export default function ServicesCards({ services = null }) {
   const serviceList = services || defaultServices;
 
   return (

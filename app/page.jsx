@@ -1,12 +1,12 @@
 import CompanyValuesSection from "@/components/HomePage/CompanyValueSection";
 import HeroSection from "@/components/HomePage/HeroSection";
-import ServicesOverview from "@/components/HomePage/ServicesOverview";
+import ServicesCards from "@/components/HomePage/ServicesCards";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <ServicesOverview />
+      <ServicesCards />
       {/* <MortgageCalculator /> */}
       {/* <MortgageProcessSection /> */}
       {/* <Faq /> */}

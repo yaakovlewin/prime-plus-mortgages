@@ -1,4 +1,4 @@
-import ServicesOverview from "@/components/HomePage/ServicesOverview";
+import ServicesCards from "@/components/HomePage/ServicesCards";
 import DetailedServiceOverview from "@/components/services/DetailedServiceOverview";
 import ServiceHeroSection from "@/components/services/ServiceHeroSection";
 import servicesData from "@/js/servicesData"; // Import service data
@@ -23,7 +23,7 @@ const ServicePage = ({ params: { slug } }) => {
         Apply
       </ServiceHeroSection>
       <DetailedServiceOverview service={service} />
-      <ServicesOverview services={otherServices} />
+      <ServicesCards services={otherServices} />
     </div>
   );
 };
