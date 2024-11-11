@@ -9,7 +9,7 @@ export default function LogoAndMobileMenu({ toggleMenu }) {
         className="text-cyan-0 text-xl font-semibold hover:text-cyan-600"
       >
         <Image
-          src="/images/logo-01.png"
+          src="/images/logos/prime-plus-mortgages-logo.png"
           width={175}
           height={100}
           alt="Prime Plus Mortgages Logo"

@@ -8,7 +8,7 @@ const ProcessSection = ({ title, items }) => {
     <SectionContainer>
       <Heading2>{title}</Heading2>
       <BrickWallContainer>
-        <div className="grid gap-10 px-4 text-center text-cyan-100 md:grid-cols-3">
+        <div className="grid gap-10 px-4 text-center text-cyan-50 md:grid-cols-3">
           {items.map((item, index) => (
             <div key={index} className="mb-6 md:mb-0">
               <div className="h-44">

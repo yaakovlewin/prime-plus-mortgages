@@ -5,7 +5,7 @@ export default function FooterLink({ href, children, className = "" }) {
     <li className="mb-4 text-shadow-white-lg ">
       <Link
         href={href}
-        className={` rounded  bg-white bg-opacity-40 px-2 hover:text-gray-100 ${className}`}
+        className={` rounded  bg-white bg-opacity-60 px-2 hover:text-sky-500 ${className}`}
       >
         {children}
       </Link>

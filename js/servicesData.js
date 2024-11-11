@@ -2,8 +2,9 @@ const servicesData = [
   {
     id: "ownerOccupier",
     title: "Owner Occupier",
-    description: "Expert advice for first time home buyers.",
-    imageUrl: "/images/first-time-buyer.jpg",
+    description:
+      "Turn your homeownership dreams into reality with our expert mortgage guidance. We secure competitive rates and optimal terms for first-time buyers and homeowners alike, making your path to property ownership clear and confident.",
+    imageUrl: "/images/services/owner-occupier.jpg",
     url: "/owner-occupier",
     details: [
       {
@@ -36,8 +37,9 @@ const servicesData = [
   {
     id: "buyToLet",
     title: "Buy to let",
-    description: "Buy to let mortgages for landlords.",
-    imageUrl: "/images/buy-to-let.jpg",
+    description:
+      "Transform your property investment vision into a thriving portfolio with our specialized buy-to-let mortgages. Access exclusive rates and flexible terms designed specifically for landlords, whether you're securing your first rental property or expanding your investments.",
+    imageUrl: "/images/services/buy-to-let.jpg",
     url: "/buy-to-let",
     details: [
       {
@@ -70,8 +72,9 @@ const servicesData = [
   {
     id: "protfolioFinance",
     title: "Protfolio Finance",
-    description: "Portfolio finance for landlords.",
-    imageUrl: "/images/portfolio-finance.jpg",
+    description:
+      "Maximize your property portfolio's potential with our strategic financing solutions. Our specialists streamline complex portfolio management, offering competitive rates and expert guidance to optimize your property investments across the board.",
+    imageUrl: "/images/services/portfolio-finance.jpg",
     url: "/portfolio-finance",
     details: [
       {
@@ -104,8 +107,9 @@ const servicesData = [
   {
     id: "remortgages",
     title: "Remortgages",
-    description: "Remortgage to get a better rate and save money.",
-    imageUrl: "/images/remortgage.jpg",
+    description:
+      "Unlock better rates and release your property's hidden potential through smart refinancing. Our remortgage expertise helps you secure improved terms, access equity, or consolidate debt with remarkable savings and minimal complexity.",
+    imageUrl: "/images/services/remortgages.jpg",
     url: "/remortgages",
     details: [
       {
@@ -137,8 +141,9 @@ const servicesData = [
   {
     id: "bridgingLoans",
     title: "Bridging Loans",
-    description: "Loans and bridging finance for quick financing.",
-    imageUrl: "/images/loans-bridging.jpg",
+    description:
+      "Swift, strategic financing when timing is everything. Our rapid bridging loans bridge crucial property gaps, whether you're completing a chain, funding renovations, or seizing time-sensitive opportunities with precision and speed.",
+    imageUrl: "/images/services/bridging-loans.jpg",
     url: "/bridging-loans",
     details: [
       {
@@ -170,8 +175,9 @@ const servicesData = [
   {
     id: "commercialMortgages",
     title: "Commercial Mortgages",
-    description: "Tailored mortgage services for commercial properties.",
-    imageUrl: "/images/commercial-mortgages.jpg",
+    description:
+      "Power your business growth with tailored commercial property financing. From retail units to office spaces, we secure outstanding rates and flexible terms that perfectly align with your commercial ambitions and cash flow requirements.",
+    imageUrl: "/images/services/commercial-mortgages.jpg",
     url: "/commercial-mortgages",
     details: [
       {
@@ -203,8 +209,9 @@ const servicesData = [
   {
     id: "developmentFinance",
     title: "Development Finance",
-    description: "Development finance for property developers.",
-    imageUrl: "/images/development-finance.jpg",
+    description:
+      "Fuel your property development ambitions with sophisticated funding solutions. We deliver seamless staged financing up to £150 million, supporting everything from boutique residential projects to major commercial developments with precision and expertise.",
+    imageUrl: "/images/services/development-finance.jpg",
     url: "/development-finance",
     details: [
       {
@@ -237,8 +244,9 @@ const servicesData = [
   {
     id: "holidayLet",
     title: "Holiday Let",
-    description: "Holiday let mortgages for landlords.",
-    imageUrl: "/images/holiday-let.jpg",
+    description:
+      "Unlock the potential of holiday rental investment with specialized mortgage solutions. We understand seasonal income patterns and secure optimal financing for coastal retreats, rural escapes, and prime urban short-lets that maximize your returns.",
+    imageUrl: "/images/services/holiday-let.jpg",
     url: "/holiday-let",
     details: [
       {
@@ -270,8 +278,9 @@ const servicesData = [
   {
     id: "foreignNational",
     title: "Foreign National",
-    description: "Foreign national mortgages for non-UK residents.",
-    imageUrl: "/images/foreign-national.jpg",
+    description:
+      "Your gateway to UK property investment, tailored for international investors. We navigate the complexities of non-resident mortgages, securing competitive rates and favorable terms that make British property investment accessible and rewarding.",
+    imageUrl: "/images/services/foreign-national.jpg",
     url: "/foreign-national",
     details: [
       {

@@ -9,7 +9,7 @@ const MeetTheTeamSection = () => {
       id="team"
     >
       <div className="container mx-auto px-4">
-        <Heading2 className="mb-8 text-center text-3xl font-semibold text-cyan-600">
+        <Heading2 className="mb-8 text-center text-3xl font-semibold text-sky-700">
           Meet Our Team
         </Heading2>
         <div className="grid gap-6 md:grid-cols-3">

@@ -2,7 +2,7 @@ import Heading2 from "../shared/Heading2";
 
 const ValuesMissionSection = () => {
   return (
-    <section className="border-t border-sky-100 bg-gray-50 py-12 ">
+    <section className="border-t border-sky-100 bg-gray-50 py-12">
       <div className="container mx-auto px-4">
         <Heading2 className="mb-6 text-center text-3xl font-semibold text-cyan-600">
           Our Core Principles
@@ -10,18 +10,22 @@ const ValuesMissionSection = () => {
 
         <div className="grid gap-8 md:grid-cols-3">
           {/* Value 1 */}
-          <div className="rounded-lg bg-white p-6 text-center shadow">
-            <h3 className="mb-3 text-xl font-semibold">Integrity</h3>
-            <p className="text-gray-600">
-              Honesty and transparency are the foundation of our work, We pledge
+          <div className="rounded-lg border-cyan-400/20 bg-sky-700 p-6 text-center shadow-sm transition-all hover:border-cyan-400/50 hover:bg-sky-700/70 hover:shadow-md">
+            <h3 className="mb-3 text-xl font-semibold text-cyan-300">
+              Integrity
+            </h3>
+            <p className="text-cyan-100">
+              Honesty and transparency are the foundation of our work. We pledge
               to always act in your best interest.
             </p>
           </div>
 
           {/* Value 2 */}
-          <div className="rounded-lg bg-white p-6 text-center shadow">
-            <h3 className="mb-3 text-xl font-semibold">Commitment</h3>
-            <p className="text-gray-600">
+          <div className="rounded-lg border-cyan-400/20 bg-sky-700 p-6 text-center shadow-sm transition-all hover:border-cyan-400/50 hover:bg-sky-700/70 hover:shadow-md">
+            <h3 className="mb-3 text-xl font-semibold text-cyan-300">
+              Commitment
+            </h3>
+            <p className="text-cyan-100">
               Our dedication to exceptional service and value is unwavering.
               We&apos;re not just in it for the transaction, we&apos;re in it
               for you.
@@ -29,9 +33,11 @@ const ValuesMissionSection = () => {
           </div>
 
           {/* Value 3 */}
-          <div className="rounded-lg bg-white p-6 text-center shadow">
-            <h3 className="mb-3 text-xl font-semibold">Expertise</h3>
-            <p className="text-gray-600">
+          <div className="rounded-lg border-cyan-400/20 bg-sky-700 p-6 text-center shadow-sm transition-all hover:border-cyan-400/50 hover:bg-sky-700/70 hover:shadow-md">
+            <h3 className="mb-3 text-xl font-semibold text-cyan-300">
+              Expertise
+            </h3>
+            <p className="text-cyan-100">
               Our commitment to growth means we&apos;re always enhancing our
               skills to serve you better.
             </p>
