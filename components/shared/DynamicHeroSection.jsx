@@ -1,4 +1,4 @@
-import Link from "next/link";
+import ButtonLink from "./ButtonLink";
 
 const DynamicHeroSection = ({
   title,
@@ -40,12 +40,13 @@ const DynamicHeroSection = ({
             {
               <>
                 {/* <p className="text-sky-900 text-shadow-none">or</p> */}
-                <Link
+                <ButtonLink
                   href="/contact"
-                  className="rounded border border-sky-500 bg-cyan-500 px-6 py-3 font-bold uppercase text-white shadow-2xl text-shadow-none hover:bg-cyan-600"
+                  variant="primary"
+                  className=" px-6 py-3 font-bold uppercase text-shadow-none"
                 >
                   <p className="">Contact Us</p>
-                </Link>
+                </ButtonLink>
               </>
             }
           </section>

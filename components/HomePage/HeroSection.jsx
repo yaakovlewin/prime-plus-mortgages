@@ -1,5 +1,5 @@
 import HeroCarousel from "@/components/HomePage/HeroCarousel.jsx";
-import Link from "next/link";
+import ButtonLink from "../shared/ButtonLink";
 
 export default function HeroSection() {
   return (
@@ -24,12 +24,13 @@ export default function HeroSection() {
           <HeroCarousel />
 
           <div className="flex items-center justify-center space-x-8 text-center">
-            <Link
+            <ButtonLink
               href="/services"
-              className="mt-4 inline-block rounded bg-cyan-500 px-6 py-3 text-lg font-bold text-white hover:bg-cyan-600"
+              variant="primary"
+              className="mt-4 inline-block px-6 py-3 text-lg font-bold "
             >
               Learn More
-            </Link>
+            </ButtonLink>
             {/* <p className="mt-4 text-lg font-bold">- or -</p>
             <Link
               href="/contact"

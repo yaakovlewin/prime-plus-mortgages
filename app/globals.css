@@ -4,56 +4,114 @@
 
 /* Desktop: Hide scrollbar */
 @media (min-width: 1024px) {
-    .hide-scroll-bar {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-    }
+  .hide-scroll-bar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 
-    .hide-scroll-bar::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera*/
-    }
+  .hide-scroll-bar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+}
+
+.mobile-spacing {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-spacing {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Better scrolling */
+.smooth-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 /* Mobile: Show scrollbar */
 @media (max-width: 1023px) {
-    .hide-scroll-bar {
-        -ms-overflow-style: auto;
-        scrollbar-width: auto;
-    }
+  .hide-scroll-bar {
+    -ms-overflow-style: auto;
+    scrollbar-width: auto;
+  }
 
-    .hide-scroll-bar::-webkit-scrollbar {
-        display: block;
-    }
+  .hide-scroll-bar::-webkit-scrollbar {
+    display: block;
+  }
 }
 
 /* Common mobile and desktop styles */
 .scrolling-touch {
-    /* Enables momentum-based scrolling for touch-based devices */
-    -webkit-overflow-scrolling: touch;
-    overflow-x: scroll;
-    overflow-y: hidden;
+  /* Enables momentum-based scrolling for touch-based devices */
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 .item-enter {
-    opacity: 0;
+  opacity: 0;
 }
 
 .item-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in-out;
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
 }
 
 .item-exit {
-    opacity: 1;
+  opacity: 1;
 }
 
 .item-exit-active {
-    opacity: 0;
-    transition: opacity 500ms ease-in-out;
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
 }
 
 @layer base {
   :root {
-        --radius: 0.5rem;
-    }
+    --radius: 0.5rem;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 300ms ease-in-out;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-200 hover:-translate-y-0.5;
+  }
+
+  .active-press {
+    @apply active:translate-y-0 active:scale-[0.98];
+  }
+}
+
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px;
+}
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+input,
+select,
+textarea {
+  font-size: 16px; /* Prevents iOS zoom on focus */
+  padding: 12px;
+  border-radius: 8px;
+  width: 100%;
+  appearance: none; /* Standard property for compatibility */
+  -webkit-appearance: none; /* Removes iOS default styles */
 }

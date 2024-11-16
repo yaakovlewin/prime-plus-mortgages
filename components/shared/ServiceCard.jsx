@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import ButtonLink from "./ButtonLink";
 
 export default function ServiceCard({
   title,
@@ -33,12 +33,19 @@ export default function ServiceCard({
           {truncateText(description, 15)}
         </p>
         {prefix && (
-          <Link
+          <ButtonLink
             href={`/${prefix}/${url}`}
-            className="mt-auto rounded px-4 py-2 text-center text-cyan-300 transition-colors hover:bg-cyan-600 hover:text-cyan-200"
+            variant="secondary"
+            className="mt-auto w-full py-2"
           >
             {children}
-          </Link>
+          </ButtonLink>
+          // <Link
+          //   href={`/${prefix}/${url}`}
+          //   className="mt-auto rounded px-4 py-2 text-center text-cyan-300 transition-colors hover:bg-cyan-600 hover:text-cyan-200"
+          // >
+          //   {children}
+          // </Link>
         )}
       </div>
     </div>

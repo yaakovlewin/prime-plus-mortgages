@@ -1,31 +1,24 @@
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+
 export default function MobileNavLink({
   href,
-  toggleMenu,
   children,
-  key = 0,
-  setServicesOpen = () => {},
+  onClick,
+  variant = "primary",
 }) {
-  const pathname = usePathname();
+  const baseStyles =
+    "block w-full p-3.5 rounded-lg transition-all duration-200 font-medium";
+  const variants = {
+    primary: `${baseStyles} text-cyan-50 bg-gradient-to-r from-sky-700/50 to-sky-800/50
+              hover:from-sky-600/50 hover:to-sky-700/50 shadow-inner
+              ring-1 ring-sky-400/20 active:scale-[0.99] transform`,
+    secondary: `${baseStyles} text-cyan-100 hover:bg-sky-700/50 text-[0.95rem]
+                active:scale-[0.99] transform`,
+  };
+
   return (
-    <>
-      <Link
-        href={href}
-        key={key}
-        className={`block rounded-md border-b-neutral-200 px-3 py-2 text-base font-medium text-cyan-900 ${
-          pathname === href
-            ? "bg-sky-900 text-white"
-            : " hover:bg-cyan-100 hover:text-cyan-600"
-        }`}
-        aria-current={pathname === href ? "page" : undefined}
-        onClick={() => {
-          toggleMenu();
-          setServicesOpen(false);
-        }}
-      >
-        {children}
-      </Link>
-    </>
+    <Link href={href} className={variants[variant]} onClick={onClick}>
+      {children}
+    </Link>
   );
 }
