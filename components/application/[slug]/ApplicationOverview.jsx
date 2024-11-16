@@ -1,4 +1,4 @@
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "@/components/UI/alert";
 
 const ApplicationOverview = ({ application }) => (
   <Alert className="mb-6 border-cyan-200 bg-cyan-50">
