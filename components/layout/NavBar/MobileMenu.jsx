@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import MobileNavLink from "./MobileNavLink";
 export default function MobileMenu({
   menuOpen,
@@ -72,24 +71,17 @@ export default function MobileMenu({
       <MobileNavLink href="/about" toggleMenu={toggleMenu}>
         About
       </MobileNavLink>
+      <hr className="my-2 border-gray-200" />
       <MobileNavLink href="/contact" toggleMenu={toggleMenu}>
         Contact
       </MobileNavLink>
-      <hr className="my-2 border-gray-200" />
-      <MobileNavLink
+      {/* <MobileNavLink
         toggleMenu={toggleMenu}
-        href="tel:0123456789"
+        href="/application"
         className="block py-2 text-sm text-gray-700 hover:bg-gray-100"
       >
-        Call Us
-      </MobileNavLink>
-      <MobileNavLink
-        toggleMenu={toggleMenu}
-        href="/get-started"
-        className="block py-2 text-sm text-gray-700 hover:bg-gray-100"
-      >
-        Get Started
-      </MobileNavLink>
+        Apply Now
+      </MobileNavLink> */}
     </div>
   );
 }

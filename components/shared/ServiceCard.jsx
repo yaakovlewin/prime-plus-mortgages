@@ -9,11 +9,10 @@ export default function ServiceCard({
   prefix,
   children,
 }) {
-
   const truncateText = (text, maxWords = 20) => {
-    const words = text.split(' ');
+    const words = text.split(" ");
     if (words.length > maxWords) {
-      return words.slice(0, maxWords).join(' ') + '...';
+      return words.slice(0, maxWords).join(" ") + "...";
     }
     return text;
   };
@@ -33,12 +32,14 @@ export default function ServiceCard({
           {" "}
           {truncateText(description, 15)}
         </p>
-        <Link
-          href={`/${prefix}/${url}`}
-          className="mt-auto rounded px-4 py-2 text-center text-cyan-300 transition-colors hover:bg-cyan-600 hover:text-cyan-200"
-        >
-          {children}
-        </Link>
+        {prefix && (
+          <Link
+            href={`/${prefix}/${url}`}
+            className="mt-auto rounded px-4 py-2 text-center text-cyan-300 transition-colors hover:bg-cyan-600 hover:text-cyan-200"
+          >
+            {children}
+          </Link>
+        )}
       </div>
     </div>
   );

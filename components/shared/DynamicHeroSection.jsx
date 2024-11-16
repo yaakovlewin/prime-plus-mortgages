@@ -1,4 +1,3 @@
-import { contactInfo } from "@/js/contactInfo";
 import Link from "next/link";
 
 const DynamicHeroSection = ({
@@ -32,25 +31,23 @@ const DynamicHeroSection = ({
             </p>
           )}
           <section className="flex items-baseline justify-between">
-            <Link
+            {/* <Link
               href={serviceUrl ? `/${urlPrefix}${serviceUrl}` : ctaLink}
-              className="rounded border border-sky-500 bg-cyan-500 px-4 py-2 font-bold uppercase text-white shadow-2xl text-shadow-none hover:bg-cyan-600"
+              className="rounded border border-sky-500 bg-cyan-500 px-6 py-3 font-bold uppercase text-white shadow-2xl text-shadow-none hover:bg-cyan-600"
             >
               {ctaText}
-            </Link>
-            {showContactInfo && (
+            </Link> */}
+            {
               <>
-                <p className="text-sky-900 text-shadow-none">or</p>
+                {/* <p className="text-sky-900 text-shadow-none">or</p> */}
                 <Link
-                  href={`tel:${contactInfo.phone}`}
-                  className="text-sky-900 text-shadow-none"
+                  href="/contact"
+                  className="rounded border border-sky-500 bg-cyan-500 px-6 py-3 font-bold uppercase text-white shadow-2xl text-shadow-none hover:bg-cyan-600"
                 >
-                  <p className="mt-4 text-lg font-bold">
-                    Call Us: {`${contactInfo.phone}`}
-                  </p>
+                  <p className="">Contact Us</p>
                 </Link>
               </>
-            )}
+            }
           </section>
         </article>
       </section>

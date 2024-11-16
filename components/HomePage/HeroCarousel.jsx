@@ -1,7 +1,7 @@
 "use client";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 import CarouselItem from "./CarouselItem";
 
 export default function HeroCarousel() {
@@ -23,7 +23,9 @@ export default function HeroCarousel() {
         <CarouselItem
           heading1={"Innovative, Ambitious, and"}
           heading2={"Efficient"}
-          subheading={"Redefining Mortgage Solutions for You"}
+          subheading={
+            "Expert Mortgage Solutions, From First Homes to £150M Commercial Projects"
+          }
         ></CarouselItem>
 
         <CarouselItem

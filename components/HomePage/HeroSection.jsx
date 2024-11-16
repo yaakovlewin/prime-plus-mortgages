@@ -19,16 +19,25 @@ export default function HeroSection() {
       <div className="absolute h-full w-full"></div>
 
       {/* Hero Content */}
-      <div className="relative flex h-full items-center justify-center px-6 text-white">
+      <div className="relative flex h-full flex-row items-center justify-center px-6 text-white">
         <div className="w-full text-center">
           <HeroCarousel />
 
-          <Link
-            href="/get-started"
-            className="mt-4 inline-block rounded bg-cyan-500 px-6 py-3 font-bold text-white hover:bg-cyan-600"
-          >
-            Get Started
-          </Link>
+          <div className="flex items-center justify-center space-x-8 text-center">
+            <Link
+              href="/services"
+              className="mt-4 inline-block rounded bg-cyan-500 px-6 py-3 text-lg font-bold text-white hover:bg-cyan-600"
+            >
+              Learn More
+            </Link>
+            {/* <p className="mt-4 text-lg font-bold">- or -</p>
+            <Link
+              href="/contact"
+              className="mt-4 inline-block rounded border-2 border-sky-500 bg-white/90 px-6 py-3 font-bold text-sky-500 transition-all hover:bg-white hover:text-cyan-600"
+            >
+              Contact Us
+            </Link> */}
+          </div>
         </div>
       </div>
     </div>

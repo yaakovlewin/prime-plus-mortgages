@@ -14,7 +14,7 @@ const iconMapping = {
     FaHome,
     FaPhone,
     BsHouseGearFill,
-    FaSackDollar
+    FaSackDollar,
     // continue for other icons
 };
 export default iconMapping
