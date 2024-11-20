@@ -17,32 +17,80 @@ const mapContainerStyle = {
 
 const address = contactInfo;
 
-const googleMapsAddress = address.fullAddress().replace(/ /g, "+");
-
 const MapContainer = () => {
   const [selected, setSelected] = useState(null);
   const [center, setCenter] = useState({
     lat: 47.6062,
     lng: -122.176,
   });
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
   useEffect(() => {
     if (!apiKey) {
-      console.error("Missing Google Maps API Key");
+      setError("Google Maps API key is not configured");
+      setIsLoading(false);
       return;
     }
 
-    getCoordinates(address.fullAddress(), apiKey)
-      .then((location) => {
-        const { lat, lng } = location;
-        setCenter({ lat, lng });
-      })
-      .catch((err) => console.error(err));
+    const loadLocation = async () => {
+      try {
+        const result = await getCoordinates(address.fullAddress(), apiKey);
+
+        if (!result.success) {
+          throw new Error(result.error.message || "Failed to load location");
+        }
+
+        setCenter(result.data);
+        setError(null);
+      } catch (err) {
+        setError("Failed to load the map. Please try again later.");
+        console.error("Map loading error:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadLocation();
   }, [apiKey]);
 
-  if (!apiKey) return null;
+  if (!apiKey) {
+    return (
+      <div className="rounded-lg bg-red-50 p-4 text-center text-red-800">
+        <p>Unable to load map due to missing configuration.</p>
+      </div>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <div className="flex h-[400px] items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"></div>
+          <p className="mt-2 text-gray-600">Loading map...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="rounded-lg bg-red-50 p-4 text-center text-red-800">
+        <p>{error}</p>
+        <p className="mt-2 text-sm">
+          Please contact us at{" "}
+          <Link
+            href={`tel:${address.phone}`}
+            className="text-red-600 hover:text-red-800"
+          >
+            {address.phone}
+          </Link>
+        </p>
+      </div>
+    );
+  }
 
   return (
     <LoadScript googleMapsApiKey={apiKey}>
@@ -51,8 +99,18 @@ const MapContainer = () => {
         center={center}
         zoom={16}
         clickableIcons={false}
+        options={{
+          disableDefaultUI: false,
+          zoomControl: true,
+          streetViewControl: false,
+          scaleControl: true,
+        }}
       >
-        <Marker position={center} onClick={() => setSelected(center)} />
+        <Marker
+          position={center}
+          onClick={() => setSelected(center)}
+          animation={window.google?.maps.Animation.DROP}
+        />
 
         {selected && (
           <InfoWindow
@@ -69,7 +127,7 @@ const MapContainer = () => {
                 {address.city}, {address.postcode}, {address.country}
                 <br />
                 <Link
-                  href="tel:+44 161 818 8824"
+                  href={`tel:${address.phone}`}
                   className="text-cyan-600 hover:text-cyan-800"
                 >
                   {address.phone}
@@ -83,7 +141,8 @@ const MapContainer = () => {
                     "noopener noreferrer",
                   )
                 }
-                className="mt-2 rounded bg-cyan-600 px-4 py-2 text-center font-bold  text-white hover:bg-cyan-700"
+                className="mt-2 rounded bg-cyan-600 px-4 py-2 text-center font-bold text-white transition-colors hover:bg-cyan-700"
+                aria-label="Get directions to Prime Plus Mortgages"
               >
                 Get Directions
               </button>

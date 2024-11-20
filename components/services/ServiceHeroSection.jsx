@@ -1,18 +1,14 @@
 import DynamicHeroSection from "../shared/DynamicHeroSection";
 
-export default function ServiceHeroSection({
-  service,
-  urlPrefix = "",
-  children,
-}) {
+export default function ServiceHeroSection({ service }) {
   return (
     <DynamicHeroSection
       title={service.title}
+      description={service.shortDescription || service.title}
       subDescription={service.description}
       imageUrl={service.imageUrl}
-      ctaText={children}
-      serviceUrl={service.url}
-      urlPrefix={urlPrefix}
+      ctaText="Get Started"
+      ctaLink={`/application/${service.url}`}
     />
   );
 }

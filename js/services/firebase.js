@@ -1,35 +1,121 @@
 import { firebaseConfig } from "@/js/config/firebaseConfig";
-import { initializeApp } from "firebase/app";
+import { getApps, initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-// Initialize Firebase app
-const app = initializeApp(firebaseConfig);
-const SiteKey = process.env.NEXT_PUBLIC_reCAPTCHA_site_key;
-console.log("SiteKey", SiteKey);
-// Check if window is undefined (i.e., if running on the server)
-if (typeof window !== "undefined") {
-  // Only import and initialize App Check if we are in the browser
-
-  import("firebase/app-check")
-    .then(({ initializeAppCheck, ReCaptchaV3Provider }) => {
-      if (!SiteKey) {
-        console.error(
-          "reCAPTCHA site key is not defined. Please check your environment variables.",
-        );
-      }
-
-      // Initialize App Check with reCAPTCHA V3
-      initializeAppCheck(app, {
-        provider: new ReCaptchaV3Provider(SiteKey),
-        isTokenAutoRefreshEnabled: true,
-      });
-    })
-    .catch((error) => {
-      console.error("Error loading Firebase App Check:", error);
-    });
+class FirebaseError extends Error {
+  constructor(message, type, details = null) {
+    super(message);
+    this.name = "FirebaseError";
+    this.type = type;
+    this.details = details;
+  }
 }
 
-// Initialize Firestore Database
-const db = getFirestore(app);
+// Validate Firebase configuration
+const validateFirebaseConfig = (config) => {
+  const requiredFields = [
+    "apiKey",
+    "authDomain",
+    "projectId",
+    "storageBucket",
+    "messagingSenderId",
+    "appId",
+  ];
 
-export { app, db };
+  for (const field of requiredFields) {
+    if (!config[field]) {
+      throw new FirebaseError(
+        `Missing required Firebase configuration field: ${field}`,
+        "CONFIG_ERROR",
+      );
+    }
+  }
+};
+
+// Initialize Firebase with error handling
+let app;
+let db;
+
+try {
+  // Validate config before initialization
+  validateFirebaseConfig(firebaseConfig);
+
+  // Check if Firebase is already initialized
+  if (!getApps().length) {
+    app = initializeApp(firebaseConfig);
+  } else {
+    app = getApps()[0];
+  }
+
+  // Initialize Firestore
+  db = getFirestore(app);
+} catch (error) {
+  throw new FirebaseError(
+    "Failed to initialize Firebase",
+    "INITIALIZATION_ERROR",
+    error.message,
+  );
+}
+
+// Initialize App Check in browser environment
+const initializeAppCheck = async () => {
+  if (typeof window === "undefined") return;
+
+  const siteKey = process.env.NEXT_PUBLIC_reCAPTCHA_site_key;
+
+  if (!siteKey) {
+    throw new FirebaseError(
+      "reCAPTCHA site key is not defined",
+      "RECAPTCHA_CONFIG_ERROR",
+    );
+  }
+
+  try {
+    const { initializeAppCheck, ReCaptchaV3Provider } = await import(
+      "firebase/app-check"
+    );
+
+    return initializeAppCheck(app, {
+      provider: new ReCaptchaV3Provider(siteKey),
+      isTokenAutoRefreshEnabled: true,
+    });
+  } catch (error) {
+    throw new FirebaseError(
+      "Failed to initialize Firebase App Check",
+      "APP_CHECK_ERROR",
+      error.message,
+    );
+  }
+};
+
+// Initialize App Check with error handling
+if (typeof window !== "undefined") {
+  initializeAppCheck().catch((error) => {
+    // Log error but don't throw to prevent app from crashing
+    console.error("App Check initialization error:", {
+      type: error.type || "UNKNOWN_ERROR",
+      message: error.message,
+      timestamp: new Date().toISOString(),
+    });
+  });
+}
+
+export { app, db, FirebaseError };
+
+// Helper function to check Firebase connection
+export const checkFirebaseConnection = async () => {
+  try {
+    const timestamp = await db.collection("_health").doc("ping").set({
+      timestamp: new Date(),
+    });
+    return { connected: true };
+  } catch (error) {
+    return {
+      connected: false,
+      error: {
+        type: error instanceof FirebaseError ? error.type : "CONNECTION_ERROR",
+        message: error.message,
+      },
+    };
+  }
+};

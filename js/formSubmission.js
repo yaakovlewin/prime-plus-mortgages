@@ -3,45 +3,149 @@ import { addDoc, collection } from "firebase/firestore";
 import { z } from "zod";
 import applicationSchema from "./zod/mortgageValidationSchema";
 
+class ApplicationError extends Error {
+  constructor(message, type, details = null) {
+    super(message);
+    this.name = "ApplicationError";
+    this.type = type;
+    this.details = details;
+  }
+}
+
 const addApplicationData = (data, formType) => {
-  return {
-    ...data,
-    submittedAt: new Date().toISOString(),
-    name:
-      data.applicants[0].personalDetails.FirstName +
-      " " +
-      data.applicants[0].personalDetails.LastName,
-    email: data.applicants[0].personalDetails.Email,
-    status: "Pending",
-    formType,
-  };
+  try {
+    if (!data.applicants?.[0]?.personalDetails) {
+      throw new ApplicationError(
+        "Invalid applicant data structure",
+        "DATA_STRUCTURE_ERROR",
+      );
+    }
+
+    const { FirstName, LastName, Email } = data.applicants[0].personalDetails;
+
+    if (!FirstName || !LastName || !Email) {
+      throw new ApplicationError(
+        "Missing required personal details",
+        "MISSING_FIELDS_ERROR",
+      );
+    }
+
+    return {
+      ...data,
+      submittedAt: new Date().toISOString(),
+      name: `${FirstName.trim()} ${LastName.trim()}`,
+      email: Email.trim(),
+      status: "Pending",
+      formType,
+      updatedAt: new Date().toISOString(),
+    };
+  } catch (error) {
+    if (error instanceof ApplicationError) {
+      throw error;
+    }
+    throw new ApplicationError(
+      "Failed to process application data",
+      "DATA_PROCESSING_ERROR",
+      error.message,
+    );
+  }
+};
+
+const getErrorMessage = (error) => {
+  if (error instanceof z.ZodError) {
+    return error.errors.map((err) => ({
+      path: err.path.join("."),
+      message: err.message,
+    }));
+  }
+  if (error instanceof ApplicationError) {
+    return [
+      {
+        type: error.type,
+        message: error.message,
+        details: error.details,
+      },
+    ];
+  }
+  return [
+    {
+      type: "UNKNOWN_ERROR",
+      message: "An unexpected error occurred. Please try again later.",
+    },
+  ];
 };
 
 export const submit = async (data, router, formType) => {
-  const enrichedData = addApplicationData(data, formType);
-  console.log("Data: ", enrichedData);
   try {
-    const validatedData = applicationSchema.parse(enrichedData);
-    console.log("Validated Data: ", validatedData);
+    // Process application data
+    const enrichedData = addApplicationData(data, formType);
 
-    const response = await addDoc(
+    // Validate data against schema
+    const validatedData = applicationSchema.parse(enrichedData);
+
+    // Submit to Firestore
+    const docRef = await addDoc(
       collection(db, "applicationForms1"),
       validatedData,
     );
 
-    console.log("Document written with ID: ", response.id);
-    console.log("Response: ", response);
-    router.push("/success");
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      console.error("Validation errors:");
-      error.errors.forEach((err) => {
-        console.error(`Path: ${err.path.join(".")}, Message: ${err.message}`);
-      });
-      alert("Validation error:", error.errors);
-    } else {
-      alert(error);
-      console.error("Error adding document: ", error);
+    if (!docRef?.id) {
+      throw new ApplicationError(
+        "Failed to get confirmation of submission",
+        "SUBMISSION_ERROR",
+      );
     }
+
+    // Only redirect on confirmed success
+    router.push("/success");
+
+    // Return success response
+    return {
+      success: true,
+      applicationId: docRef.id,
+      message: "Application submitted successfully",
+    };
+  } catch (error) {
+    // Get formatted error message
+    const errorDetails = getErrorMessage(error);
+
+    // Log error for monitoring (but with sensitive data removed)
+    console.error("Application submission error:", {
+      type: error.type || "UNKNOWN_ERROR",
+      message: error.message,
+      timestamp: new Date().toISOString(),
+    });
+
+    // Return error response
+    return {
+      success: false,
+      errors: errorDetails,
+      message: "Failed to submit application",
+    };
   }
+};
+
+// Helper function to validate data without submitting
+export const validateApplicationData = (data) => {
+  try {
+    applicationSchema.parse(data);
+    return { isValid: true };
+  } catch (error) {
+    return {
+      isValid: false,
+      errors: getErrorMessage(error),
+    };
+  }
+};
+
+// Helper function to format validation errors for display
+export const formatValidationErrors = (errors) => {
+  if (!errors || !Array.isArray(errors)) return "";
+
+  return errors
+    .map((err) => {
+      const path = err.path ? `${err.path}: ` : "";
+      return `${path}${err.message}`;
+    })
+    .join("\n");
 };
