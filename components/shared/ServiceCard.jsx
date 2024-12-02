@@ -34,7 +34,7 @@ export default function ServiceCard({
         {prefix && (
           <ButtonLink
             href={`/${prefix}/${url}`}
-            variant="secondary"
+            variant="primary"
             className="mt-auto w-full py-2"
           >
             {children}
