@@ -20,6 +20,43 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```env
+# Google Maps API Key for location features
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+
+# reCAPTCHA configuration
+NEXT_PUBLIC_reCAPTCHA_site_key=your_recaptcha_site_key
+reCAPTCHA_secret_key=your_recaptcha_secret_key
+
+# Email Configuration for Contact Form
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-app-specific-password
+ADMIN_EMAIL=admin@example.com
+```
+
+### Setting up Email Notifications
+
+The contact form uses Nodemailer to send email notifications. To set this up:
+
+1. If using Gmail:
+
+   - Go to your Google Account settings
+   - Enable 2-Step Verification if not already enabled
+   - Generate an App Password (Security > 2-Step Verification > App Passwords)
+   - Use this App Password as your `SMTP_PASS` in .env.local
+
+2. Update the `ADMIN_EMAIL` in .env.local to the email address where you want to receive contact form notifications
+
+3. The contact form submissions will be:
+   - Stored in Firebase Firestore under the "contacts" collection
+   - Sent via email to the specified admin email address
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
