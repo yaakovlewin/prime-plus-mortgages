@@ -7,8 +7,8 @@ const AboutHeroSection = () => {
       description="Innovative Solutions, Tailored for You"
       subDescription="Discover unparalleled mortgage flexibility with Prime Plus Mortgages. Start your journey now."
       imageUrl="/images/hero/about.webp"
-      ctaText="Get Started"
-      ctaLink="/application"
+      // ctaText="Get Started"
+      // ctaLink="/application"
     />
   );
 };

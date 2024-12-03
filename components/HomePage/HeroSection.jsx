@@ -1,7 +1,13 @@
-import HeroCarousel from "@/components/HomePage/HeroCarousel.jsx";
+import { getContentBySlug } from "@/lib/mdx";
 import ButtonLink from "../shared/ButtonLink";
+import MDXRenderer from "./MDXRenderer";
 
-export default function HeroSection() {
+export default async function HeroSection() {
+  const heroContent = await getContentBySlug("home", "hero");
+  if (!heroContent) return null;
+
+  const { backgroundVideo, buttonText, buttonLink } = heroContent.frontMatter;
+
   return (
     <div className="relative min-h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh]">
       {/* Background Video */}
@@ -11,7 +17,7 @@ export default function HeroSection() {
         muted
         className="absolute z-0 h-full w-full object-cover"
       >
-        <source src="/images/hero/hero-main.mp4" type="video/mp4" />
+        <source src={backgroundVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -21,23 +27,19 @@ export default function HeroSection() {
       {/* Hero Content */}
       <div className="relative flex h-full flex-row items-center justify-center px-6 text-white">
         <div className="w-full text-center">
-          <HeroCarousel />
+          <MDXRenderer
+            content={heroContent.content}
+            frontMatter={heroContent.frontMatter}
+          />
 
           <div className="flex items-center justify-center space-x-8 text-center">
             <ButtonLink
-              href="/services"
+              href={buttonLink}
               variant="primary"
-              className="mt-4 inline-block px-6 py-3 text-lg font-bold "
+              className="mt-4 inline-block px-6 py-3 text-lg font-bold"
             >
-              Learn More
+              {buttonText}
             </ButtonLink>
-            {/* <p className="mt-4 text-lg font-bold">- or -</p>
-            <Link
-              href="/contact"
-              className="mt-4 inline-block rounded border-2 border-sky-500 bg-white/90 px-6 py-3 font-bold text-sky-500 transition-all hover:bg-white hover:text-cyan-600"
-            >
-              Contact Us
-            </Link> */}
           </div>
         </div>
       </div>
