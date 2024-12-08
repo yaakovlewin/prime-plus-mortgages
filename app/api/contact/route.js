@@ -1,27 +1,65 @@
-import { db } from "@/js/services/firebase";
-import { addDoc, collection } from "firebase/firestore";
-import nodemailer from "nodemailer";
+import { ContactFormEmail } from "@/components/email/ContactFormEmail";
+import admin from "@/js/config/firebaseAdmin";
+import { contactSchema } from "@/js/services/contactService";
+import { rateLimit } from "lib/rate-limit";
 
-// Create a transporter using environment variables
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: process.env.SMTP_PORT,
-  secure: true,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+// Helper to sanitize input
+const sanitizeInput = (str) => {
+  return str
+    .replace(/[<>]/g, "") // Remove potential HTML tags
+    .trim();
+};
 
 export async function POST(request) {
   try {
-    const data = await request.json();
-
-    // Validate required fields
-    if (!data.name || !data.email || !data.message) {
+    // Check request size
+    const contentLength = parseInt(
+      request.headers.get("content-length") || "0",
+    );
+    if (contentLength > 5000) {
       return new Response(
         JSON.stringify({
-          error: "Missing required fields",
+          error: "Request too large",
+        }),
+        {
+          status: 413,
+          headers: { "Content-Type": "application/json" },
+        },
+      );
+    }
+
+    // Apply rate limiting
+    try {
+      await rateLimit.check(request); // 5 requests per minute
+    } catch {
+      return new Response(
+        JSON.stringify({
+          error: "Too many requests. Please try again later.",
+        }),
+        {
+          status: 429,
+          headers: { "Content-Type": "application/json" },
+        },
+      );
+    }
+
+    const data = await request.json();
+
+    // Sanitize inputs
+    const sanitizedData = {
+      name: sanitizeInput(data.name || ""),
+      email: sanitizeInput(data.email || ""),
+      message: sanitizeInput(data.message || ""),
+    };
+
+    // Validate data against schema
+    try {
+      contactSchema.parse(sanitizedData);
+    } catch (validationError) {
+      return new Response(
+        JSON.stringify({
+          error: "Validation failed",
+          details: validationError.errors,
         }),
         {
           status: 400,
@@ -30,28 +68,51 @@ export async function POST(request) {
       );
     }
 
-    // Add timestamp
+    // Add metadata
     const formData = {
-      ...data,
-      timestamp: new Date(),
+      ...sanitizedData,
+      timestamp: admin.firestore.Timestamp.now(),
+      ip:
+        request.headers.get("x-forwarded-for") ||
+        request.headers.get("x-real-ip"),
+      userAgent: request.headers.get("user-agent"),
     };
 
-    // Save to Firebase
-    const docRef = await addDoc(collection(db, "contacts"), formData);
+    // Save to Firebase using Admin SDK
+    const docRef = await admin.firestore().collection("contacts").add(formData);
 
-    // Send email notification
-    await transporter.sendMail({
-      from: process.env.SMTP_USER,
-      to: process.env.ADMIN_EMAIL,
-      subject: "New Contact Form Submission",
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${data.name}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${data.message}</p>
-      `,
+    // Generate email HTML using the new component
+    const emailHtml = ContactFormEmail({
+      name: sanitizedData.name,
+      email: sanitizedData.email,
+      message: sanitizedData.message,
+      ip: formData.ip,
+      referenceId: docRef.id,
     });
+
+    // Send email notification using our email API route
+    const emailResponse = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/email`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          to: process.env.ADMIN_EMAIL,
+          subject: "New Contact Form Submission",
+          html: emailHtml,
+        }),
+      },
+    );
+
+    if (!emailResponse.ok) {
+      console.error(
+        "Failed to send email notification:",
+        await emailResponse.text(),
+      );
+      // Continue with success response since the form data was saved
+    }
 
     return new Response(
       JSON.stringify({
@@ -60,14 +121,18 @@ export async function POST(request) {
       }),
       {
         status: 200,
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-store, no-cache, must-revalidate",
+        },
       },
     );
   } catch (error) {
     console.error("Error processing contact form:", error);
     return new Response(
       JSON.stringify({
-        error: "Internal server error",
+        error:
+          "An error occurred while processing your request. Please try again later.",
       }),
       {
         status: 500,

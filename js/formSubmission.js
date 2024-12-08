@@ -65,8 +65,8 @@ export const submit = async (data, router, formType) => {
       throw new Error("Failed to get confirmation of submission");
     }
 
-    // Only redirect on confirmed success
-    router.push("/success");
+    // Redirect with application type parameter
+    router.push("/success?type=application");
 
     return {
       success: true,

@@ -1,11 +1,11 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyA37kSZ0hrHe_YxMM1yVCsBoEKdLxdIFso",
-  authDomain: "mortgage-application-for-81765.firebaseapp.com",
-  projectId: "mortgage-application-for-81765",
-  storageBucket: "mortgage-application-for-81765.appspot.com",
-  messagingSenderId: "637130427547",
-  appId: "1:637130427547:web:abb769df3e936fb4800a3e",
-  measurementId: "G-S1KECPPERX",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 export { firebaseConfig };

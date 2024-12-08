@@ -62,6 +62,7 @@ const initializeAppCheck = async () => {
   if (typeof window === "undefined") return;
 
   const siteKey = process.env.NEXT_PUBLIC_reCAPTCHA_site_key;
+  const debugToken = process.env.NEXT_PUBLIC_FIREBASE_APP_CHECK_DEBUG_TOKEN;
 
   if (!siteKey) {
     throw new FirebaseError(
@@ -71,6 +72,11 @@ const initializeAppCheck = async () => {
   }
 
   try {
+    // Enable debug tokens in development
+    if (process.env.NODE_ENV === "development" && debugToken) {
+      window.FIREBASE_APPCHECK_DEBUG_TOKEN = debugToken;
+    }
+
     const { initializeAppCheck, ReCaptchaV3Provider } = await import(
       "firebase/app-check"
     );
@@ -78,6 +84,9 @@ const initializeAppCheck = async () => {
     return initializeAppCheck(app, {
       provider: new ReCaptchaV3Provider(siteKey),
       isTokenAutoRefreshEnabled: true,
+      // Debug mode for development
+      debug:
+        process.env.NODE_ENV === "development" ? { forceRefresh: true } : false,
     });
   } catch (error) {
     throw new FirebaseError(

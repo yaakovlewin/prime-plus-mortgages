@@ -1,7 +1,7 @@
-import Link from "next/link";
-import ContactCard from "./ContactCard";
 import { contactInfo } from "@/js/contactInfo";
+import Link from "next/link";
 import { FaPhoneAlt } from "react-icons/fa";
+import ContactCard from "./ContactCard";
 
 const ContactInfoSection = () => {
   return (
@@ -15,7 +15,7 @@ const ContactInfoSection = () => {
           <ContactCard title="Phone">
             <div className="relative">
               <Link href={`tel:${contactInfo.phone}`} className="shadow-lg">
-                <button className="focus:shadow-outline-cyan absolute bottom-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-cyan-600 text-white shadow hover:bg-cyan-500 hover:text-cyan-800 hover:shadow-lg focus:outline-none active:bg-cyan-700 ">
+                <button className="focus:shadow-outline-cyan absolute bottom-3 right-3 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-cyan-600 text-white shadow hover:bg-cyan-500 hover:text-cyan-800 hover:shadow-lg focus:outline-none active:bg-cyan-700 ">
                   <FaPhoneAlt />
                 </button>
               </Link>

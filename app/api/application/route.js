@@ -1,19 +1,6 @@
-import { db } from "@/js/services/firebase";
-import applicationSchema from "@/js/zod/mortgageValidationSchema";
-import { addDoc, collection } from "firebase/firestore";
-import nodemailer from "nodemailer";
+import admin from "js/config/firebaseAdmin";
+import applicationSchema from "js/zod/mortgageValidationSchema";
 import { z } from "zod";
-
-// Create a transporter using environment variables
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: process.env.SMTP_PORT,
-  secure: true,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
 
 const addApplicationData = (data, formType) => {
   if (!data.applicants?.[0]?.personalDetails) {
@@ -28,12 +15,12 @@ const addApplicationData = (data, formType) => {
 
   return {
     ...data,
-    submittedAt: new Date().toISOString(),
+    submittedAt: admin.firestore.Timestamp.now(),
     name: `${FirstName.trim()} ${LastName.trim()}`,
     email: Email.trim(),
     status: "Pending",
     formType,
-    updatedAt: new Date().toISOString(),
+    updatedAt: admin.firestore.Timestamp.now(),
   };
 };
 
@@ -45,29 +32,53 @@ export async function POST(request) {
     const enrichedData = addApplicationData(data, formType);
     const validatedData = applicationSchema.parse(enrichedData);
 
-    // Save to Firebase
-    const docRef = await addDoc(
-      collection(db, "applicationForms1"),
-      validatedData,
-    );
+    // Save to Firebase using Admin SDK
+    const docRef = await admin
+      .firestore()
+      .collection("applicationForms1")
+      .add(validatedData);
 
     if (!docRef?.id) {
       throw new Error("Failed to get confirmation of submission");
     }
 
-    // Send email notification
-    await transporter.sendMail({
-      from: process.env.SMTP_USER,
-      to: process.env.ADMIN_EMAIL,
-      subject: "New Mortgage Application Submission",
-      html: `
-        <h2>New Mortgage Application Submission</h2>
-        <p><strong>Name:</strong> ${enrichedData.name}</p>
-        <p><strong>Email:</strong> ${enrichedData.email}</p>
-        <p><strong>Form Type:</strong> ${formType}</p>
-        <p><strong>Submission ID:</strong> ${docRef.id}</p>
-      `,
-    });
+    // Send email notification using our email API route
+    const emailResponse = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/email`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          to: process.env.ADMIN_EMAIL,
+          subject: `New ${formType} Mortgage Application`,
+          html: `
+          <h2>New Mortgage Application Submission</h2>
+          <p><strong>Application Type:</strong> ${formType}</p>
+          <p><strong>Name:</strong> ${enrichedData.name}</p>
+          <p><strong>Email:</strong> ${enrichedData.email}</p>
+          <p><strong>Submission ID:</strong> ${docRef.id}</p>
+          <p><strong>Submission Date:</strong> ${enrichedData.submittedAt
+            .toDate()
+            .toISOString()}</p>
+          <hr>
+          <h3>Application Details:</h3>
+          <pre style="background: #f5f5f5; padding: 15px; border-radius: 5px;">
+${JSON.stringify(validatedData, null, 2)}
+          </pre>
+        `,
+        }),
+      },
+    );
+
+    if (!emailResponse.ok) {
+      console.error(
+        "Failed to send email notification:",
+        await emailResponse.text(),
+      );
+      // Continue with success response since the form data was saved
+    }
 
     return new Response(
       JSON.stringify({
