@@ -2,6 +2,9 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
+// Disable static rendering for this page
+export const dynamic = "force-dynamic";
+
 const FormSuccessPage = () => {
   const searchParams = useSearchParams();
   const formType = searchParams.get("type") || "form";

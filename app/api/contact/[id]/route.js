@@ -1,13 +1,12 @@
-import { db } from "@/js/services/firebase";
-import { deleteDoc, doc, getDoc } from "firebase/firestore";
+import admin from "@/js/config/firebaseAdmin";
 
 export async function GET(request, { params }) {
   try {
     const { id } = params;
-    const contactRef = doc(db, "contacts", id);
-    const contactSnap = await getDoc(contactRef);
+    const contactRef = admin.firestore().collection("contacts").doc(id);
+    const contactSnap = await contactRef.get();
 
-    if (!contactSnap.exists()) {
+    if (!contactSnap.exists) {
       return new Response(JSON.stringify({ error: "Contact not found" }), {
         status: 404,
         headers: { "Content-Type": "application/json" },
@@ -35,7 +34,7 @@ export async function GET(request, { params }) {
 export async function DELETE(request, { params }) {
   try {
     const { id } = params;
-    await deleteDoc(doc(db, "contacts", id));
+    await admin.firestore().collection("contacts").doc(id).delete();
 
     return new Response(
       JSON.stringify({
