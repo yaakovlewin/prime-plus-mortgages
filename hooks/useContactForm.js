@@ -1,3 +1,4 @@
+"use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, submitContactForm } from "js/services/contactService";
 import { useRouter } from "next/navigation";
