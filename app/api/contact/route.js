@@ -1,6 +1,7 @@
 import { ContactFormEmail } from "@/components/email/ContactFormEmail";
 import admin from "@/js/config/firebaseAdmin";
 import { contactSchema } from "@/js/services/contactService";
+import { sendEmail } from "@/js/services/emailService";
 import { rateLimit } from "lib/rate-limit";
 
 // Helper to sanitize input
@@ -90,28 +91,31 @@ export async function POST(request) {
       referenceId: docRef.id,
     });
 
-    // Send email notification using our email API route
-    const emailResponse = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/email`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          to: process.env.ADMIN_EMAIL,
-          subject: "New Contact Form Submission",
-          html: emailHtml,
-        }),
-      },
-    );
+    // Send email notification using our email service directly
+    const emailResult = await sendEmail({
+      to: process.env.ADMIN_EMAIL,
+      subject: "New Contact Form Submission",
+      html: emailHtml,
+    });
 
-    if (!emailResponse.ok) {
+    if (!emailResult.success) {
       console.error(
         "Failed to send email notification:",
-        await emailResponse.text(),
+        emailResult.error,
+        emailResult.setup,
       );
-      // Continue with success response since the form data was saved
+      // Return error response since email sending failed
+      return new Response(
+        JSON.stringify({
+          error: "Failed to send email notification. Please try again later.",
+          details: emailResult.error,
+          setup: emailResult.setup,
+        }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json" },
+        },
+      );
     }
 
     return new Response(
