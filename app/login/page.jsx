@@ -2,11 +2,6 @@
 
 import LoginForm from "components/auth/LoginForm";
 
-export const metadata = {
-  title: "Admin Login - Prime Plus Mortgages",
-  description: "Secure login portal for Prime Plus Mortgages administrators",
-};
-
 export default function LoginPage() {
   return (
     <div className="flex min-h-screen flex-col justify-center bg-gray-50 py-12 sm:px-6 lg:px-8">
