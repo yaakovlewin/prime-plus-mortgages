@@ -38,3 +38,6 @@ next-env.d.ts
 # IDE
 credentials.json
 firebaseCredentials.json
+
+# Local Netlify folder
+.netlify

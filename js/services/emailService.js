@@ -9,9 +9,8 @@
  */
 export const sendEmail = async ({ to, subject, text, html }) => {
   try {
-    // Get the base URL from the environment or default to localhost in development
-    const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
-    const response = await fetch(`${baseUrl}/api/email`, {
+    // Use relative URL path - Next.js will automatically handle the base URL
+    const response = await fetch("/api/email", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +38,7 @@ export const sendEmail = async ({ to, subject, text, html }) => {
 
 // Example usage in a Next.js component:
 /*
-import { sendEmail } from '@/js/services/emailService';
+import { sendEmail } from 'js/services/emailService';
 
 // In an async function:
 try {
