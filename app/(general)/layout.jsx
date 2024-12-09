@@ -1,5 +1,3 @@
-"use client";
-
 import OurLocationSection from "@/components/HomePage/OurLocationSection";
 import MortgageProcessSection from "@/components/shared/MortgageProcessSection";
 
