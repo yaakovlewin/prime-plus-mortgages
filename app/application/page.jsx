@@ -1,3 +1,5 @@
+"use client";
+
 import FormHeroSection from "@/components/shared/FormHeroSection";
 import ServiceCard from "@/components/shared/ServiceCard";
 import servicesData from "@/js/servicesData";
