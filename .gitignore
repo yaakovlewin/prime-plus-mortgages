@@ -41,3 +41,6 @@ firebaseCredentials.json
 
 # Local Netlify folder
 .netlify
+
+# Local test
+api/email/test/route.js
