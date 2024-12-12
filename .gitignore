@@ -43,4 +43,4 @@ firebaseCredentials.json
 .netlify
 
 # Local test
-/api/email/test
+/api/email/test/
