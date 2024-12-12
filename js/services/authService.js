@@ -1,4 +1,5 @@
 import {
+  confirmPasswordReset,
   getAuth,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
@@ -92,7 +93,6 @@ export const loginWithGoogle = async () => {
 
     return { user: result.user, error: null };
   } catch (error) {
-    // Handle specific Firebase popup errors
     if (error.code === "auth/popup-closed-by-user") {
       return {
         user: null,
@@ -114,7 +114,6 @@ export const loginWithGoogle = async () => {
       };
     }
 
-    // Handle timeout error
     if (error.message === "Request timed out") {
       return {
         user: null,
@@ -138,10 +137,7 @@ export const loginWithGoogle = async () => {
 
 export const logoutUser = async () => {
   try {
-    // Sign out from Firebase with timeout
     await withTimeout(signOut(auth));
-
-    // Clear session cookie with timeout
     await withTimeout(
       fetch("/api/auth/logout", {
         method: "POST",
@@ -154,6 +150,64 @@ export const logoutUser = async () => {
     return { error: null };
   } catch (error) {
     return {
+      error: {
+        code: error.code || "auth/unknown",
+        message: error.message || "An unknown error occurred",
+      },
+    };
+  }
+};
+
+// Password Reset Functions
+export const sendPasswordResetLink = async (email) => {
+  try {
+    console.log("Starting password reset process for:", email);
+
+    // Call our custom API endpoint
+    const response = await fetch("/api/auth/password-reset", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Failed to process password reset");
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error("Password reset process failed:", {
+      message: error.message,
+      stack: error.stack,
+    });
+    return {
+      success: false,
+      error: {
+        code: error.code || "auth/unknown",
+        message: error.message || "An unknown error occurred",
+      },
+    };
+  }
+};
+
+export const resetPassword = async (oobCode, newPassword) => {
+  try {
+    console.log("Starting password reset confirmation...");
+    await withTimeout(confirmPasswordReset(auth, oobCode, newPassword));
+    console.log("Password reset successful");
+    return { success: true, error: null };
+  } catch (error) {
+    console.error("Password reset failed:", {
+      code: error.code,
+      message: error.message,
+      stack: error.stack,
+    });
+    return {
+      success: false,
       error: {
         code: error.code || "auth/unknown",
         message: error.message || "An unknown error occurred",
@@ -175,10 +229,36 @@ export const isUserAdmin = async (user) => {
   }
 };
 
+// Check if email belongs to admin user
+const checkEmailIsAdmin = async (email) => {
+  try {
+    console.log("Checking if email belongs to admin user:", email);
+    const response = await fetch("/api/auth/check-admin-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    if (!response.ok) {
+      console.log("Admin check failed:", response.status);
+      return false;
+    }
+
+    const data = await response.json();
+    console.log("Admin check result:", data);
+    return data.isAdmin;
+  } catch (error) {
+    console.error("Error checking admin email:", error);
+    return false;
+  }
+};
+
 // Session management with retry mechanism
 export const createSession = async (idToken, retryCount = 0) => {
   const maxRetries = 3;
-  const timeout = 10000; // 10 seconds
+  const timeout = 10000;
 
   try {
     const controller = new AbortController();
@@ -202,18 +282,15 @@ export const createSession = async (idToken, retryCount = 0) => {
 
     return { error: null };
   } catch (error) {
-    // If aborted due to timeout
     if (error.name === "AbortError") {
       error.message = "Request timed out";
     }
 
-    // Retry logic for network errors or timeouts
     if (
       retryCount < maxRetries &&
       (error.message === "Request timed out" ||
         error.message.includes("network"))
     ) {
-      // Exponential backoff
       const delay = Math.pow(2, retryCount) * 1000;
       await new Promise((resolve) => setTimeout(resolve, delay));
       return createSession(idToken, retryCount + 1);

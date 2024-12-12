@@ -1,8 +1,8 @@
 "use client";
 
+import { useFetchApplications } from "@/hooks/useFetchApplications";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
-import { useFetchApplications } from "../../hooks/useFetchApplications";
 import StatusHandler from "../UI/applications/StatusHandler";
 import DeleteButton from "./DeleteButton";
 

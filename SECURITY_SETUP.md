@@ -28,9 +28,7 @@ This document outlines the security measures implemented in the Prime Plus Mortg
 
 1. **Environment Variables**
 
-   - All necessary environment variables are configured in `.env.local`
-   - Firebase configuration is now using environment variables
-   - Existing reCAPTCHA and email configurations are preserved
+   - All necessary environment variables are configured in `.env.local` file
 
 2. **Firebase Security Rules Deployment**
 
@@ -58,7 +56,7 @@ This document outlines the security measures implemented in the Prime Plus Mortg
 1. **Applications Collection**
 
    - Read: Admin or document owner only
-   - Create: Authenticated users
+   - Create: Public access (for application form submissions)
    - Update/Delete: Admin only
 
 2. **Contacts Collection**

@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { loginWithEmail, loginWithGoogle } from "js/services/authService";
 import { loginSchema } from "js/zod/loginValidationSchema";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -152,12 +153,20 @@ export default function LoginForm() {
         </div>
 
         <div>
-          <label
-            htmlFor="password"
-            className="block text-sm font-medium text-sky-900"
-          >
-            Password
-          </label>
+          <div className="flex items-center justify-between">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-sky-900"
+            >
+              Password
+            </label>
+            <Link
+              href="/forgot-password"
+              className="text-sm text-sky-600 hover:text-sky-500"
+            >
+              Forgot password?
+            </Link>
+          </div>
           <div className="mt-1">
             <input
               {...register("password")}

@@ -231,7 +231,7 @@ export const ContactFormEmail = ({ name, email, message, ip, referenceId }) => {
             </div>
             
             <div class="button-container">
-              <a href="http://localhost:3000/admin/contacts/${referenceId}" class="admin-link">
+              <a href="${process.env.NEXT_PUBLIC_BASE_URL}/admin/app/${referenceId}" class="admin-link">
                 View in Admin Panel
               </a>
             </div>

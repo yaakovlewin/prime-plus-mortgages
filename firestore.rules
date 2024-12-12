@@ -17,7 +17,7 @@ service cloud.firestore {
     // Applications collection
     match /applications/{applicationId} {
       allow read: if isAdmin() || isOwner(resource.data.userId);
-      allow create: if isAuthenticated();
+      allow create: if true; // Public can create applications
       allow update, delete: if isAdmin();
     }
 
