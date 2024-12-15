@@ -1,8 +1,7 @@
-import { initAdmin } from "@/js/config/firebaseAdmin";
+import admin from "@/js/config/firebaseAdmin";
 import { getFirestore } from "firebase-admin/firestore";
 
-initAdmin();
-const db = getFirestore();
+const db = getFirestore(admin);
 
 export async function POST(request) {
   try {

@@ -23,7 +23,7 @@ export default function AdminDashboard() {
       href: "/admin/applications",
       icon: (
         <svg
-          className="h-8 w-8 text-sky-600"
+          className="h-8 w-8 text-cyan-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -44,7 +44,7 @@ export default function AdminDashboard() {
       href: "/admin/contacts",
       icon: (
         <svg
-          className="h-8 w-8 text-sky-600"
+          className="h-8 w-8 text-cyan-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -65,7 +65,7 @@ export default function AdminDashboard() {
       href: "/admin/content",
       icon: (
         <svg
-          className="h-8 w-8 text-sky-600"
+          className="h-8 w-8 text-cyan-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -83,11 +83,11 @@ export default function AdminDashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 rounded-lg bg-white p-6 shadow-md">
-          <h1 className="text-3xl font-bold text-sky-800">Admin Dashboard</h1>
-          <p className="mt-2 text-gray-600">
+        <div className="mb-8 rounded-lg bg-sky-800 bg-opacity-70 p-6 shadow-lg">
+          <h1 className="text-3xl font-bold text-cyan-300">Admin Dashboard</h1>
+          <p className="mt-2 text-cyan-100">
             Welcome back, <span className="font-medium">{user?.email}</span>
           </p>
         </div>
@@ -97,43 +97,43 @@ export default function AdminDashboard() {
             <Link
               key={section.title}
               href={section.href}
-              className="group block rounded-lg bg-white p-6 shadow-md transition-all duration-200 hover:shadow-lg hover:ring-2 hover:ring-sky-500/50"
+              className="group block rounded-lg bg-sky-800 bg-opacity-70 p-6 shadow-lg transition-all duration-300 hover:bg-sky-700"
             >
               <div className="flex items-start space-x-4">
-                <div className="rounded-lg bg-sky-50 p-3 transition-colors group-hover:bg-sky-100">
+                <div className="rounded-lg bg-cyan-900 p-3 transition-colors group-hover:bg-cyan-800">
                   {section.icon}
                 </div>
                 <div>
-                  <h2 className="text-xl font-semibold text-sky-800 group-hover:text-sky-600">
+                  <h2 className="text-xl font-semibold text-cyan-300 group-hover:text-cyan-200">
                     {section.title}
                   </h2>
-                  <p className="mt-2 text-gray-600">{section.description}</p>
+                  <p className="mt-2 text-cyan-100">{section.description}</p>
                 </div>
               </div>
             </Link>
           ))}
         </div>
 
-        <div className="rounded-lg bg-white p-6 shadow-md">
-          <h2 className="mb-6 text-xl font-semibold text-sky-800">
+        <div className="rounded-lg bg-sky-800 bg-opacity-70 p-6 shadow-lg">
+          <h2 className="mb-6 text-xl font-semibold text-cyan-300">
             Quick Actions
           </h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <Link
               href="/admin/applications"
-              className="inline-flex items-center justify-center rounded-md bg-sky-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+              className="inline-flex items-center justify-center rounded-md bg-cyan-900 px-4 py-2.5 text-sm font-medium text-cyan-300 shadow-sm transition-colors hover:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
             >
               View Latest Applications
             </Link>
             <Link
               href="/admin/contacts"
-              className="inline-flex items-center justify-center rounded-md bg-sky-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+              className="inline-flex items-center justify-center rounded-md bg-cyan-900 px-4 py-2.5 text-sm font-medium text-cyan-300 shadow-sm transition-colors hover:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
             >
               Check Recent Contacts
             </Link>
             <button
               onClick={handleLogout}
-              className="inline-flex items-center justify-center rounded-md border border-transparent bg-red-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+              className="inline-flex items-center justify-center rounded-md border border-transparent bg-red-900 px-4 py-2.5 text-sm font-medium text-red-300 shadow-sm transition-colors hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
             >
               Logout
             </button>

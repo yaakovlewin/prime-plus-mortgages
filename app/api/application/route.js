@@ -1,5 +1,5 @@
-import admin from "js/config/firebaseAdmin";
-import applicationSchema from "js/zod/mortgageValidationSchema";
+import admin from "@/js/config/firebaseAdmin";
+import applicationSchema from "@/js/zod/mortgageValidationSchema";
 import { z } from "zod";
 
 const addApplicationData = (data, formType) => {
@@ -35,7 +35,7 @@ export async function POST(request) {
     // Save to Firebase using Admin SDK
     const docRef = await admin
       .firestore()
-      .collection("applicationForms1")
+      .collection("applications")
       .add(validatedData);
 
     if (!docRef?.id) {

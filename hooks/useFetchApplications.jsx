@@ -11,7 +11,7 @@ const useFetchApplications = () => {
   useEffect(() => {
     async function fetchApplications() {
       try {
-        const applicationCollection = collection(db, "applicationForms1");
+        const applicationCollection = collection(db, "applications");
         const snapShot = await getDocs(applicationCollection);
         const applicationsList = snapShot.docs.map((doc) => ({
           id: doc.id,
@@ -39,7 +39,7 @@ const useFetchApplication = (slug) => {
   useEffect(() => {
     async function fetchApplication() {
       try {
-        const applicationDocRef = doc(db, "applicationForms1", slug);
+        const applicationDocRef = doc(db, "applications", slug);
         const docSnap = await getDoc(applicationDocRef);
 
         if (docSnap.exists()) {
