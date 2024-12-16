@@ -1,5 +1,6 @@
 import admin from "@/js/config/firebaseAdmin";
 import { getFirestore } from "firebase-admin/firestore";
+import { NextResponse } from "next/server";
 
 // Initialize Firestore using the admin instance
 const db = getFirestore(admin.apps[0]);
@@ -9,16 +10,11 @@ export async function POST(request) {
     const { email } = await request.json();
 
     if (!email) {
-      return new Response(
-        JSON.stringify({
-          error: "Email is required",
-        }),
+      return NextResponse.json(
         {
-          status: 400,
-          headers: {
-            "Content-Type": "application/json",
-          },
+          error: "Email is required",
         },
+        { status: 400 },
       );
     }
 
@@ -28,12 +24,7 @@ export async function POST(request) {
 
     if (snapshot.empty) {
       // Return false if no user found with this email
-      return new Response(JSON.stringify({ isAdmin: false }), {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      return NextResponse.json({ isAdmin: false }, { status: 200 });
     }
 
     // Check if any of the matching users has admin role
@@ -45,24 +36,14 @@ export async function POST(request) {
       }
     });
 
-    return new Response(JSON.stringify({ isAdmin }), {
-      status: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    return NextResponse.json({ isAdmin }, { status: 200 });
   } catch (error) {
     console.error("Error checking admin email:", error);
-    return new Response(
-      JSON.stringify({
-        error: "Internal server error",
-      }),
+    return NextResponse.json(
       {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json",
-        },
+        error: "Internal server error",
       },
+      { status: 500 },
     );
   }
 }

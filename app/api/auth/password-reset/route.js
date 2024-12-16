@@ -1,9 +1,31 @@
 import admin from "@/js/config/firebaseAdmin";
 import { sendEmail } from "@/js/services/emailService";
+import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
     const { email } = await request.json();
+
+    // Check if the email belongs to an admin user first
+    const adminCheckResponse = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/check-admin-email`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      },
+    );
+
+    const { isAdmin } = await adminCheckResponse.json();
+
+    if (!isAdmin) {
+      return NextResponse.json(
+        { error: "Only admin users can reset their password" },
+        { status: 403 },
+      );
+    }
 
     // Generate a password reset link using Firebase Admin SDK
     const link = await admin.auth().generatePasswordResetLink(email, {
@@ -59,13 +81,13 @@ export async function POST(request) {
       throw new Error(emailResult.error || "Failed to send reset email");
     }
 
-    return Response.json({
+    return NextResponse.json({
       success: true,
       message: "Password reset email sent successfully",
     });
   } catch (error) {
     console.error("Password reset error:", error);
-    return Response.json(
+    return NextResponse.json(
       { error: "Failed to process password reset request" },
       { status: 500 },
     );
