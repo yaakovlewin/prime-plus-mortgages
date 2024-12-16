@@ -1,7 +1,8 @@
 import admin from "@/js/config/firebaseAdmin";
 import { getFirestore } from "firebase-admin/firestore";
 
-const db = getFirestore(admin);
+// Initialize Firestore using the admin instance
+const db = getFirestore(admin.apps[0]);
 
 export async function POST(request) {
   try {
