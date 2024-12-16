@@ -1,15 +1,13 @@
 import admin from "@/js/config/firebaseAdmin";
-import { getFirestore } from "firebase-admin/firestore";
 import { NextResponse } from "next/server";
-
-// Initialize Firestore using the admin instance
-const db = getFirestore(admin.apps[0]);
 
 export async function POST(request) {
   try {
     const { email } = await request.json();
+    console.log("Checking user status for email:", email);
 
     if (!email) {
+      console.log("No email provided");
       return NextResponse.json(
         {
           error: "Email is required",
@@ -18,27 +16,19 @@ export async function POST(request) {
       );
     }
 
-    // Query users collection for the document with matching email
-    const usersRef = db.collection("users");
-    const snapshot = await usersRef.where("email", "==", email).get();
-
-    if (snapshot.empty) {
-      // Return false if no user found with this email
-      return NextResponse.json({ isAdmin: false }, { status: 200 });
-    }
-
-    // Check if any of the matching users has admin role
-    let isAdmin = false;
-    snapshot.forEach((doc) => {
-      const userData = doc.data();
-      if (userData.role === "admin") {
-        isAdmin = true;
+    try {
+      const userRecord = await admin.auth().getUserByEmail(email);
+      console.log("User found in Firebase Auth:", userRecord.email);
+      return NextResponse.json({ isAdmin: true }, { status: 200 });
+    } catch (error) {
+      if (error.code === "auth/user-not-found") {
+        console.log("User not found in Firebase Auth");
+        return NextResponse.json({ isAdmin: false }, { status: 200 });
       }
-    });
-
-    return NextResponse.json({ isAdmin }, { status: 200 });
+      throw error;
+    }
   } catch (error) {
-    console.error("Error checking admin email:", error);
+    console.error("Error checking email:", error);
     return NextResponse.json(
       {
         error: "Internal server error",

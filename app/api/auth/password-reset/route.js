@@ -5,27 +5,24 @@ import { NextResponse } from "next/server";
 export async function POST(request) {
   try {
     const { email } = await request.json();
+    console.log("Processing password reset for email:", email);
 
-    // Check if the email belongs to an admin user first
-    const adminCheckResponse = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/check-admin-email`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      },
-    );
-
-    const { isAdmin } = await adminCheckResponse.json();
-
-    if (!isAdmin) {
-      return NextResponse.json(
-        { error: "Only admin users can reset their password" },
-        { status: 403 },
-      );
+    // Check if user exists in Firebase Auth
+    try {
+      const userRecord = await admin.auth().getUserByEmail(email);
+      console.log("User found in Firebase Auth:", userRecord.email);
+    } catch (error) {
+      if (error.code === "auth/user-not-found") {
+        console.log("User not found in Firebase Auth");
+        return NextResponse.json(
+          { error: "Email not registered" },
+          { status: 404 },
+        );
+      }
+      throw error;
     }
+
+    console.log("User verified, generating reset link...");
 
     // Generate a password reset link using Firebase Admin SDK
     const link = await admin.auth().generatePasswordResetLink(email, {
