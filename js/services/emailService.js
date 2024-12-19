@@ -1,86 +1,10 @@
-import { google } from "googleapis";
-import nodemailer from "nodemailer";
+import sgMail from "@sendgrid/mail";
 
-const OAuth2 = google.auth.OAuth2;
-
-const createTransporter = async () => {
-  try {
-    console.log("Starting OAuth2 setup...");
-
-    if (
-      !process.env.GMAIL_CLIENT_ID ||
-      !process.env.GMAIL_CLIENT_SECRET ||
-      !process.env.GMAIL_REFRESH_TOKEN ||
-      !process.env.GMAIL_USER
-    ) {
-      throw new Error(
-        "Missing required environment variables for Gmail OAuth2",
-      );
-    }
-
-    const oauth2Client = new OAuth2(
-      process.env.GMAIL_CLIENT_ID,
-      process.env.GMAIL_CLIENT_SECRET,
-      "https://developers.google.com/oauthplayground",
-    );
-
-    console.log("OAuth2 client created with:", {
-      clientIdPrefix: process.env.GMAIL_CLIENT_ID?.substring(0, 10) + "...",
-      hasClientSecret: !!process.env.GMAIL_CLIENT_SECRET,
-      redirectUri: "https://developers.google.com/oauthplayground",
-    });
-
-    oauth2Client.setCredentials({
-      refresh_token: process.env.GMAIL_REFRESH_TOKEN,
-    });
-
-    console.log("Credentials set, requesting access token...");
-
-    try {
-      const { token: accessToken } = await oauth2Client.getAccessToken();
-      console.log("Access token received:", accessToken ? "success" : "failed");
-
-      if (!accessToken) {
-        throw new Error("Failed to obtain access token");
-      }
-
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          type: "OAuth2",
-          user: process.env.GMAIL_USER,
-          accessToken,
-          clientId: process.env.GMAIL_CLIENT_ID,
-          clientSecret: process.env.GMAIL_CLIENT_SECRET,
-          refreshToken: process.env.GMAIL_REFRESH_TOKEN,
-        },
-        tls: {
-          rejectUnauthorized: true,
-        },
-      });
-
-      console.log("Verifying transporter configuration...");
-      await transporter.verify();
-      console.log("Transporter verified successfully");
-
-      return transporter;
-    } catch (error) {
-      console.error("OAuth2/Transporter error:", {
-        name: error.name,
-        message: error.message,
-        code: error.code,
-        response: error.response?.data,
-      });
-      throw new Error(`OAuth2/Transporter setup failed: ${error.message}`);
-    }
-  } catch (error) {
-    console.error("createTransporter error:", {
-      name: error.name,
-      message: error.message,
-      code: error.code,
-    });
-    throw error;
+const initializeSendGrid = () => {
+  if (!process.env.SENDGRID_API_KEY) {
+    throw new Error("Missing SENDGRID_API_KEY environment variable");
   }
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 };
 
 export const sendEmail = async ({ to, subject, text, html }) => {
@@ -97,33 +21,32 @@ export const sendEmail = async ({ to, subject, text, html }) => {
       throw new Error("Missing required email fields");
     }
 
-    console.log("Environment check:", {
-      hasClientId: !!process.env.GMAIL_CLIENT_ID,
-      clientIdType: process.env.GMAIL_CLIENT_ID?.includes(
-        "apps.googleusercontent.com",
-      )
-        ? "web"
-        : "unknown",
-      hasClientSecret: !!process.env.GMAIL_CLIENT_SECRET,
-      hasRefreshToken: !!process.env.GMAIL_REFRESH_TOKEN,
-      hasUser: !!process.env.GMAIL_USER,
-      user: process.env.GMAIL_USER,
-    });
+    // Initialize SendGrid with API key
+    initializeSendGrid();
 
-    console.log("Creating email transporter...");
-    const emailTransporter = await createTransporter();
-    console.log("Email transporter created successfully");
-
-    const mailOptions = {
-      from: process.env.GMAIL_USER,
+    const msg = {
       to,
+      from: {
+        email: process.env.SENDGRID_VERIFIED_SENDER,
+        name: "Prime Plus Mortgages (Do Not Reply)",
+      },
+      replyTo: {
+        email: "no-reply@void.invalid",
+        name: "Do Not Reply",
+      },
       subject,
-      text,
-      html,
+      text: `${text}\n\nThis is an automated message. Please do not reply to this email as it will not be received.`,
+      html: html
+        ? `${html}<br><br>
+        <div style="text-align: center;">
+            <i>This is an automated . Please do not reply to this email as it will not be received.</i>
+        </div>
+        `
+        : undefined,
     };
 
     console.log("Sending email...");
-    await emailTransporter.sendMail(mailOptions);
+    await sgMail.send(msg);
     console.log("Email sent successfully");
 
     return { success: true };
@@ -132,24 +55,19 @@ export const sendEmail = async ({ to, subject, text, html }) => {
       name: error.name,
       message: error.message,
       code: error.code,
-      response: error.response?.data,
-      stack: error.stack,
+      response: error.response?.body,
     });
 
     return {
       success: false,
       error: error.message,
       setup: {
-        note: "If you're seeing OAuth2 errors, please verify:",
-        step1: "Your GMAIL_CLIENT_ID and GMAIL_CLIENT_SECRET are correct",
+        note: "If you're seeing SendGrid errors, please verify:",
+        step1: "Your SENDGRID_API_KEY is set correctly in .env",
         step2:
-          "Your GMAIL_REFRESH_TOKEN was generated using the OAuth playground",
-        step3: "The Gmail API is enabled in your Google Cloud Console",
-        step4: "Your OAuth consent screen is properly configured",
-        step5: "Your Gmail account (GMAIL_USER) is added as a test user",
-        step6: "You are using Web Application credentials (not Desktop)",
-        step7:
-          "The OAuth playground redirect URI is authorized in your Google Cloud Console",
+          "The sender email (SENDGRID_VERIFIED_SENDER) is verified in SendGrid",
+        step3: "Your SendGrid account is active and in good standing",
+        step4: "You haven't exceeded your sending limits",
       },
     };
   }

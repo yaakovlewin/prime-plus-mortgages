@@ -38,7 +38,7 @@ export async function POST(request) {
     // Create our custom reset URL
     const customResetLink = `${process.env.NEXT_PUBLIC_BASE_URL}/reset-password?oobCode=${oobCode}`;
 
-    // Send the reset link via email
+    // Send the reset link via email using SendGrid
     const emailResult = await sendEmail({
       to: email,
       subject: "Reset Your Password - Prime Plus Mortgages",
