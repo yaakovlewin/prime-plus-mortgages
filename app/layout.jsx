@@ -1,6 +1,5 @@
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/NavBar/Navbar";
-import ConsoleViewer from "@/components/shared/ConsoleViewer";
 import { defaultMetadata } from "@/config/metadata";
 import { Inter } from "next/font/google";
 import { exo2, rubik, zillaSlab } from "./font";
@@ -26,7 +25,6 @@ export default function RootLayout({ children }) {
           </div>
         </main>
         <Footer />
-        <ConsoleViewer />
       </body>
     </html>
   );
