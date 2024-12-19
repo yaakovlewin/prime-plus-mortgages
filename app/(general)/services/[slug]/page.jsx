@@ -3,7 +3,6 @@ import DetailedServiceOverview from "@/components/services/DetailedServiceOvervi
 import ServiceHeroSection from "@/components/services/ServiceHeroSection";
 import { defaultMetadata, serviceMetadata } from "@/config/metadata";
 import servicesData from "@/js/servicesData";
-import Script from "next/script";
 
 // Separate async function to load the data
 async function getServiceData(slug) {
@@ -20,6 +19,48 @@ export async function generateMetadata({ params }) {
   // Map URL slug to serviceMetadata key
   const metadataKey = service.id;
   const serviceSpecificMetadata = serviceMetadata[metadataKey] || {};
+
+  // Create the service schema
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `https://www.primeplusmortgages.co.uk${service.url}`,
+    name: service.title,
+    description: service.description,
+    provider: {
+      "@type": "Organization",
+      name: "Prime Plus Mortgages",
+      "@id": "https://www.primeplusmortgages.co.uk",
+    },
+    areaServed: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: "53.4808",
+        longitude: "-2.2426",
+      },
+      geoRadius: "30000",
+    },
+    serviceType: "Financial Service",
+    category: "Mortgage Services",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: service.title,
+      itemListElement: service.details.map((detail) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: detail.title,
+          description: detail.description,
+        },
+      })),
+    },
+    image: {
+      "@type": "ImageObject",
+      url: `https://www.primeplusmortgages.co.uk${service.imageUrl}`,
+      caption: `${service.title} - Prime Plus Mortgages Service`,
+    },
+  };
 
   return {
     ...defaultMetadata,
@@ -46,6 +87,10 @@ export async function generateMetadata({ params }) {
         },
       ],
     },
+    // Add JSON-LD schema to metadata
+    other: {
+      "json-ld": serviceSchema,
+    },
   };
 }
 
@@ -57,54 +102,8 @@ export default async function ServicePage({ params }) {
     return <div>Service not found</div>;
   }
 
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `https://www.primeplusmortgages.co.uk${service.url}`,
-    name: service.title,
-    description: service.description,
-    provider: {
-      "@type": "Organization",
-      name: "Prime Plus Mortgages",
-      "@id": "https://www.primeplusmortgages.co.uk",
-    },
-    areaServed: {
-      "@type": "GeoCircle",
-      geoMidpoint: {
-        "@type": "GeoCoordinates",
-        latitude: "53.4808",
-        longitude: "-2.2426",
-      },
-      geoRadius: "30000",
-    },
-    serviceType: "Financial Service",
-    category: "Mortgage Services",
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: service.title,
-      itemListElement: service.details.map((detail, index) => ({
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: detail.title,
-          description: detail.description,
-        },
-      })),
-    },
-    image: {
-      "@type": "ImageObject",
-      url: `https://www.primeplusmortgages.co.uk${service.imageUrl}`,
-      caption: `${service.title} - Prime Plus Mortgages Service`,
-    },
-  };
-
   return (
     <div>
-      <Script
-        id={`service-schema-${service.id}`}
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
       <ServiceHeroSection service={service} urlPrefix="application/">
         Apply
       </ServiceHeroSection>
