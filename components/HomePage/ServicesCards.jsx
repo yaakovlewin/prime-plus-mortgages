@@ -5,14 +5,12 @@ import defaultServices from "@/js/servicesData";
 
 export default function ServicesCards({
   services = null,
-  buttonText = "Learn More",
+  buttonText = "Explore Service",
 }) {
   const serviceList = services || defaultServices;
 
   const getAriaLabel = (service) => {
-    return buttonText === "Learn More"
-      ? `Learn more about our ${service.title.toLowerCase()} services`
-      : `${buttonText} for ${service.title.toLowerCase()} services`;
+    return `Explore ${service.title.toLowerCase()} mortgage services`;
   };
 
   return (
