@@ -27,11 +27,10 @@ const nextConfig = {
       },
     ],
   },
-  // Disable static generation for authenticated routes
-  output: "standalone",
-  // Configure dynamic rendering for auth pages
-  experimental: {
-    serverActions: true,
+
+  // Skip static generation for dynamic routes
+  generateStaticParams: async () => {
+    return [];
   },
 };
 
