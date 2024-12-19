@@ -1,8 +1,8 @@
 "use client";
 
+import FormContentRenderer from "@/components/application/form/FormContentRenderer";
+import applicationSchema from "@/js/zod/mortgageValidationSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import FormContentRenderer from "components/application/form/FormContentRenderer";
-import applicationSchema from "js/zod/mortgageValidationSchema";
 import { useForm } from "react-hook-form";
 import FormWrapper from "./FormWrapper";
 

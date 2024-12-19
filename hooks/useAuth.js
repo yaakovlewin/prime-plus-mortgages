@@ -1,8 +1,8 @@
 "use client";
 
+import { createSession } from "@/js/services/authService";
+import { app } from "@/js/services/firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { createSession } from "js/services/authService";
-import { app } from "js/services/firebase";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 

@@ -1,7 +1,7 @@
 "use client";
+import { loginWithEmail, loginWithGoogle } from "@/js/services/authService";
+import { loginSchema } from "@/js/zod/loginValidationSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { loginWithEmail, loginWithGoogle } from "js/services/authService";
-import { loginSchema } from "js/zod/loginValidationSchema";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

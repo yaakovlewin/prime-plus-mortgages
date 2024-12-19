@@ -1,7 +1,7 @@
 "use client";
 
-import useAuth from "hooks/useAuth";
-import { logoutUser } from "js/services/authService";
+import useAuth from "@/hooks/useAuth";
+import { logoutUser } from "@/js/services/authService";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 

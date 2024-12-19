@@ -1,5 +1,5 @@
 "use client";
-import { useContactForm } from "hooks/useContactForm";
+import { useContactForm } from "@/hooks/useContactForm";
 
 const ContactFormSection = () => {
   const { register, errors, isSubmitting, onSubmit } = useContactForm();

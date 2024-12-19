@@ -1,9 +1,11 @@
 "use client";
 
-import components from "@/app/mdx-components";
 import { MDXRemote } from "next-mdx-remote";
+import { useMDXComponents } from "../../app/mdx-components";
 
 export default function MDXPreview({ content }) {
+  const components = useMDXComponents({});
+
   if (!content) return null;
 
   return (

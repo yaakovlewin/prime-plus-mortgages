@@ -1,5 +1,5 @@
 "use client";
-import { logoutUser } from "js/services/authService";
+import { logoutUser } from "@/js/services/authService";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 

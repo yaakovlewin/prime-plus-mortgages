@@ -1,6 +1,6 @@
 "use client";
+import { contactSchema, submitContactForm } from "@/js/services/contactService";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { contactSchema, submitContactForm } from "js/services/contactService";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 

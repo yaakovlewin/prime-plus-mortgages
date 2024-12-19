@@ -2,7 +2,7 @@ import { ContactFormEmail } from "@/components/email/ContactFormEmail";
 import admin from "@/js/config/firebaseAdmin";
 import { contactSchema } from "@/js/services/contactService";
 import { sendEmail } from "@/js/services/emailService";
-import { rateLimit } from "lib/rate-limit";
+import { rateLimit } from "@/lib/rate-limit";
 
 // Helper to sanitize input
 const sanitizeInput = (str) => {

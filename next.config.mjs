@@ -1,10 +1,4 @@
-const withMDX = require("@next/mdx")({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [], // We'll configure this in mdx-components.jsx instead
-    rehypePlugins: [],
-  },
-});
+import createMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -29,4 +23,12 @@ const nextConfig = {
   },
 };
 
-module.exports = withMDX(nextConfig);
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+});
+
+// Merge MDX config with Next.js config
+export default withMDX(nextConfig);
