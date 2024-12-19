@@ -1,11 +1,11 @@
 "use client";
 
-import { MDXProvider } from "@mdx-js/react";
 import HeroContent, {
   backgroundVideo,
   buttonLink,
   buttonText,
-} from "content/home/hero.mdx";
+} from "@/content/home/hero.mdx";
+import { MDXProvider } from "@mdx-js/react";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useMDXComponents } from "../../app/mdx-components";
