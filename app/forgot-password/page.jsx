@@ -1,4 +1,27 @@
 import ForgotPasswordForm from "@/components/auth/ForgotPasswordForm";
+import { defaultMetadata } from "@/config/metadata";
+
+export const metadata = {
+  ...defaultMetadata,
+  title: "Reset Password | Prime Plus Mortgages",
+  description: "Reset your Prime Plus Mortgages admin portal password.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    ...defaultMetadata.openGraph,
+    title: "Reset Password | Prime Plus Mortgages",
+    description: "Reset your Prime Plus Mortgages admin portal password.",
+  },
+};
 
 export default function ForgotPasswordPage() {
   return (

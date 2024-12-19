@@ -1,4 +1,28 @@
 import LoginForm from "@/components/auth/LoginForm";
+import { defaultMetadata } from "@/config/metadata";
+
+export const metadata = {
+  ...defaultMetadata,
+  title: "Admin Login | Prime Plus Mortgages",
+  description: "Secure access portal for Prime Plus Mortgages administrators.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    ...defaultMetadata.openGraph,
+    title: "Admin Login | Prime Plus Mortgages",
+    description:
+      "Secure access portal for Prime Plus Mortgages administrators.",
+  },
+};
 
 export default function LoginPage() {
   return (

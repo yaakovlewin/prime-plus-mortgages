@@ -1,74 +1,35 @@
-"use client";
-import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import SuccessContent from "@/components/shared/SuccessContent";
+import { defaultMetadata } from "@/config/metadata";
 import { Suspense } from "react";
 
 // Disable static rendering for this page
 export const dynamic = "force-dynamic";
 
-const SuccessContent = () => {
-  const searchParams = useSearchParams();
-  const formType = searchParams.get("type") || "form";
-
-  const messages = {
-    contact: {
-      title: "Message Sent Successfully!",
-      description:
-        "Thank you for reaching out. We have received your message and will get back to you as soon as possible.",
+export const metadata = {
+  ...defaultMetadata,
+  title: "Submission Successful | Prime Plus Mortgages",
+  description:
+    "Your form has been successfully submitted to Prime Plus Mortgages.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
-    application: {
-      title: "Application Submitted Successfully!",
-      description:
-        "Thank you for your application. We have received your submission and will review it shortly.",
-    },
-    form: {
-      title: "Submission Successful!",
-      description:
-        "Thank you for your submission. We have received your information and will process it accordingly.",
-    },
-  };
-
-  const { title, description } = messages[formType] || messages.form;
-
-  return (
-    <div className="mx-4 max-w-md rounded-lg bg-white p-8 text-center shadow-lg">
-      <div className="mb-6">
-        <svg
-          className="mx-auto h-16 w-16 text-green-500"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 13l4 4L19 7"
-          />
-        </svg>
-      </div>
-
-      <h1 className="mb-4 text-2xl font-bold text-cyan-600" tabIndex={0}>
-        {title}
-      </h1>
-
-      <p className="mb-8 text-gray-700" tabIndex={0}>
-        {description}
-      </p>
-
-      <Link
-        href="/"
-        className="inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-6 py-3 text-base font-medium text-white transition-colors duration-200 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-        role="button"
-      >
-        Return to Home
-      </Link>
-    </div>
-  );
+  },
+  openGraph: {
+    ...defaultMetadata.openGraph,
+    title: "Submission Successful | Prime Plus Mortgages",
+    description:
+      "Your form has been successfully submitted to Prime Plus Mortgages.",
+  },
 };
 
-const FormSuccessPage = () => {
+export default function FormSuccessPage() {
   return (
     <div
       className="flex min-h-screen items-center justify-center bg-sky-100"
@@ -80,6 +41,4 @@ const FormSuccessPage = () => {
       </Suspense>
     </div>
   );
-};
-
-export default FormSuccessPage;
+}

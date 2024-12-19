@@ -1,6 +1,29 @@
 import SectionCard from "@/components/privacy-and-terms/Section-card";
 import Heading2 from "@/components/shared/Heading2";
+import { defaultMetadata } from "@/config/metadata";
 import Link from "next/link";
+
+export const metadata = {
+  ...defaultMetadata,
+  title: "Terms of Business | Prime Plus Mortgages",
+  description:
+    "Terms of business agreement for Prime Plus Mortgages Ltd. Information about our FCA regulation, services offered, fees, and important customer policies.",
+  keywords: [
+    ...defaultMetadata.keywords.split(", "),
+    "mortgage terms",
+    "business terms",
+    "FCA regulated broker terms",
+    "mortgage broker agreement",
+    "financial services terms",
+  ].join(", "),
+  openGraph: {
+    ...defaultMetadata.openGraph,
+    title: "Terms of Business | Prime Plus Mortgages",
+    description:
+      "Terms of business agreement for Prime Plus Mortgages Ltd. Information about our FCA regulation, services offered, fees, and important customer policies.",
+    type: "article",
+  },
+};
 
 export default function TermsOfBusiness() {
   return (
