@@ -8,6 +8,8 @@ export default function ServiceCard({
   url,
   prefix,
   children,
+  buttonText,
+  ariaLabel,
 }) {
   const truncateText = (text, maxWords = 20) => {
     const words = text.split(" ");
@@ -15,6 +17,13 @@ export default function ServiceCard({
       return words.slice(0, maxWords).join(" ") + "...";
     }
     return text;
+  };
+
+  // Construct the URL path
+  const constructUrl = (prefix, url) => {
+    const cleanPrefix = prefix?.replace(/^\/+|\/+$/g, "");
+    const cleanUrl = url?.replace(/^\/+|\/+$/g, "");
+    return cleanPrefix ? `/${cleanPrefix}/${cleanUrl}` : `/${cleanUrl}`;
   };
 
   return (
@@ -27,18 +36,29 @@ export default function ServiceCard({
         className="h-48 w-full rounded-t-lg object-cover"
       />
       <div className="flex flex-grow flex-col p-4">
-        <h3 className="mb-2 text-lg font-semibold text-gray-800">{title}</h3>
+        <h3
+          id={`service-${title.toLowerCase().replace(/\s+/g, "-")}`}
+          className="mb-2 text-lg font-semibold text-gray-800"
+        >
+          {title}
+        </h3>
         <p className="mb-4 flex-grow text-sm text-gray-600">
           {truncateText(description, 15)}
         </p>
         {prefix && (
-          <ButtonLink
-            href={`/${prefix}/${url}`}
-            variant="primary"
-            className="mt-auto w-full py-2"
+          <div
+            aria-labelledby={`service-${title
+              .toLowerCase()
+              .replace(/\s+/g, "-")}`}
           >
-            {children}
-          </ButtonLink>
+            <ButtonLink
+              href={constructUrl(prefix, url)}
+              variant="primary"
+              className="mt-auto w-full py-2"
+            >
+              {buttonText || children}
+            </ButtonLink>
+          </div>
         )}
       </div>
     </div>

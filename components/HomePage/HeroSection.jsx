@@ -20,8 +20,21 @@ export default function HeroSection() {
     const loadVideo = async () => {
       if (videoRef.current && window.matchMedia("(min-width: 768px)").matches) {
         try {
-          await videoRef.current.load();
-          videoRef.current.play();
+          // Use Intersection Observer to load video when in viewport
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  videoRef.current.load();
+                  videoRef.current.play();
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1 },
+          );
+
+          observer.observe(videoRef.current);
         } catch (error) {
           console.error("Video playback failed:", error);
         }
@@ -39,7 +52,7 @@ export default function HeroSection() {
           {/* Mobile Fallback Image */}
           <div className="block h-full w-full md:hidden">
             <Image
-              src="/images/hero/services.jpg"
+              src="/images/hero/hero-main-first-frame.jpg"
               alt="Hero background"
               fill
               priority
@@ -51,15 +64,28 @@ export default function HeroSection() {
 
           {/* Video for larger screens */}
           <div className="hidden h-full w-full md:block">
+            {/* Priority Hero Image */}
+            <Image
+              src="/images/hero/hero-main-first-frame.jpg"
+              alt="Hero background"
+              fill
+              priority
+              className="absolute inset-0 h-full w-full object-cover"
+              sizes="100vw"
+              quality={85}
+            />
+
             <video
               ref={videoRef}
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
-              className="absolute inset-0 h-full w-full object-cover"
-              poster="/images/hero/services.jpg"
+              className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500"
+              poster="/images/hero/hero-main-first-frame.jpg"
+              onCanPlay={(e) => {
+                e.target.classList.remove("opacity-0");
+              }}
             >
               <source src={backgroundVideo} type="video/mp4" />
             </video>

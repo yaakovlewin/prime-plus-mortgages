@@ -7,6 +7,7 @@ export default function ButtonLink({
   className,
   variant = "primary",
   onClick,
+  "aria-label": ariaLabel,
   ...props
 }) {
   const baseStyles =
@@ -29,6 +30,7 @@ export default function ButtonLink({
       href={href}
       className={cn(variants[variant], className)}
       onClick={onClick}
+      aria-label={ariaLabel}
       {...props}
     >
       {children}
