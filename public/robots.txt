@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /success/
+Disallow: /reset-password/
+
+Sitemap: https://prime-plus-mortgages.com/sitemap.xml
