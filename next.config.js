@@ -27,11 +27,6 @@ const nextConfig = {
       },
     ],
   },
-
-  // Skip static generation for dynamic routes
-  generateStaticParams: async () => {
-    return [];
-  },
 };
 
 module.exports = withMDX(nextConfig);
