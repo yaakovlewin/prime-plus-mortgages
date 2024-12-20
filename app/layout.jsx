@@ -76,7 +76,7 @@ const organizationSchema = {
 export const metadata = {
   ...defaultMetadata,
   other: {
-    "json-ld": organizationSchema,
+    "json-ld": JSON.stringify(organizationSchema),
   },
 };
 
