@@ -87,10 +87,6 @@ export async function generateMetadata({ params }) {
         },
       ],
     },
-    // Add JSON-LD schema to metadata
-    other: {
-      "json-ld": JSON.stringify(serviceSchema),
-    },
   };
 }
 
@@ -104,6 +100,10 @@ export default async function ServicePage({ params }) {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <ServiceHeroSection service={service} urlPrefix="application/">
         Apply
       </ServiceHeroSection>

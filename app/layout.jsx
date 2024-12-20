@@ -75,9 +75,6 @@ const organizationSchema = {
 
 export const metadata = {
   ...defaultMetadata,
-  other: {
-    "json-ld": JSON.stringify(organizationSchema),
-  },
 };
 
 export default function RootLayout({ children }) {
@@ -85,6 +82,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
       </head>
       <body
         className={`${inter.className} ${exo2.variable} ${rubik.variable} ${zillaSlab.variable}`}
