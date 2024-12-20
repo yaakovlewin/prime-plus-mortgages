@@ -1,25 +1,11 @@
-import React from "react";
+"use client";
+import Map from "@/components/shared/Map";
+import { contactInfo } from "@/js/contactInfo";
 
 const LocationMapSection = () => {
-    return (
-        <section className="py-12">
-            <div className="container mx-auto px-4">
-                <div className="w-full overflow-hidden rounded-lg shadow-lg">
-                    {/* Replace `src` with your location embed link */}
-                    <iframe
-                        width="100%"
-                        height="400"
-                        frameborder="0"
-                        scrolling="no"
-                        marginheight="0"
-                        marginwidth="0"
-                        src="https://maps.google.com/maps?hl=en&q=Your+Location&ie=UTF8&t=roadmap&z=14&iwloc=B&output=embed"
-                        title="Our Location"
-                    ></iframe>
-                </div>
-            </div>
-        </section>
-    );
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
+  return <Map address={contactInfo} apiKey={apiKey} />;
 };
 
 export default LocationMapSection;
