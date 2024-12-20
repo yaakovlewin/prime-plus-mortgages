@@ -1,8 +1,8 @@
-import ServicesCards from "components/HomePage/ServicesCards";
-import DetailedServiceOverview from "components/services/DetailedServiceOverview";
-import ServiceHeroSection from "components/services/ServiceHeroSection";
-import { defaultMetadata, serviceMetadata } from "config/metadata";
-import servicesData from "js/servicesData";
+import ServicesCards from "@/components/HomePage/ServicesCards";
+import DetailedServiceOverview from "@/components/services/DetailedServiceOverview";
+import ServiceHeroSection from "@/components/services/ServiceHeroSection";
+import { defaultMetadata, serviceMetadata } from "@/config/metadata";
+import servicesData from "@/js/servicesData";
 
 // Separate async function to load the data
 async function getServiceData(slug) {
